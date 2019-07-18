@@ -3,11 +3,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 
 <channel>
-<title>Your RSS Feed Title</title>
-<description>A brief description of your RSS feed.</description>
-<language>en-us</language>
-<link>http://yourwebsite.com/rss.xml</link>
-<atom:link href="http://yourwebsite.com/rss.xml" rel="self" type="application/rss+xml" />
+<title>raske.xyz/title>
+<description>Dansk feed hovedsageligt med tech opservationer og korte konkrete tutorials</description>
+<language>da-dk</language>
+<link>http://mikkelras.github.io/rss.xml</link>
+<atom:link href="http://mikkelrask.github.io/rss.xml" rel="self" type="application/rss+xml" />
 
 <!-- LB -->
 
