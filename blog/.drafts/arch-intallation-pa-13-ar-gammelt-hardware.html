@@ -1,16 +1,51 @@
-<h3>Overskrift 1</h3>
-<p>For nyligt satte jeg en gammel 2007 iMac op med <a href="https://lxle" target="_blank">LXLE</a> til et vennepar af mit. De er i gang med et spændende projekt der hedder <a href="https://multigenbrug.dk" target="_blank">Multigenbrug</a>, og jeg gav dem imac'en da jeg følte de havde brug for en stationær computer på deres værksted, som også fungerer som kontor, fotostudie og frokoststue og hvad har vi. Installationen var en succes og maskinen har nok aldrig før kørt så smukt. Af samme årsag blev jeg nysgerrig omkrign flere low-spec computers, der kører linux og fandt hurtigt den perfekte testbænk til at lege med til mig selv.</p>
+<h3>Low spec alting!</h3>
+<p>For nyligt satte jeg en gammel 2007 iMac op med <a href="https://lxle" target="_blank">LXLE</a> til et vennepar af mit. De er i gang med et spændende projekt der hedder <a href="https://multigenbrug.dk" target="_blank">Multigenbrug</a>, og jeg gav dem imac'en da jeg følte de havde brug for en stationær computer på deres værksted, der i øvrigt også fungerer som kontor, fotostudie, biograf, frokoststue og hvad har vi. Multi. Installationen var en kæmpe succes og maskinen har nok ærlig talt aldrig før kørt så smukt. Af samme årsag blev jeg nysgerrig omkrign flere low-spec computers, der kører light weight linux distros og fandt hurtigt den perfekte testbænk til at lege med til mig selv.</p>
 <h3>Mac Mini 2,1</h3>  
-<p>På facebook marked fandt jeg en makker i Rødovre der havde en Mac Mini 2,1 til salg for 200 DKK - og jeg måtte slå til! Maskinen er en Core 2 Duo, så <a href="https://libreboot.org" target="_blank">Libreboot</a> er udelukket, men tilbyder til gengæld 2.0 Ghz at arbejde med. Den har 2GB ram, som er det officielle maximum, dog ved jeg at man med fordel kan putte 4gb i den.</p>
-<p>Så før vi får den op at køre, skal vi et par ting, vi ikke er vant til.</p>
-<ul>To-Do
+<p>På facebook marked fandt jeg en makker i Rødovre der havde en Mac Mini 2,1 til salg for 200 DKK - og jeg måtte slå til! Maskinen er en Core 2 Duo, så <a href="https://libreboot.org" target="_blank">Libreboot</a> er desværre udelukket, men tilbyder til gengæld 2.0 ghz at arbejde med. Den har 2GB ram, som er det officielle maximum, dog fortæller Internettet mig at man med fordel kan putte 4gb i den.</p>
+<p>Så før vi får den op at køre, skal vi et par ting, vi ikke er vant til. Jeg skriver i øvrigt guiden halvt før jeg går i gang, så jeg selv kan følge mine opgaver og retter og udfylder resten efterfølgende. </p>
+<ol>To-Do
+    <li>Tage stilling til om der skal SSD harddisk i.</li>
     <li>Installere 4gb RAM (Optional)</li>
-<li>Brænde Arch Linux til på en f'ing CD<br>
-    (og minien har vel at mærke det eneste CD drev jeg har - thank god Apple "altid" har brugt multidisk drev. Men ja, derfor skal det jo så klares i et ti år gammel OS)</li>
+<li><a href="#arch-pa-cd">Brænde Arch Linux på en f'ing CD</a><br></li>
+<li><a href="#confirm">Bekræfte CD'en kan boote</a></li>
+<li><a href="#hd">Installere den nye harddisk</a></li>
 <li>Partitionere harddisken (Vi fikser det i OSX)</li>
-<li>Installere arch (Via f'ing CD!?)</li>
-<li>Installere refind (forhåbentlig via USB)</li>
+<li><a href="#install-os">Installere arch via f'ing CD</a></li>
+<li><a href="#refin">Installere refind (forhåbentlig via USB)</a></li>
 <li>Installere manglende drivers (hvis nogen mangles)</li>
-<li>Installere desktop (xorg, lightdm og i3)</li>
+<li><a href="#install-desktop">Installere desktop (xorg, lightdm og i3)</a></li>
 <li>Rice rice baby</li>
-</ul>
+</ol>2
+
+<h3 id="arch-pa-cd">Brænde Arch på CD</h3>
+<p>Spørg mig lige, hvor meget jeg kløede mig i hovedbunden, da jeg fandt ud af at Mac Minien ikke kunne boote fra USB, men kun harddisk eller CD. "<i>Hvad gør jeg? Og hvem kender jeg der, i 2019, har en CD brænder?</i> spurgte jeg mig selv. Og det var selvfølgeligt selvom jeg jo sad med redskabet i hænderne. Minien har jo selvfølgeligt CD brænder i, som ikke bare var et luksus dengang, så meget som et must.</p>
+<p>Og fordi at GUI er en social konstruktion og vi ikke gider at sætte os ind i et 10 år gammelt OS åbner vi en terminal og kører kommandoen der i mit tilfælde er <code>hdiutil burn ~/Downloads/archlinux-2019.07.01-x86_64.iso</code></p>
+<p>Givet at vi har en tom CD-r i multidrevet og isofilen er korrekt vil vi nu på 5-6 minutter have en CD udgave af arch linux.</p>
+<p>Hvor retro!</p>
+<small>Tip: Hvis du sidder med samme opgave og "<i>kun</i>" har en unix terminal foran dig, kan du bruge <code>cdrecord -v -sao dev=/dev/sr0 ~/Downloads/archlinux-2019.07.01-x86_64.iso</code> hvor du udskifter <code>/dev/sr0</code> med din egen brænders device nummer (evt. med <code>lhw</code>). Det er vigtigt at dit CD medie ikke er mountet.</small>
+
+<h3 id="confirm">Bekræft CDen booter</h3>
+<p>Et ret overset step er at teste om CD'en booter. I mit tilfælde er det alfa omega da jeg skifter hard disk efter at have brændt CDen. Det ville være forfærdeligt at skulle til at skifte tilbage, og fejlfinde i OSX så vi krydser fingre.</p>
+
+<h3 id="partition">Partitioner HD</h3>
+<p>*Denne del af guiden skrev inden jeg gik i gang som en slags huskeseddel til mig selv, for at sikre jeg kunne finde ud af at partitionere i terminalen. Da jeg jo 4 trin længere oppe valgte at installere en ny SSD hard disk, er partitioneringen slet ikke nødvendig - installationen formatterer den for mig. Men her tager vi udgangspunkt i at vi skal partitionere og stadig er inde i OSX.</p>
+<p>Som det er lige nu er 100% af den brugbare kapacitet allokeret til vores OSX partition, og det skal vi altså have lavet om på.</p>
+<p>Så vi beholder terminalen åben fra da vi brændte CD'en og skriver <code>alksdjaslkdjasd</code> for at åbne vores disk værktøj.</p>
+
+<h3 id="install-os">Installere Arch</h3>
+<p>Når vi har bekræftet at CD'en virker og den sidder i drevet, og vi har partitioneret harddisken er vi nu klar til at boote ind i Arch live miljø. Arch logger automatisk ind, og når du har terminal skriver du følgende</p>
+<code>loadkeys dk-latin1</code> for at få dansk keyboard<br>
+<code>curl https://raw.githubusercontent.com/picodotdev/alis/master/download.sh | bash</code> henter en automatiseret installationsprocess lavet af <a href="pico"
+<p>Det er </p>
+
+<h3 id="refind">Installere refind</h3>
+
+<h3 id="drivers>Drivers</h3>
+
+<h3 id="install-desktop">Desktop</h3>
+<p>Okay, nu kommer vores veje måske til at skilles en smule, men her er hvad jeg har tænkt mig at installere for at logge ind på et reelt desktop, og kunne navigere i andet end tty terminalen som Arch normalvis booter ind i.</p>
+<p>Vi skal have fingre i: <code>xorg</code>, <code>lightdm</code> til at logge ind med, og det vi (jeg) vil logge ind i er <code>i3</code>.</p>
+<p>Allerede der underspiller jeg hvad der egentlig skal til, for jeg ved på forhånd også at jeg også vil have fat i nautilus, i3lock-fancy, i3-layout-manager, kdeconnect, firefox, network-manager, blueman-tray, terminator, openssh, nitrogen, spotify, newsboat, rtv, lampe og mange andre</p>
+<p>Men for at holde vores installation nogenlunde simpel starter vi top down, med det nødvendige apps.</p>
+<code>sudo pacman -Syu xorg lightdm i3-gaps</code>
+<p></p>
