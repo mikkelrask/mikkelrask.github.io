@@ -17,7 +17,12 @@ html {
 img{
 	max-width:100%;
 }
-
+code{
+	background-color:#eee;
+	font-size:80%;
+	font-family:monospace, monospace;
+	padding:0 4px;
+}
 /* a {color: #ff81c6; font-weight:bold;}
 a:hover {color: #ff81c6; font-weight:bold;} */
 
