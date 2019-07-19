@@ -35,8 +35,11 @@ a:hover {color: #ff81c6; font-weight:bold;} */
 	}
 
 h1 {
-	font-size:40px;
-	font-weight:400;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 28px;
+	text-transform: none;
 }
 
 h2, h3 { 

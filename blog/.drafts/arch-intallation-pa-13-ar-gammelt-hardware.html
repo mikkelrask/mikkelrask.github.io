@@ -35,8 +35,9 @@
 <h3 id="install-os">Installere Arch</h3>
 <p>Når vi har bekræftet at CD'en virker og den sidder i drevet, og vi har partitioneret harddisken er vi nu klar til at boote ind i Arch live miljø. Arch logger automatisk ind, og når du har terminal skriver du følgende</p>
 <code>loadkeys dk-latin1</code> for at få dansk keyboard<br>
-<code>curl https://raw.githubusercontent.com/picodotdev/alis/master/download.sh | bash</code> henter en automatiseret installationsprocess lavet af <a href="pico"
-<p>Det er </p>
+<code>curl https://raw.githubusercontent.com/picodotdev/alis/master/download.sh | bash</code> henter en automatiseret installationsprocess lavet af <a href="#">picodev</a>.
+<code>nano alis.conf</code> for at redigere installeren
+<p>Det er Pico Dev der har lavet scriptet ud fra "Arch way"</p>
 
 <h3 id="refind">Installere refind</h3>
 
@@ -44,7 +45,7 @@
 
 <h3 id="install-desktop">Desktop</h3>
 <p>Okay, nu kommer vores veje måske til at skilles en smule, men her er hvad jeg har tænkt mig at installere for at logge ind på et reelt desktop, og kunne navigere i andet end tty terminalen som Arch normalvis booter ind i.</p>
-<p>Vi skal have fingre i: <code>xorg</code>, <code>lightdm</code> til at logge ind med, og det vi (jeg) vil logge ind i er <code>i3</code>.</p>
+<p>Vi skal umiddelbart have vores fede fingres i: <code>xorg</code>, <code>lightdm</code> til at logge ind med, og det vi (jeg) vil logge ind i er <code>i3</code>.</p>
 <p>Allerede der underspiller jeg hvad der egentlig skal til, for jeg ved på forhånd også at jeg også vil have fat i nautilus, i3lock-fancy, i3-layout-manager, kdeconnect, firefox, network-manager, blueman-tray, terminator, openssh, nitrogen, spotify, newsboat, rtv, lampe og mange andre</p>
 <p>Men for at holde vores installation nogenlunde simpel starter vi top down, med det nødvendige apps.</p>
 <code>sudo pacman -Syu xorg lightdm i3-gaps</code>
