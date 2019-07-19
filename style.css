@@ -5,7 +5,7 @@ html {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 30px;
-	color: #333;
+	color: #444;
 	padding-bottom: 200px;
 	font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
 	line-height:1.58;
@@ -39,18 +39,24 @@ h1 {
 	font-weight:400;
 }
 
-.entry h2, h3 { 
+h2, h3 { 
 	margin: 10px auto -.35em auto;
-	font-size:34px;
+	color:#434343;
 	font-family: medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
- }
- hr{
-	 width:75%;
-	 color:
- }
- blockquote{
-	 font-size:30px;
-	 line-height:40px;
-	 font-style:italic;
-	 /* color:rgba(255, 255, 255, .7) */
- }
+}
+h2{
+	font-size:34px;
+}
+h3{
+	font-size:24px;
+}
+hr{
+	width:75%;
+	color:
+}
+blockquote{
+	font-size:30px;
+	line-height:40px;
+	font-style:italic;
+	/* color:rgba(255, 255, 255, .7) */
+}
