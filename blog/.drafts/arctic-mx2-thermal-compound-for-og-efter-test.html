@@ -1,7 +1,8 @@
-<p>På min macbook pro synes jeg det var tid til at prøve at lege lidt med at <i>re-paste</i> den, og i samme ombæring se, om det gav lidt på temperaturen på computeren, og i sidste ende ville give 1) bedre performance og 2) bedre batteri-levetid, grundet den lavere fane-aktivitet</p>
+<p>På min macbook pro synes jeg det var tid til at prøve at lege lidt med at <i>re-paste</i> den, og i samme ombæring se, om det gav lidt på temperaturen på computeren, og i sidste ende ville give 1) bedre performance og eller 2) bedre batteri-levetid, grundet den lavere fane-aktivitet</p>
 <p>Og selvom processen oprindeligt virkede lidt intimiderende, kan jeg afsløre, at har man prøvet at skille en macbook ad før, med andre formål, er en re-paste ikke meget anderledes. Hele processen tog måske en times tid for mig, da jeg samtidigt skiftede magsafe lader boardet og generelt lige gav computeren en tur med en (nærmere 15) vatpinde og noget sprit.</p>
-<p>Jeg lavede før "operationen" to temperatur tests af 10 målinger med 15 sekunders mellemrum. Først i idle tilstand, og bagefter med 100% load på alle 4 CPUer med <a href="https://www.archlinux.org/packages/community/x86_64/stress/" targer="_blank">stress</a> app'en og en 1080p video afspillende på Youtube.</p>
-<p><b>0% stress - pre-paste</b><br>
+<p>Jeg lavede før "operationen" to temperatur tests af 10 målinger med 15 sekunders mellemrum. Først i idle tilstand, og bagefter med 100% load på alle 4 CPUer med <a href="https://www.archlinux.org/packages/community/x86_64/stress/" targer="_blank">stress</a> app'en sideløbende med at afspille en 1080p video på Youtube.</p>
+<p>Det er klart ikke de mest videnskabelige tests man kan lave, <i>i know</i>, men det er for mig bare et spørgsmål, om en indikation den ene eller anden vej (forhåbentlig kun den ene).</p><hr>
+<p><p><b>0% stress - pre-paste</b><br>
 <code>57.0°C<br>
     58.0°C<br>
     56.0°C<br>
@@ -12,8 +13,8 @@
     55.0°C<br>
     55.0°C<br>
     56.0°C
-    </code><br>Gns: 56 Min: 55 Max:58<br>
-<b>100% stressed - pre-paste</b><br>
+    </code><br>Gns: 56 Min: 55 Max:58<br></p>
+<p></p><b>100% stressed - pre-paste</b><br>
 <code>
     85.0°C<br>
 93.0°C<br>
@@ -39,9 +40,9 @@
 47.0°C<br>
 47.0°C
 </code><br>
-Gns: 45,6 Min: 44 Max: 47<br>
+Gns: 45,6 Min: 44 Max: 47<br></p>
 
-<b>100% stressed - pasted:</b><br>
+<p><b>100% stressed - pasted:</b><br>
 <code>
     85.0°C<br>
 91.0°C<br>
@@ -54,34 +55,24 @@ Gns: 45,6 Min: 44 Max: 47<br>
 92.0°C<br>
 92.0°C
 </code><br>
-Gns: 90,2 Min: 85 Max: 92</p>
+Gns: 90,2 Min: 85 Max: 92</p><hr>
 <p>Det gav altså en gennesnitlig idle temperatur på ~10 grader under hvad den var tidligere, og nu med en max stressed temperatur, der ligger under det tidligere gennemsnit, og over 2 grader under tidligere max.</p>
 <p>I den ende af skalaen gør et par grader meget, om den throtler og sætter fans i gang. Så forhåbentlig giver det lidt ekstra levetid i den anden ende.</p>
 <p>Regner ikke med megen performance ud over det.</p>
 <p><a href="https://www.pricerunner.dk/pl/184-3659487/Computer-koeling/Arctic-MX-2-4g-Sammenlign-Priser" target="_blank">Arctic MX-2 Thermal Compound</a> - fra 37,- + porto<br>
-<a href="">Thermal Paste Remover/Cleaner</a></p>
-<p>Temperaturscript:
-    <code>#!/bin/sh
-        sensors | grep id | awk -F+ '{print $2}' | awk  '{print $1}' 
-        sleep 15
-        sensors | grep id | awk -F+ '{print $2}' | awk  '{print $1}' 
-        sleep 15
-        sensors | grep id | awk -F+ '{print $2}' | awk  '{print $1}' 
-        sleep 15
-        sensors | grep id | awk -F+ '{print $2}' | awk  '{print $1}' 
-        sleep 15
-        sensors | grep id | awk -F+ '{print $2}' | awk  '{print $1}' 
-        sleep 15
-        sensors | grep id | awk -F+ '{print $2}' | awk  '{print $1}' 
-        sleep 15
-        sensors | grep id | awk -F+ '{print $2}' | awk  '{print $1}' 
-        sleep 15
-        sensors | grep id | awk -F+ '{print $2}' | awk  '{print $1}' 
-        sleep 15
-        sensors | grep id | awk -F+ '{print $2}' | awk  '{print $1}' 
-        sleep 15
-        sensors | grep id | awk -F+ '{print $2}' | awk  '{print $1}' 
-        sleep 15</code>
+<a href="">Thermal Paste Remover/Cleaner</a></p><hr>
+<p><b>Temperaturscript:</b> (kræver <a href="https://wiki.archlinux.org/index.php/Lm_sensors" taget="_blank">lm-sensors</a>)<br>
+    <code>#!/bin/bash<br>
+        for i in {1..15}<br>
+        do<br>
+          sensors | grep id | awk -F+ '{print $2}' | awk '{print $1}'<br>
+          sleep 15<br>
+        done
+        </code>
 </p>
-<p>Stress command:<br>
+<p><b>Gør filen eksekverbar:</b><br>
+    <code>chmod +x <i>/lokation/til/temperaturscript</i></code></p>
+<p><b>Kør scriptet med:</b><br>
+    <code>./<i>temperaturscript</i></code></p>
+<p><b>Stress command:</b> (kræver <a href="https://www.archlinux.org/packages/community/x86_64/stress/" target="_blank">stress</a>):<br>
 <code>stress --cpu 4</code></p>
