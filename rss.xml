@@ -12,6 +12,41 @@
 <!-- LB -->
 
 <item>
+<title>Localhost website med Docker</title>
+<guid>https://mikkelrask.github.io/2020.html#localhost-website-med-docker</guid>
+<pubDate>Wed, 14 Oct 2020 15:17:34 +0200</pubDate>
+<description><![CDATA[
+<p>Jeg bruger meget af min fritid på diverse subreddits, og en af dem jeg besøger ofte er r/startpages.</p>
+<p>For at gøre det meget kort, ville jeg hoste en lille webserver på min laptop, til min egen startpage, og valgte at benytte docker til at køre min nginx server i en container.</p>
+<h1>1. Lav en mappe til dit projekt</h1>
+Sørg for at dine HTML fil(er) placeres i denne mappe.</br></br>
+
+<h1>2. Opret en fil kaldet Dockerfile</h1>
+<p>Filen skal inde holde hvilket docker image vi vil hente, hvilken mappe vi vil serve og hvor nginx er placeret.</p>
+<p>Kommando:</p>
+<code>echo FROM nginx:alpine\nCOPY . /usr/share/nginx/html > Dockerfile</code>
+
+<h1>3. Build dit docker image for serveren</h1>
+<p>Kør denne commando:</p>
+<code>docker build -t html-server-image:v1 .</code><br>
+<p>Docker bekræfter hvis alt er bygget successfuldt, men du kan også tjekke status med</p>
+<code>docker images</code>
+<p>og se om html-server-image:v1 er repræsenteret.</p>
+
+<h1>4. Kør dit nybyggede image</h1>
+<code>docker run -d -P -p 80:80 html-server-image:v1</code>
+<p>Nu kører dit docker image i baggrunden og du kan se din hjemmeside i en browser ved at besøge <code>localhost</code></p>
+]]></description>
+</item>
+
+
+
+
+
+
+
+
+<item>
 <title>Arctic MX-2 Thermal Compound - Før og efter test</title>
 <guid>https://raske.pw/index.html#arctic-mx2-thermal-compound-for-og-efter-test</guid>
 <pubDate>Thu, 13 Feb 2020 14:11:09 +0100</pubDate>
@@ -135,21 +170,6 @@ haveibeenpwned.com - er dit password lækket?</title>
 </item>
 
 
-<item>
-<title>This is a VIM blog</title>
-<guid>https://raske.pw/index.html#this-is-a-vim-blog</guid>
-<pubDate>Mon, 22 Jul 2019 13:21:13 +0200</pubDate>
-<description><![CDATA[
-<h3>This is a VIM blog post</h3>
-<p>Typing this is a very clean feeling, and i do enjoy it, actually. The dark background with the almost white text makes it easy on the eyes. It 1 in the PM so my refshift filter hasent turned on yet - but when it do, this experience will be even better.</p>
-
-<p>I've always felt like people using VIM must hate som part of themselves, to put them through the process, but to be honest with you, I've come to realize something.. VIM is for writing texts.. What ever they may be.. Plain text, html, markup, CSS, you name it. Not for navigating around clicking buttons. And it does that what it's supposed to very well.</p>
-
-<p>Now how i'm actually going to exit, we all know is a different story. I know that <code>:q</code> exits, but then VIM warns me. <i>"Hey! You got changes! To dismiss these add the <code>!</code></i>. <br>Okay?! But what if I wan't to save them, then?!</p> 
-
-<p>(<code>:wq</code> to <i>"write document and quit"</i></p>
-]]></description>
-</item>
 
 
 <item>

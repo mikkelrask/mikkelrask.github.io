@@ -1,204 +1,23 @@
 <html>
 <head>
-<title>raske.pw - en ret hurtig blog</title>
+<title>raske.xyz</title>
 <meta charset="utf-8"/>
 <link rel='stylesheet' type='text/css' href='style.css'>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135748472-4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-135748472-4');
-</script>
-
 </head>
 
 <body>
 <h1>raske.pw</h1>
 
+<ul>
 <!-- LB -->
-<div class='entry'>
-<h2 id='arctic-mx2-thermal-compound-for-og-efter-test'>Arctic MX-2 Thermal Compound - Før og efter test</h2>
-<small>[<a href='#arctic-mx2-thermal-compound-for-og-efter-test'>link</a>&mdash;<a href='blog/arctic-mx2-thermal-compound-for-og-efter-test.html'>standalone</a>]</small>
-<p>På min macbook pro synes jeg det var tid til at prøve at lege lidt med at <i>re-paste</i> den, og i samme ombæring se, om det gav lidt på temperaturen på computeren, og i sidste ende ville give 1) bedre performance og eller 2) bedre batteri-levetid, grundet den lavere fane-aktivitet</p>
-<p>Og selvom processen oprindeligt virkede lidt intimiderende, kan jeg afsløre, at har man prøvet at skille en macbook ad før, med andre formål, er en re-paste ikke meget anderledes. Hele processen tog måske en times tid for mig, da jeg samtidigt skiftede magsafe lader boardet og generelt lige gav computeren en tur med en (nærmere 15) vatpinde og noget sprit.</p>
-<p>Jeg lavede før "operationen" to temperatur tests af 10 målinger med 15 sekunders mellemrum. Først i idle tilstand, og bagefter med 100% load på alle 4 CPUer med <a href="https://www.archlinux.org/packages/community/x86_64/stress/" targer="_blank">stress</a> app'en sideløbende med at afspille en 1080p video på Youtube.</p>
-<p>Det er klart ikke de mest videnskabelige tests man kan lave, <i>i know</i>, men det er for mig bare et spørgsmål, om en indikation den ene eller anden vej (forhåbentlig kun den ene).</p><hr>
-<p><p><b>0% stress - pre-paste</b><br>
-<code>57.0°C<br>
-    58.0°C<br>
-    56.0°C<br>
-    56.0°C<br>
-    56.0°C<br>
-    56.0°C<br>
-    55.0°C<br>
-    55.0°C<br>
-    55.0°C<br>
-    56.0°C
-    </code><br>Gns: 56 Min: 55 Max:58<br></p>
-<p></p><b>100% stressed - pre-paste</b><br>
-<code>
-    85.0°C<br>
-93.0°C<br>
-93.0°C<br>
-92.0°C<br>
-93.0°C<br>
-93.0°C<br>
-93.0°C<br>
-93.0°C<br>
-93.0°C<br>
-94.0°C
-</code><br>Gns: 92,3 Min: 85 Max: 94</p>
-<p><b>0% stress - pasted</b><br>
-<code>
-    45.0°C<br>
-44.0°C<br>
-45.0°C<br>
-45.0°C<br>
-45.0°C<br>
-45.0°C<br>
-45.0°C<br>
-46.0°C<br>
-47.0°C<br>
-47.0°C
-</code><br>
-Gns: 45,6 Min: 44 Max: 47<br></p>
-
-<p><b>100% stressed - pasted:</b><br>
-<code>
-    85.0°C<br>
-91.0°C<br>
-89.0°C<br>
-89.0°C<br>
-90.0°C<br>
-91.0°C<br>
-92.0°C<br>
-91.0°C<br>
-92.0°C<br>
-92.0°C
-</code><br>
-Gns: 90,2 Min: 85 Max: 92</p><hr>
-<p>Det gav altså en gennesnitlig idle temperatur på ~10 grader under hvad den var tidligere, og nu med en max stressed temperatur, der ligger under det tidligere gennemsnit, og over 2 grader under tidligere max.</p>
-<p>I den ende af skalaen gør et par grader meget, om den throtler og sætter fans i gang. Så forhåbentlig giver det lidt ekstra levetid i den anden ende.</p>
-<p>Regner ikke med megen performance ud over det.</p>
-<p><a href="https://www.pricerunner.dk/pl/184-3659487/Computer-koeling/Arctic-MX-2-4g-Sammenlign-Priser" target="_blank">Arctic MX-2 Thermal Compound</a> - fra 37,- + porto<br>
-<a href="">Thermal Paste Remover/Cleaner</a></p><hr>
-<p><b>Temperaturscript:</b> (kræver <a href="https://wiki.archlinux.org/index.php/Lm_sensors" taget="_blank">lm-sensors</a>)<br>
-    <code>#!/bin/bash<br>
-        for i in {1..15}<br>
-        do<br>
-          sensors | grep id | awk -F+ '{print $2}' | awk '{print $1}'<br>
-          sleep 15<br>
-        done
-        </code>
-</p>
-<p><b>Gør filen eksekverbar:</b><br>
-    <code>chmod +x <i>/lokation/til/temperaturscript</i></code></p>
-<p><b>Kør scriptet med:</b><br>
-    <code>./<i>temperaturscript</i></code></p>
-<p><b>Stress command:</b> (kræver <a href="https://www.archlinux.org/packages/community/x86_64/stress/" target="_blank">stress</a>):<br>
-<code>stress --cpu 4</code></p>
-<small>Thu, 13 Feb 2020 14:11:09 +0100</small>
-</div>
-<div class='entry'>
-<h2 id='video-haveibeenpwned'>Video: HaveIBeenPwned</h2>
-<small>[<a href='#video-haveibeenpwned'>link</a>&mdash;<a href='blog/video-haveibeenpwned.html'>standalone</a>]</small>
-<div style="width: 100%; height: 0px; position: relative; padding-bottom: 62.500%;"><iframe src="https://streamable.com/s/d5w7c/gxsawr" frameborder="0" width="100%" height="100%" allowfullscreen style="width: 100%; height: 100%; position: absolute;"></iframe></div>
-<small>Sat, 27 Jul 2019 17:36:13 +0200</small>
-</div>
-<div class='entry'>
-<h2 id='haveibeenpwnedcom-er-dit-password-laekket'>haveibeenpwned.com - er dit password lækket?</h2>
-<small>[<a href='#haveibeenpwnedcom-er-dit-password-laekket'>link</a>&mdash;<a href='blog/haveibeenpwnedcom-er-dit-password-laekket.html'>standalone</a>]</small>
-<p>Servicen haveibeenpwned er mere relevant end nogensinde før, og kendskaben til dem og lignende services stiger heldigvis stødt. Med så godt som daglige leaks af hundredetusindevis, nogle gange millioner af passwords af gangen, er deres database blandt de største offenligt tilgængelige ressourcer med lækkede passwordinformationer.</p>
-<p>Men mange jeg møder ser og tror både konceptet og servicen som værende en del grunden til vi er her til at start med. "<i>Ja, det er godt du, så indtaster jeg min adgangskode der, og så går der 2 uger, så får jeg en mail om at min adgangskode er lækket, og de vil sælge mig et eller andet</i>. Hvor det sikkert i rigtig mange tilfælde er korrekt, er det det bare ikke lige her. Troy Hunt der ejer siden sælger nemlig ingen produkter - han anbefaler dog at man benytter en password manager, og hans bedste bud er 1Password, som han selv benytter, og har lidt reklameplads for på siden. Han fortæller ligeledes gerne om hvorfor hans valg blev 1password, det kan du <a href="https://haveibeenpwned.com/1Password" target="_blank">læse her</a>.</p>
-<p>Og hvor mange argumenterer at det ikke hjælper på situationen at have sådan et offenligt opslagsværk, vil rigtig mange ligeledes argumentere at dem der <i>vil</i> misbruge den her type information allerede <i>har</i> informationen tilgængelig, og det at vi andre almindelige mennesker ved, at de ved det, kan få os til at ændre vores usikre adgangskoder før det er for sent.</p>
-<h3>Jamen skal jeg så bare indtaste min adgangskode i et tilfældigt input felt på internettet? </h3>
-<p>Generelt set, så nej. Slet ikke, nej! Men lige haveibeenpwned er måske lidt anderledes. Måden deres API fungerer på er nemlig på en ret sikker måde. Før noget som helst sendes til nogen server hashes dit indtastede password med SHA-1, og API'en, der kører i browseren, sender kun de første frem cifre til serveren, der så herfra returnerer samtlige hashed resultater af plaintext passwords. For det andet, behøves du ikke engang at indtaste noget i browseren, du kan gøre processen mere eller mindre manuelt, men i meget få skridt.</p>
-<p>For at gøre selve processen mere transparent, kan vi nemlig selv gøre arbejdet via vores terminal, hvor det "beskidte" arbejde foregår lokalt på vores computer. Vi skal stadig sende de første fem cifre, men her kan du både se, og selvfølgeligt kontrollere at der ikke sendes andet data med, end fem cifre ud af fyrre, fra en obskur krypteret adgangskode. Når man sætter det sådan op, er jeg personligt i hvert fald mere sikker ved at gøre det.</p>
-<p>Så det første vi skal er at have SHA-1 summen af vores password. Det fikser vi med kommandoen <br><code> echo -n "#DINADGANGSKODE" | openssl sha1</code>.<br>
-    Vigtigt er her, at du starter kommandoen med et mellemrum, så vil den (inkl din adgangskode) nemlig <i>ikke</i> gemmes i din terminal historik! Så ja. Start enten kommandoen med et mellemrum, eller slet selv linjen manuelt i historikken efterfølgende.<br>
-    Men når vi kører kommandoen giver den os et output a la <code>(stdin)= 21e275ddbde642da0091919a104f38614d0e9a37</code> hvilket er lige præcis det vi skal bruge - ret simpelt.
-<p>Nu har vi hashen, som man siger, og med kommanden <br><code>curl https://api.pwnedpasswords.com/range/DINHASH > beenpwned.result</code><br> (hvor du udskifer <code>DINHASH</code> med de første 5 cifre af din egen SHA-1 hash) tjekker vi hele haveibeenpwneds database for alle hashes der starter med DINHASH, og sikrer samtidig at vores adgangskode aldrig forlader vores computer. Prøver du selv, vil du se at vi får ret så mange resultater tilbage, så der er derfor ikke rigtig nogen grund til at være nervøs for at koden vil kunne identificeres den vej igennem. Curl funktionen henter hvad end respons den får fra adressen vi indtaster og outputter den på skærmen, men med <code>></code>-tegnet "kaster" vi det output over i endnu en ny tekstfil; <code>beenpwned.result</code></p>
-<p>Herfra kan vi med så godt som en hver text editor søge efter de resterende 35 cifre af vores hashet password. Troy Hunt og hans Have I Been Pwned team har nemlig fjernet de første 5 cifre alle hashes, så vi (og de) selvfølgeilgt først og fremmest sparer den smule datatrafik, men også så der sendes komplette hashes, selvom vi selvfølgeligt arbejdet med SSL forbindelse. Det er en super god tankegang, især da vi jo i hvert fald har tænkt os at gemme dataen som fil.</p>
-<p>Da vi allerede har terminalen åben søger jeg i resultatsdokumentet ved at skrive <br><code>grep -i "5ddbde642da0091919a104f38614d0e9a37" beenpwned.result</code><br>
-    der i mit tilfælde gav et hit. Jeg brugte i øvrigt koden <code>sommer2019</code> - et trick jeg har lært af Christian Dinesen, som jeg tror vil være glad for at vide, at resultatet var kun en enkelt læk</p>
-    <p>Din <code>grep</code> kommando skal selvfølgeligt indeholde de sidste 35 cifre af din egen hash, ikke min.</p>
-<p>Når du har bekræftet hvorvidt din egen hash er til stede, kan du med fordel slette de downloadede resultater med  <br><code>rm beenpwned.result</code><br> - så ligger de da ikke og flyder.</p>
-<p>Men det er altså den <code>l33t</code> måde at tjekke om dit password er blevet lækket, 100% uden selv at lække din adgangkode i processen.</p>
-<p>Var din adgangkode lækket, så skift det endeligt hurtigst muligt, og læs evt. mine anbefalinger ift. passwordgeneration <a href="http://raske.pw/#guide-hvordan-du-krypterer-naesten-alt">her</a></p>
-<small>Wed, 24 Jul 2019 14:22:45 +0200</small>
-</div>
-<div class='entry'>
-<h2 id='this-is-a-vim-blog'>This is a VIM blog</h2>
-<small>[<a href='#this-is-a-vim-blog'>link</a>&mdash;<a href='blog/this-is-a-vim-blog.html'>standalone</a>]</small>
-<h3>This is a VIM blog post</h3>
-<p>Typing this is a very clean feeling, and i do enjoy it, actually. The dark background with the almost white text makes it easy on the eyes. It 1 in the PM so my refshift filter hasent turned on yet - but when it do, this experience will be even better.</p>
-
-<p>I've always felt like people using VIM must hate som part of themselves, to put them through the process, but to be honest with you, I've come to realize something.. VIM is for writing texts.. What ever they may be.. Plain text, html, markup, CSS, you name it. Not for navigating around clicking buttons. And it does that what it's supposed to very well.</p>
-
-<p>Now how i'm actually going to exit, we all know is a different story. I know that <code>:q</code> exits, but then VIM warns me. <i>"Hey! You got changes! To dismiss these add the <code>!</code></i>. <br>Okay?! But what if I wan't to save them, then?!</p> 
-
-<small>(<code>:wq</code> to <i>"write document and quit"</i>)</small>
-<small>Mon, 22 Jul 2019 13:21:13 +0200</small>
-</div>
-<div class='entry'>
-<h2 id='hvorfor-jeg-bruger-linux-nar-jeg-kan'>Hvorfor jeg bruger Linux - når jeg kan</h2>
-<small>[<a href='#hvorfor-jeg-bruger-linux-nar-jeg-kan'>link</a>&mdash;<a href='blog/hvorfor-jeg-bruger-linux-nar-jeg-kan.html'>standalone</a>]</small>
-<h3>TL;DR <i>(rigtig tldr længere nede)</i></h3>
-<p>Perfomance og customization! Længere er den ikke. Nørden i mig elsker at tweake og customize, men altid med perfomance i øjemed. Linux lader mig lege lige så tosset jeg har lyst, og selv fra start af, er vi bedre stillet ift performance, end en standard boot ind i et stock OSX eller Windows.
-Jeg ejer en PC og en Macbook og nok ~10 raspberry pis, og samtlige maskiner har jeg installeret en eller anden form for linux på. Givet, min mac har stadig OSX og min PC en Windows partition, så ja, jeg siger jeg bruger Linux — når jeg kan, og det selvfølgeligt giver mening!</p>
-<h3>Mac OSX</h3
-<p>Jeg elsker macs og jeg elsker osx. Det er nemt, bekvemt og ting er lige der hvor jeg leder efter dem. Men jeg er, som rigtig mange andre, langt fra tilfreds med deres nyere serie af Pro’s. (Pinligt elendige) butterfly keys, dårlig ventilation og overophedning er blandt de flestes klagepunkter, men i det her indlæg er det mere selve styresystemets performance vi kigger på. Ligesom med Windows er MacOSX lavet til at passe til de flestes brug — endda til en vis grad også de fleste edge-cases. Fyldt med alle mulige godter, som du efter 10 års brug finder ud af, du har brug for meget meget meget lidt af. Og det er for de fleste rigtig fint, jeg ser bare ud over forværringe i deres design og hardware — hardwaren bliver selvfølgeligt bedre, men kan sagtens gå hen og yde (proportionelt, that is) dårligere, udelukkende pga. dårlig produkt-design. Set i lyset af at maskinerne stiger og stiger i pris, er det ikke længere noget jeg har lyst til at være del af. Hvilket bringer os til næste punkt…..</p>
-<img src="https://miro.medium.com/max/700/0*cyreykQVkbuRYuDC" loading="lazy" alt="Source: https://bgr.com/2015/04/27/why-buy-the-apple-watch/">
-
-<h3>Windows 10</h3>
-<p>Nej. bare nej. Jeg har en Windows PC (intel i9 9900k, 32gb ram, RTX2070RTX 8gb) og jeg haaader det. Eller maskinen er jo vanvittig lækker, jeg hader sådan set bare at navigere i Windows. Jeg har i knapt et årti brugt macbooks, og som udgangspunkt været rigtig glad for det, men da valget pludseligt stod imellem en stationær workstation og en ny bærbar Macbook, synes jeg ikke engang det var et svært valg. Jeg har hørt meget godt om forbedringerne i Windows igennem alle mine mac-år, og var faktisk rigtig spændt på at se hvad de nu kunne. Mit valg var bare lidt forkert. Ikke så meget ift at vælge en workstation men mere det at jeg købte min workstation med NVIDIAs high end ray tracing grafik kort; 2070 RTX - uden at helt have styr på, at det understøttede Mac OSX altså ikke. Øv! — det gjorde jo så at jeg i det sidste halve år rent faktisk har måtte køre Windows 10 som min main mean machine, og ikke en dual/trippleboot maskine med hackintosh Mojave som hoved OS, som ellers først planlagt.</p>
-<h3>Hvorfor så ikke bare skifte?!</h3>
-<p>Når nu jeg er så træt af Windows, og elsker Linux så meget, hvorfor så overhovedet beholde windows? Man kan ikke snakke om Linux fordele/ulemper, uden også lige at snakke lidt om hvordan Adobe ikke understøtter linux. Og hvor jeg jo straks lyder som alle kreative i historien der ikke er klar til at tage springet og bare skifte, så har jeg virkeligt ikke lyst til at miste Adobes programpakke. Jeg har alle dage sagt, at det ikke som sådan er Adobe der holder brugerne til Windows/OSX… det er alternativerne der får de fleste brugere til at holde sig væk fra linux! Og sådan er det til dels stadig. Jeg ved jeg bliver flamet for at bashe på GIMP, men helt ærligt. Det tåler virkeligt ikke rigtigt nogen reel sammenligning til den profesionelle appsuite Adobe har brugt årtier på at perfektere til os, og at diverse linux alt apps er “ved at være der”, hjælper ikke rigtigt noget — det har de været længe… Det er jo i hvert fald hvis du spørger mig. Jeg vil ultimativt rigtig gerne tage skiftet, men der findes simpelthen ikke et alternativ, godt nok.</p>
-<h3>Performance</h3>
-<p>Min macbook pro er mildt sagt “<i>af dato</i>”, men den rocker stadig en 4 kernet i5–2415M processor (2.9ghz) og 16gb ram (tak Kasper!), hvilket stadig <i>ka’ lidt af det hele</i>. Maskinen er dog gået hen og blevet ret begrænset af sit logicboard; Apple supporter dem nemlig ikke længere, hvilket gør, som også tilfældet for mange andre macs, at den er fanget i en slags limbo, i dette tilfælde bedst kendt som OS X High Sierra. Andre stakler med ældre maskiner sidder fast i El Capitan.</p>
-<p>Og hvor performance delen har egentlig ikke noget med hvad OSX version vi kører på, som sådan at gøre, men vi kan jo med garanti i hvert fald ingen performance updates få til maskinen fremadrettet. Så sådan som den kører nu, bliver kun værre i takt med at applikatonerne bliver tungere og tungere.</p>
-<p>Men hvor om alting er, tager jeg i dag udgangspunkt i idle usage. Det siger måske ikke meget om ens maskines perfomance, hvor god en maskine er til at stå stille, men det siger lidt om forskellene på hvad der kræves for at køre et styresystem.</p>
-<h3>TL;DR (for real denne gang!)</h3>
-<p>Når jeg booter ind i apple’s High Sierra har jeg allerede lige der allokeret 4gb hukommelse blot til at have styresystemet og diverse små daemons til at køre. Daemons er de små programmer der eks. automatisk slutter dig til dit wifi, sørger for at tænde computerens bluetooth og notificerer dig når du har opdateringer til dit software o.l.
-<b>Forbrug: 4gb ram og ~20% af de 4 kerners CPU power.</b></p>
-<p>I perspektiv bruger jeg, når jeg booter ind i Manjaro I3 sølle 241mb ram og 1–2% af min CPU. </p></p>
-<p>Åbner jeg herfra firefox med facebook, twitter, youtube og reddit, åbner spotify og Microsoft Visual Studio Code, samt et par terminaler vil mit ram forbrug stige til lige omkrign 2.5- måske 3gb ram — stadig 1-1.5gb under OS X der vel at mærke intet kører og hovedsageligt er rammene her allokeret til Firefox. Manjaro I3 er i sig selv en ret light weight installation, men jeg har strippet min config yderligere for ting jeg ikke bruger. Vi snakker de førnævnte bluetooth managers, volume ikoner, printer management, applets til at håndtere wifi osv. Selv pauseskærmen er strippet. Alle er stadig lige til at åbne, skulle jeg bruge dem, men der er ingen grund til at det kører hele tiden, og lige netop netværk håndterer jeg i terminalen via min configurations fil. Valgte jeg eks. Arch Linux med LXDE skrivebordsmiljø, kunne jeg nøjes med knap ~150mb ved boot. Dvs. en (endda outdated) MacOSX kræver op imod 26, næsten 27(!!!) gange så mange ressourcer som en Arch LXDE installation.</p>
-<h3>Og det kan mærkes!</h3>
-<p>Ikke nok med at maskinen konstant er <b>15–20 grader køligere</b> end når den skal køre Mac OS X, men alt føles bare væsentlig mere <i>snappy og light</i>. At computerens load og temperatur er lavere gør at blæseren ikke skal køre alverden, og at processoren ikke kræver ligeså meget juice. Faktisk har jeg ikke hørt blæseren ved "alm brug", siden jeg ændrede mine youtube indstillinger til at kun afspille 720p videoer. Når den skal loade 1080p eller 4K går den stadig i gang, så det er heldigvis ikke bare mig der har fået slået den fra somewhere. Det gør i sidste ende at min gamle macbook nu holder strøm i ~3 timer, frem for ~2 timer. Det var et kæmpe boost i en performancekategori jeg slet ikke engang havde overvejet! Og det er måske logisk nok, når man går fra den ene “yderlighed” til en anden, og desuden vil langt de færreste jo acceptere at selv skulle til at åbne forskellige managers, før de eks. kan logge på nye wifi netværk, ligesom langt de færreste mennesker ville acceptere at selv skulle skrive et stykke kode i en konfigurations fil, før at skrivebordsbaggrunden rent faktisk dukker op igen, efter genstart… … selv tage stilling til hvilket screen saver software der er bedre end konkurrentere og jeg kunne blive ved— og det forstår jeg altså udmærket! Jeg er bare selv tilpas nørd til at ville det, og siger bare at jeg kan mærke det! Der findes i øvrigt vitterligt flere tusinde alternativer inden for linux, hvor din personlige grænse imellem convenience og perfomance med garanti også er repræsenteret!</p>
-<h3>Customization</h3>
-<img src="https://i.imgur.com/ld6XcCx.png" alt="Neofetch">
-<p>Når jeg åbner min macbook booter den automatisk ind i Manjaro i3, på ~10 sekunder (OSX er 30+ sec), og derfra kan jeg via mit keyboard tænde og slukke min gamle pioneer forstærker fra 1973, jeg kan styre lyset i hele huset, se temperaturen på mit værelse, jeg kan åbne for min hoveddør via det hardware hack jeg tidligere har lavet i min dørtelefon, og en genvej til et shell script. Altsammen er 2–3 tastatur klik væk, fra boot. Jeg kan i øvrigt 100% de samme ting fra min mobil, men selvom jeg sparer turen ud til dørtelefonen, når pizzabuddet altså af og til at ringe på 2 gange, før han bliver buzzet ind. Det er ikke tilfældet, hvis jeg sidder med min computer. <code>CMD+Shift+y</code> og dørtelefonen åbner i 4 sekunder, blinker min lampe på værelset og jeg kan lige så stille rejse mig, og gå ud til min dør, hvor det passer med at pizzabuddet er nået til 3. sal.</p>
-<p>Jeg kan vælge 100% hvilke elementer jeg vil have i min “startmenu”, som i mit tilfælde hedder i3blocks — jeg har valgt lokalt vejr, min offenlig og lokale IP — det er tit praktisk men også for at bekræfte at jeg overhovedet er online, da jeg jo netop ingen network manager widget benytter. Ud over det har jeg kun en strømprocent indikator, et ur og de få programmer der kører; clipit og kdeconnect ved boot.</p>
-<p>Så når alt kommer til alt, så fungerer alt hurtigere for mig, i et linux miljø, end det gør i noget andet. Vi snakker helt basic internet browsing, kodning og programmering, youtube, sociale medier, netbanking email og alt det der i forvejen burde være ligth. Der ser jeg ingen grund til at bruge så mange ressourcer på at have en terminal åben med en reddit viewer, og der er noget helt vildt tilfredsstillende over at selv vedligeholde din maskine.</p>
-<h3>Konfigurationen</h3>
-<p>Som jeg skriver, kræver det altså lidt arbejde at få sådan et custom miljø sat op, for der findes ingen genvej. Det skal tilpasses præcist dit workflow, og hvad du gerne vil, før det giver mening, at vælge en så stripped tilgang som jeg har. Har du lyst til at give det et go, kan du se min dotfiles — konfigurationsfiler på min github, hvor jeg forsøger at forklare mig via comments og struktur. Jeg har haft Manjaro i3 installeret i godt over 1 mdr efterhånden, og jeg har stadig min config fil åben så godt som hver dag. I takt med jeg lærer systemet bedre at kende, kan jeg hele tiden optimere det til det bedre. Genveje der giver bedre mening på andre placeringer, apps der skiftes ud med andre, lock screens der gøres pænere, og ikonpakker der lige skal justeres.</p>
-<p>På min github er mit setup i skrivende stund bestående af min i3 config, rofi theme, i3blocks config og dertilhørende custom scripts. Simpelt og light weight.</p>
-<small>Thu, 18 Jul 2019 14:57:10 +0200</small>
-</div>
-<div class='entry'>
-<h2 id='guide-hvordan-du-krypterer-naesten-alt'>Guide: Hvordan du krypterer (næsten) alt</h2>
-<small>[<a href='#guide-hvordan-du-krypterer-naesten-alt'>link</a>&mdash;<a href='blog/guide-hvordan-du-krypterer-naesten-alt.html'>standalone</a>]</small>
-<p>Når man krypterer filer lyder for nogle måske som sort snak, og for andre som noget avanceret ‘hackeri', men at sikre sin data fra langfingrede snushaner er i dag lettere end nogensinde før. Krypteringssoftware er nemlig blevet en integreret del af langt de fleste styresystemer, og med easy-to-follow applikationer er der ikke længere nogen undskyldning. </p>
-<p>Kort fortalt er kryptering computerens svar på det at låse sin hoveddør. Bare fordi man er taget på arbejde, forventer man ikke at folk bare går ind i ens hjem og roder rundt, men alligevel låser man gerne lige døren inden man tager afsted. Du ved - bare for en sikkerheds skyld. Og vi skal selvfølgeligt også have låst hoveddøren på vores computere, tablets og hvad vi ellers bruger af apparater i løbet af vores hverdag.</p>
-<p>For selvom du måske har en kode på din computer, eller en møsterlås eller sågar en fingeraftryksscanner på din telefon, er det slet ikke sikkert at dit data er ja.... sikkert. Folk der vil have adgang til dit data, kan nemlig præcist få det, eksempelvis via deres eget styresystem på en USB nøgle, lige så nemt du selv kan navigere ind på din harddisk, hvis ikke den er krypteret. Og da både vores smartphones og vores computere i dag indeholder mere personlig information om os, end nærmest noget andet, gennemgår vi her trin for trin, hvordan du sikrer dine devices, uanset hvilken større platform du bruger.</p>
-<h3>Kodeords-styrke</h3>
-<p>Men før man rigtigt kan drøfte kryptering, bliver man også nødt til at kort vende kodeords-styrke først. Det er nemlig 100% styrken af denne der afgør hvor lang tid det eventuelt vil tage at en computer at ‘gætte’ din adgangskode, og derved tilmane sig adgang til din ellers beskyttede data via såkaldt brute force - rå kraft. For at gøre det sværest muligt for selv supercomputere skal du lave et kodeord med et mix af store og små bogstaver, tal og special-tegn. Ifølge sikkerhedseksperter mindst 10 tegn, og helst gerne 12 eller derover. Og helst i en tilfældig rækkefølge uden nogen som sådan struktur.</p>
-<p>Et godt tilfældig kunne være <code>9+paL:NmTV*X</code>, som ifølge <a href="https://howsecureismypassword.net">howsecureismypassword.net</a> vil tage en computer 485 tusinde år før den ville få adgang til mit krypterede data. Ud over at den er svær at gætte, kan den jo også umiddelbart virke lidt svær at huske. Men sidestillet med et eksempel hvor vi tager frasen <code>ikkesikker</code> uden brug af forskellig størrelse bogstaver, som vores adgangskode, vil denne kun tage en computer 59 minutter at gætte sig frem til - og så falder idéen bag vores kryptering ret hurtigt til jorden igen.</p> 
-<p>Men tilføjer vi blot et tegn mere, er vi oppe pludseligt oppe på en dag - og tilføjer vi her et specialtegn vil det lige pludseligt tage 18 år. Tilføj nu et tilfældigt tal, og så snakker vi 13 tusinde år. Så som du kan se akkumulerer sikkerheden omkring vores kodeord som en en gigantisk sikkerheds-snebold, for hvert tegn vi tilføjer til kodeordet. </p> 
-<p>Skulle du, som mange andre, foretrække at kun benytte bogstaver, da det jo trods alt er nemmere at huske på, så sigt efter at bruge mindst 20 tegn. Som udgangspunkt er der konsensus om at hvis man benytter ord i sin kode, som kan slåes op i en ordbog, vil dette i en forstand også forkorte tiden som det tager computeren at gætte din kode, men hvis vi bare prøver at indtaste <code>NuErJegMereSikker</code> i stedet for blot <code>ikkesikker</code>, fra det tidligere eksempel, øges tiden fra de føromtalte 59 minutter til næsten uvirkelige 118 millarder år. Det er rigtig meget ekstra sikkerhed, ved meget lav effort. </p>
-<p>Brug evt. en lokal password manager som eks. KeePassX til at huske og administrere alle dine avancerede (og i øvrigt helst altid forskellige) kodeord. </p>
-<p>Men nu hvor vi har styr på vores kodeord, så lad os ned i det! Vælg din platform herunder, og se under hver sektion, hvordan du krypterer både din startdisk og eventuelle eksterne apparater.</p>
-<p>Computerstyresystemer: <a href="https://support.microsoft.com/da-dk/help/4028713/windows-10-turn-on-device-encryption" target="_blank">Windows10</a>)</a> | <a href="https://support.apple.com/da-dk/HT204837" target="_blank">Mac OS</a> | <a>Linux</a><br>
-Smartphone/Tablets: <a href="#">Windows Phone</a> | <a href="#">iOS</a> | <a href="#">Android</a></p>
-<p>Læs også: <a href="#">Hvordan sikrer man sin data og bliver sikker online? Edward Snowden giver dig 5 tips</a></p>
-<small>Thu, 18 Jul 2019 14:26:48 +0200</small>
-</div>
-<small>Tue, 16 Jul 2019 23:29:50 +0200</small>
-</div>
-
+<li>2020 Oct 15 &ndash; <a href="blog/localhost-website-med-docker.html">Localhost website med Docker</a></li>
+<li>2020 Feb 13 &ndash; <a href="blog/arctic-mx2-thermal-compound-for-og-efter-test.html">Arctic MX-2 Thermal Compound - Før og efter test</a></li>
+<li>2019 Jul 27 &ndash; <a href="blog/video-haveibeenpwned.html">Video: HaveIBeenPwned</a></li>
+<li>2019 Jul 24 &ndash; <a href="blog/haveibeenpwnedcom-er-dit-password-laekket.html">haveibeenpwned.com - er dit password lækket?</a></li>
+<li>2019 Jul 18 &ndash; <a href="blog/hvorfor-jeg-bruger-linux-nar-jeg-kan.html">Hvorfor jeg bruger Linux - når jeg kan</a></li>
+<li>2019 Jul 18 &ndash; <a href="blog/guide-hvordan-du-krypterer-naesten-alt.html">Guide: Hvordan du krypterer (næsten) alt</a></li>
+</ul>
 
 </body>
 </html>
+

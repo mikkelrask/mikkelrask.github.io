@@ -1,9 +1,9 @@
 Options +Indexes
 AddDescription "Guide: Hvordan du krypterer (næsten) alt" "guide-hvordan-du-krypterer-naesten-alt.html" #Thu, 18 Jul 2019 14:25:02 +0200
 AddDescription "Hvorfor jeg bruger Linux - når jeg kan" "hvorfor-jeg-bruger-linux-nar-jeg-kan.html" #Tue, 16 Jul 2019 22:57:24 +0200
-AddDescription "This is a VIM blog" "this-is-a-vim-blog.html" #Mon, 22 Jul 2019 13:21:13 +0200
 AddDescription "haveibeenpwned.com - er dit password lækket?
 haveibeenpwned.com - er dit password lækket?" "haveibeenpwnedcom-er-dit-password-laekket.html" #Wed, 24 Jul 2019 14:22:45 +0200
 AddDescription "Video: HaveIBeenPwned" "video-haveibeenpwned.html" #Sat, 27 Jul 2019 17:36:13 +0200
 AddDescription "HSL - HTTP Live Streaming, Python og ffmpeg" "hsl-http-live-streaming-python-og-ffmpeg.html"
 AddDescription "Arctic MX-2 Thermal Compound - Før og efter test" "arctic-mx2-thermal-compound-for-og-efter-test.html" #Thu, 13 Feb 2020 14:11:09 +0100
+AddDescription "Localhost website med Docker" "localhost-website-med-docker.html" #Wed, 14 Oct 2020 15:17:34 +0200
