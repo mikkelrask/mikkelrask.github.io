@@ -8,3 +8,5 @@ AddDescription "HSL - HTTP Live Streaming, Python og ffmpeg" "hsl-http-live-stre
 AddDescription "Arctic MX-2 Thermal Compound - Før og efter test" "arctic-mx2-thermal-compound-for-og-efter-test.html" #Thu, 13 Feb 2020 14:11:09 +0100
 AddDescription "Localhost website med Docker" "localhost-website-med-docker.html" #Wed, 14 Oct 2020 15:17:34 +0200
 AddDescription "[Python] Hermitcraft latest video script" "python-hermitcraft-latest-video-script.html" #Thu, 15 Oct 2020 14:25:48 +0200
+AddDescription "Diverse scripts online" "diverse-scripts-online.html"
+AddDescription "Diverse små shell scripts" "diverse-sma-shell-scripts.html"

@@ -1,0 +1,34 @@
+<p>
+    Jeg har på min github uploadet en masse små, meget specifikke, men alligevel (måske) brugbare scripts.
+</p>
+<p>
+    Det er i repoet der så fint er kaldet <a href="https://github.com/mikkelrask/scripts" target="_blank">scripts</a> at det hele foregår, og her vil jeg hurtigt gennemgå hvad de gør, og hvordan man kan gøre brug af dem.</p>
+<h3>
+    confirm (sh)
+</h3>
+<p>
+    Dette lille bitte shell/<a href="https://suckless.org/dmenu" target="_blank">dmenu</a> script er lavet til at tage to argumenter; det første er hvad vi vil promptes, altså hvad vi skal "confirm". Den næste er selve kommandoen vi skal køre, hvis vi bekræfter prompten med "yes".     
+</p>
+<p>
+    En god usecase kunne være måden jeg selv bruger det på, som er til at bekræfte at jeg vil lukke min computer ned. Jeg benytter en custom window manager, hvor basicly alt er skræddersyet til mit eget workflow, og her er keybinds/shortcuts alfa omega. Trykker jeg på shift+super(windows key)+x har min computer altid bare lukket ned. Kommer man dog til det utilsigtet, lukker computeren bare ned, og alt der ikke er gemt, eller kun gemt i bufferen nu væk. 
+</p>
+<p>
+    Derfor har jeg nu lavet min keybind om til at køre confirm scriptet således:
+    <pre>confirm "Do you want to shut down?" "shutdown now"</pre>
+
+    hvilket åbner dmenu med prompten "Do you want to shut down?", og skriver jeg yes (eller bare noget af ordet) og klikker <code>enter</code> køres kommandoen <code>shutdown now</code>, som lukker computeren.
+</p>
+<h3>
+    linkhandler (bash)
+</h3>
+<p>
+    Dette bash script minder i sig selv rigtig meget om confirm scriptet, i dét at vi giver det et argument, og vi derfra får nogle forskellige valgmuligheder via <code>dmenu</code>.
+</p>
+<p>
+    Meningen er her, at argumentet er et link vi vil åbne, og <code>dmenu</code> giver mig en liste over typiske programmer jeg vil bruge til at håndtere linket. Er det et YouTube link den får, vælger jeg typisk at afspille direkte i <a href="https://mpv.io" target="_blank"><code>mpv</code></a>, ligesom jeg ofte benytter mig af <a href="https://github.com/michael-lazar/rtv" target="_blank"><code>rtv</code></a> til at håndtere reddit links.
+</p>
+<p>
+    ... og så fremdeles. Der er options til vim baserede browsere (<a href="https://fanglingsu.github.io/vimb/" target="_blank"><code>vimb</code></a>), terminal baserede browsers (<a href="http://w3m.sourceforge.net/" target="_blank"><code>w3m</code></a>via <a href="https://gitlab.com/gardenappl/readability-cli" target="_blank"><code>readability-cli</code></a>), image viewers (feh), og endda mulighed for at caste videoer, sange o.l direkte til en chromecast compatibel enhed via <a href="https://github.com/xat/castnow" target="_blank"><code>castnow</code></a>.
+</p>
+<p>Måden den er integreret i mit flow er via min rss-reader, <a href="https://newsboat.org" target="_blank"><code>newsboat</code></a>, som håndterer alle mine nyheder og podcasts. Åbner jeg et link med genvejen 'o' køres kommandoen <pre>linkhandler %url%</pre>
+hvilket åbner dmenu med </p>

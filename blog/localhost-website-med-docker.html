@@ -16,19 +16,20 @@ Sørg for at dine HTML fil(er) placeres i denne mappe.</br></br>
 <h1>2. Opret en fil kaldet Dockerfile</h1>
 <p>Filen skal inde holde hvilket docker image vi vil hente, hvilken mappe vi vil serve og hvor nginx er placeret.</p>
 <p>Kommando:</p>
-<code>echo FROM nginx:alpine\nCOPY . /usr/share/nginx/html > Dockerfile</code>
+<pre>echo FROM nginx:alpine\nCOPY . /usr/share/nginx/html > Dockerfile</pre>
 
 <h1>3. Build dit docker image for serveren</h1>
 <p>Kør denne commando:</p>
-<code>docker build -t html-server-image:v1 .</code><br>
+<pre>docker build -t html-server-image:v1 .</pre><br>
 <p>Docker bekræfter hvis alt er bygget successfuldt, men du kan også tjekke status med</p>
 <code>docker images</code>
 <p>og se om html-server-image:v1 er repræsenteret.</p>
 
 <h1>4. Kør dit nybyggede image</h1>
-<code>docker run -d -P -p 80:80 html-server-image:v1</code>
+<pre>docker run -d -P -p 80:80 html-server-image:v1</pre>
 <p>Nu kører dit docker image i baggrunden og du kan se din hjemmeside i en browser ved at besøge <code>localhost</code></p>
-<footer>by <strong><a href='https://mikkelrask.github.io/'>Mikkel Rask</a></strong></footer>
+<footer><div class="author"><div class="author-img"><img src="/home/raske/Sites/mikkelrask.github.io/profile.jpg" class="avatar" loading=lazy width=42 height=42></div><div class="author-title">af <strong><a href='https://mikkelrask.github.io/'>Mikkel Rask</a></strong></div>
+<div class="author-description">Computernørden.  Linux entusiast, light weight hacker, grafisk designer og kreativt legebarn bosat i København. Har arbejdet med computere hele mit liv, og ser en computers kunnen som en naturlig udvidelse af min egen. </div></div></footer>
 </body>
 
 </html>
