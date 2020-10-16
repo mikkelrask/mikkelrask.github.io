@@ -7,21 +7,36 @@ html {
 	margin-top: 30px;
 	color: #444;
 	padding-bottom: 200px;
-	font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif;
-	line-height:1.58;
-	font-size:21px;
+	font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman",
+		Times, serif;
+	line-height: 1.58;
+	font-size: 21px;
 }
 /*body{
 	color:#F8F8F2;
 }*/
-img{
-	max-width:100%;
+img {
+	max-width: 100%;
 }
-code{
-	background-color:#eee;
-	font-size:80%;
-	font-family:monospace, monospace;
-	padding:0 4px;
+code {
+	background-color: #eee;
+	font-size: 80%;
+	font-family: monospace, monospace;
+	padding: 0 4px;
+}
+
+pre {
+	border: 1px solid #d1d1d1;
+	font-family: Inconsolata, monospace;
+	font-size: 16px;
+	line-height: 1.3125;
+	margin: 0 0 1.75em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.75em;
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
 }
 /* a {color: #ff81c6; font-weight:bold;}
 a:hover {color: #ff81c6; font-weight:bold;} */
@@ -32,9 +47,10 @@ a:hover {color: #ff81c6; font-weight:bold;} */
 	/* border-radius: 0 30px 30px 0; */
 	margin-bottom: 20px;
 	/*color:#F8F8F2;*/
-	}
+}
 
 h1 {
+	font-family: Montsserat, "Helvetica Neue", sans-serif;
 	font-size: 24px;
 	font-style: normal;
 	font-weight: 700;
@@ -42,24 +58,51 @@ h1 {
 	text-transform: none;
 }
 
-h2, h3 { 
-	margin: 10px auto -.35em auto;
-	color:#434343;
-	font-family: medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+h2,
+h3 {
+	margin: 10px auto -0.35em auto;
+	color: #434343;
+	font-family: medium-content-sans-serif-font, "Lucida Grande",
+		"Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
-h2{
-	font-size:34px;
+h2 {
+	font-size: 34px;
 }
-h3{
-	font-size:24px;
+h3 {
+	font-size: 24px;
 }
-hr{
-	width:75%;
-	color:
+hr {
+	width: 75%;
 }
-blockquote{
-	font-size:30px;
-	line-height:40px;
-	font-style:italic;
+blockquote {
+	font-size: 30px;
+	line-height: 40px;
+	font-style: italic;
 	/* color:rgba(255, 255, 255, .7) */
+}
+
+.author {
+	margin-top: 25px;
+}
+
+.avatar {
+	float: left;
+	height: 42px;
+	margin: 0 1.75em 1.75em 0;
+	width: 42px;
+	border-radius: 50%;
+}
+.author-description {
+	color: #686868;
+	font-size: 13px;
+	font-size: 0.8125rem;
+	line-height: 1.6153846154;
+	margin-bottom: 1.6153846154em;
+	overflow: hidden;
+}
+.author-title {
+	font-weight: bold;
+}
+.author-title a {
+	color: #444;
 }
