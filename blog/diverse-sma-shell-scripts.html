@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Diverse små shell scripts</title>
+<link rel='stylesheet' type='text/css' href='../style.css'>
+<meta charset='utf-8'/>
+</head>
+<body>
+<h1>Diverse små shell scripts</h1>
+<small>[<a href='../2020.html#diverse-sma-shell-scripts'>link</a>&mdash;<a href='diverse-sma-shell-scripts.html'>standalone</a>]</small>
+<p>
+    Jeg har på min github uploadet en masse små, meget specifikke, men alligevel (måske) brugbare scripts.
+</p>
+<p>
+    Det er i repoet der så fint er kaldet <a href="https://github.com/mikkelrask/scripts" target="_blank">scripts</a> at det hele foregår, og her vil jeg hurtigt gennemgå hvad de gør, og hvordan man kan gøre brug af dem.
+<p>Dette er i øvrigt ikke ment som en showcase af mine scripts som sådan, det mere ment som at vise hvor nemt man kan implementere ting, som, selvom de er lidt <i>hacky</i>, er på et så low level plan og så få linjer kode, at idéen er nem at kan adaptes eller omskrives til helt andre applikationer.</p><ul>
+    <li><a href="#confirm">confirm (sh)</a></li>
+    <li><a href="#linkhandler">linkhandler (bash)</a></li>
+    <li><a href="#linkhandler">pomodoro (sh)</a></li>
+    <li><a href="#router-reboot">router-reboot.sh (sh)</a></li>
+    <li><a href="#server-services">server-services (bash)</a></li>
+
+</ul>
+</p>
+<h3 id="confirm">
+    confirm (sh)
+</h3>
+<p>
+    Dette lille bitte shell/<a href="https://suckless.org/dmenu" target="_blank">dmenu</a> script er lavet til at tage to argumenter; det første er hvad vi vil promptes, altså hvad vi skal "confirm". Den næste er selve kommandoen vi skal køre, hvis vi bekræfter prompten med "yes".     
+</p>
+<p>
+    En god usecase kunne være måden jeg selv bruger det på, som er til at bekræfte at jeg vil lukke min computer ned. Jeg benytter en custom window manager, hvor basicly alt er skræddersyet til mit eget workflow, og her er keybinds/shortcuts alfa omega. Trykker jeg på shift+super(windows key)+x har min computer altid bare lukket ned. Kommer man dog til det utilsigtet, lukker computeren bare ned, og alt der ikke er gemt, eller kun gemt i bufferen nu væk. 
+</p>
+<p>
+    Derfor har jeg nu lavet min keybind om til at køre confirm scriptet således:
+    <pre>confirm "Do you want to shut down?" "shutdown now"</pre>
+
+    hvilket åbner dmenu med prompten "Do you want to shut down?", og skriver jeg yes (eller bare noget af ordet) og klikker <code>enter</code> køres kommandoen <code>shutdown now</code>, som lukker computeren.
+</p>
+<p><strong>Script:</strong><pre>#!/bin/sh
+[ $(echo -e "No\nYes" | dmenu -i -p "$1") == "Yes" ] && $2</pre></p>
+<p><strong>Direct download:</strong>
+    <pre>curl https://raw.githubusercontent.com/mikkelrask/scripts/master/confirm -o ~/bin/confirm && chmod +x ~/bin/confirm</pre>
+
+<strong>Github: <a href="https://raw.githubusercontent.com/mikkelrask/scripts/master/confirm" target="_blank">https://raw.githubusercontent.com/mikkelrask/scripts/master/confirm</a></strong>
+</p><hr>
+<h3>
+    linkhandler (bash)
+</h3>
+<p>
+    Dette bash script minder i sig selv rigtig meget om confirm scriptet, i dét at vi giver det et argument, og vi derfra får nogle forskellige valgmuligheder via <code>dmenu</code>.
+</p>
+<p>
+    Meningen er her, at argumentet er et link vi vil åbne, og <code>dmenu</code> giver mig en liste over typiske programmer jeg vil bruge til at håndtere linket. Er det et YouTube link den får, vælger jeg typisk at afspille direkte i <a href="https://mpv.io" target="_blank"><code>mpv</code></a>, ligesom jeg ofte benytter mig af <a href="https://github.com/michael-lazar/rtv" target="_blank"><code>rtv</code></a> til at håndtere reddit links.
+</p>
+<p>
+    ... og så fremdeles. Der er options til vim baserede browsere (<a href="https://fanglingsu.github.io/vimb/" target="_blank"><code>vimb</code></a>), terminal baserede browsers (<a href="http://w3m.sourceforge.net/" target="_blank"><code>w3m</code></a>via <a href="https://gitlab.com/gardenappl/readability-cli" target="_blank"><code>readability-cli</code></a>), image viewers (feh), og endda mulighed for at caste videoer, sange o.l direkte til en chromecast compatibel enhed via <a href="https://github.com/xat/castnow" target="_blank"><code>castnow</code></a>.
+</p>
+<p>Måden den er integreret i mit eget flow er via min rss-reader, <a href="https://newsboat.org" target="_blank"><code>newsboat</code></a>, som håndterer alle mine nyheder og podcasts. Åbner jeg et link med genvejen 'o' køres kommandoen <pre>linkhandler %url%</pre>
+hvilket åbner dmenu med således (klik for fuld størrelse):
+<a href="/linkhandler.gif" target="_blank"><img src="/linkhandler.gif" title="linkhandler opening link from newsboat" alt="linkhandler opening link from newsboat"></a></p>
+<p>
+    <strong>Script:</strong>
+    <pre>
+#!/bin/bash
+
+if [[ "${#1}" -gt 30 ]];
+then
+link="${1:0:20}"..."${1: -7}"
+else
+link="$1"
+fi
+
+echo $link
+
+x=$(echo -e "mpv\nfeh\nrtv\nfirefox\nvimb\nw3m\nwget\nTV\nStereo" | dmenu -i -p "Where do we go from here '$link'?")
+case "$x" in
+        mpv) mpv "$1" 2&>/dev/null & disown ;;
+        feh) feh "$1" 2&>/dev/null & disown ;;
+        rtv) rtv "$1" ;;
+        firefox) firefox "$1" ;;
+        vimb) vimb "$1" & disown ;;
+        w3m) readable "$1" | w3m -T text/html & ;;
+        wget) wget "$1" 2&>/dev/null & disown ;;
+        tv) castnow --address PUT-CHROMECAST-IP-HERE "$1" ;;
+        stereo) castnow --address PUT-CHROMECAST-AUDIO-IP-HERE --quiet - "$1" ;;
+esac
+    </pre>
+</p>
+<p><strong>Direct download:</strong>
+<pre>curl https://raw.githubusercontent.com/mikkelrask/scripts/master/linkhandler -o ~/bin/linkhandler && chmod +x ~/bin/linkhandler</pre>
+<strong>Github: </strong><a href="https://raw.githubusercontent.com/mikkelrask/scripts/master/linkhandler" target="_blank">https://raw.githubusercontent.com/mikkelrask/scripts/master/linkhandler</a></p><hr>
+<h3 id="pomodoro">pomodoro (sh)</h3>
+<p>Meget meget simpel pomodoro timer, der lader dig arbejde i 25 minutters intervaller, og giver dig 5 minutters pause derefter. Alt scriptet gør, er at gå i dvale i forudbestemte intervaller, i et loop, indtil det scriptet stoppes (CTRL+C). Den giver output i form af en notifikation, terminal output og den afspiller en lyd. </p>
+<p>I loopet benytter jeg <code>mpv</code> til at afspille <a href="pomodoro.mp3">pomodoro.mp3</a>, <code>libnotify</code> til at sende en notifikation og <code>cowsay</code> til at give output direkte i terminalen. Oddsne er, at du har en af dem, hvis ikke alle installeret i forvejen.</p>
+<p><strong>Script:</strong>
+<pre>
+#!/bin/sh
+notify-send "Pomodoro started." "Work concentrated for 25 minutes."
+
+while true
+do
+	clear
+	cowsay "25 minutes"
+	sleep 25m
+	notify-send "Issa time" "Get some rest"
+	mpv --quiet pomodoro.mp3
+  clear
+	cowsay "Take a break!"
+	sleep 5m
+	notify-send "Get to it!" "Time to work!"
+	mpv --quiet pomodoro.mp3
+done</pre></p>
+<p><strong>Direct download:</strong>
+<pre>
+curl https://raw.githubusercontent.com/mikkelrask/scripts/master/pomodoro -o ~/bin/pomodoro && chmod +x ~/bin/pomodoro && wget https://github.com/mikkelrask/scripts/raw/master/pomodoro.mp3 -P ~/bin/
+</pre>
+<strong>Github: </strong><a href="https://raw.githubusercontent.com/mikkelrask/scripts/master/pomodoro" target="_blank">https://raw.githubusercontent.com/mikkelrask/scripts/master/pomodoro</a></p><hr>
+<h3 id="router-reboot">router-reboot.sh</h3>
+<p>Okay, så min router er flashet med en custom firmware der hedder <code><a href="https://openwrt.org/" target="_blank">openWRT</a></code>, hvilket jeg <i>tror</i> hører til minoriteten, men basicly laver <code>openWRT</code> min router til en linux-router. Som man kan <code>ssh</code> ind i, køre scripts på osv. En meget lille, og begrænset linux maskine, men en linux maskine trods alt. </p>
+<p>Så for at komme nedetid på mit internet til livs, tjekker jeg løbende om routeren kan pinge 8.8.8.8, som er Google's DNS IP adresse, som er en af de IP adresser jeg stoler på så godt som altid er online, og kan routeren ikke pinge den, venter den 30 sec. og prøver igen. </p>
+<p>Fejler den også 2. gang, genstartes routeren, som alle jo ved er hvordan man i alle scenarier fixer at internettet ikke virker. Den tilføjer ligeledes et dato mærke i filen <code>reboot.log</code>, som den selv generer.</p>
+<p>Jeg kører scriptet som et cronjob hvert kvarter. Læs om cron jobs og generer crontab kommandoer nemt her: <a href="https://crontab-generator.org/" target="_blank">https://crontab-generator.org/</a></p>
+<p><strong>Script:</strong>
+<pre>
+#!/bin/sh
+
+if ping -c 1 8.8.8.8 &> /dev/null
+then 
+	exit	
+else
+	sleep 30
+	if ping -c 1 8.8.8.8 &> /dev/null
+	then 
+		exit
+	else
+		date >> reboot.log
+		reboot
+	fi
+fi
+</pre></p>
+<p>
+    <strong>Direct download:</strong>
+    <pre>curl https://raw.githubusercontent.com/mikkelrask/scripts/master/router-reboot.sh -o /reboot-router.sh</pre>
+<strong>Github: </strong><a href="https://raw.githubusercontent.com/mikkelrask/scripts/master/router-reboot.sh" target="_blank">https://raw.githubusercontent.com/mikkelrask/scripts/master/router-reboot.sh</a></p><hr>
+<h3 id="server-services">server-services (bash)</h3>
+<p>Dette script burde nok <i>egentlig</i> hedde noget andet, for, for det første er det et bash script, ikke et shell script, og så er det selvfølgeligt heller ikke begrænset til at køres på nogen server. Det er dog lavet til at, i dette tilfælde, er en ubuntu server der skal tjekke op på om hhv. apache og mysql kører, og hvis ikke, genstarte servicen.</p>
+<p>Hvilke services scriptet tjekker, kan selvfølgeligt ændres i <code>SERVICES</code> array'et på 5. linje.</p>
+<p>Kører scriptet hver minut som et cron job, med <code>crontab -e</code>, hvor jeg tilføjer linjen <code>* * * * * /usr/bin/bash /server-services.sh >/dev/null 2>&1</code>.</p>
+<p>
+    <strong>Script:</strong>
+<pre>
+#!/bin/bash
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+SERVICES=( 'apache2' 'mysql' )
+
+ for i in "${SERVICES[@]}"
+  do
+ `pgrep $i >/dev/null 2>&1`
+ STATS=$(echo $?)
+
+ if [[  $STATS == 1  ]]
+
+  then
+  service $i start
+  `pgrep $i >/dev/null 2>&1`
+  RESTART=$(echo $?)
+
+  if [[  $RESTART == 0  ]]
+   then
+    if [ -f "/tmp/$i" ]; 
+    then
+     rm /tmp/$i
+    fi
+
+	else
+    if [ ! -f "/tmp/$i" ]; then
+     touch /tmp/$i
+
+    fi
+  fi
+ fi
+  done
+exit 0;
+</pre></p>
+<p><strong>Direct download:</strong>
+<pre>curl https://raw.githubusercontent.com/mikkelrask/scripts/master/server-services.sh -o /server-services.sh && chmod +x /server-services.sh</pre>
+<strong>Github: </strong><a href="https://raw.githubusercontent.com/mikkelrask/scripts/master/server-services.sh" target="_blank">https://raw.githubusercontent.com/mikkelrask/scripts/master/server-services.sh</a></p>
+<footer><div class=author><div class=author-img><img src=/profile.jpg class=avatar loading=lazy width=42 height=42></div><div class=author-title>af <strong><a href='https://mikkelrask.github.io/'>Mikkel Rask</a></strong></div>
+<div class=author-description>Computernørden.  Linux entusiast, light weight hacker, grafisk designer og kreativt legebarn bosat i København. Har arbejdet med computere hele mit liv, og ser en computers kunnen som en naturlig udvidelse af min egen. </div></div></footer>
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<title>https://mikkelrask.github.io/</title>
+<link rel='stylesheet' type='text/css' href='Mikkel Rask'>
+<meta charset='utf-8'/>
+</head>
+<body>
+<h1></h1>
+<small>[<a href='#'>link</a>&mdash;<a href=''>standalone</a>]</small>
+
+<footer><div class=author><div class=author-img><img src=/profile.jpg class=avatar loading=lazy width=42 height=42></div><div class=author-title>af <strong><a href='https://mikkelrask.github.io/'>Mikkel Rask</a></strong></div>
+<div class=author-description>Computernørden.  Linux entusiast, light weight hacker, grafisk designer og kreativt legebarn bosat i København. Har arbejdet med computere hele mit liv, og ser en computers kunnen som en naturlig udvidelse af min egen. </div></div></footer>
+</body>
+
+</html>
