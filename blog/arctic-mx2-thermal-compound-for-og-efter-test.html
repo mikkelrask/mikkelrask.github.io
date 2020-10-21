@@ -71,13 +71,13 @@ Gns: 90,2 Min: 85 Max: 92</p><hr>
 <p><a href="https://www.pricerunner.dk/pl/184-3659487/Computer-koeling/Arctic-MX-2-4g-Sammenlign-Priser" target="_blank">Arctic MX-2 Thermal Compound</a> - fra 37,- + porto<br>
 <a href="">Thermal Paste Remover/Cleaner</a></p><hr>
 <p><b>Temperaturscript:</b> (kræver <a href="https://wiki.archlinux.org/index.php/Lm_sensors" taget="_blank">lm-sensors</a>)<br>
-    <code>#!/bin/bash<br>
+    <pre>#!/bin/bash<br>
         for i in {1..15}<br>
         do<br>
           sensors | grep id | awk -F+ '{print $2}' | awk '{print $1}'<br>
           sleep 15<br>
         done
-        </code>
+    </pre>
 </p>
 <p><b>Gør filen eksekverbar:</b><br>
     <code>chmod +x <i>/lokation/til/temperaturscript</i></code></p>
