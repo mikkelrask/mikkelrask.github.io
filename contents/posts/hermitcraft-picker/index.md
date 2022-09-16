@@ -2,8 +2,8 @@
 title: "⛏️ Hermitcraft Youtube Picker"
 description: "Ulækker simpelt python script, der lynhurtigt åbner seneste video, med din yndlings hermitcraft content creator."
 date: 2020-10-15
-tags: 
- - python
+tags:
+  - python
 ---
 
 Jeg indrømmer **blank** her, at jeg ikke har skabt noget fantastisk, unikt eller nødvendigvis smart, men.. ..i takt med at jeg lærer mig selv lidt python scripting, roder jeg med ofte med en masse forskellige libraries, og nogle gange er de bare for nemme at sætte sammen, til at jeg kan lade være.

@@ -3,9 +3,9 @@ title: "🛟 router-reboot"
 description: "Lille bitte script til at bekræfte handlinger eks via dmenu"
 date: 2020-09-14
 updated: 2022-09-14
-tags: 
-    - shell
-    - scripts
+tags:
+  - shell
+  - scripts
 series: "CLI Scripts"
 ---
 
@@ -19,16 +19,16 @@ Jeg kører scriptet som et cronjob hvert kvarter. Læs om cron jobs og generer c
 
 Script:
 
-``` bash
+```bash
 #!/bin/sh
 
 if ping -c 1 8.8.8.8 &> /dev/null
-then 
-	exit	
+then
+	exit
 else
 	sleep 30
 	if ping -c 1 8.8.8.8 &> /dev/null
-	then 
+	then
 		exit
 	else
 		date >> reboot.log
@@ -36,6 +36,7 @@ else
 	fi
 fi
 ```
+
 Direct download:
 
 `curl https://raw.githubusercontent.com/mikkelrask/scripts/master/router-reboot.sh -o /reboot-router.sh`

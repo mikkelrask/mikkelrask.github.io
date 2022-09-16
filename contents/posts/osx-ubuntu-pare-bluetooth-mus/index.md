@@ -2,10 +2,10 @@
 title: "🖱️ Pare bluetooth devices med dual-boot i Ubuntu og OSX"
 description: "Sæt din bluetooth mus op på en dual boot laptop, uden at skulle pare hver gang du skifter OS!"
 date: 2018-09-16
-tags: 
- - linux
- - osx
- - ble
+tags:
+  - linux
+  - osx
+  - ble
 ---
 
 Da jeg roder meget med arduinos og lignene microcontrollere, afhænger jeg en smule af Arduino IDE, og efter seneste OSX beta; Mojave mangles der support/drivere til den USB til serial forbindelse man bruger til at ‘snakke’ med sine microcontrollere via USB kabel. Lang historie kort, er det endt med at jeg har partitioneret en del af min SSD harddisk, og har (ligesom Brønderslev Kommune) valgt at installere Ubuntu Gnome 17.04 — et skrivebordsmiljø á la det som vi kender som fx Windows eller Mac OSX. Det kan selvfølgeligt af de fleste ses som værende mega overkill at installere et helt styresystem for at bruge en enkelt applikation, men jeg gjorde det ligeså meget for at lære noget mere om Linux, og forventer lidt mere stabilitet end ved at fx bruge en virtuel maskine a la VM Ware el. Virtualbox. Men problemerne stopper selvfølgeligt ikke der! Jeg bruger nemlig med trådløs bluetooth mus og tastatur, og det komplicerede er her, at hver gang jeg booter op i et af mine to styresystemer, skal jeg på ny pare mine bluetooth enheder med det pågældende system, da der ved successfuld paring genereres et unikt sæt linkkeys/paringskoder/passkeys, som bliver gemt sammen med enhedens MAC adresse.
@@ -13,14 +13,14 @@ Da jeg roder meget med arduinos og lignene microcontrollere, afhænger jeg en sm
 Den problemstilling findes der selvfølgeligt nok ligeså mange løsninger på, som der findes linuxdistributioner (og her i 2018 er det er en god sjat), men jeg måtte selv klatte sammen hvad jeg kunne finde af informationer på emnet, så jeg tænkte at jeg ville skrive ned hvad jeg gjorde, for at få kopieret mine nøgler fra mit MacOSx over i mit Ubuntu Gnome miljø. Det burde virke på de fleste debian baserede linux distributioner, men som med alt i livet, er der ingen garantier.
 TL;DR
 
- - Start Linux og par dine bluetooth enheder
- - Genstart ind i MacOSx og par dine enheder
- - Åben Terminal.app og indtast følgende kommando
- - sudo defaults read /private/var/root/Library/codeferences/com.apple.Bluetoothd.plist
+- Start Linux og par dine bluetooth enheder
+- Genstart ind i MacOSx og par dine enheder
+- Åben Terminal.app og indtast følgende kommando
+- sudo defaults read /private/var/root/Library/codeferences/com.apple.Bluetoothd.plist
 
 Det skulle gerne give dig en kode a la det her alt efter hvor mange enheder du har tilsluttet:
 
-``` bash
+```bash
 {
     LinkKeys ={
         “20-c9-d0-d6-74-c6” ={
@@ -50,9 +50,11 @@ Forvirret? Vi laver et fiktivt eksempel — lad os antage at din paringskode fra
 Tag de to første tegn (a og b) og sæt dem bagerst — de to næste tegn (f og c) og sætter næstbagerst og så fremdeles så vi ender med en kode der ser sådan ud E28EFCAB
 
 Giver det stadig ikke mening kan du bruge denne kommando til at automatisere dette for dig. X’erne udskifter du med din linkkey og resultatet bliver skrevet i terminalen — kopier denne.
+
 ```
 echo XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX | sed 's/ //g;s/../\U&\n/g' | tac | tr -d '\n't
 ```
+
 Når du har dine korrekt formatterede linkkeys genereret skal du `cd` til din bluetooth konfigurations mappe
 `cd /var/lib/bluetooth/[DIN BLUETOOTH MAC ADRESSE]/[DIN MUS' MAC ADRESSE]` .
 

@@ -2,9 +2,9 @@
 title: "🍅 pomodoro"
 description: "Lille bash pomodoro timer"
 date: 2020-12-12
-tags: 
- - shell
- - scripts
+tags:
+  - shell
+  - scripts
 series: "CLI Scripts"
 ---
 
@@ -14,7 +14,7 @@ I loopet benytter jeg mpv til at afspille pomodoro.mp3, libnotify til at sende e
 
 Script:
 
-``` bash
+```bash
 #!/bin/sh
 notify-send "Pomodoro started." "Work concentrated for 25 minutes."
 

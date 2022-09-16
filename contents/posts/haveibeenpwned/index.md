@@ -26,7 +26,7 @@ For at gøre selve processen mere transparent, kan vi nemlig selv gøre arbejdet
 
 Så det første vi skal er at have SHA-1 summen af vores password. Det fikser vi med kommandoen
 
-``` echo -n "#DINADGANGSKODE" | openssl sha1```
+` echo -n "#DINADGANGSKODE" | openssl sha1`
 
 .
 Vigtigt er her, at du starter kommandoen med et mellemrum, så vil den (inkl din adgangskode) nemlig ikke gemmes i din terminal historik! Så ja. Start enten kommandoen med et mellemrum, eller slet selv linjen manuelt i historikken efterfølgende.

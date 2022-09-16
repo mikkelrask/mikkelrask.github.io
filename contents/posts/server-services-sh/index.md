@@ -3,9 +3,9 @@ title: "🐕‍🦺 server-services"
 description: "Genstarter services, der af den ene eller anden årsag ikke kører. Tænkt til en server, hvor fx apache eller mysql kører."
 date: 2020-08-11
 updated: 2022-09-14
-tags: 
-    - shell
-    - scripts
+tags:
+  - shell
+  - scripts
 series: "CLI Scripts"
 ---
 
@@ -17,7 +17,7 @@ Kører scriptet hver minut som et cron job, med crontab -e, hvor jeg tilføjer l
 
 Script:
 
-``` bash
+```bash
 #!/bin/bash
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
@@ -36,7 +36,7 @@ SERVICES=( 'apache2' 'mysql' ) # hvilke services vi overvåger
   RESTART=$(echo $?)
   if [[  $RESTART == 0  ]]
    then
-    if [ -f "/tmp/$i" ]; 
+    if [ -f "/tmp/$i" ];
     then
      rm /tmp/$i
     fi

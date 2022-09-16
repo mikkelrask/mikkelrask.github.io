@@ -3,10 +3,10 @@ title: "🧠 ADHD og TECH"
 description: "Hvordan jeg griber ADHD an, med redskaber fra tech verdenen."
 date: 2021-07-24
 tags:
- - ADHD
+  - ADHD
 ---
 
-Jeg er inden for det senste år blevet diagnostisere med ADHD. Og hvor folk der kender mig personligt, faktisk oftest ikke tænker at det matcher særlig godt til min ellers generelt ret afslappede person, så passer udfordringer som jeg har mødt både gentagende gange, men oftest løbende igennem hele livet, ret så godt. ADHD er nemlig meget mere end bare at være et *hyperaktiv “dampbarn”*.
+Jeg er inden for det senste år blevet diagnostisere med ADHD. Og hvor folk der kender mig personligt, faktisk oftest ikke tænker at det matcher særlig godt til min ellers generelt ret afslappede person, så passer udfordringer som jeg har mødt både gentagende gange, men oftest løbende igennem hele livet, ret så godt. ADHD er nemlig meget mere end bare at være et _hyperaktiv “dampbarn”_.
 
 Det sagt er jeg ingen ekspert på området, og jeg har jo kun haft de seneste 12 måneder til at gå mere målrettet til værks i min søgen på at forbedre mig selv. Så de tips jeg vil komme med, ift at have ADHD og arbejde i tech er en blanding af, hvad der indtil videre har virket positivt for mig, samt de helt almindelige produktivitetstips jeg har samlet op igennem livet, i en søgen på at lette de udfordringer som jeg ikke før nødvendigvis vidste kom fra ADHD.
 
@@ -14,13 +14,15 @@ De samme tips går nemlig igen og ofte rebrandet til folk med ADHD/ADD. Så jeg 
 
 Her først noterer jeg nogle generelle produktivitetstips, hvorefter jeg skriver nogle der er mere konkret møntet på techy-folk.
 
->“I am like a toolbox,
->with all the tools I will ever need
->lain gently and neatly in the box,
->ready for me to use them.
+> “I am like a toolbox,
+> with all the tools I will ever need
+> lain gently and neatly in the box,
+> ready for me to use them.
 >
->The toolbox is translucent so I can see them there.
->The key to the toolbox is locked inside of it.”
+> The toolbox is translucent 
+> so I can see them there.
+> The key to the toolbox 
+> is locked inside of it.”
 
 ## 🛠️ Brug dine værktøjer
 
@@ -36,11 +38,12 @@ Uanset om det er en god idé du skal huske på, en pakkeliste før du skal ud og
 
 Hvor folk med ADHD ofte kan være kreative og have masser af idéer der ligger uden for normokognitives tankemønstre, så er hukommelsen ofte værre, fordi ja. Så snart tanken er tænkt, er vi videre i dagens tekst. ADHD 🤷
 
-Derfor har jeg gjort dét, at få mine skrevet mine tanker ned, så ekstraordinært nemt for mig som muligt. Jeg skal bare klikke på `Win+N` på min computer, så åbnes mit notetagningsprogram med det samme, og har oprettet en note med dags dato, hvor den har sat markøren, klar til at skrive, lige under et time-stamp for, hvornår noten er oprettet. Simpelt! 
+Derfor har jeg gjort dét, at få mine skrevet mine tanker ned, så ekstraordinært nemt for mig som muligt. Jeg skal bare klikke på `Win+N` på min computer, så åbnes mit [notetagningsprogram](/notevim) med det samme, og har oprettet en note med dags dato, hvor den har sat markøren, klar til at skrive, lige under et time-stamp for, hvornår noten er oprettet. Simpelt!
 
 Åbner jeg igen senere samme dag (fordi jeg er jo fyldt med gode idéer!), jamen så kommer der et nyt timestamp, med markøren under, klar til at skrive.
 
 Dem har jeg så sat tid af, én gang om ugen til at gennemgå, og evt. putte i en backlog hvis de skal det, sætte en reminder eller hvad ved jeg. Lyt evt. med her i DR P1 podcasten Kortsluttet, hvor de taler med Interaction Design Professor ved Aarhus Universitet, Peter Dalsgaard, om at “udvide hukommelsen ved hjælp fra apps og digitale workflows”, det er ret spændende på en perfekt nørdet måde.
+
 ## 📆 Fyld din kalender ud
 
 Nu nævnte jeg ovenfor netop ordet “reminder”, og det er ofte lige hvad vores ADHD hjerner har brug for. Det kan godt ske, at vi udskyder ting, fordi ting forekommer mondæne og kedelige, men ofte er ting så langt væk fra vores “nu”, at det ikke engang er i vores tanker, at eks. vasketøjet lige skal klares.
@@ -48,6 +51,7 @@ Nu nævnte jeg ovenfor netop ordet “reminder”, og det er ofte lige hvad vore
 Jeg har plastret mere eller mindre alle opgaver for min uge ind i min kalender, med en reminder når det starter. Det er alt fra arbejdsopgaver, arbejdstidsrum, vasketøj, til indkøb, ture med hunden osv. I starten var det lidt overvældende, det skal jeg ærligt indrømme. Men dét at de er skrevet ned, giver os et pre-commitment til, at det faktisk er en opgave vi både ved vi skal i mål med, og højest sansynlig gerne vil i mål med.
 
 En anden ting jeg synes er vigtig at tage med ved brug af en digital kalender er, at hvis ikke jeg når eks. at lave en specifik opgave i det tidsrum jeg har sat af, så er kalenderblokken supernem at flytte et par timer, eller til jeg har tiden til det igen. Så sikrer jeg at jeg i hvert fald, at jeg får endnu en reminder om det.
+
 ## 🏃 Dyrk motion
 
 Hvis du føler du har for meget energi, og derved svært ved at sidde eller stå stille ved skrivebordet, kan det være du kan gavne af mere motion. Hvor WHO anbefaler at alle får mininum 150 aktive minutter (aktiv = pulsen over norm), tror jeg godt vi kan gøre det bedre. Jeg er by no means nogen jock eller træningsjunkie, men studier viser tydeligt at daglig kardio træning kan nedsætte symptomerne af ADHD.
@@ -55,6 +59,7 @@ Hvis du føler du har for meget energi, og derved svært ved at sidde eller stå
 Hvis ikke du specifikt vil tabe dig samtidigt, kan eks. en tjep gåtur også sagtens tælle med i det større regnskab, men gavner selvsagt ikke lige så meget som en løbetur, cykeltur eller en 30 minutter ved ro-maskinen. (Kilde: Trust me, bro)
 
 Jeg løber jo kun selv, når folk løber efter mig, så selv går jeg ca. 10km dagligt istedet, da jeg alligevel skal ud med hunden, og så cykler helst hvor jeg end nu skal hen. Så fx i denne uge har mit smart watch tracket 770+ aktive minutter (man-fre), så det er altså nemt at komme over de anbefalede 21.5 minutter om dagen, som 150 minutter ugentlig ender ud i.
+
 ## 🌈 Mindfullness
 
 Det er en af dem jeg synes er rigtig svær. Selve disciplinen i at sidde (stille!) og være mindfull, strider jo basicly imod alt hvad koncentrationsbesvær står for, og kan derfor være en ekstra udfordring. Jeg har alligevel prøvet af mange omgange, men sjældent med stor succes. Alligevel føler jeg den skal nævnes her, da — hvis du kan få noget ud af det, så virker det til at være en god måde at træne dét at holde dit fokus.
@@ -66,6 +71,7 @@ Den bedste oplevelse jeg har haft er via guidet mediation i app’en Atom, der u
 En anden type jeg har haft held med, er når jeg er ude at gå, så ud over at “bare” kunne holde øje med mit åndedræt, ligesom når jeg sidder og mediterer, at jeg her også kan bruge eks. det musik jeg har i ørerne til at træne mit fokus. Når der kommer et nyt track på, vælger jeg et instrument/element jeg holder fokus på. “Okay, i det her track, lytter jeg kun efter hi-hatten”, fx.
 
 Det er nok ikke best practice, hvis du spørger de professionelle, men det er de små skridt, der tæller for os.
+
 ## 🧘 Yoga
 
 Lidt i forlængelse af det med at få motion, vil jeg slå et slag for yoga. Yoga kan i sig selv virke helt meditativt, når man er kommet ind i det, og så sender det en masse ilt rundt i kroppen, når vi strækker ud og bruger vores muskler. Akkurat som når vi styrketræner eller løber en tur.
@@ -73,9 +79,11 @@ Lidt i forlængelse af det med at få motion, vil jeg slå et slag for yoga. Yog
 Og ud over at der er rigeligt evidens for yogas virken både på krop og sind, så synes jeg at det er ekstra vigtigt for os, der har et hovedsageligt stillesidende arbejde — eks alle os der arbejder med vores computer hele dagen. At vi lige får strukket ud efter at have siddet på de forfærdelige IKEA kontorstole vores CEO har købt, eller fordi vi sidder foroverbøjet ved spisebordet/på caféen og arbejder hele dagen i takt med at work from home, er blevet mere udbredt.
 
 Jeg har løbende gået til kiropraktor igennem mit liv, når ryggen har føltes træt og stiv, men efter en uge med yoga fik jeg åbenbaringen; “Jeg behøves nok aldrig at skulle til kiropraktor igen” 🤷
+
 ## 🌊 Vand
 
 Ja. Det er lidt et røvsygt tip i sig selv, men det er til gengæld kort; Husk nu at drikke vand. Selvfølgeligt ikke sådan obsessive eller noget, men generel er der konsensus om, at noget så simpelt som at holde sig selv godt hydreret, hjælper hjernen til både at huske bedre, men også at fokusere bedre. Og ja, du gættede rigtigt; Det at huske at drikke vand (og spise), viser sig at være en udfordring for folk med ADHD.
+
 ## 🔕 Ingen notifikationer
 
 Dopamin spiller mange vigtige roller i vores krop, og er bl.a styret af vores belønningssystem. Når vi har gjort noget godt, får vi lige et sprøjt dopamin, der giver dig en følelse af eufori, i et eller andet omfang. Det udløses når vi vinder i sport, dyrker sex, får likes på instagram, ja, you name it.
@@ -93,6 +101,7 @@ Det er tilbage til dét jeg nævnte i starten om, at gøre de ting der er svære
 Generelt set vil jeg anbefale at vælge alle unødige, ikke-vigtige notifikationer fra på din mobil — også når du har fri — da vi med ADHD er mere pronet til at lade os afhænge af den dopamin eks. notifikationer, likes or not, kan udløse. Om ikke andet, i hvert fald vælge notifikationen frem for det mondæne arbejde vi jo skal lave. Ugh!
 
 Min telefon er på komplet lydløs — ikke engang vibrator eller noget! Og kun opkald, og ganske få apps som medicin huskere, kalendernotifikationer og reminders får lov at blive sendt videre til mit smartwatch.
+
 ## 💻 Reducer din skærmtid
 
 Nogle af de dele af hjernen der regulerer vores søvn, er de samme som styrer vores fokus og opmærksomhed. Du har sikkert selv bemærket, hvor din opmærksomhed er, efter en dårlig nats søvn?
@@ -104,6 +113,7 @@ Dvs. den udløses senere på døgnet og du som resultat heraf føler dig træt, 
 Normalvis er lys en af de signaler hjernen bruger, når den vurderer om vi skal sove eller arbejde, eller i det hele taget være vågne. Det gælder selvsagt også det lys fra vores iDevices, androids, TV og hvad har vi. Er der lyst, kan vores hjerner tolke det som om, at dagen er i fuld gang, og vi selvfølgeligt ikke skal sove. Så derfor er det en god idé at være mindfull om, hvor meget skærmtid du har. Og selvom det er en del af dit job, og med god sansynlighed også hobby, prøv at holde det til et minimum.
 
 Prøv evt. at sætte et tidspunkt, hvor du siger godnat til din telefon og computer.
+
 ## 🖤❤️ Dark mode + Red filter
 
 Ligesom tippet overnfor, er det igen vores melatonin udløsning vi passer på her. Ud over, at der ikke er nogen der har lyst til at sidde hele dagen og kode i en lys IDE, så hjælper dét at aktivere Dark Mode også på at minimere lyset der rammer vores øjne. Brug det endeligt i de apps der understøtter, både på din mobil og computer.
@@ -121,6 +131,7 @@ Et projekt af gangen 🚀
 Vi vil alle gerne være the next billionaire company going to the moon! Men lad os tage et skridt af gangen. Multitasking er for det første en myte, og folk der har ADHD er fra start værre stillet ift at mentalt organisere ting, som eks. arbejdsopgaver, og især flere af dem på samme tid.
 
 Selvom vi måske ønsker flydende arbejdsopgaver, fordi det pleaser vores konstante stræben efter et nyt fokuspunkt, så er vi altså meget mere effektive, hvis vi fokuserer på én ting af gangen. Hvilket leder os til det næste punkt ⬇️
+
 ## 🍅 Pomodoros
 
 Inden for tech verdenen er pomodoro teknikken en ret populær produktivitetsteknik, og det er den af en grund. Fordi den virker. Hvis ikke du kender til den, kan du evt. læse teknikkens opfinder Francesco Cirillo bog “The Pomodoro Technique” (Læse? En bog? Ha! Som om!), men kogt helt ned, så er pomodoro teknikken som følgende:
@@ -133,7 +144,7 @@ Inden for tech verdenen er pomodoro teknikken en ret populær produktivitetstekn
 
 Det virker måske for simpelt til at det kunne gøre nogen som helst forskel, men vi kender faktisk allerede i forvejen rutinen og effekten heraf fra de sprints vi laver, nå vi arbejder med scrum projekt håndtering, hvor vi før arbejdet begynder, sort på hvidt får gjort klart, præcist hvilke opgaver vi vil komme igennem de kommende 7–14 dage.
 
-En af de vigitge faktorer for pomodoro er nemlig *pre-commitment*, hvor vi før vi går igang, siger højt (eller som minimum over for os selv) at vi vil lave disse opgaver i denne specifikke periode. Vi _comitter_ os, vi engagerer os selv.
+En af de vigitge faktorer for pomodoro er nemlig _pre-commitment_, hvor vi før vi går igang, siger højt (eller som minimum over for os selv) at vi vil lave disse opgaver i denne specifikke periode. Vi _comitter_ os, vi engagerer os selv.
 
 Se evt. her, for en kort gennemgang af selve effekten af precommitment.
 
@@ -211,7 +222,7 @@ Min morgenrutine ser eks således ud:
 Det sikrer at jeg når godt op ad stigen ift mine daglige gøremål helt fra morgenstunden. Hunden skal selvsagt ud et par gange mere, men det at jeg HVER DAG vågner kl. 7, dyrker motion/yoga og mediterer, gør at der er bare en lidt større sansynlighed for at jeg også er, om ikke andet bare lidt, mere træt om aftenen, og mere rolig og mindfull i løbet af dagen.
 
 At jeg har gjort denne rutine i 1,5 mdr. nu har klart gjort at tingene kører lidt mere på autopilot end før, og det gør bl.a. at mit opmærksomhed er mindre rodet, fordi der er mindre at tænke på.
-Det med småt*
+Det med småt\*
 
 Jeg laver her overnfor nogle generaliseringer om at være diagnosticeret med ADHD, de udfordringer man møder, og hvordan man kan gribe nogle af dem an.
 

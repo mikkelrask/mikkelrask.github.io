@@ -2,9 +2,9 @@
 title: "💻 linkhandler %url%"
 description: "Lille bash script til at spørge dig, hvordan du vil åbne et givent link"
 date: 2020-11-12
-tags: 
- - shell
- - scripts
+tags:
+  - shell
+  - scripts
 series: "CLI Scripts"
 ---
 
@@ -18,11 +18,12 @@ Måden den er integreret i mit eget flow er via min rss-reader, newsboat, som h�
 
 `linkhandler %url%`
 
-hvilket åbner dmenu med således (klik for fuld størrelse): 
+hvilket åbner dmenu med således (klik for fuld størrelse):
 [![linkhandler opening a youtube link from newsboat](https://mikkelrask.github.io/linkhandler.gif)](https://mikkelrask.github.io/linkhandler.gif)
 
 **Script:**
-``` bash
+
+```bash
 #!/bin/bash
 
 if [[ "${#1}" -gt 30 ]];
@@ -54,4 +55,4 @@ esac
 
 Github: [github.com/mikkelrask/](https://raw.githubusercontent.com/mikkelrask/scripts/master/linkhandler)
 
-Øvrige links: 
+Øvrige links:

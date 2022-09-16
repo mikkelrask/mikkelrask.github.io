@@ -3,8 +3,8 @@ title: "🔍 tingfinder.py"
 description: "Gennemgang af en dba pris scraper lavet i python"
 date: 2021-02-16
 tags:
- - python
- - selenium
+  - python
+  - selenium
 ---
 
 Så har jeg igen lavet et lille script, som nok kun jeg kommer til at gøre brug af, men ikke desto mindre vil jeg dele min lille rejse med jer.
@@ -15,7 +15,5 @@ Jeg har nemlig lavet en webscraper, der scraper hhv. `Den Blå Avis`, `Gul&Grati
 
 Se med her, hvor jeg demonstrerer dens funktion, samt hvor nem den er at installere.
 Videogennemgang og installation af tingfinderen
-
-
 
 Github: [github.com/mikkelrask/tingfinder](https://github.com/mikkelrask/tingfinder)

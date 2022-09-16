@@ -16,6 +16,7 @@ Når man krypterer filer lyder for nogle måske som sort snak, og for andre som 
 Kort fortalt er kryptering computerens svar på det at låse sin hoveddør. Bare fordi man er taget på arbejde, forventer man ikke at folk bare går ind i ens hjem og roder rundt, men alligevel låser man gerne lige døren inden man tager afsted. Du ved - bare for en sikkerheds skyld. Og vi skal selvfølgeligt også have låst hoveddøren på vores computere, tablets og hvad vi ellers bruger af apparater i løbet af vores hverdag.
 
 For selvom du måske har en kode på din computer, eller en møsterlås eller sågar en fingeraftryksscanner på din telefon, er det slet ikke sikkert at dit data er ja.... sikkert. Folk der vil have adgang til dit data, kan nemlig præcist få det, eksempelvis via deres eget styresystem på en USB nøgle, lige så nemt du selv kan navigere ind på din harddisk, hvis ikke den er krypteret. Og da både vores smartphones og vores computere i dag indeholder mere personlig information om os, end nærmest noget andet, gennemgår vi her trin for trin, hvordan du sikrer dine devices, uanset hvilken større platform du bruger.
+
 ## Kodeords-styrke
 
 Men før man rigtigt kan drøfte kryptering, bliver man også nødt til at kort vende kodeords-styrke først. Det er nemlig 100% styrken af denne der afgør hvor lang tid det eventuelt vil tage at en computer at ‘gætte’ din adgangskode, og derved tilmane sig adgang til din ellers beskyttede data via såkaldt [simple_tooltip content='Brute force indenfor kryptografi er når en computer eller en hacker ud fra en algoritme afprøver adgangskoder, indtil den rigtige bliver fundet. ']brute force[/simple_tooltip] - rå kraft. For at gøre det sværest muligt for selv supercomputere skal du lave et kodeord med et mix af store og små bogstaver, tal og special-tegn. Ifølge sikkerhedseksperter mindst 10 tegn, og helst gerne 12 eller derover. Og helst i en tilfældig rækkefølge uden nogen som sådan struktur.
@@ -32,4 +33,3 @@ Men nu hvor vi har styr på vores kodeord, så lad os ned i det! Vælg din platf
 
 Computerstyresystemer: Windows (7 & 10) | Mac OS | Linux
 Smartphone/Tablets: Windows Phone | iOS | Android
-
