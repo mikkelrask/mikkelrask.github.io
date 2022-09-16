@@ -1,2 +1,2 @@
-require("prismjs/themes/prism-tomorrow.css")
+require("./static/prism-gruvbox-dark.css")
 require("katex/dist/katex.min.css")
