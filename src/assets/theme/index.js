@@ -9,6 +9,22 @@ const GRAY2 = "#e9ecef"
 const GRAY1 = "#f1f3f5"
 const GRAY0 = "#f8f9fa"
 
+// gruvbox
+const BG = "#282828"
+const BG1 = "#3C3835"
+const BG2 = "#504943"
+const BG3 = "#665c54"
+const BG4 = "#7C6f64"
+const FG = "#ebdbb2"
+const ORANGE = "#fe8019"
+const GREEN = "#98171a"
+const AQUA = "#8ec07c"
+const RED = "#fb4934"
+const BLUE = "#83a598"
+const FG0 = "#fbf1c7"
+const FG1 = "#ebdbb2"
+const FG2 = "#d5c4a1"
+
 export const light = {
   name: "light",
   colors: {
@@ -50,37 +66,37 @@ export const light = {
 export const dark = {
   name: "dark",
   colors: {
-    bodyBackground: GRAY9,
-    text: GRAY0,
-    secondaryText: GRAY4,
-    tertiaryText: GRAY5,
-    mutedText: GRAY6,
-    hoveredLinkText: GRAY9,
-    border: GRAY5,
-    activatedBorder: GRAY3,
-    background: GRAY8,
-    icon: GRAY5,
-    divider: GRAY8,
-    headerBackground: "rgba(33, 37, 41, 0.85)",
+    bodyBackground: BG,
+    text: FG,
+    secondaryText: FG,
+    tertiaryText: ORANGE,
+    mutedText: FG2,
+    hoveredLinkText: ORANGE,
+    border: ORANGE,
+    activatedBorder: BG3,
+    background: BG,
+    icon: AQUA,
+    divider: BG1,
+    headerBackground: "rgba(40, 40, 40, 0.85)",
     headerShadow: "rgba(255, 255, 255, 0.08)",
-    inlineCodeBackground: GRAY7,
-    inlineCodeBackgroundDarker: GRAY8,
-    tagBackground: GRAY8,
-    selectedTagBackground: GRAY2,
-    hoveredTagBackground: GRAY7,
-    hoveredSelectedTagBackground: GRAY1,
+    inlineCodeBackground: BG3,
+    inlineCodeBackgroundDarker: BG2,
+    tagBackground: AQUA,
+    selectedTagBackground: BLUE,
+    hoveredTagBackground: ORANGE,
+    hoveredSelectedTagBackground: RED,
     nextPostButtonBackground: "rgba(255, 255, 255, 0.05)",
     hoveredNextPostButtonBackground: "rgba(255, 255, 255, 0.08)",
-    seriesBackground: GRAY8,
-    tagText: GRAY2,
-    selectedTagText: GRAY9,
-    spinner: GRAY1,
-    scrollTrack: GRAY8,
-    scrollHandle: GRAY6,
-    blockQuoteBorder: GRAY7,
-    blockQuoteBackground: GRAY8,
-    textFieldBorder: GRAY7,
-    textFieldActivatedBorder: GRAY6,
+    seriesBackground: BG2,
+    tagText: BG,
+    selectedTagText: BG,
+    spinner: GREEN,
+    scrollTrack: BG1,
+    scrollHandle: BG3,
+    blockQuoteBorder: ORANGE,
+    blockQuoteBackground: BG3,
+    textFieldBorder: BG4,
+    textFieldActivatedBorder: BG3,
     tableBackground: "#292e33",
   },
 }
