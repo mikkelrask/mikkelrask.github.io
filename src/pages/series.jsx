@@ -42,11 +42,11 @@ const SeriesPage = ({ data }) => {
 
       <TagListWrapper>
         {series.length > 0 && (
-          <Title size="sm">There are {series.length} series.</Title>
+          <Title size="sm">Der er {series.length} blog-serier.</Title>
         )}
       </TagListWrapper>
 
-      {series.length === 0 && <NoContent name="series" />}
+      {series.length === 0 && <NoContent name="blog-serier" />}
 
       <VerticleSpace size={32} />
 

@@ -2,11 +2,9 @@
 title: "🐕‍🦺 server-services"
 description: "Genstarter services, der af den ene eller anden årsag ikke kører. Tænkt til en server, hvor fx apache eller mysql kører."
 date: 2020-08-11
-updated: 2022-09-14
 tags:
   - shell
   - scripts
-series: "CLI Scripts"
 ---
 
 Dette script burde måske egentlig hedde noget andet, for, for det er selvfølgeligt ikke begrænset til at køres på nogen server. Det er dog lavet specifikt til at, i dette tilfælde, er en ubuntu server, tjekke op på om hhv. `apache` og `mysql` kører, og hvis ikke, genstarte servicen. Pretty straight forward.

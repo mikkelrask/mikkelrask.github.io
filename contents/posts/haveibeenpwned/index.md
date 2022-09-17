@@ -7,7 +7,6 @@ tags:
   - passwords
   - leaks
   - haveibeenpwned
-series: "Sikkerhed 101"
 ---
 
 ## haveibeenpwned.com

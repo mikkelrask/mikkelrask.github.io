@@ -20,7 +20,7 @@ Det information serveres så på et statisk genereret website, så ejerne af Ban
 
 I projektets ånd er BANKETHUSET 100% drevet af solen, via et solcellepanel der lader et batteri op, som holder den lille enhed kørende.
 
-**Den fysiske enhed er bestående af:**
+## BANKEHUSET består af:
 
 - DS18B20U
 - ESP8266/NodeMCU

@@ -12,6 +12,6 @@ const Wrapper = styled.div`
   color: ${props => props.theme.colors.tertiaryText};
 `
 
-const NoContent = ({ name }) => <Wrapper>There is no {name}.</Wrapper>
+const NoContent = ({ name }) => <Wrapper>Ingen {name}.</Wrapper>
 
 export default NoContent

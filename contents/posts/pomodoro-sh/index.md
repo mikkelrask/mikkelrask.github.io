@@ -5,7 +5,6 @@ date: 2020-12-12
 tags:
   - shell
   - scripts
-series: "CLI Scripts"
 ---
 
 Meget meget simpel pomodoro timer, der lader dig arbejde i 25 minutters intervaller, og giver dig 5 minutters pause derefter. Alt scriptet gør, er at gå i dvale i forudbestemte intervaller, i et loop, indtil det scriptet stoppes (CTRL+C). Den giver output i form af en notifikation, terminal output og den afspiller en lyd.

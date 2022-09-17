@@ -6,7 +6,6 @@ updated: 2022-09-14
 tags:
   - shell
   - scripts
-series: "CLI Scripts"
 ---
 
 ## confirm %question% %command%

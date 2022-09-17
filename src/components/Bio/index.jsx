@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import {
   FaGithub,
-  FaKaggle,
+  FaTwitter,
   FaFacebook,
   FaLinkedin,
   FaInstagram,
@@ -82,7 +82,7 @@ const Link = ({ link, children }) => {
 }
 
 const Bio = () => {
-  const { github, kaggle, instagram, facebook, linkedIn, email, etc } = links
+  const { github, twitter, instagram, facebook, linkedIn, email, etc } = links
 
   return (
     <BioWrapper id="bio">
@@ -94,8 +94,8 @@ const Bio = () => {
           <Link link={github}>
             <FaGithub />
           </Link>
-          <Link link={kaggle}>
-            <FaKaggle />
+          <Link link={twitter}>
+            <FaTwitter />
           </Link>
           <Link link={instagram}>
             <FaInstagram />

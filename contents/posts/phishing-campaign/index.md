@@ -4,8 +4,6 @@ description: "Gennemgang af en phishing kampagne, hvordan den er sat op og hvord
 date: 2018-09-18
 tags:
   - cybersikkerhed
-  - social-engeneering
-series: "Sikkerhed 101"
 ---
 
 **_Der florerer for tiden rigtig mange forskellige phishing kampagner via diverse medier — både sociale medier, e-mail og SMS. Forbrugerombudsmanden advarede forleden, i en pressemeddelelse imod netop nogle af de abonnements-kampagner jeg i takt med mit arbejde hos uniqkey har brugt lidt tid på at undersøge._**

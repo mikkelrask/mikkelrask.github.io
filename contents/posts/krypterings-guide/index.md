@@ -6,7 +6,6 @@ update: 2021-04-01
 tags:
   - kryptering
   - passwords
-series: "Sikkerhed 101"
 ---
 
 ## Hvordan man krypterer (næsten) alt

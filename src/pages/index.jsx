@@ -19,9 +19,7 @@ const BlogIndex = ({ data }) => {
   if (posts.length === 0) {
     return (
       <p>
-        No blog posts found. Add markdown posts to &quot;content/blog&quot; (or
-        the directory you specified for the &quot;gatsby-source-filesystem&quot;
-        plugin in gatsby-config.js).
+        Ingen blogs fundet. Se [raske.xyz](https://raske.xyz) eller [@raske.xyz](https://instagram.com/raske.xyz).
       </p>
     )
   }
