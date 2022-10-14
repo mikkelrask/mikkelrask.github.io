@@ -1,7 +1,7 @@
 module.exports = {
   title: "mikkelrask.github.io",
   description:
-    "Computernørden. Linux entusiast, hardware hacker, tinkerer og generelt kreativt legebarn bosat i København. Har arbejdet med computere hele mit liv, og ser en deres kunnen som en naturlig udvidelse af min egen.",
+    "Computernørden. Hobby futurist, linux entusiast, hardware hacker og tinkerer og generelt kreativt legebarn. Bosat i Københavns Nordvest kvarter med min hund Homie. Jeg har arbejdet med computere hele mit liv, og ser en deres kunnen som en naturlig udvidelse af min egen.",
   author: "mikkelrask",
   siteUrl: "https://mikkelrask.github.io/",
   links: {
