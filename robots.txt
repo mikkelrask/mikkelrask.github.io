@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://mikkelrask.github.io/gatsby-starter-hoodie/sitemap/sitemap-index.xml
+Sitemap: https://mikkelrask.github.io/sitemap/sitemap-index.xml
 Host: https://mikkelrask.github.io
