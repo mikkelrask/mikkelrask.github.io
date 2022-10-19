@@ -1,21 +1,24 @@
 ---
 title: "📡 Hverdagshack: Smart Dørtelephone med Blynk"
-description: "Gør din dørtelefon til en \"smartphone\" med IoT tjenesten Blynk og et 5V relæ"
+description: 'Gør din dørtelefon til en "smartphone" med IoT tjenesten Blynk og et 5V relæ'
 date: 2017-08-15
 updated: 2022-09-12
 tags:
- - tinkering
- - hardware
+  - tinkering
+  - hardware
 ---
+
 ## Update 2022
-**The Blynk app/service I used in this project is being fased out, and by the end of 2022 you won't be able to reach their free servers, through this app anymore. The app itself will tell you all about it, since theres a newer one called `Blynk IoT` instead. Havent used that one though.** 
-## _Smart_ dørtele_phone_
+
+**The Blynk app/service I used in this project is being fased out, and by the end of 2022 you won't be able to reach their free servers, through this app anymore. The app itself will tell you all about it, since theres a newer one called `Blynk IoT` instead. Havent used that one though.**
+
+## _Smart_ dørtele*phone*
 
 med NodeMCU, Arduino og Blynk
 
 Som videoen [her](https://www.instagram.com/p/BX0B3k_gD4X/) illustrerer har jeg lavet et lille smart hack i min dørtelefon, der gør at jeg kan åbne for mine gæster uden at rejse mig, for at trykke på knappen – endda uanset hvor i verdenen jeg er. Det er opnået med en WiFi microcontroller (NodeMCU) på mit hjemmenetværk, et 5v relæ board og online servicen [Blynk](https://blynk.io).
 
-Skulle du føle dig inspireret så se herunder, hvor simpelt det faktisk er! 
+Skulle du føle dig inspireret så se herunder, hvor simpelt det faktisk er!
 
 _Opdateret udgave: Mine nære venner har nu mulighed for at hente en custom app, som giver dem adgang._
 
@@ -29,7 +32,7 @@ Første skridt er at anskaffe en [NodeMCU](https://www.ebay.co.uk/sch/i.html?_fr
 
 ## Tilslutte NodeMCU+relæ
 
-Når varerne er hjemme, tager du udgangspunkt i diagrammet til det meget nemme setup set herunder. 
+Når varerne er hjemme, tager du udgangspunkt i diagrammet til det meget nemme setup set herunder.
 
 `5V` på MCU'en går til `+` på relæet, hvor `GND` går til `-`, og du kan bruge basicly enhver GPIO til `signal`. Jeg valgte pin `D4`.
 
@@ -47,7 +50,7 @@ Når det meget nemme setup er klaret, skal du, hvis ikke du allerede har, instal
 
 ## Programmering!
 
-Programmeringsdelen til dette i forvejen simple setup er næsten lige så ligetil. Det er _vitterligt_ et nærmest tomt eksempeltdokument fra Blynk biblioteketet, hvor vi herfra bruger deres app til at sætte det sidste op.  
+Programmeringsdelen til dette i forvejen simple setup er næsten lige så ligetil. Det er _vitterligt_ et nærmest tomt eksempeltdokument fra Blynk biblioteketet, hvor vi herfra bruger deres app til at sætte det sidste op.
 
 Alt koden egentlig gør er egentlig at give Blynk adgang til vores microcontroller, via deres servere der gør det muligt at åbne og lukke relæet fra alle steder i verden, og selvfølgeligt sætte vores lille app op via interfacet i deres mobil app.
 
@@ -59,8 +62,9 @@ Når det er gjort skal vi åbne koden herunder, der er fra Blynk biblioteket, so
 
 Her skal vi blot indtaste vores `SSID` ("Wifi navn" på linje 50 – udskift `YourNeworkName`), kode dertil (linje 51 – udskift `YourPassword`) samt det auth token (linje 46 – udskift `YourAuthToken`) som Blynk har sendt til din e-mail. Har du ikke modtaget denne, kan du tjekke din spam folder på din indbakke. Alternativt kan den findes i Blynk appen ved at klikke på tandhjulet ved dit projekt.
 
-## "Getting started" Kode  
-``` c++
+## "Getting started" Kode
+
+```c++
 /*************************************************************
 Download latest Blynk library here:
 https://github.com/blynkkk/blynk-library/releases/latest
@@ -128,5 +132,3 @@ void loop()
 Blynk.run();
 }
 ```
-
-

@@ -7,7 +7,6 @@ tags:
   - scripts
 ---
 
-
-``` bash
+```bash
 
 ```

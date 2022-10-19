@@ -19,9 +19,9 @@ Her først noterer jeg nogle generelle produktivitetstips, hvorefter jeg skriver
 > lain gently and neatly in the box,
 > ready for me to use them.
 >
-> The toolbox is translucent 
+> The toolbox is translucent
 > so I can see them there.
-> The key to the toolbox 
+> The key to the toolbox
 > is locked inside of it.”
 
 ## 🛠️ Brug dine værktøjer

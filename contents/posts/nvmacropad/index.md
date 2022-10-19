@@ -21,7 +21,7 @@ NV Macro Pad er et typisk macro pad baseret på en Arduino Pro Micro, programmer
 - 7 x push buttons
 - 7 x 4K7 modstand
 
-![Første prototype](/nvmacropad.jpg)
+![Første prototype](nvmacropad.jpg)
 
 ## Features
 
@@ -33,7 +33,7 @@ De forskellige _preset banks_ navigeres som sagt via encoderen med hjælp af dis
 
 Første prototype er et mess - i stedet for at lave et push button matrix, har jeg i første omgang blot dedikeret én GPIO pin til hver push button, da jeg jo ikke har flere push buttons end jeg har var dét at lodde det op, ikke det værste jeg nogensinde har oplevet.
 
-![v 0.1](/wirehell.jpg)
+![v 0.1](wirehell.jpg)
 Men pt ser resultatet således ud, så selvom jeg godt kan lide det der halvfærdige hacky/cyberpunk'y look, er det helt klart at det ikke er sådan her det kommer til at se ud for evigt!
 
 ## PCB Design

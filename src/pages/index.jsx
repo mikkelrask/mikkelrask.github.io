@@ -19,7 +19,8 @@ const BlogIndex = ({ data }) => {
   if (posts.length === 0) {
     return (
       <p>
-        Ingen blogs fundet. Se [raske.xyz](https://raske.xyz) eller [@raske.xyz](https://instagram.com/raske.xyz).
+        Ingen blogs fundet. Se [raske.xyz](https://raske.xyz) eller
+        [@raske.xyz](https://instagram.com/raske.xyz).
       </p>
     )
   }
