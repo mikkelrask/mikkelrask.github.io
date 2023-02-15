@@ -32,7 +32,7 @@ const Profile = styled.div`
   margin-right: 16px;
   width: 100px;
   height: 128px;
-  background-image: url(${profileImageRoot}/profile.png);
+  background-image: url(${profileImageRoot}/profile_sb.png);
   background-size: contain;
   background-position: center;
 `
