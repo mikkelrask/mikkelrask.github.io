@@ -152,8 +152,9 @@ Generelt vil jeg anbefale alle at se hele videoen fra start til slut. Det er “
 
 Jeg har i øvrigt skrevet den pomodoro timer jeg selv bruger, som et bash-script du kan finde her.
 
-Ekstra tip: Er en almindelig pomodoro timer ikke lige dig, kan du eventuelt tjekke podcasten “Flow State” ud. Den er en podcsat af programmør Bobby Lyte, og formatet er kurateret playliste af elektronisk “koncentrationsmusik”, nøje tilrettelagt med 5 minutters binaural beats, ca. hver halve time, og fungerer således også som en slags pomodoro timer.
-Tilpas dit arbejdsmiljø 🖥️
+**Ekstra tip:** Er en almindelig pomodoro timer ikke lige dig, kan du eventuelt tjekke podcasten “[Flow State](https://open.spotify.com/show/4IssY4XjHXdpTNOzpaeyxh)” af Bobby Lyte ud. Den er en podcsat af programmør Bobby Lyte, og formatet er kurateret playliste af elektronisk “koncentrationsmusik”, nøje tilrettelagt med 5 minutters binaural beats, ca. hver halve time, og fungerer således også som en slags pomodoro timer.
+
+## Tilpas dit arbejdsmiljø 🖥️
 
 Det er et ret bredt emne, men det hele kommer tilbage til dét at gøre ting nemmere for dig selv. Skal du læse dokumentationen for Next.js igennem for 4. gang, men bliver ved med at ende på Youtube? Prøv at have en fidget spinner/fidget box eller whatever, så hænderne er væk fra din mus og tastatur imens du læser.
 
@@ -162,7 +163,7 @@ Bliver du stresset over at sidde ned konstant? Måske du skal have dig et hæve 
 Føler du at du har for megen energi, til at kunne sidde eller stå stille? Måske du skal have dig et walking desk.
 
 Husk det ikke er dumt, hvis det virker.
-Brug din and 🦆
+## Brug din and 🦆
 
 Jeg ved ikke med dig, og hvordan du er kommet ind i dit fag, men da jeg eks gik på webintegrator forløb, fik vi af vide, at vi skulle hjælpe hinanden, fordi dét at forklare ting, over for en anden, hjælper på at selv forstå selvsamme ting meget bedre. Det sidder bedre fast i hukommelsen, der bliver måske stillet spørgsmål til indgange, som ikke var dækket i din oprindelige forklaring osv.
 
@@ -171,7 +172,7 @@ Det er en ret gengs teori, der ofte videreføres over i techverden som rubber du
 Det er derfor at man ofte ser en gummiand på skrivebordet, i diverse kontorlandskaber.
 
 Forklar problemet/udfordringen/projektet, linje for linje, som var det en der ikke anede noget om det til at starte ud med — eks en dum gummi and. For hvad ved den om kodning?
-Programmer dig ud af dine problemer ⌨️
+## Programmer dig ud af dine problemer ⌨️
 
 Som du måske har lagt mærke til, så har jeg i løbet af dette indlæg skrevet om både mit notetagningsprogram og min pomodoro app, som jeg selv har programmeret.
 
@@ -180,7 +181,7 @@ Men det kunne ligeså vel være at du selv lavede en interaktiv to-do liste (eks
 Det er én måde at arbejde med dig selv på, og konstant udvide din førnævnte værktøjskasse, samtidigt med at du laver noget du godt kan lide.
 
 Der er ikke noget fast facit, og du kan justere alle parametre, så de hjælper din situation bedst. Alt hvad der kan gøre ting nemmere for dig selv, kan have en betydning.
-Sæt pris på alle dine succeser 🥇
+## Sæt pris på alle dine succeser 🥇
 
     “Mikkel er så kvik, han kan altså godt — hvis han lige tager sig lidt mere sammen!”
     — Citat: Alle skolelærere Mikkel nogensinde har haft.
@@ -200,24 +201,24 @@ For hver lille ting du sætter dig for og kommer i mål med; Fejr din fortjente 
 
     “Today is better than yesterday, and tomorrow will be better than today”
 
-Konstant årvågenhed 👀
+## Konstant årvågenhed 👀
 
 Hvis du læser sådan et indlæg som dette, er oddsne for at at du har læst mange andre ligende ret høj. Dvs du også udmærket ved, at langt fra alle tips, tricks og lifehacks virker, og sjældent ikke engang holder ved i længden.
 
 Men lige nøjagtigt derfor, er det vigtigt at være vågen og opmærksom på hvad der faktisk virker, hvad der ikke virker, hvad der forsvinder ud af rutinen igen, og hvad der bliver hængende.
 
 Du vil således altid kunne gå tilbage til din værktøjskasse, og vælge “Alright — i denne uge får rubber duck debugging et forsøg mere”, eller hvad ved jeg.
-Rutiner
+## Rutiner
 
 Sjovt hvordan dét man har svært ved, altid er de vigtigste faktorere. Men det er vist bare som det er. Og det er næsten et gennemgående tema i dette indlæg, at vi skal gøre tingene så lette for os selv, som overhovedet muligt. Kommer man ind i en rytme, hvor rutinen bliver til en vane, kører tingene mere per automatik, frem for det er noget vi først aktivt skal tage en beslutning om at gøre.
 
 Min morgenrutine ser eks således ud:
-07:00 Vågn, drik et glas vand og skyl ansigtet med vand.
-07:05 Dyrk yoga i 20 minutter.
-07:30 15 minutters meditation efterfulgt af 5 minutters åndedrætsøvelser.
-07:50 Lav kaffe
-08:00 Gå tur med Homie i 60 minutter (med kaffen)
-09:00 Bad
+- 07:00 Vågn, drik et glas vand og skyl ansigtet med vand.
+- 07:05 Dyrk yoga i 20 minutter.
+- 07:30 15 minutters meditation efterfulgt af 5 minutters åndedrætsøvelser.
+- 07:50 Lav kaffe
+- 08:00 Gå tur med Homie i 60 minutter (med kaffen)
+- 09:00 Bad
 
 Det sikrer at jeg når godt op ad stigen ift mine daglige gøremål helt fra morgenstunden. Hunden skal selvsagt ud et par gange mere, men det at jeg HVER DAG vågner kl. 7, dyrker motion/yoga og mediterer, gør at der er bare en lidt større sansynlighed for at jeg også er, om ikke andet bare lidt, mere træt om aftenen, og mere rolig og mindfull i løbet af dagen.
 
