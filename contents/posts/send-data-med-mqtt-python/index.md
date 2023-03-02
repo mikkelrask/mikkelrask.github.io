@@ -134,7 +134,7 @@ def publish(client):
 
 
 ## Komplet kode
-Og kæder vi dem alle sammen får vi denne komplette kode
+Og kæder vi dem alle sammen får vi denne komplette kode:
 
 ```python
 import time
@@ -184,3 +184,6 @@ def run():
 if '__name__' == '__main__':
     run()
 ```
+
+## DIYIFTTT
+Og så simpelt kan det faktisk gøres. Det er sådan noget der kan være med til at give væsentlig mere frihed end eks consumer IoT produkter, men også mere kreativ data - hvem siger at dataen vi laver vores home automation ud fra, skal være fra temperatur data, fugtighedsmålere, tryk-sensorer eller lign? Hvad hvis jeg vil have alle lamper i mit hjem til at blinke hver gang Steelers scorer en touch down? Eller hvis jeg vil have at min forstærker automatisk tænder hver gang jeg sætter musik på Spotify, og befinder mig i stuen? Svaret er nok, at jeg vil prøve at bruge MQTT og Home Assistant til at gøre det fra nu af. 
