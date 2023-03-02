@@ -1,5 +1,5 @@
 module.exports = {
-  title: "mr@github$-: █",
+  title: "mr@github:~$ █",
   description:
     "Computernørden. Hobby futurist, linux entusiast, hardware hacker og tinkerer og generelt kreativt legebarn. Bosat i Københavns Nordvest kvarter med min hund Homie. Jeg har arbejdet med computere hele mit liv, og ser en deres kunnen som en naturlig udvidelse af min egen.",
   author: "mikkelrask",
