@@ -11,7 +11,7 @@ Et af de emner jeg ser som et naturligt _next step_ for mit _home-lab_ eventyr, 
 
 ## MQTT & decouple
 
-Men da vi jo ikke er nogen rock star programmør, starter vi selvfølgeligt ud med at hente arbejdet fra nogen der er. For der findes selvfølgeligt adskillige python biblioteker, der alle kan gøre vores programmerings proces endnu nemmere.
+Men da vi jo ikke er nogen rock star programmør, starter vi selvfølgeligt ud med at hente arbejdet fra nogen der er. For der findes selvfølgeligt adskillige python biblioteker, der alle kan gøre vores proces endnu nemmere.
 
 ### MQTT
 
@@ -29,7 +29,7 @@ pip install paho-mqtt decouple
 
 ## .env til "secrets"
 
-Nu er det jo ikke fordi jeg er nogen gammel gud i Python, tvært i mod, men selvom jeg laver et super lille projekt som sådan en MQTT publisher her, vil jeg gerne bestræbe mig efter at gøre tingene så _best practice_ som giver mening. Så at skrive sensitive data som API nøgler i .env filer, o.l prøver jeg at altid have med i mit workflow. Mit ADHD har desværre et par gange efterlad API nøgler på github, så jeg tager det med i samtlige projekter herfra.
+Selvom jeg laver et super lille projekt som sådan en MQTT publisher her, vil jeg gerne bestræbe mig efter at gøre tingene så _best practice_ som giver mening. Så at skrive sensitive data som API nøgler i .env filer, o.l prøver jeg at altid have med i mit workflow. Mit ADHD har desværre et par gange efterlad API nøgler på github, så jeg tager det med i samtlige projekter herfra.
 
 Ved man ikke hvad en .env fil er, er det en (skjult) fil, der indeholder de "secrets" du ikke har lyst til at skal figurere i din programkode.
 
@@ -66,7 +66,7 @@ from decouple import config
 from paho.mqtt import mqtt_client
 ```
 
-Efterfulgt af at vi declare diverse variabler
+Efterfulgt af at vi declare vores variabler
 
 ```py
 URL = config(api-endpoint)
@@ -79,29 +79,65 @@ PASS = config('mqtt-pass')
 ```
 
 ### connect_mqtt()
+Vi laver en funktion der connecter vores app til vores MQTT broker. Det er super simpelt, og som taget ud af [pypi-kodeeksemplet](https://pypi.org/project/paho-mqtt/#usage-and-api).
+```python
+def connect_mqtt():
+    def on_connect(client, userdata, flags, rc):
+        if rc == 0:
+            print(f"Tilsluttede til `{BROKER}`!")
+        else:
+            print("Kunne ikke tilslutte, return code %d\n", rc)
+    client = mqtt_client.Client(CLIENT_ID) # Henter CLIENT ID fra .env
+    client.username_pw_set(USER, PASS)  #           -- || --
+    client.on_connect = on_connect      #           -- || --
+    client.connect(BROKER, PORT)        #           -- || --
+    return client
+```
 
-### publish()
+
 
 ## Fetch dataen fra API'en
-
+Vi skal jo have noget data fra en datakilde, som vi er interesserede i at få enten præsenteret i en graf eller på et dashboard eller lign. Her henter vi temperatur data med `request`' indbyggede `get`funktion fra en node API, hvor vi får responset tilbage i json: 
+```py
+RESPONSE = requests.get(URL).json()
+WATERTEMP = RESPONSE['data'][0]['temperature']
+msg = f"{WATERTEMP}"
+result = client.publish(TOPIC, msg)
+# result: [0, 1]
+status = result[0]
+```
 ## Publish dataen til din broker
+I én og samme omgang kan vi ligeså godt - nu vi har fat i dataen, skubbe den videre til vores broker, _wrapped_ ind i en publish funktion:
+```py
+def publish(client):
+     while True:
+        RESPONSE = requests.get(URL).json()
+        WATERTEMP = RESPONSE['data'][0]['temperature']
+        msg = f"{WATERTEMP}"    # Vores response indeholde andre vejrdata 
+                                # her sendes kun vandtemperaturen.
+        result = client.publish(TOPIC, msg)
+        status = result[0] # Her tjekker vi status på vores request (0 = OK, 1 = ERR)
+        if status == 0:
+            print(f"Sendte `{msg}` til `{TOPIC}`")
+        else:
+            print(f"Kunne ikke sende `{msg}` til `{TOPIC}`")
+        # Lige dette projekt kræver at opdatere 
+        # oplysningerne hvert kvarter - altså 900 sekunder.
+        time.sleep(900)
+```
+
+
 
 ## Komplet kode
+Og kæder vi dem alle sammen får vi denne komplette kode
 
 ```python
-"""
-MQTT publisher
-Installer dependencies/requirements
-med `pip install decouple paho.mqtt`
-"""
-#imports
 import time
 import random
 import requests
 from decouple import config
 from paho.mqtt import mqtt_client
 
-# erklærer variabler
 URL = config(api-endpoint)
 BROKER = config(mqtt-broker)
 PORT = config(mqtt-port)
@@ -116,7 +152,6 @@ def connect_mqtt():
             print(f"Tilsluttede til `{BROKER}`!")
         else:
             print("Kunne ikke tilslutte, return code %d\n", rc)
-    # Sætter Client ID
     client = mqtt_client.Client(CLIENT_ID)
     client.username_pw_set(USER, PASS)
     client.on_connect = on_connect
@@ -129,13 +164,11 @@ def publish(client):
         WATERTEMP = RESPONSE['data'][0]['temperature']
         msg = f"{WATERTEMP}"
         result = client.publish(TOPIC, msg)
-        # result: [0, 1]
         status = result[0]
         if status == 0:
             print(f"Sendte `{msg}` til `{TOPIC}`")
         else:
             print(f"Kunne ikke sende `{msg}` til `{TOPIC}`")
-        # Lige dette projekt kræver at opdatere oplysningerne hvert kvarter - altså 900 sekunder.
         time.sleep(900)
 
 def run():
@@ -145,6 +178,4 @@ def run():
 
 if '__name__' == '__main__':
     run()
-
-
 ```

@@ -1,15 +1,17 @@
 ---
-title: "🗒️ nvim notetaker"
-description: "Mit mini script til at nemt oprette en ny note for hver dag, og gå direkte til den med `mod+n`"
+title: "🗒️ nvim diary"
+description: "vim-script til at nemt oprette en ny note for hver dag, med timestamp."
 date: 2021-05-09
+updated: 2023-03-02
 tags:
   - shell
   - scripts
+  - neovim
 ---
 
 Jeg skal blot klikke på `Win+N` på min bærbare, så åbnes mit notetagningsprogram med det samme og har oprettet dagens note, og givet den dags dato som filnavn og til slut, sat markøren klar til at skrive, lige under et time-stamp for, hvornår noten er oprettet. Simpelt!
 
-Åbner jeg igen senere samme dag (fordi jeg er jo fyldt med gode idéer!), jamen så kommer der et endnu et timestamp, med markøren under, klar til at skrive.
+Åbner jeg igen senere samme dag (_fordi jeg er jo fyldt med gode idéer!_), jamen så kommer der selvfølgeligt et nyt timestamp, med markøren klar i _insert mode_ under, klar til at skrive.
 
 Noterne har jeg så sat tid af til at én gang om ugen til at gennemgå, og evt. putte i en backlog/jira/notion board hvis de skal det, lave en reminder på min telefon, begivenhed i min kalender eller hvad ved jeg.
 

@@ -13,7 +13,7 @@ published: false
 
 NV Macro Pad er et typisk macro pad baseret på en Arduino Pro Micro, programmeret via Platform.io. NV Macro Pad kan indstilles til mere eller mindre enhver tastekombination (eks. `ALT+F4`), kombination af taste handlinger (eks. `CTRL+c > ALT+TAB x 2 > CTRL + v`) eller blot køre deciderede scripts/ åbne konkrete apps.
 
-## Komponenter
+## Komponenter/BOM
 
 - Arduino Pro Micro
 - 0.96" display
@@ -25,13 +25,13 @@ NV Macro Pad er et typisk macro pad baseret på en Arduino Pro Micro, programmer
 
 ## Features
 
-NV Macro Pad har i toppen en rotary encoder, der som udgangspunkt en tiltænkt at skifte imellem forskellige _"preset banks"_, så hver knap kan have et teoretisk `n` antal funktionaliteter.
+NV Macro Pad har i toppen en rotary encoder, der som udgangspunkt en tiltænkt at skifte imellem forskellige _"preset banks"_, således hver trykknap kan have et teoretisk `n` antal funktionaliteter.
 
 Den kan selvfølgeligt også bruges til handlinger som volume kontrol, scroll, zoom, pan etc.
 
 De forskellige _preset banks_ navigeres som sagt via encoderen med hjælp af displayet, der viser hvilken _bank_ vi pt er i,og hvad hver knaps funktion gør i den pågældende bank.
 
-Første prototype er et mess - i stedet for at lave et push button matrix, har jeg i første omgang blot dedikeret én GPIO pin til hver push button, da jeg jo ikke har flere push buttons end jeg har var dét at lodde det op, ikke det værste jeg nogensinde har oplevet.
+Første prototype er et mess - i stedet for at lave et push button matrix, har jeg i første omgang blot dedikeret én GPIO pin til hver push button, da jeg jo ikke har flere push buttons end jeg har, var dét at lodde projektet faktisk ikke det værste jeg nogensinde har oplevet.
 
 ![v 0.1](wirehell.jpg)
 Men pt ser resultatet således ud, så selvom jeg godt kan lide det der halvfærdige hacky/cyberpunk'y look, er det helt klart at det ikke er sådan her det kommer til at se ud for evigt!
@@ -63,4 +63,3 @@ n/a (yet)
 
 Første prototype var lavet direkte i Arduino, for at finde de korrekte biblioteker der skulle bruges, og for at lære de forskellige non-standard komponenter lidt bedre at kende.
 
-Den brugte derfor

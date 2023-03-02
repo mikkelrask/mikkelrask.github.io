@@ -11,7 +11,7 @@ Meget meget simpel pomodoro timer, der lader dig arbejde i 25 minutters interval
 
 I loopet benytter jeg mpv til at afspille pomodoro.mp3, libnotify til at sende en notifikation og cowsay til at give output direkte i terminalen. Oddsne er, at du har en af dem, hvis ikke alle installeret i forvejen.
 
-Script:
+## Script:
 
 ```bash
 #!/bin/sh
@@ -33,5 +33,11 @@ done
 ```
 
 **Direct download:**
-`curl https://raw.githubusercontent.com/mikkelrask/scripts/master/pomodoro -o ~/bin/pomodoro && chmod +x ~/bin/pomodoro && wget https://github.com/mikkelrask/scripts/raw/master/pomodoro.mp3 -P ~/bin/`
-Github: [github.com/mikkelrask/scripts/](https://raw.githubusercontent.com/mikkelrask/scripts/master/pomodoro)
+
+```bash
+curl https://raw.githubusercontent.com/mikkelrask/scripts/master/pomodoro -o ~/bin/pomodoro \
+&& chmod +x ~/bin/pomodoro \
+&& wget https://github.com/mikkelrask/scripts/raw/master/pomodoro.mp3 -P ~/bin/
+```
+
+**Github:** [github.com/mikkelrask/scripts/](https://raw.githubusercontent.com/mikkelrask/scripts/master/pomodoro)

@@ -6,7 +6,28 @@ tags:
   - shell
   - scripts
 ---
-
+## 1
 ```bash
+
+
+```
+
+## 2
+```bash
+
+```
+
+## Python
+```python
+
+```
+
+## Passphrase generator
+### I bash
+```bash
+
+```
+### I python
+```python
 
 ```
