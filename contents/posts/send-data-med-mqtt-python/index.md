@@ -46,7 +46,7 @@ Jeg kører kommandoen
 ```bash
 mqtt-broker=192.168.1.100   # Indsæt selv IP adressen til din broker
 mqtt-port=1883              # Porten er typisk 1883
-mqtt-user=mqtt-user         # Dit brugernavn til din broke
+mqtt-user=mqtt-user         # Dit brugernavn til din broker
 mqtt-pass=k0BNAv612asABXyo6mODi5jXaofI29SxHFVOEGk8JCmF4M+GJpo0g
 api-endpoint=https://domæne.org/api/endpoint?query=0secondQuery=1
 
@@ -56,7 +56,7 @@ Og så er vi så små også ved at kunne _rigtigt_ gå i gang!
 
 ## Sæt i gang!
 
-Vi starter meget klassisk vores python dokument med imports.
+Vi starter meget klassisk vores python dokument med imports. Vi skal ud over paho-mqtt og decouple bruge requests til at fetches vores data, time til at sætte processen i dvale/sleep og random til at randomize vores MQTT client ID. 
 
 ```py
 import time
@@ -69,7 +69,7 @@ from paho.mqtt import mqtt_client
 Efterfulgt af at vi declare vores variabler
 
 ```py
-URL = config(api-endpoint)
+URL = config(api-endpoint)      # Alle deklarationer der bruger config(#foo) hentes fra .env
 BROKER = config(mqtt-broker)
 PORT = config(mqtt-port)
 TOPIC = "bankehuset/vand/temperatur/"
@@ -79,7 +79,7 @@ PASS = config('mqtt-pass')
 ```
 
 ### connect_mqtt()
-Vi laver en funktion der connecter vores app til vores MQTT broker. Det er super simpelt, og som taget ud af [pypi-kodeeksemplet](https://pypi.org/project/paho-mqtt/#usage-and-api).
+Vi skal connecte vores app til vores MQTT broker. Det er super simpelt, og som taget ud af [pypi-kodeeksemplet](https://pypi.org/project/paho-mqtt/#usage-and-api).
 ```python
 def connect_mqtt():
     def on_connect(client, userdata, flags, rc):
@@ -97,35 +97,40 @@ def connect_mqtt():
 
 
 ## Fetch dataen fra API'en
-Vi skal jo have noget data fra en datakilde, som vi er interesserede i at få enten præsenteret i en graf eller på et dashboard eller lign. Her henter vi temperatur data med `request`' indbyggede `get`funktion fra en node API, hvor vi får responset tilbage i json: 
+Vi skal jo have noget data fra en datakilde, som vi er interesserede i at få enten præsenteret i en graf eller på et dashboard eller lign. Her henter vi temperatur data med `requests`' indbyggede `get` funktion, fra en node API, hvor vi får responset tilbage i json: 
 ```py
-RESPONSE = requests.get(URL).json()
-WATERTEMP = RESPONSE['data'][0]['temperature']
-msg = f"{WATERTEMP}"
-result = client.publish(TOPIC, msg)
-# result: [0, 1]
-status = result[0]
+RESPONSE = requests.get(URL).json()             # Vores response indeholde andre 
+WATERTEMP = RESPONSE['data'][0]['temperature']  # her parser vi vandtemperaturen 
+msg = f"{WATERTEMP}"                            # og gør vores MQTT payload klar   
 ```
 ## Publish dataen til din broker
-I én og samme omgang kan vi ligeså godt - nu vi har fat i dataen, skubbe den videre til vores broker, _wrapped_ ind i en publish funktion:
+Og nu vi allerede har fat i dataen, så lad os med  skubbe den videre til vores broker, _wrapped_ ind i en publish funktion:
+```py
+result = client.publish(TOPIC, msg)
+status = result[0] # 0 = OK, 1 = ERR!
+```
+Og man kan jo så tjekke status med :
+```py
+if status == 0:
+    print(f"Sendte `{msg}` til `{TOPIC}`")
+else:
+    print(f"Kunne ikke sende `{msg}` til `{TOPIC}`")
+```
+og pakke det hele ind i en publish funktion:
 ```py
 def publish(client):
      while True:
         RESPONSE = requests.get(URL).json()
         WATERTEMP = RESPONSE['data'][0]['temperature']
-        msg = f"{WATERTEMP}"    # Vores response indeholde andre vejrdata 
-                                # her sendes kun vandtemperaturen.
+        msg = f"{WATERTEMP}"
         result = client.publish(TOPIC, msg)
-        status = result[0] # Her tjekker vi status på vores request (0 = OK, 1 = ERR)
+        status = result[0]
         if status == 0:
             print(f"Sendte `{msg}` til `{TOPIC}`")
         else:
             print(f"Kunne ikke sende `{msg}` til `{TOPIC}`")
-        # Lige dette projekt kræver at opdatere 
-        # oplysningerne hvert kvarter - altså 900 sekunder.
         time.sleep(900)
 ```
-
 
 
 ## Komplet kode
