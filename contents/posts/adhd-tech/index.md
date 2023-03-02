@@ -36,7 +36,7 @@ Uanset om det er en god idé du skal huske på, en pakkeliste før du skal ud og
 
 > “Hjernen er skabt til at få idéer, ikke opbevare dem”
 
-Hvor folk med ADHD ofte kan være kreative og have masser af idéer der ligger uden for normokognitives tankemønstre, så er hukommelsen ofte værre, fordi ja. Så snart tanken er tænkt, er vi videre i dagens tekst. ADHD 🤷
+Hvor folk med ADHD ofte [kan være kreative og have masser af idéer](https://www.understood.org/articles/en/adhd-and-creativity-what-you-need-to-know) der ligger uden for neurotypiskes tankemønstre, så er hukommelsen ofte værre, fordi ja. Så snart tanken er tænkt, er vi videre i dagens tekst. 
 
 Derfor har jeg gjort dét, at få mine skrevet mine tanker ned, så ekstraordinært nemt for mig som muligt. Jeg skal bare klikke på `Win+N` på min computer, så åbnes mit [notetagningsprogram](/notevim) med det samme, og har oprettet en note med dags dato, hvor den har sat markøren, klar til at skrive, lige under et time-stamp for, hvornår noten er oprettet. Simpelt!
 
@@ -46,19 +46,20 @@ Dem har jeg så sat tid af, én gang om ugen til at gennemgå, og evt. putte i e
 
 ## 📆 Fyld din kalender ud
 
-Nu nævnte jeg ovenfor netop ordet “reminder”, og det er ofte lige hvad vores ADHD hjerner har brug for. Det kan godt ske, at vi udskyder ting, fordi ting forekommer mondæne og kedelige, men ofte er ting så langt væk fra vores “nu”, at det ikke engang er i vores tanker, at eks. vasketøjet lige skal klares.
+### "hAr Du PrØvEt At BrUgE eN dAy pLaNnEr?! 🤡"
+Ja, alle mennesker der nogensinde har fået en ADHD diagnose, har 100% også fået det velmenene "tip" at bruge en kalender. Det ér det mest åbenlyse til at hjælpe én med at huske hvad man ellers ville glemme, og jeg nævnte også ovenfor ordet “reminder”. Og det er ofte lige hvad vores ADHD hjerner har brug for. Det kan godt ske, at vi er gode til at udskyde ting, fordi de kan forekomme mondæne og kedelige, men oftest oplever jeg at *indsæt kedelig opgave* er så langt væk fra mit “nu”, at det ikke engang er i mine tanker at vasketøjet f.eks lige burde have været ordnet. Jeg tænker simpelthen ikke på de kedelige ting.
 
-Jeg har plastret mere eller mindre alle opgaver for min uge ind i min kalender, med en reminder når det starter. Det er alt fra arbejdsopgaver, arbejdstidsrum, vasketøj, til indkøb, ture med hunden osv. I starten var det lidt overvældende, det skal jeg ærligt indrømme. Men dét at de er skrevet ned, giver os et pre-commitment til, at det faktisk er en opgave vi både ved vi skal i mål med, og højest sansynlig gerne vil i mål med.
+Jeg har plastret mere eller mindre alle opgaver for min uge ind i min telefonkalender, med en reminder når det starter. Det er alt fra arbejdsopgaver, arbejdstidsrum, vasketøj, til indkøb, ture med hunden osv. Det kan klart være overvældende, og især i starten det skal jeg ærligt indrømme. Men dét at de er skrevet ned, giver et _pre-commitment_ - et signal om at det faktisk er en opgave vi både ved vi _skal_ i mål med, og højest sansynlig gerne _vil_ i mål med.
 
-En anden ting jeg synes er vigtig at tage med ved brug af en digital kalender er, at hvis ikke jeg når eks. at lave en specifik opgave i det tidsrum jeg har sat af, så er kalenderblokken supernem at flytte et par timer, eller til jeg har tiden til det igen. Så sikrer jeg at jeg i hvert fald, at jeg får endnu en reminder om det.
+En anden ting jeg synes er vigtig at tage med ved brug af en digital kalender er, at hvis ikke jeg når eks. at lave en specifik opgave i det tidsrum jeg har sat af, så er kalenderblokken supernem at flytte et par timer, eller til jeg har tiden til det igen. Så sikrer jeg at jeg i hvert fald, at jeg får _endnu_ en reminder om det.
 
 ## 🏃 Dyrk motion
 
-Hvis du føler du har for meget energi, og derved svært ved at sidde eller stå stille ved skrivebordet, kan det være du kan gavne af mere motion. Hvor WHO anbefaler at alle får mininum 150 aktive minutter (aktiv = pulsen over norm), tror jeg godt vi kan gøre det bedre. Jeg er by no means nogen jock eller træningsjunkie, men studier viser tydeligt at daglig kardio træning kan nedsætte symptomerne af ADHD.
+Hvis du føler du har for meget energi, og derved svært ved at sidde eller stå stille ved skrivebordet, kan det være du kan gavne af mere motion. Hvor WHO anbefaler at alle får mininum 150 aktive minutter (aktiv = pulsen over norm), er det relativt nemt at gøre det bedre. Jeg er på ingen måde nogen træningsjunkie eller synderligt aktiv person - jeg er mere kvalificeret til at give chips og burger anbefalinger end motionstips..! Men studier viser tydeligt at én eller anden form for daglig kardio træning kan nedsætte symptomerne af ADHD.
 
-Hvis ikke du specifikt vil tabe dig samtidigt, kan eks. en tjep gåtur også sagtens tælle med i det større regnskab, men gavner selvsagt ikke lige så meget som en løbetur, cykeltur eller en 30 minutter ved ro-maskinen. (Kilde: Trust me, bro)
+Hvis ikke du specifikt vil tabe dig samtidigt, kan eks. en tjep gåtur også sagtens tælle med i det større regnskab, men gavner selvsagt ikke lige så meget som en løbetur, cykeltur eller en 30 minutter ved ro-maskinen. 
 
-Jeg løber jo kun selv, når folk løber efter mig, så selv går jeg ca. 10km dagligt istedet, da jeg alligevel skal ud med hunden, og så cykler helst hvor jeg end nu skal hen. Så fx i denne uge har mit smart watch tracket 770+ aktive minutter (man-fre), så det er altså nemt at komme over de anbefalede 21.5 minutter om dagen, som 150 minutter ugentlig ender ud i.
+Jeg løber jo som udgangspunkt *kun* når folk løber efter mig, så selv går jeg ca. 10km dagligt istedet. Da jeg alligevel skal ud med hunden tager det ikke engang lang tid ud af dagen. Og så cykler helst hvor jeg end nu skal hen. Så fx i denne uge har mit smart watch tracket 770+ aktive minutter (man-fre), så det er altså nemt at komme over de anbefalede 21.5 minutter om dagen, som 150 minutter ugentlig ender ud i.
 
 ## 🌈 Mindfullness
 
@@ -82,7 +83,7 @@ Jeg har løbende gået til kiropraktor igennem mit liv, når ryggen har føltes 
 
 ## 🌊 Vand
 
-Ja. Det er lidt et røvsygt tip i sig selv, men det er til gengæld kort; Husk nu at drikke vand. Selvfølgeligt ikke sådan obsessive eller noget, men generel er der konsensus om, at noget så simpelt som at holde sig selv godt hydreret, hjælper hjernen til både at huske bedre, men også at fokusere bedre. Og ja, du gættede rigtigt; Det at huske at drikke vand (og spise), viser sig at være en udfordring for folk med ADHD.
+Ja. Det er lidt et røvsygt tip i sig selv, men det er til gengæld kort; Husk nu at drikke vand. Der er generel konsensus om, at noget så simpelt som at holde sig selv godt hydreret, [hjælper hjernen til både at huske bedre, men også at fokusere bedre](https://www.frontiersin.org/articles/10.3389/fnhum.2013.00363/full#h4). Og ja, du gættede rigtigt; Det at huske at drikke vand (og spise), viser sig "sjovt nok" at være [en udfordring for folk med ADHD](https://danarayburn.com/adult-add-adhd-how-to-remember-to-drink-water/). 🙃
 
 ## 🔕 Ingen notifikationer
 
@@ -94,11 +95,11 @@ Og er det tilfældet at vi fra naturens side bliver “frarøvet” følelsen af
 
 Derfor: Ingen notifikationer!
 
-I hvert fald ikke så længe du arbejder. Det er klart, hele virksomheden er på Slack af en grund, men luk lige dit mailprogram, og sæt din status som værende Not Available på chatten*,* når du har brug for at koncentrere dig. Så slukker Slack automatisk for notifikationerne for dig så længe.
+I hvert fald ikke så længe du arbejder. Det er klart, hele virksomheden er på Slack/Teams af en grund, men luk lige dit mailprogram, og sæt din status som værende Not Available på chatten, når du har brug for at koncentrere dig. Så slukker Slack automatisk for notifikationerne for dig så længe.
 
 Det er tilbage til dét jeg nævnte i starten om, at gøre de ting der er svære for dig, nemmere for dig. Ingen notifikationer? En mindre ting der kan flytte dit fokus uønsket. 👌
 
-Generelt set vil jeg anbefale at vælge alle unødige, ikke-vigtige notifikationer fra på din mobil — også når du har fri — da vi med ADHD er mere pronet til at lade os afhænge af den dopamin eks. notifikationer, likes or not, kan udløse. Om ikke andet, i hvert fald vælge notifikationen frem for det mondæne arbejde vi jo skal lave. Ugh!
+Generelt set vil jeg anbefale at vælge alle unødige, ikke-vigtige notifikationer fra på din mobil — også når du har fri — da vi med ADHD er mere pronet til at lade os afhænge af den dopamin eks. notifikationer kan udløse. Om ikke andet, i hvert fald vælge notifikationen frem for hvad end det var meningen vi skulle lave. Ugh!
 
 Min telefon er på komplet lydløs — ikke engang vibrator eller noget! Og kun opkald, og ganske få apps som medicin huskere, kalendernotifikationer og reminders får lov at blive sendt videre til mit smartwatch.
 
@@ -154,34 +155,34 @@ Jeg har i øvrigt skrevet den pomodoro timer jeg selv bruger, som et bash-script
 
 **Ekstra tip:** Er en almindelig pomodoro timer ikke lige dig, kan du eventuelt tjekke podcasten “[Flow State](https://open.spotify.com/show/4IssY4XjHXdpTNOzpaeyxh)” af Bobby Lyte ud. Den er en podcsat af programmør Bobby Lyte, og formatet er kurateret playliste af elektronisk “koncentrationsmusik”, nøje tilrettelagt med 5 minutters binaural beats, ca. hver halve time, og fungerer således også som en slags pomodoro timer.
 
-## Tilpas dit arbejdsmiljø 🖥️
+## 🖥️ Tilpas dit arbejdsmiljø 
 
 Det er et ret bredt emne, men det hele kommer tilbage til dét at gøre ting nemmere for dig selv. Skal du læse dokumentationen for Next.js igennem for 4. gang, men bliver ved med at ende på Youtube? Prøv at have en fidget spinner/fidget box eller whatever, så hænderne er væk fra din mus og tastatur imens du læser.
 
 Bliver du stresset over at sidde ned konstant? Måske du skal have dig et hæve sænke bord og muligheden for at stå op engang imellem.
 
-Føler du at du har for megen energi, til at kunne sidde eller stå stille? Måske du skal have dig et walking desk.
+Føler du at du har for megen energi, til at kunne sidde eller stå stille? Måske du skal have dig et *walking desk*. 🤷
 
-Husk det ikke er dumt, hvis det virker.
-## Brug din and 🦆
+![Husk det ikke er dumt, hvis det virker.](https://miro.medium.com/v2/resize:fit:720/format:webp/1*NKJm6asHaLaKJByhlMd2xg.jpeg)
+## 🦆 Brug din and 
 
-Jeg ved ikke med dig, og hvordan du er kommet ind i dit fag, men da jeg eks gik på webintegrator forløb, fik vi af vide, at vi skulle hjælpe hinanden, fordi dét at forklare ting, over for en anden, hjælper på at selv forstå selvsamme ting meget bedre. Det sidder bedre fast i hukommelsen, der bliver måske stillet spørgsmål til indgange, som ikke var dækket i din oprindelige forklaring osv.
+Jeg ved ikke med dig, og hvordan du er kommet ind i dit fag, men da jeg gik på webintegrator forløbet på Next CPH, fik vi af vide, at vi skulle hjælpe hinanden, fordi _dét at forklare ting, over for en anden, hjælper på at selv forstå selvsamme ting meget bedre_. "[Learning By Teaching](https://www.researchgate.net/profile/Cg-Cortese/publication/200130187_Learning_through_Teaching/links/55925f1508ae47a34910e634/Learning-through-Teaching.pdf)".. Det sidder bedre fast i hukommelsen, der bliver måske stillet spørgsmål til indgange, som ikke var dækket i din oprindelige forklaring osv.
 
-Det er en ret gengs teori, der ofte videreføres over i techverden som rubber duck debugging.
+Det er en ret gengs teori, der ofte videreføres over i techverden i form af *rubber duck debugging*.
 
-Det er derfor at man ofte ser en gummiand på skrivebordet, i diverse kontorlandskaber.
+Det er derfor at man ofte ser gummiænder på skriveborde i de dér massive kontorlandskaber.
 
-Forklar problemet/udfordringen/projektet, linje for linje, som var det en der ikke anede noget om det til at starte ud med — eks en dum gummi and. For hvad ved den om kodning?
-## Programmer dig ud af dine problemer ⌨️
+Forklarer projektet, mere eller mindre linje for linje, som var det til én der ikke anede noget om emnet til at starte ud med — eks en gummi and, for hvad ved den om kodning? Forklarer man anden, hvad en funktion skal, men funktionen har en fejl, vil man typisk fange den dér.
+## ⌨️ Programmer dig ud af dine problemer 
 
-Som du måske har lagt mærke til, så har jeg i løbet af dette indlæg skrevet om både mit notetagningsprogram og min pomodoro app, som jeg selv har programmeret.
+Som du måske har lagt mærke til, så har jeg i løbet af dette indlæg skrevet om både mit notetagningsprogram og min pomodoro app's (og password generator, ), som jeg selv har programmeret.
 
 Men det kunne ligeså vel være at du selv lavede en interaktiv to-do liste (eks dem fra samtlige Javascript Beginner Tutorials nogensinde), og satte den som startside i din browser, og derved bliver mindet om hvad du skal, hver gang du åbner en ny fane.
 
 Det er én måde at arbejde med dig selv på, og konstant udvide din førnævnte værktøjskasse, samtidigt med at du laver noget du godt kan lide.
 
-Der er ikke noget fast facit, og du kan justere alle parametre, så de hjælper din situation bedst. Alt hvad der kan gøre ting nemmere for dig selv, kan have en betydning.
-## Sæt pris på alle dine succeser 🥇
+Der er ikke noget fast facit, og du kan selv justere samtlige parametre og dreje på alle knob, så de hjælper din situation bedst. Alt hvad der kan gøre livet nemmere for dig selv, kan have en betydning, ligesom det jo heller ikke behøves at være begrænset til programmering. Det kan være home automation, der minder dig om at tage din medicin hver morgen, det kan være at 3D print en speciel tandbørsteholder der kan hænge på dit spejl, så du husker at børste tænder, eller hvad ved jeg. 
+## 🥇 Sæt pris på alle dine succeser 
 
     “Mikkel er så kvik, han kan altså godt — hvis han lige tager sig lidt mere sammen!”
     — Citat: Alle skolelærere Mikkel nogensinde har haft.
@@ -201,29 +202,29 @@ For hver lille ting du sætter dig for og kommer i mål med; Fejr din fortjente 
 
     “Today is better than yesterday, and tomorrow will be better than today”
 
-## Konstant årvågenhed 👀
+## 👀 Konstant årvågenhed 
 
 Hvis du læser sådan et indlæg som dette, er oddsne for at at du har læst mange andre ligende ret høj. Dvs du også udmærket ved, at langt fra alle tips, tricks og lifehacks virker, og sjældent ikke engang holder ved i længden.
 
 Men lige nøjagtigt derfor, er det vigtigt at være vågen og opmærksom på hvad der faktisk virker, hvad der ikke virker, hvad der forsvinder ud af rutinen igen, og hvad der bliver hængende.
 
 Du vil således altid kunne gå tilbage til din værktøjskasse, og vælge “Alright — i denne uge får rubber duck debugging et forsøg mere”, eller hvad ved jeg.
-## Rutiner
+## 🕗 Rutiner
 
 Sjovt hvordan dét man har svært ved, altid er de vigtigste faktorere. Men det er vist bare som det er. Og det er næsten et gennemgående tema i dette indlæg, at vi skal gøre tingene så lette for os selv, som overhovedet muligt. Kommer man ind i en rytme, hvor rutinen bliver til en vane, kører tingene mere per automatik, frem for det er noget vi først aktivt skal tage en beslutning om at gøre.
 
-Min morgenrutine ser eks således ud:
-- 07:00 Vågn, drik et glas vand og skyl ansigtet med vand.
+**Min morgenrutine ser eks således ud:**
+- 07:00 Vågn, drik et glas vand og skyl ansigtet med koldt vand.
 - 07:05 Dyrk yoga i 20 minutter.
 - 07:30 15 minutters meditation efterfulgt af 5 minutters åndedrætsøvelser.
 - 07:50 Lav kaffe
 - 08:00 Gå tur med Homie i 60 minutter (med kaffen)
 - 09:00 Bad
 
-Det sikrer at jeg når godt op ad stigen ift mine daglige gøremål helt fra morgenstunden. Hunden skal selvsagt ud et par gange mere, men det at jeg HVER DAG vågner kl. 7, dyrker motion/yoga og mediterer, gør at der er bare en lidt større sansynlighed for at jeg også er, om ikke andet bare lidt, mere træt om aftenen, og mere rolig og mindfull i løbet af dagen.
+Det sikrer at jeg når godt op ad stigen ift mine daglige gøremål helt fra morgenstunden. Hunden skal selvsagt ud et par gange mere, men det at jeg vågner kl. 7 *hver dag*, dyrker motion/yoga og mediterer *hver dag*, gør at der er bare en lidt større sansynlighed for at jeg også er, om ikke andet bare lidt, mere træt om aftenen, og mere rolig og mindfull i løbet af dagen.
 
-At jeg har gjort denne rutine i 1,5 mdr. nu har klart gjort at tingene kører lidt mere på autopilot end før, og det gør bl.a. at mit opmærksomhed er mindre rodet, fordi der er mindre at tænke på.
-Det med småt\*
+At jeg har gjort denne rutine i 8 mdr. nu har klart gjort at tingene kører lidt mere på autopilot end før, og det gør bl.a. at min hjerne er mindre cluttered, simpelthen fordi der er mindre at tænke på.
+## Det med småt\*
 
 Jeg laver her overnfor nogle generaliseringer om at være diagnosticeret med ADHD, de udfordringer man møder, og hvordan man kan gribe nogle af dem an.
 
