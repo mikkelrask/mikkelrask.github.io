@@ -3,7 +3,7 @@ title: "🧠 ADHD og TECH"
 description: "Hvordan jeg griber ADHD an, med redskaber fra tech verdenen."
 date: 2021-07-24
 tags:
-  - ADHD
+  - adhd
 ---
 
 Jeg er inden for det senste år blevet diagnostisere med ADHD. Og hvor folk der kender mig personligt, faktisk oftest ikke tænker at det matcher særlig godt til min ellers generelt ret afslappede person, så passer udfordringer som jeg har mødt både gentagende gange, men oftest løbende igennem hele livet, ret så godt. ADHD er nemlig meget mere end bare at være et _hyperaktiv “dampbarn”_.
