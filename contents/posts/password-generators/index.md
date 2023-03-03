@@ -23,10 +23,6 @@ tags:
 ```
 
 ## Passphrase generator
-### I bash
-```bash
-
-```
 ### I python
 ```python
 
