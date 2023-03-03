@@ -1,4 +1,4 @@
----
+--
 title: "💻 hibp %pw%"
 description: "Lookup der fetcher Have I Been Pwned's API, for at se om vores adganskoder har været lækket."
 date: 2020-11-12
@@ -7,11 +7,13 @@ tags:
   - scripts
 ---
 
-command `hibp`
+command `hibp` 
 output `Password to lookup: `
-arguments `*unleaked password*`
+
+command `hibp *ulækket password*` 
 output `Keep up the good work!`
-arguments `*leaked password*`
+
+command `hibp *lækket password*` 
 output `Ouch! The password you input has been leaked! Times found: X. A new password has been copied to your clipboard.`
 
 ```bash
