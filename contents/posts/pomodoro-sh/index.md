@@ -2,6 +2,7 @@
 title: "🍅 pomodoro"
 description: "Lille bash pomodoro timer"
 date: 2020-12-12
+updated: 2023-03-03
 tags:
   - shell
   - scripts
@@ -41,3 +42,17 @@ curl https://raw.githubusercontent.com/mikkelrask/scripts/master/pomodoro -o ~/b
 ```
 
 **Github:** [github.com/mikkelrask/scripts/](https://raw.githubusercontent.com/mikkelrask/scripts/master/pomodoro)
+
+
+## Version 0.2
+
+Det er klart, at hvad der ses ovenfor ikke kan gøres ret meget mere barebones, man kunne fjerne cowsay, notify-send og mpv fra dep listen, og fx nøjes med at lade terminalen tage fokus eller sætte sig som urgent, når tiden er gået, eller hvad ved jeg. Meeen de fleste vil nok have flere muligheder, ikke færre. 
+
+**Lad os se på hvad ville være vores drømme pomodoro app:**
+
+- [] Lade dig arbejde fokuseret i 25 minutters intervaller, med 5 minutters pause imellem (den originale pomodoro)
+- [] Pass arbejdstid som valgfrit argument `-t`, `--time`
+- [] Pass pausetid som valgfrit argument `-b`, `--break`
+- [] Pass antal pomodoros som et valgfrit argument `-p`, `--pomodoros`
+- [] Sætte defaults i en config fil `~/.config/pomodoro/pomodoro.conf`
+- [] Kalde en specifik config via et valgfrit argument `-c`, `--config`
