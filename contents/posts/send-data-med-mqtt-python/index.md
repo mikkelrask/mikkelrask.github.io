@@ -109,7 +109,7 @@ Og nu vi allerede har fat i dataen, så lad os med  skubbe den videre til vores 
 result = client.publish(TOPIC, msg)
 status = result[0] # 0 = OK, 1 = ERR!
 ```
-Og man kan jo så tjekke status med :
+Og man kan jo så tjekke status med noget a la:
 ```py
 if status == 0:
     print(f"Sendte `{msg}` til `{TOPIC}`")

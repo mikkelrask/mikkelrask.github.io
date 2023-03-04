@@ -8,13 +8,21 @@ tags:
 ---
 
 command `hibp` 
-output `Password to lookup: `
 
-command `hibp *ulækket password*` 
+output `Input password to lookup: `
+
+----
+command `hibp aE0UkxZV5FWkW 	# (ikke tidligere lækket)`  
+
 output `Keep up the good work!`
 
-command `hibp *lækket password*` 
-output `Ouch! The password you input has been leaked! Times found: X. A new password has been copied to your clipboard.`
+----
+
+command `hibp kanye2020			# (lækket pw)` 
+
+output `Ouch! The password you input has been leaked! Times found: 48. A new secure password has been copied to your clipboard.`
+
+----
 
 ```bash
 #!/usr/bin/env bash

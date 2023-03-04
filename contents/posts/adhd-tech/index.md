@@ -2,6 +2,7 @@
 title: "🧠 ADHD og TECH"
 description: "Hvordan jeg griber ADHD an, med redskaber fra tech verdenen."
 date: 2021-07-24
+updated: 2023-02-18
 tags:
   - adhd
 ---
