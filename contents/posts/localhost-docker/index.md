@@ -2,6 +2,7 @@
 title: "🐳 Lokal startside med Docker"
 description: "Hvordan du spinner en lille docklet op, med en HTTP server via Docker"
 date: 2020-11-12
+updated: 2023-03-04
 tags:
   - docker
   - alpine
