@@ -83,7 +83,7 @@ sudo usermod -aG tty $USER       # -||-
 ```
 Husk at logge ud, før du fortsætter.
 ## Initialiser et projekt
-Når du åbner `VSCode` igen, vil du i venstre sidepanel se PlatformIO's logo/ikon. Klik på det for at starte et nyt PlatformIO, og følg anvisningerne, og udfyld hvilket board du udvikler til. For testens skyld, kan du også hente et exa   
+Når du åbner `VSCode` igen, vil du i venstre sidepanel se Ant PIO ikonet. Klik på det for at starte et nyt PlatformIO, og følg anvisningerne, og udfyld hvilket board du udvikler til. For testens skyld, kan du også hente et exa   
 
 Når initialiseret dit projekt, lav en blink test i `./src/main.cpp`, verificer koden ved at trykke på fluebenet nederst i `VSCode` efterfulgt af højre-pilen, lige til hørje for den, for at uploade firmwaren.
 
@@ -91,5 +91,5 @@ Får vi ingen fejl, har vi med succes sat PlatformIO op med VSCode på vores Arc
 ## Dokumentation
 Her er ressourcerne jeg har brugt for at komme i mål, hvor du kan læse meget mere om de forskellige elementer:
 
-**PlatformIO Documentation:** [platformio-cli](https://docs.platformio.org/en/latest/core/index.html), [PlatformIO Code Examples](https://github.com/platformio/platformio-examples)  
-**Arch Linux Wiki:** [Visual Studio Code](https://wiki.archlinux.org/title/Visual_Studio_Code), [Arduino](https://wiki.archlinux.org/title/Arduino), [Arduino/PlatformIO](https://wiki.archlinux.org/title/Arduino#PlatformIO), [udev](https://wiki.archlinux.org/title/Udev), [Flatpak](https://wiki.archlinux.org/title/Flatpak), [Aur Helpers](https://wiki.archlinux.org/title/AUR_helpers)+
+**PlatformIO Docs:** [platformio-cli](https://docs.platformio.org/en/latest/core/index.html), [PlatformIO Code Examples](https://github.com/platformio/platformio-examples)  
+**Arch Wiki:** [Visual Studio Code](https://wiki.archlinux.org/title/Visual_Studio_Code), [Arduino](https://wiki.archlinux.org/title/Arduino), [Arduino/PlatformIO](https://wiki.archlinux.org/title/Arduino#PlatformIO), [udev](https://wiki.archlinux.org/title/Udev), [Flatpak](https://wiki.archlinux.org/title/Flatpak), [Aur Helpers](https://wiki.archlinux.org/title/AUR_helpers)
