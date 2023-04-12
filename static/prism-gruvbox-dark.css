@@ -141,3 +141,6 @@ pre[class*="language-"] {
 .token.deleted {
   background: #fb4934; /* red2 */
 }
+h2:before, h3:before{
+  content: '# ';
+}
