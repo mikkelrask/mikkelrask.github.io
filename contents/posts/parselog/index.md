@@ -32,11 +32,11 @@ Jeg kopierede al teksten fra log-siden, og da den kopierede data var i tabeller 
 ```
 og som I kan se - stadig ikke det nemmeste at overskue, det det samme tabel og samme lange besked, men nu også med link-data.
 
-# Python time!
+## Python time
 ![Text](./parselog.jpg)
 Men jeg skulle egentlig også bare bruge det i et filformat, som jeg kunne parse programmatisk - for jeg ville nemlig takle det med et Python-script, der tog en hel fil som input, og kun gav den nødvendige information som kunden skulle bruge tilbage: Fakturanummeret der ikke var overført til finansen, og varenummeret der var spærret i e-conomic. 
 
-## vi rackbeat-tools/parselog.py
+## vi rackbeat-tools/parselog.🔥
 Jeg skyndte mig at åbne neovim, og gå i krig! Fremgangsmåden var heldigvis simpel, netop da syntaksen var ens for både fakturanummer og fejlbeskeder, så kunne jeg bruge nogle regex _patterns_, hvor det var nemt at udvælge dét der varierede på et _findall_-kald, og antage at dét var informationen der skulle bruges til at rette op på det store rod.
 
 ```python
@@ -102,3 +102,5 @@ LKO-11-029559-8437
 Men vi fik hjulpet kunden i mål lynhurtigt, så det ikke kun er deres finanslager der stemmer, men nu også deres finans! 🤝
 
 Scriptet er jo meget niche, og _meget_ specifikt, men det er tilgængelig som en del af [rackbeat-tools](https://github.com/mikkelrask/rackbeat-tools) (MIT), hvis andre har en uoverskuelig log der skal parses på notifikations-siden - og kan nemt justeres til identificere andre fejlbeskeder, eller identificere flere forskellige typer fejl.
+
+_*Filen har ikke .🔥 filformatet, som indlæget indikerer. Det ser jo bare sejere ud._
