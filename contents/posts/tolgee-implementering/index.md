@@ -102,5 +102,5 @@ Ud af de små 3300 keys, blev **800 keys** udfyldt eller rettet på vores Finske
 ### Dokumentation
 Her er ressourcerne jeg har brugt for at komme i mål, hvor du kan læse meget mere om de forskellige elementer:
 
-**Tolgee Documentation:** [Tolgee](https://tolgee.io/), [Rest API Docs](https://tolgee.io/api)
+**Tolgee Documentation:** [Tolgee](https://tolgee.io/), [Rest API Docs](https://tolgee.io/api)   
 **"De andre":** [Localazy](https://localazy.com/), [Lokalise](https://lokalise.com/), [Laravel Translations af Mohammed Ashraf](https://github.com/MohmmedAshraf/laravel-translations)
