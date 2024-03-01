@@ -1,11 +1,14 @@
 ---
 author: Mikkel Rask
-title: parselog.py
-description: Hvordan man nemt kan parse en uoverskuelig tekst/log, med meget få linjers kode.
+title: "🕵️‍♀️ parselog.py"
+description: "Hvordan man nemt kan parse en uoverskuelig tekst/log, med meget få linjers kode."
 date: 2024-02-02
 updated: 2024-02-29
+tags:
+  - scripts
+  - python
+  - crackbeat
 ---
-# 🕵️‍♀️ parselog.py
 
 Jeg havde én igennem på mit arbejde, der oplevede at omtrent ~900 faktura havde fejlet i overførslen fra Rackbeat til E-conomic. 
 
