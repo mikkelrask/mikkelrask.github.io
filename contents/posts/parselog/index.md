@@ -3,7 +3,7 @@ author: Mikkel Rask
 title: "🕵️‍♀️ parselog.py"
 description: "Hvordan man nemt kan parse en uoverskuelig tekst/log, med meget få linjers kode."
 date: 2024-02-02
-updated: 2024-02-29
+updated: 2024-03-01
 tags:
   - scripts
   - python
@@ -32,10 +32,11 @@ Jeg kopierede al teksten fra log-siden, og da den kopierede data var i tabeller 
 ```
 og som I kan se - stadig ikke det nemmeste at overskue, det det samme tabel og samme lange besked, men nu også med link-data.
 
+# Python time!
 ![Text](./parselog.jpg)
 Men jeg skulle egentlig også bare bruge det i et filformat, som jeg kunne parse programmatisk - for jeg ville nemlig takle det med et Python-script, der tog en hel fil som input, og kun gav den nødvendige information som kunden skulle bruge tilbage: Fakturanummeret der ikke var overført til finansen, og varenummeret der var spærret i e-conomic. 
 
-## nvim rackbeat-tools/parselog.py
+## vi rackbeat-tools/parselog.py
 Jeg skyndte mig at åbne neovim, og gå i krig! Fremgangsmåden var heldigvis simpel, netop da syntaksen var ens for både fakturanummer og fejlbeskeder, så kunne jeg bruge nogle regex _patterns_, hvor det var nemt at udvælge dét der varierede på et _findall_-kald, og antage at dét var informationen der skulle bruges til at rette op på det store rod.
 
 ```python
