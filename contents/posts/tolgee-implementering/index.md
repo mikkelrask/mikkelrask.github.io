@@ -12,7 +12,8 @@ tags:
 
 Jeg pådrog opgaven af mig selv, i en blanding af en målrettet handling for at minimere antallet af Excel ark og velmenene Word dokumenter med oversættelses-rettelser i min chefs indbakke, og som en slags personlig udfordring efter firmaets CTO Lasse, der på daværende tidspunkt var bosat i Kuala Lumpur over Slack skrev _"jeg giver en øl i lufthavnen, hvis du ka' løse dén!"_ - og tilfældigvis, var i færd med at flytte tilbage til danmark. Hm, en teknologisk udfordring, med en frist? Kan jeg mon nå det, inden han ankommer i Danmark, og faktisk fange ham i lufthavnen til en øl? Det lugter af _hyperfixation time!_  
 
-# Udgangspunktet  
+## Udgangspunktet  
+
 Hvis du nogensinde har håndteret eller bidraget til oversættelser af en app eller et website, så ved du også at det typisk er noget med et regneark eller word dokument, i 17-18 forskellige udgaver, fordelt ud over 6-7 kollegaers bærebare, uden nogen nødvendigvis konsensus om termonologi, _tone of voice_ eller hvor dybdegående en given tekst behøves at være.
 
 Da jeg startede i Rackbeat's customer success afdeling, var det ikke meget anderledes. Vores sheet lå dog på et Google fællesdrev, men i det store hele meget lig. 
@@ -21,12 +22,12 @@ Rackbeat, som er et ret komplekst lagerstyringssystem - et kæmpe projekt, med a
 
 Rackbeat webapp'en har, som mange andre projekter sit _base language_ som Engelsk af hensyn til udviklingen. Og på et tidspunkt tidligt i projektets alder, var der pludseligt oprettet eks. én key der hedder "Customer" og én der hed "Invoice". Når man så faldte over et sted, hvor man skulle bruge "Customer Invoice", giver det så ikke mening at i selve UI'et, blot fetche først `key1` og så `key2`? 
 
-## Kunde Faktura
+### Kunde Faktura
 Lad os hurtigt prøve det samme på Dansk.. "Kunde Faktura". Ser lidt forkert ud, ikk'? Det er det også. Begge ord er selvfølgelig 100% korrekte, men Danskere har **brug** for at ordene står side om side, helt tæt. Ellers bliver vi i tvivl om, der er tale om en kunde og en faktura, og der bare er glemt et komma, eller om det er noget helt trejde. 
 
 Men altså vores keys fungerede altså som en slags ordbog. Jeg begyndte nu at forstå hvad jeg var oppe imod. 
 
-## Termonologi
+### Termonologi
 Yderligere så... En knap "Save", en anden "Remember Settings". Nogle med stort forbogstav, nogle med et punktum til slut. Vi kender alle klassikerne - _it happens_ 🤷‍♂️ 
 ![](./1.png)  
 Så! Jeg skulle bruge en plan. For at øge mine chancer for at få et "ja" til at implementere _noget som helst_, der krævede udviklingstimer, skulle det være strømlinet ligesom det både skulle inkludere en her-og-nu-løsning (kaldet *lappeløsningen*, eller *skumslukkeren*), samt en langsigtet-plan (læs: *this brings me joy*-løsningen). Og den løsning skulle jeg finde og bevise var det rigtige, helst ogsså uden at have et dankort op af lommen - jeg var trods ikke engang nået ud over min prøveansættelse, og i øvrigt også ansat i kunde-service, så jeg følte det var for tidligt at spørge efter firmaets Pleo-kortet som Kirsten typisk vogter over.
@@ -43,7 +44,7 @@ Så jeg skulle jo definere hvad ønskescenariet ville være, og indkaldte vores 
 
 Rigtig meget af det her var ude af scope på mine egentlige arbejdsopgaver - som supporter, hvor jeg vel at mærke blot var 1,5 mdr. inde i min prøve-periode. Men jeg fandt på noget med at _"det vel også var at hjælpe vores kunder på?!"_ Her henvises til pkt. 4. 
 
-# Research
+## Research
 Det tager ikke mange Google søgninger på noget som helst omkring lokalitetshåndtering, før man er helt med på, at **lokalise** er _the big cheese_. De kræver så også at man har _big cheese_ til dem, til hver den første.
 ![](./2.png)  
 Jeg er jo, til trods for at jeg arbejder for en _true cloud/API First_ software virksomhed, stor fan af "self hosting" og meget bevidst om hvad man kan få _for free_ (both as in "free beer", and "freedom", yes). Og så kan man jo også _self hoste i skyen_. Og det ender vi også med at gøre her!
@@ -72,7 +73,7 @@ I matrixen herunder, var nogle af de key selling points, der gjorde at vi gik me
 | Google AI Translate Integration                    | ✅        | ✅        | 🛑                  | ✅      |
 | Figma/Design tool Integration                      | ✅        | ✅        | 🛑                  | ✅      |
 
-## Machine Translation?
+### Machine Translation?
 Ud at dømme fra matrixen, var det Tolgee eller bust. Jeg **ville** have det til at lykkedes. Loggede ind på portainer, og satte tolgee op i docker. 2 minutter senere, kunne jeg sidde og oprette keys, redigere deres strings, for alle de sprog jeg havde lyst til, så jeg skyndte mig at oprette en Google Translate API nøgle, for at se hvordan dét fungerede. Jeg vidste jo at alt "AI" var for _buzz word-y_ for tiden, til at det var gratis, men ved jo at man får de første fix gratis af Google Translate, så det blev den!
 
 Men som Support medarbejder i et Visma ejet firma, med en Visma email, får man altså ikke bare lov at oprette projekter på Google Cloud Console - huh! Jeg var en blanding af forarget og frustreret over tanken "hvad havde du _selv_ regnet med?" da jeg klikkede på opret og fik beskeden "Din organisation tillader ikke denne handling" 
@@ -81,17 +82,17 @@ Men jeg oprettede det jo så bare på min egen Google konto, jeg er jo kun nået
 
 Her var det således første gang i processen der var et dankort oppe af lommen. Google skulle bare have mine digits, _just in case_, men de er jo gavmilde og giver de første 10.000 karaktere gratis hver måned, for oversættelser, og da vi jo trods alt *har* oversat langt størstedelen af appen, og det mest af alt drejer sig om at strømline det, er det gratis antal mere end rigeligt! _And more on that - later!_
 
-## Nem brugeradgang for partnere
+### Nem brugeradgang for partnere
 Da jeg var inde på Google Cloud Console, tænkte jeg også at både Rackbeat og Visma bruger GSuite, og GMail, og det derfor var oplagt at oprette en Sign in with Google API nøgle også. Og yderligere, da det ikke var noget der skulle være customer facing, eller public tilgængeligt i det hele taget, kunne jeg endda bare lave Google Login'et som et "test-login under udvikling", hvor jeg nemt både kunne styre brugeradgang via whitelisting af "testere" samt slippe uden om Googles lange app review, når man udgiver noget officielt der involverer et Google login.   
-## Automatisk oversættelse
+### Automatisk oversættelse
 Som jeg allerede løftede sløret for, tog jeg chance, da jeg greb mit efterhånden mat-sorte Lunar-bank betalingskort op af lommen i arbejdsøjemed. For vi havde jo fået systemet op og køre, og alt var godt. Hvad jeg ikke vidste, var dog - at så længe man i Tolgee havde signaleret at man ønsker automatisk oversættelse, så er det ikke nødvendigt at bekræfte hvilken machine translation man ønsker udført - du får bare for de _providers_ du har aktiveret. 
 
 Vores fantastiske nord markedonske udvikler Andrej førte samtlige keys over i vores _base language_, som vi havde planlagt og aftalt. Ikke mange dage går der, før end der er en mail fra Google med emnet: **Din regning er klar**. PANIK! 
 
 Tolgee var gået i krig med at oversætte _samtlige_ strings, til _samtlige_ keys - med rystende hænder, fik jeg åbnet PDF for det, der havde akkomuleret sig op på 21.000 oversatte karaktere - 11.000 flere end de gratis som Google jo tilbød: $2.10 - To dollars og ti fucking cents. PHEW! Dét er okay, venner, **jeg betaler denne gang**! 😤  
-## Generel automatisering  
+### Generel automatisering  
 Den øvrige automatisering er helt klassisk - først var vi ude i om vi skulle bruge webhooks til at notificere fx en slack kanal oprettet til formålet, men vi (dvs. Andrej!) havde allerede lavet et andet flow, til _udviklerne_, der når de eks. opretter en PR, bliver de promptet om hvorvidt koden i PR'et indeholder nye keys - Svares der ja, så triggers der en sync af de keys der er på den givne udviklers branch, op og oprettes som keys i vores lokale tolgee instance, og kunne jo så passende bruge samme action, til at lade en bot vide, at den skulle lave lidt larm for de nye keys, i vores #translations-slack-tråd.  
-# Konklusionen - how did it go?  
+## Konklusionen - how did it go?  
 Indtil videre er konklusionen at den kortsigtede plan, måske gik hen og gå så godt, at det nok lidt måske også blev den langsigtede plan - at implementere de biblioteker som Tolgee har udviklet til hhv. vores frontend (vue) eller vores php-bagende, virker fortsat som en stor opgave 5 år inde i udviklingen, og jeg tror at den nuværende implementering fungerer så godt, at der bliver lange udsigter til at bruge mere krudt på det, bliver en ting - men nu må vi se!
 
 Umiddelbart så har alle der indtil nu har bidraget eks også kendt webapp'en godt nok til, at de ting, som Tolgee bibliotekerne ville tilbyde af ekstra kræs, (eks. nem screenshot funktionalitet + tilføjelse af kontekst til nyoprettede keys + Cli Tool), ikke umiddelbart har været nødvendig.
