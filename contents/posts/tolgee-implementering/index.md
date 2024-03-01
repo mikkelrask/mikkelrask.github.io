@@ -1,7 +1,6 @@
 ---
 author: "Mikkel Rask"
 date: 2023-12-12
-updated: 2024-03-01
 title: "🌍 Hvordan jeg håndterer oversættelser for +3200 keys med oversættelser på 5 sprog i Rackbeats webapp"
 description: "I en målrettet handling, for at minimere antallet af Excel ark og velmenene Word dokumenter med oversættelses-rettelser i min chefs indbakke, har  jeg håndterer keys og oversættelser for 5 sprog på Rackbeat. Her går jeg igennem processen, at få styr på oversættelser for små 3300 translation keys, og dertilhørende oversættelser for 5 sprog. Vi håndterer det den open source platform Tolgee."
 tags:
@@ -48,7 +47,7 @@ Det tager ikke mange Google søgninger på noget som helst omkring lokalitetshå
 ![](./2.png)  
 Jeg er jo, til trods for at jeg arbejder for en _true cloud/API First_ software virksomhed, stor fan af "self hosting" og meget bevidst om hvad man kan få _for free_ (both as in "free beer", and "freedom", yes). Og så kan man jo også _self hoste i skyen_. Og det ender vi også med at gøre her!
 
-For jeg søger jo selvfølgeligt på, hvad jeg nemt kan spinne op i en container, og teste af på min homelab server eller VPS, hvor jeg bla falder over [Tolgee](Tolgee.io). 
+For jeg søger jo selvfølgeligt på, hvad jeg nemt kan spinne op i en container, og teste af på min homelab server eller VPS, hvor jeg bla falder over [Tolgee](https://Tolgee.io). 
 
 Tolgee er open source - en af de open source firmaer, der stadig har en forretningsmodel, i at levere et solidt software og hoster det og supporterer dig i det fra _a_ til _b_! Men også guider, hjælper og assisterer hvis man hoster sin egen - noget de altså ikke tager penge for!
 
@@ -60,17 +59,17 @@ I matrixen herunder, var nogle af de key selling points, der gjorde at vi gik me
 | Number of keys                                     | 3500      | 5000      | Unlimited           | Unlimited |
 | Number of seats                                    | Unlimited | 10        | Unlimited           | Unlimited |
 | Price per additional seat                          | No cost   | 14 USD/mo | No cost             | No cost   |
-| Screenshot context                                 | ✅         | 🛑/✅      | ❓                   | ✅     |
-| Textual context                                    | ✅         | ✅         | ❓                   | ✅     |
-| Translation Review                                 | ✅         | ✅         | ❓                   | ✅     |
+| Screenshot context                                 | ✅        | 🛑/✅     | ❓                  | ✅     |
+| Textual context                                    | ✅        | ✅        | ❓                  | ✅     |
+| Translation Review                                 | ✅        | ✅        | ❓                  | ✅     |
 | Languages                                          | Unlimited | Unlimited | Unlimited           | Unlimited |
-| Notifications (Slack, email, zapier, webhooks etc) | ✅         | ✅         | ❓                   | 🛑     |
-| Vue library                                        | ✅         | ❓         | 🛑                  | ✅      |
-| API/CLI/SDK                                        | ✅         | ✅         | ✅                   | ✅     |
-| Github Integration                                 | ✅         | ✅         | Not needed(?)       | 🛑      |
-| Figma/Design tool Integration                      | ✅         | ✅         | 🛑                  | ✅      |
-| Google AI Translate Integration                    | ✅         | ✅         | 🛑                  | ✅      |
-| Figma/Design tool Integration                      | ✅         | ✅         | 🛑                  | ✅      |
+| Notifications (Slack, email, zapier, webhooks etc) | ✅        | ✅        | ❓                  | 🛑     |
+| Vue library                                        | ✅        | ❓        | 🛑                  | ✅      |
+| API/CLI/SDK                                        | ✅        | ✅        | ✅                  | ✅     |
+| Github Integration                                 | ✅        | ✅        | Not needed(?)       | 🛑      |
+| Figma/Design tool Integration                      | ✅        | ✅        | 🛑                  | ✅      |
+| Google AI Translate Integration                    | ✅        | ✅        | 🛑                  | ✅      |
+| Figma/Design tool Integration                      | ✅        | ✅        | 🛑                  | ✅      |
 
 # Machine Translation?
 Ud at dømme fra matrixen, var det Tolgee eller bust. Jeg **ville** have det til at lykkedes. Loggede ind på portainer, og satte tolgee op i docker. 2 minutter senere, kunne jeg sidde og oprette keys, redigere deres strings, for alle de sprog jeg havde lyst til, så jeg skyndte mig at oprette en Google Translate API nøgle, for at se hvordan dét fungerede. Jeg vidste jo at alt "AI" var for _buzz word-y_ for tiden, til at det var gratis, men ved jo at man får de første fix gratis af Google Translate, så det blev den!
