@@ -1,6 +1,7 @@
 ---
 author: Mikkel Rask
-dato: "2023-12-12"
+dato: 2023-12-12
+updated: 2024-03-01
 title: 🌍 Hvordan jeg håndterer oversættelser for +3200 keys med oversættelser på 5 sprog i Rackbeats webapp
 description: I en målrettet handling, for at minimere antallet af Excel ark og velmenene Word dokumenter med oversættelses-rettelser i min chefs indbakke, har  jeg håndterer keys og oversættelser for 5 sprog på Rackbeat. Her går jeg igennem processen, at få styr på oversættelser for små 3300 translation keys, og dertilhørende oversættelser for 5 sprog. Vi håndterer det den open source platform Tolgee.
 ---
