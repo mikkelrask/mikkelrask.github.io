@@ -104,3 +104,6 @@ Her er ressourcerne jeg har brugt for at komme i mål, hvor du kan læse meget m
 
 **Tolgee Documentation:** [Tolgee](https://tolgee.io/), [Rest API Docs](https://tolgee.io/api)   
 **"De andre":** [Localazy](https://localazy.com/), [Lokalise](https://lokalise.com/), [Laravel Translations af Mohammed Ashraf](https://github.com/MohmmedAshraf/laravel-translations)
+
+#### Fod note!
+Tolgee's Open Source team har rakt ud til mig, for at nævne, at deres open source version _ikke_ længere har _unlimited seats_, som jeg selvfølgelig vil gøre OBS på. Hele min erfering med projecktet har dog været som det er berettet ovenfor.  
