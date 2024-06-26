@@ -43,19 +43,30 @@ Der er forskellige typer af machine learning, alle med hvert sit formål:
 - **Unsupervised Learning:** Modellen finder selv mønstre i data uden etiketter. For eksempel, grupperer billeder baseret på lignende træk uden at vide, hvad de forestiller.
 - **Reinforcement Learning:** Modellen lærer gennem prøving og fejl, og får "belønninger" for at udføre opgaver korrekt.
 ### Supervised Learning
-Vi tager udgangspunkt i _supervised learning_, hvor man træner sin ML model med en god håndfuld billeder af sine katte eller hvad end man vil identificere, og modellen vil herefter med ret stor præcission - eller _confidence_, være i stand til at identifere fx en kat fra en hund, eller en kat fra et menneske - hagen ved det, er dog at modellen ikke har kontekst for hvad hverken en hund eller en person er, så det er "_kat_" eller "_ikke en kat_". Det kan altså _ikke_ identificere om der er tale om en norsk skovkat, eller en baby tiger, men blot om data passer på dét den har lært at kende som en kat. Man _kan_ træne en supervised learning modeller til at både kende mennesker, hunde og katte, det er blot et spørgsmål om mere træning, og mere træningsdata, men til mit formål, skal jeg blot kunne se, om der er en fugl i mit vidnue. Kommer der mennesker flyvende ind af vinduet, har jeg andre problemer.
+Vi tager udgangspunkt i _supervised learning_, hvor man træner sin ML model med en god håndfuld billeder af sine katte eller hvad end man vil identificere, og modellen vil herefter med ret stor præcission - eller _confidence_, være i stand til at identifere fx en kat fra en hund, eller en kat fra et menneske - hagen ved det, er dog at modellen ikke har kontekst for hvad hverken en hund eller en person er, så det er "_kat_" eller "_ikke en kat_".   
+
 ![](bird-shazam.png)
+
+Det kan altså _ikke_ identificere om der er tale om en norsk skovkat, eller en baby tiger, men blot om data passer på dét den har lært at kende som en kat. Man _kan_ træne en supervised learning modeller til at både kende mennesker, hunde og katte, det er blot et spørgsmål om mere træning, og mere træningsdata, men til mit formål, skal jeg blot kunne se, om der er en fugl i mit vidnue.   
+
+Kommer der mennesker flyvende ind af vinduet, har jeg andre problemer.
 Har du set serien [Silicon Valley](https://thetvdb.com/series/silicon-valley), tænker du måske allerede her på [Jian Yang's "Not a Hotdog"](https://www.youtube.com/watch?v=vIci3C4JkL0)-app, hvilket er præcist hvad vi er ude i, men hvor det dog i den virkelige verden fx. bruges til alt fra at screene MRI/CAT scanninger for eventuelle sygdomme, til at identificere trends i reel data, som aktiemarked-trends, _fraud detection_, selvkørende biler o.l. Med andre ord kan man med ML automatisere og forbedre mange opgaver, der tidligere krævede menneskelig intelligens og/eller interaktion.  
-**Fun fact:** [Not a Hotdog](https://play.google.com/store/apps/details?id=com.codylab.seefood&hl=da) er lavet til en rigtig applikation, der kan findes på Playstore.
+
+**Fun fact:** [Not a Hotdog](https://play.google.com/store/apps/details?id=com.codylab.seefood&hl=da) er lavet til en rigtig applikation, der kan findes på Playstore.  
+
 Med dét af vejen, _'sgo'then_!
 ## Træning af modellen
-Som nævnt, skal man ved _supervised learning_ træne sin model ved at fodre den med data af dét man gerne vil identificere. Både kvaliteten af ens data og hvor meget man træner den med, afgør selvfølgelig præcissionen og kvaliteten af hvad modellen bliver i stand til - dens confidence. Min umiddelbare første tanke var at lave en slags web-scraper med python, der blot ville søge efter billeder af skader eller fugle sådan lidt mere generelt, men jeg tænkte at eftersom vi ikke kan, eller behøves at skelne imellem specifikke fulge arter, at det ville være ligeså sjovt at træne modellen, med billeder genereret af husskader i stedet. Så jeg har selvfølgeligt åbnet mit trofaste [ComfyUI](https://github.com/comfyanonymous/ComfyUI), hvor jeg efter lidt _trial and error_ endte med AI modellen [dreamshaperXL](https://civitai.com/models/112902/dreamshaper-xl), som fik følgende prompt:
+Som nævnt, skal man ved _supervised learning_ træne sin model ved at fodre den med data af dét man gerne vil identificere. Både kvaliteten af ens data og hvor meget man træner den med, afgør selvfølgelig præcissionen og kvaliteten af hvad modellen bliver i stand til - dens confidence.   
+
+Min umiddelbare første tanke var at lave en slags web-scraper med python, der blot ville søge efter billeder af skader eller fugle sådan lidt mere generelt, men jeg tænkte at eftersom vi ikke kan, eller behøves at skelne imellem specifikke fulge arter, at det ville være ligeså sjovt at træne modellen, med billeder genereret af husskader i stedet. Så jeg har selvfølgeligt åbnet mit trofaste [ComfyUI](https://github.com/comfyanonymous/ComfyUI), hvor jeg efter lidt _trial and error_ endte med AI modellen [dreamshaperXL](https://civitai.com/models/112902/dreamshaper-xl), som fik følgende prompt:
 ```text
 (eurasian:1.3) magpie, one bird, animal focus, neutral background, pica pica, corvidae, high quality, detailed,
 ```
-Ikke at jeg tror det har den store indflydelse, som sagt skal vi ikke skelne imellem fuglesorter, men jeg måtte dog understrege at det skulle være _eurasion magpie_ og ikke den australske magpie, som er kendt for at være ekstrem territoriale og er frygtet i store dele af australien for at [angribe mennesker](https://www.youtube.com/watch?v=S_aZj3OvIb4), hvis de eks. har fugleunger i nærheden. Som du ser er _eurasian_ i parantes, efterfulgt af et kolon og har 1.3 som værdi efterfølgende, som gør at eurasian vægtes højere i prompten end de øvrige ord. Jeg endte med en _execution time_ på ~20 sek per billede, og her er ét af resultaterne. Mit simple workflow kan du downloade via linket herunder, hvis du selv skulle have lyst til/brug for at generere billeder af fugle, for _whatever reason_: [[magpie-workflow.json]] - det er et meget basic setup, der kan generere det meste, og er 100% prompt baseret.
-![](comfyui.png)
+Ikke at jeg tror det har den store indflydelse, som sagt skal vi ikke skelne imellem fuglesorter, men jeg måtte dog understrege at det skulle være _eurasion magpie_ og ikke den australske magpie, som er kendt for at være ekstrem territoriale og er frygtet i store dele af australien for at [angribe mennesker](https://www.youtube.com/watch?v=S_aZj3OvIb4), hvis de eks. har fugleunger i nærheden. Som du ser er _eurasian_ i parantes, efterfulgt af et kolon og har 1.3 som værdi efterfølgende, som gør at eurasian vægtes højere i prompten end de øvrige ord. Jeg endte med en _execution time_ på ~20 sek per billede, og her er ét af resultaterne.  
+
+Mit simple workflow kan du downloade via billedet af skaden herunder, og blot trække-og-slippe det ind i ComfyUI hvis du selv skulle have lyst til/brug for at selv generere billeder af fugle, for _whatever reason_ - det er et _meget_ basic setup, der kan generere det meste, og er 100% prompt baseret.
 ![](thismagpiedoesnotexist_00109_.png)
+![](comfyui.png)
 
 ### Forberedelse af træningsbilleder
 Jeg endte med at kun generere ~150 billeder, da, som [denne artikel](https://machinelearningmastery.com/how-to-configure-image-data-augmentation-when-training-deep-learning-neural-networks/) fra [Machine Learning Mastery](https://machinelearningmastery.com/) gennemgår, virker billeder stadig fint til at træne ML modeller, hvis man flipper dem på x-aksen, justerer motivet op/ned, højre eller venstre, eller hvis man _skew_'er det den ene eller anden vej. Det kaldes _data augmentation_ i machine learning verdnen, og er noget vi klarer i næste trin under selve træningen! 
@@ -91,7 +102,7 @@ F1 Scoren er så det harmoniske gennemsnit af præcision og recall:
 
 $$ F1 = 2 \times \left( \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} \right) $$  
 </p>
-Såeh.. dét er ca. alt jeg kan forklare om F1 scoren... Uden at være noget matematik-geni, vil jeg tro, at det betyder at mit ESP32CAM ville kunne identificere hus-skader der beslutter at titte hovedet ind af mit vindue med _op til_ 98.1% _confidence_.  
+Såeh.. dét er ca. alt jeg kan forklare om F1 scoren... Uden at være noget matematik-geni, vil jeg tro, at det betyder at mit ESP32CAM ville kunne identificere hus-skader der beslutter at titte hovedet ind af mit vindue med _op til_ 98.1% _confidence_ .  
 
 Og set i bagklogskabens lys, kunne jeg nok, nu hvor jeg selv genererede alle træningsbillederne, have gjort det uden baggrund, og potentielt fået en højere score.  
 
