@@ -6,6 +6,7 @@
   "version": "0.2.0",
   "author": "mikkelrask",
   "dependencies": {
+    "babel-plugin-styled-components": "^2.1.4",
     "flite": "^0.1.2",
     "gatsby": "^5.13.0",
     "gatsby-image": "^3.11.0",
