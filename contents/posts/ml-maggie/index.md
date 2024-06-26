@@ -176,7 +176,7 @@ Her skal `mrrask-project-1-esp32/firmware.bin` selvfølgeligt udskiftes med mapp
 
 Når `esptool` er færdig med at flashe, er vi i mål. Herfra skal man blot overvåge sin serial port (`/dev/ttsUSB0`), og kan med fx python nemt herfra automatisere hvad man ønsker der skal ske, når *insert-your-desired-detectable-thing* er er _in-frame_ - det er et helt indlæg for sig, som det kan være jeg vender tilbage til på et senere tidspunkt.
 
-Du kan bl.a gøres via Arduino IDE, eller igennem edge-impulse-cli værktøj:
+Du kan bl.a gøres via Arduino IDE, eller igennem [edge-impulse-cli](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation) værktøj:
 ```sh
 npm i -g edge-impulse-cli
 edge-impulse-daemon
@@ -206,6 +206,7 @@ Her er ressourcerne jeg har brugt for at komme i mål, hvor du kan lære meget m
 
 **Edge Impulse:** 
 - [edgeimpulse.com](https://edgeimpulse.com)
+- [edge-impulse-cli](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation)
 - [Officiel Dokumentation](https://docs.edgeimpulse.com/docs)
 - [Edge Impulse for beginners (Officiel dokumentation)](https://docs.edgeimpulse.com/docs/readme/for-beginners)
 - [Edge Impulse embedded learning (Officiel YT-video)](https://www.youtube.com/watch?v=dY3OSiJyne0)  
