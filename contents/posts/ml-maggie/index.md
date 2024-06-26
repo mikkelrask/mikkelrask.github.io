@@ -2,10 +2,12 @@
 title: "🌭 Object Detection med Machine Learning og ESP32Cam"
 description: "I dag vil jeg dykke ned i hvordan man med machine learning og et ~50 kroners kamera kan identificere specifikke objekter, og hvordan jeg implementerer det."
 author: "mikkelrask"
-date: 2024-06-06
+date: 2024-06-26
 tags:
   - machine learning
   - embedded programming
+  - tinkering
+  - hardware
 ---
 ![](./not-a-hotdog.jpg)
 ## Object Detection med ML og ESP32CAM
