@@ -174,6 +174,8 @@ esptool.py --chip esp32 --p /dev/ttyUSB0 -b 460800 write_flash 0x0 mrrask-projec
 
 Her skal `mrrask-project-1-esp32/firmware.bin` selvfølgeligt udskiftes med mappenavnet du pakkede ud, eller blot `cd` ind i mappen forinden, og blot skrive `firmware.bin` i stedet.
 
+Når `esptool` er færdig med at flashe, er vi i mål. Herfra skal man blot overvåge sin serial port (`/dev/ttsUSB0`), og kan med fx python nemt herfra automatisere hvad man ønsker der skal ske, når *insert-your-desired-detectable-thing* er er _in-frame_ - det er et helt indlæg for sig, som det kan være jeg vender tilbage til på et senere tidspunkt.
+
 ## Konklussion - how did it go?
 
 Det kræver lidt at der er en skade foran mit kamera, før jeg med garanti kan sige at det virker, og evt. hvor godt. Og i skrivende stund har der, af hvad jeg ved, ikke været en henne og sidde i mit vindue. Hvis der har, virker det i hvert fald ikke særlig godt.
