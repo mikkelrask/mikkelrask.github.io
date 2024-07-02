@@ -26,16 +26,6 @@ module.exports = {
         windowKey: "__PRELOADED_STATE__",
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `noto sans kr:300,400,500,700,900`,
-          `source code pro:700`, // you can also specify font weights and styles
-        ],
-        display: "swap",
-      },
-    },
     "gatsby-plugin-styled-components",
     "gatsby-remark-reading-time",
     `gatsby-plugin-react-helmet`,
@@ -79,7 +69,6 @@ module.exports = {
               showCaptions: true,
             },
           },
-
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
