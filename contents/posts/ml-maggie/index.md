@@ -8,6 +8,7 @@ tags:
   - embedded programming
   - tinkering
   - hardware
+  - arduino
 ---
 
 ![](./not-a-hotdog.jpg)

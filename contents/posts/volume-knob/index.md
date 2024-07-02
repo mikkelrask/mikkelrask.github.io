@@ -25,11 +25,15 @@ Så uden at tænke alverden mere over diverse microcontrollers' begrænsninger, 
 
 Hm, **nå!** Næste tanke var så, at, ligesom før, måle potentiometerets nuværende værdi sammenligne med forrige måling, og med en [pro micro](https://ardustore.dk/produkt/arduino-pro-micro-atmega32u4-klon-udviklingsboard), som i modsætning til en klassisk Arduiono UNO også kan agere HID (_Human Input Device_)/tastatur. Med et `HID`-bibliotek ville man så kunne eksekvere samme kommando som tidligere nævnt, men denne gang ved at sende keystrokes der ville taste kommandoen for mig, eks i terminalen i stedet.  
 ![](./eww.png)  
-Tanken om løsningen føltes rigtig hurtigt rigtig grim og klodset, og minder mest af alt om et ducky script/script-kitty payload. Det var allerede udelukket! Det ville resultere i at der, så snart jeg skulle justere lyden, ville poppe et terminal vindue op på skærmen, som så ville skulle være der i _X_-antal milliseconder, imens pro micro'en sendte de keystrokes der udgør kommandoen, og ville lukke ned igen herefter... Men hvad så, hvis jeg skruer hurtigt meget højt op, så ville den skulle sende kommandoen for hver måling pro microen tog imens jeg skruede op, og det ville bombardere enhver computer med terminal vinduer - noget de fleste gerne vil undgå!
+Ja - mine egne tanker om løsningen var det samme! _"Brother eww!"_ Det bliver rigtig hurtigt rigtig grimt på nippet til ulækkert, og ville mest af alt minde om et eller andet ducky script/script-kitty payload. Det var allerede udelukket!   
+
+Det ville også resultere i at der så snart man justerede lyden, ville poppe et terminal vindue op på ens skærm, som så ville skulle være der i `n`-antal milliseconder, imens pro micro'en sendte de nødvendige keystrokes der tilsammen udgør kommandoen vi prøver at køre, og herefter lukke ned igen...💀  
+
+ Og hvad så hvis man skruer rigtig hurtigt rigtig meget op? Ja, så ville den skulle sende kommandoen for hver måling pro microen registrerede imens jeg skruede op, og det ville bombardere enhver computer med terminal vinduer 💀
 
 Men! Dét jeg **kunne** gøre var så at måle potentiometerets værdi, sammenligne med den forrige måling, og i tilfælde af at var en difference på mere end +/- 1% på de to, at bruge pro micro'ens keyboard emulerings-egenskaber til at så sende keystrokes for de volume taster der jo findes på de fleste tastature - `MEDIA_VOLUME_UP` og `MEDIA_VOLUME_DOWN`.  
 ![](./ahaa.png)  
-Her er udfordringen jo så, at man med de taster jo _ikke_ sætter volumen til en specifik værdi, men jo blot justerer den op eller ned, med 2% af gangen. Det har også den uheldige resultat, at hvis man tilslutter enheden til en computer hvor volumen er på 100%, imens _volume-knob_'et er på 0%, at jeg først ville skulle skrue op, før jeg ville kunne skrue ned - pga. de stops, som jeg jo var så insisterende på at jeg ville have.
+Her er udfordringen jo så, at man med de taster jo _ikke_ sætter volumen til en specifik værdi, men istedet justerer den op eller ned, typisk med 2% af gangen. Det har også den uheldige resultat, at hvis man tilslutter enheden til en computer hvor volumen er på 100%, imens _volume-knob_'et er på 0%, at jeg først ville skulle skrue op, før jeg ville kunne skrue ned - pga. de stops, som jeg jo var så insisterende på at jeg ville have.
 
 Men faktisk er det den overordnede idé, som firmwaren er endt med, i hvert fald i skrivende stund - og efter lidt justen frem og tilbage på lidt _grace time_/hvor ofte jeg sender keystrokes i pro microens _main loop_, virker det faktisk væsentlig bedre end jeg ville have turdet håbe på.
 
@@ -39,11 +43,11 @@ Men det havde lidt samme udfordring som før - hvad mon hvis jeg igen skruer for
 
 Så ville de to igen hurtigt ende ude af sync, hvor volumen eks kunne være høj, imens potentiometeret var på 0% eller for den sags skyld omvendt.  
 ![](./aha.png)  
-Så i stedet for at blot bruge viden om, at "_der var en difference på mere end +/-1_" til at sende et enkeltstående keystroke, kalkulerer vi selvfølgeligt den reele difference på de to værdier, og i et loop i stedet sender ét `MEDIA_VOLUME_UP` eller `MEDIA_VOLUME_DOWN` keystroke _for hver_ anden difference i værdierne der var på denne måling og den forrige.
+Så i stedet for at blot bruge viden om, at "_der var en difference <+/-1_" til at sende et enkeltstående keystroke, kalkulerer vi selvfølgeligt den reele difference på de to værdier, og i et loop i stedet sender ét `MEDIA_VOLUME_UP` eller `MEDIA_VOLUME_DOWN` keystroke _for hver_ anden difference i værdierne der var på denne måling og den forrige.
 
 Vi sender kun hver anden gang, da tastatur volume tasterne typisk justerer med 2% af gangen, imens vores potentiomer jo er mappet til samtlige værdier imellem 0-101.   
 ![](https://149448860.v2.pressablecdn.com/wp-content/uploads/2015/06/144184-Shia-LaBeouf-clapping-intensif-w1GP.gif)
-Og som altid, prøver jeg slet ikke at lade som om at jeg har opfundet den dybe tallerken eller skrevet et nyt framework, eller hvad ved jeg, mest af alt vil jeg bare fortælle om udfordringerne man kan møde på selv simplet projekter og selve tankeprocessen der enddte med at få mig i mål.
+Og som altid, prøver jeg slet ikke at lade som om at jeg har opfundet den dybe tallerken eller skrevet et nyt framework, eller hvad ved jeg (_i bunden af siden, linker jeg endda til en instructables how-to, der gør mere eller mindre det samme_), men mere bare fortælle om udfordringerne man kan møde på selv simple projekter som det her, og lidt om selve tankeprocessen der ender med at få mig i mål.
 
 Den simple ændring har dog nærmest fjernet alt "slør" der gjorde at computeren og kontrolleren af og til endte ud af sync - jeg kan dog godt nogle gange ramme 0% stoppet på kontrolleren, hvor den reelle volume står på 2% og en sjælden gang 4%.. men så er vi _lidt_ i marginalerne.
 
