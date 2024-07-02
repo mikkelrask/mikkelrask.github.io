@@ -59,14 +59,15 @@ Der er forskellige typer af machine learning, alle med hvert sit formål:
 
 ### Supervised Learning
 
-Vi tager udgangspunkt i _supervised learning_, hvor man træner sin ML model med en god håndfuld billeder af sine katte eller hvad end man vil identificere, og modellen vil herefter med ret stor præcission - eller _confidence_, være i stand til at identifere fx en kat fra en hund, eller en kat fra et menneske - hagen ved det, er dog at modellen ikke har kontekst for hvad hverken en hund eller en person er, så det er "_kat_" eller "_ikke en kat_".
+Vi tager udgangspunkt i _supervised learning_, hvor man træner sin ML model med en god håndfuld billeder af sine katte eller hvad end man vil identificere, og modellen vil herefter med ret stor præcission - eller _confidence_, være i stand til at identifere fx en kat fra en hund, eller en kat fra et menneske - hagen ved det, er dog at modellen ikke har kontekst for hvad hverken en hund eller en person er, så det er "_kat_" eller "_ikke en kat_".  
 
-![](bird-shazam.png)
-
-Det kan altså _ikke_ identificere om der er tale om en norsk skovkat, eller en baby tiger, men blot om data passer på dét den har lært at kende som en kat. Man _kan_ træne en supervised learning modeller til at både kende mennesker, hunde og katte, det er blot et spørgsmål om mere træning, og mere træningsdata, men til mit formål, skal jeg blot kunne se, om der er en fugl i mit vidnue.
-
+Det kan altså _ikke_ identificere om der er tale om en norsk skovkat, eller en baby tiger, men blot om data passer på dét den har lært at kende som en kat. Man _kan_ træne en supervised learning modeller til at både kende mennesker, hunde og katte, det er blot et spørgsmål om mere træning, og mere træningsdata, men til mit formål, skal jeg blot kunne se, om der er en fugl i mit vidnue.   
 Kommer der mennesker flyvende ind af vinduet, har jeg andre problemer.
-Har du set serien [Silicon Valley](https://thetvdb.com/series/silicon-valley), tænker du måske allerede her på [Jian Yang's "Not a Hotdog"](https://www.youtube.com/watch?v=vIci3C4JkL0)-app, hvilket er præcist hvad vi er ude i, men hvor det dog i den virkelige verden fx. bruges til alt fra at screene MRI/CAT scanninger for eventuelle sygdomme, til at identificere trends i reel data, som aktiemarked-trends, _fraud detection_, selvkørende biler o.l. Med andre ord kan man med ML automatisere og forbedre mange opgaver, der tidligere krævede menneskelig intelligens og/eller interaktion.
+
+![](bird-shazam.png)  
+Har du set serien [Silicon Valley](https://thetvdb.com/series/silicon-valley) tænker du måske allerede på [Jian Yang's "Not a Hotdog"](https://www.youtube.com/watch?v=vIci3C4JkL0)-app, hvilket er præcist hvad vi er ude i (og som jeg har refereret til i headerbilledet af indlægget), men hvor det dog i den virkelige verden fx. bruges til alt fra at screene MRI/CAT scanninger for eventuelle sygdomme, til at identificere trends i reel data, som aktiemarked-trends, _fraud detection_, selvkørende biler o.l. Apple bruger det endda _on device_ på iPhones til at tjekke hver billede på din iphone, og om det skulle børneporno. 
+
+Med andre ord kan man med ML automatisere og forbedre mange opgaver, der tidligere krævede menneskelig intelligens og/eller interaktion.
 
 **Fun fact:** [Not a Hotdog](https://play.google.com/store/apps/details?id=com.codylab.seefood&hl=da) er lavet til en rigtig applikation, der kan findes på Playstore.
 
