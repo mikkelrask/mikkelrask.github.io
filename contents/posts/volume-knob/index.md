@@ -47,7 +47,7 @@ Så i stedet for at blot bruge viden om, at "_der var en difference <+/-1_" til 
 
 Vi sender kun hver anden gang, da tastatur volume tasterne typisk justerer med 2% af gangen, imens vores potentiomer jo er mappet til samtlige værdier imellem 0-101.   
 ![](https://149448860.v2.pressablecdn.com/wp-content/uploads/2015/06/144184-Shia-LaBeouf-clapping-intensif-w1GP.gif)
-Og som altid, prøver jeg slet ikke at lade som om at jeg har opfundet den dybe tallerken eller skrevet et nyt framework, eller hvad ved jeg (_i bunden af siden, linker jeg endda til en instructables how-to, der gør mere eller mindre det samme_), men mere bare fortælle om udfordringerne man kan møde på selv simple projekter som det her, og lidt om selve tankeprocessen der ender med at få mig i mål.
+Og som altid, prøver jeg slet ikke at lade som om at jeg har opfundet den dybe tallerken eller skrevet et nyt framework, eller hvad ved jeg (_i bunden af siden, linker jeg endda til en instructables how-to, der gør mere eller mindre det samme_), men mere bare fortælle om udfordringerne man kan møde på selv simple projekter som det her, og lidt om selve tankeprocessen der ender med at få mig i måladd .
 
 Den simple ændring har dog nærmest fjernet alt "slør" der gjorde at computeren og kontrolleren af og til endte ud af sync - jeg kan dog godt nogle gange ramme 0% stoppet på kontrolleren, hvor den reelle volume står på 2% og en sjælden gang 4%.. men så er vi _lidt_ i marginalerne.
 
