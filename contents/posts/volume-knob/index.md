@@ -24,6 +24,7 @@ Så uden at tænke alverden mere over diverse microcontrollers' begrænsninger, 
 -Lidt hurtig søgning på nettet fik mig hurtigt til at indse, hvad jeg jo egentlig i forvejen udmærket vidste: det er bare ikke lige _helt_ sådan arduinos kan interagere med et værtssystem - også selvom det havde været praktisk.
 
 Hm, **nå!** Næste tanke var så, at, ligesom før, måle potentiometerets nuværende værdi sammenligne med forrige måling, og med en [pro micro](https://ardustore.dk/produkt/arduino-pro-micro-atmega32u4-klon-udviklingsboard), som i modsætning til en klassisk Arduiono UNO også kan agere HID (_Human Input Device_)/tastatur. Med et `HID`-bibliotek ville man så kunne eksekvere samme kommando som tidligere nævnt, men denne gang ved at sende keystrokes der ville taste kommandoen for mig, eks i terminalen i stedet.  
+
 ![](./eww.png)  
 Ja - mine egne tanker om løsningen var det samme! _"Brother eww!"_ Det bliver rigtig hurtigt rigtig grimt på nippet til ulækkert, og ville mest af alt minde om et eller andet ducky script/script-kitty payload. Det var allerede udelukket!   
 
@@ -32,6 +33,7 @@ Det ville også resultere i at der så snart man justerede lyden, ville poppe et
  Og hvad så hvis man skruer rigtig hurtigt rigtig meget op? Ja, så ville den skulle sende kommandoen for hver måling pro microen registrerede imens jeg skruede op, og det ville bombardere enhver computer med terminal vinduer 💀
 
 Men! Dét jeg **kunne** gøre var så at måle potentiometerets værdi, sammenligne med den forrige måling, og i tilfælde af at var en difference på mere end +/- 1% på de to, at bruge pro micro'ens keyboard emulerings-egenskaber til at så sende keystrokes for de volume taster der jo findes på de fleste tastature - `MEDIA_VOLUME_UP` og `MEDIA_VOLUME_DOWN`.  
+
 ![](./ahaa.png)  
 Her er udfordringen jo så, at man med de taster jo _ikke_ sætter volumen til en specifik værdi, men istedet justerer den op eller ned, typisk med 2% af gangen. Det har også den uheldige resultat, at hvis man tilslutter enheden til en computer hvor volumen er på 100%, imens _volume-knob_'et er på 0%, at jeg først ville skulle skrue op, før jeg ville kunne skrue ned - pga. de stops, som jeg jo var så insisterende på at jeg ville have.
 
@@ -42,10 +44,12 @@ Jeg valgte at gøre det på den måde til trods for mine "strenge" krav, for at 
 Men det havde lidt samme udfordring som før - hvad mon hvis jeg igen skruer for hurtigt op, eller ned? Der ville alt efter hvor hurtigt jeg gjorde det, måske blive sendt et keystroke eller to undervejs, imens potentiometeret reelt kan have roteret eks. 75% eller hvad ved jeg, hvis jeg _virkeligt_ giver den gas.
 
 Så ville de to igen hurtigt ende ude af sync, hvor volumen eks kunne være høj, imens potentiometeret var på 0% eller for den sags skyld omvendt.  
+
 ![](./aha.png)  
 Så i stedet for at blot bruge viden om, at "_der var en difference <+/-1_" til at sende et enkeltstående keystroke, kalkulerer vi selvfølgeligt den reele difference på de to værdier, og i et loop i stedet sender ét `MEDIA_VOLUME_UP` eller `MEDIA_VOLUME_DOWN` keystroke _for hver_ anden difference i værdierne der var på denne måling og den forrige.
 
 Vi sender kun hver anden gang, da tastatur volume tasterne typisk justerer med 2% af gangen, imens vores potentiomer jo er mappet til samtlige værdier imellem 0-101.   
+
 ![](https://149448860.v2.pressablecdn.com/wp-content/uploads/2015/06/144184-Shia-LaBeouf-clapping-intensif-w1GP.gif)
 Og som altid, prøver jeg slet ikke at lade som om at jeg har opfundet den dybe tallerken eller skrevet et nyt framework, eller hvad ved jeg (_i bunden af siden, linker jeg endda til en instructables how-to, der gør mere eller mindre det samme_), men mere bare fortælle om udfordringerne man kan møde på selv simple projekter som det her, og lidt om selve tankeprocessen der ender med at få mig i måladd .
 
@@ -64,12 +68,11 @@ pactl set-sink-volume @DEFAULT_SINK@ 50%
 Det er noget jeg snildt ville kunne gøre med python og dets indbyggede `os`-bibliotek. Jeg ville egentlig også fra start af _helst_ slippe for at have det dér "server/client" forhold, hvor der skulle køre noget som helst software på computeren for at det virkede. Men jeg _ville_ samtidig opnå præcissionen jeg havde sat mig for, og måtte derfor gå på kompromis _ét eller andet sted_.
 
 Jeg endte derfor også med at lave et python "companion" script, der når en enhed tilsluttes `/dev/ttyACM0` starter af sig selv og overvåger data der sendes til serial porten via pythons `serial`-bibliotek, imens jeg selvfølgeligt fik pro micro'en til at outputte selve volume-værdien vi ledte efter til serial-porten.  
+
 ![](./success.png)
 **Og så var vi dér!** Super responsiv, reagere præcist så hurtigt som jeg skruer op eller ned, ligesom den fungerer både med og uden det ekstra python software, for at holde det simpelt og universelt.
 
 Det gør at jeg nu kan tilslutte det til en vilkårlig anden enhed, der understøttet et USB tastatur og justere lydstyrken med en _ret_ stor præcission, hvor jeg på min arbejdscomputer har den præcise kontrol jeg satte mig for at opnå. Der skulle i python-land blot trækkes lidt fra og lægges lidt til når jeg satte lydstyrken til en specifik værdi, da kontrolleren i sig selv, jo fortsat sendte de keystrokes der gør at den kan køre selv.
-
-Og som altid, når jeg laver sådanne projekter kigger jeg rundt på mit kontor og tænker "hvad kan jeg proppe dig _ind_ i? 🤔", og fandt en gammel _Virginia Flake_ pibe tobak dåse, jeg borede et par huller i til potentiometeret og pro micro'ens USB kabel
 
 ## Schematic + BOM
 
@@ -270,8 +273,11 @@ Og for at, som jeg jo altid sigter efter at gøre; citere Tom Hanks i rollen som
 Men ift selve enheden, så er jeg rigtig glad for resultatet! Også selvom at jeg på AKKO Alice Pro tastaturet som jeg skriver på lige nu, reelt set har dedikerede volume taster som gør AKKOrat (høhø) det samme. Jeg skifter dog ofte keyboards med forskellige layouts og antal af taster, så at have den fysiske mulighed altid tilgængelig er fantastisk!  
 
 Og selvfølgelkigt - her er da også lige et billede af, hvordan den ser ud:  
+
 ![](volume-knob.png)  
-jeg gik efter "skralde-look'et" som jeg ofte gør, hvor jeg bare kigger rundt omkring mig på kontoret og tænker _"hvad kan jeg proppe det her ind-i?"_ - I linket nedenfor "Arduino Control - Windows Volume" er der et 3D print filer til case, til et meget lignende projekt der bruger samme komponenter, hvis det er mere dig.
+Som altid, når jeg laver sådanne projekter kigger jeg rundt på mit kontor og tænker "hvad kan jeg proppe dig _ind_ i? 🤔", og fandt en gammel _Virginia Flake_ pibe tobak dåse, jeg borede et par huller i til potentiometeret og pro micro'ens USB kabel
+
+Hvis du tjekker linket nedenfor "USB Volume Controller - Potentiometer Based", vil du også kunne en Instructables how-to, der indeholder 3D print/stl filer til et lignende projekt, der indeholde de samme komponenter. 
 ## Links og dokumentation
 Det her har været noget mere et _trial and error_-projekt, end så meget andet, men her er dokumentationen til nogle af de ting der fik mig i mål, samt links til hvor man kan købe hvad der skal bruges.  
 
