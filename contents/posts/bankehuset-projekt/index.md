@@ -6,6 +6,7 @@ tags:
   - tinkering
   - hardware
   - prototyping
+image: "./bankehuset.webp"
 ---
 
 ## Kort gennemgang

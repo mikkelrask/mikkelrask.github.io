@@ -1,6 +1,7 @@
 ---
 title: "📡 Hverdagshack: Smart Dørtelephone med Blynk"
 description: 'Gør din dørtelefon til en "smartphone" med IoT tjenesten Blynk og et 5V relæ'
+image: "./smart.webp"
 date: 2017-08-15
 updated: 2022-09-12
 tags:

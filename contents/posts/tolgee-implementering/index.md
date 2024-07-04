@@ -3,6 +3,7 @@ author: "Mikkel Rask"
 date: 2023-12-12
 title: "🌍 Hvordan jeg håndterer over 3200 keys med oversættelser på 5 sprog i Rackbeats webapp"
 description: "I en målrettet handling, for at minimere antallet af Excel ark og velmenene Word dokumenter med oversættelses-rettelser i min chefs indbakke, har  jeg håndterer keys og oversættelser for 5 sprog på Rackbeat. Her går jeg igennem processen, at få styr på oversættelser for små 3300 translation keys, og dertilhørende oversættelser for 5 sprog. Vi håndterer det den open source platform Tolgee."
+image: "./meta.jpg"
 tags:
   - crackbeat
   - self-hosting

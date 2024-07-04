@@ -1,6 +1,7 @@
 ---
 title: "🔒 Hvordan man krypterer (næsten) alt"
 description: "Gennemgang af generel kryptering, kodeordsstyrke på alle større platforme."
+image: "./encryption-by-johannes-landing.webp"
 date: 2019-07-19
 update: 2021-04-01
 tags:
