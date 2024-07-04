@@ -1,6 +1,7 @@
 ---
 title: "🤖 NV Macropad - Prototype"
 description: "Første gennemgang af mit macropad projekt kaldet NV Macropad."
+image: "./prototype.webp"
 date: 2022-02-09
 tags:
   - tinkering

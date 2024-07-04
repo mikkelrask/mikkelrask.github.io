@@ -2,6 +2,7 @@
 title: "🔍 tingfinder.py"
 description: "Gennemgang af en dba pris scraper lavet i python"
 date: 2021-02-16
+image: "./website.webp"
 tags:
   - python
   - selenium

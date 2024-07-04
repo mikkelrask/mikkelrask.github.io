@@ -5,6 +5,7 @@ date: 2020-02-13
 tags:
   - kølepasta
   - hardware
+image: "./repaste.webp"
 ---
 
 På min macbook pro synes jeg det var tid til at prøve at lege lidt med at _re-paste_ den, og i samme ombæring se, om det gav lidt på temperaturen på computeren, og i sidste ende ville give bedre performance og/eller bedre batteri-levetid, grundet den forhåbentlige lavere fane-aktivitet.

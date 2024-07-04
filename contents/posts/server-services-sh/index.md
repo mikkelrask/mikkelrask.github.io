@@ -2,6 +2,7 @@
 title: "🐕‍🦺 server-services"
 description: "Genstarter services, der af den ene eller anden årsag ikke kører. Tænkt til en server, hvor fx apache eller mysql kører."
 date: 2020-08-11
+image: "./serverroom.webp"
 tags:
   - shell
   - scripts
