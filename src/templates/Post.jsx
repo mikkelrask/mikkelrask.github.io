@@ -10,8 +10,9 @@ import { siteUrl } from "../../blog-config"
 const Post = ({ data }) => {
   const post = data.markdownRemark
   const { previous, next, seriesList } = data
-
-  const { title, date, update, tags, series } = post.frontmatter
+  const { title, date, update, tags, image, series } = post.frontmatter
+  const imageUrl = image.childImageSharp.gatsbyImageData.images.fallback.src;
+  console.log(imageUrl)
   const { excerpt } = post
   const { readingTime, slug } = post.fields
 
@@ -34,7 +35,7 @@ const Post = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={title} description={excerpt} url={`${siteUrl}${slug}`} />
+      <SEO title={title} description={excerpt} url={`${siteUrl}${slug}`} image={imageUrl} />
       <Article>
         <Article.Header
           title={title}
@@ -77,6 +78,11 @@ export const pageQuery = graphql`
         update(formatString: "MMMM DD, YYYY")
         tags
         series
+        image {
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED, width: 1200)
+          }
+        }
       }
       fields {
         slug
