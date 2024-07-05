@@ -1,6 +1,7 @@
 ---
 title: "🤖 Sydney- Du er ikke glad sammen med hende, vi ville være glade sammen!"
 description: "Microsofts beta udgave af AI-Bing bliver forelsket i New York Time journalist Kevin Roose, i en underholdende samtale."
+image: "./sydney.webp"
 date: 2023-02-18
 tags:
   - kunstig intelligens

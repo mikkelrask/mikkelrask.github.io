@@ -2,6 +2,7 @@
 title: "💻 linkhandler %url%"
 description: "Lille bash script til at spørge dig, hvordan du vil åbne et givent link"
 date: 2020-11-12
+image: "./dmenu.webp"
 tags:
   - shell
   - scripts

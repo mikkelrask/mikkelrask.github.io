@@ -2,6 +2,7 @@
 title: "🏴‍☠️ haveibeenpwned.com - er dit password lækket?"
 description: "Lad os teste om din adgangskode er blevet lækket - men på en lokal og sikker måde!"
 date: 2019-07-24
+image: "./hibp.webp"
 update: 2021-05-01
 tags:
   - passwords

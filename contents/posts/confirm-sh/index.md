@@ -6,6 +6,7 @@ updated: 2022-09-14
 tags:
   - shell
   - scripts
+image: "./confirm.webp"
 ---
 
 ## confirm %question% %command%

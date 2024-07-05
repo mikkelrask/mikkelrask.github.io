@@ -56,7 +56,6 @@ module.exports = {
       options: {
         commonmark: true,
         footnotes: true,
-        pedantic: true,
         gfm: true,
         plugins: [
           {
@@ -143,14 +142,14 @@ module.exports = {
             },
             query: `
               {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
+                allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
                   edges {
                     node {
                       excerpt
                       html
-                      fields { slug }
+                      fields {
+                        slug
+                      }
                       frontmatter {
                         title
                         date
@@ -161,7 +160,7 @@ module.exports = {
               }
             `,
             output: `/rss.xml`,
-            title: `RSS Feed of ${title}`,
+            title: `${title} RSS Feed`,
             match: "^/blog/",
           },
         ],

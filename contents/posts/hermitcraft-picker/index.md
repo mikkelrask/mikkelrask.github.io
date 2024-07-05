@@ -2,6 +2,7 @@
 title: "⛏️ Hermitcraft Youtube Picker"
 description: "Ulækker simpelt python script, der lynhurtigt åbner seneste video, med din yndlings hermitcraft content creator."
 date: 2020-10-15
+image: "./hermits.webp"
 tags:
   - python
 ---

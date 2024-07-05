@@ -5,6 +5,7 @@ date: 2023-03-03
 tags:
   - adhd
   - produktivitet
+image: "./hack.webp"
 ---
 
 ## #1 - Hvis det tager 2 minutter - *get it done!*

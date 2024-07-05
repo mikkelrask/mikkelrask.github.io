@@ -1,6 +1,7 @@
 ---
 title: "🗒️ nvim diary"
 description: "vim-script til at nemt oprette en ny note for hver dag, med timestamp."
+image: "./vim.webp"
 date: 2021-05-09
 updated: 2023-03-02
 tags:

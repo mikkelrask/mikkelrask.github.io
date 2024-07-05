@@ -1,6 +1,7 @@
 ---
 title: "🛟 router-reboot"
 description: "Utility til at genstarte en linux maskine/openWRT/lign router hvis den ikke har internet."
+image: "./restart.webp"
 date: 2020-09-13
 tags:
   - shell
