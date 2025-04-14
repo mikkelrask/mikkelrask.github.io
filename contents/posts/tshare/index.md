@@ -39,15 +39,15 @@ Men anyway var det som nævnt fx for at finde ud af, om det bare var folkene bag
 
 Hvad ved jeg, det kunne være at det var en kæmpe fordel ved kommandoer med ekseptionelt langt output, *long-running processes* eller hvad ved jeg, at `nc` virkeligt ville *shine* - jeg har meget begrænset *first hand* erfaring med den 30 pr gamle teknologi, så det var de her spørgsmål jeg forsøgte at finde svaret på..
 
-### *🗣️ Plain vanilla..*
+### *🗣️ Plain vanilla...*
 
 Min anden *gripe* med `termbin` var noget mere overfladisk, og samtidigt nok ikke noget jeg egentlig havde brug for at brainstorme med Clauey om - siden man ser sit output på på termbin.com var det jeg kalder *apache http styling*: hvid baggrund med en default sort monospaced font.
 
 Ingen syntax hightlighting fancyness eller *nothing* - Så ja - jeg var nok som sagt mere imponeret over deres idé, end deres faktisk udførsel.
 
-Også selvom jeg udmærket kender til [pastebinit](https://github.com/skorokithakis/pastebinit) eksisterer og nemt kan installeres på alle mulige forskellige systemer og distros, og også er udmærket klar over, hvor nemt det faktisk er at *pipe* outputtet af en kommando ind i eks. `wl-copy`, `xclip` eller macos' `pbcopy` - med andre ord - proppe outputtet in din udklipsholder. (*i.e* `kommando | wl-copy` *- boom 🤷🤯)*.
+Også selvom jeg udmærket ved at [pastebinit](https://github.com/skorokithakis/pastebinit) eksisterer og nemt kan installeres på alle mulige forskellige systemer og distros, og gøre akurat det samme som `tshare` men med pastebin.com som "backend", er jeg ligeså bevidst om hvor nemt det faktisk er bare at *pipe* outputtet af en kommando ind i eks. `wl-copy`, `xclip` eller macos' indbyggede `pbcopy` - med andre ord - proppe outputtet in din udklipsholder. (*eks:* `uv run main.py | wl-copy` *- boom 🤷🤯)*.
 
-Man kunne nemt argumentere at det ville være mindst ligeså nemt, som at bruge `tshare` og så afhænge af én eller anden API og hvad ved jeg - men jeg mener stadig at hvor nemt outputtet er at dele, herfra stadig afhænger af hvor man skal dele det, hvor man på nogle sider skal wrappe kodeelementer i tripple backticks `\`\`\``, andre med `<pre></pre>`, `[code][/code]` og hvad vi nu ellers har af variationer.
+Man kunne nemt argumentere at det ville være mindst ligeså nemt, som at bruge `tshare` hvor man så afhænger af én eller anden random dudes vibede API og hvad ved jeg - men jeg mener stadig at hvor nemt outputtet er at dele, herfra stadig afhænger af hvor man skal dele det, hvor man på nogle sider skal wrappe kodeelementer i tripple backticks `````````, andre med `<pre></pre>` og nogle `[code][/code]` og hvad vi ellers har af variationer for at beholde formatteringen af vores output.
 
 ## *⚡ "Det går nemlig' hurtigt...*"
 
