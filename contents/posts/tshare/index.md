@@ -8,6 +8,7 @@ tags:
   - docker
   - selfhosting
   - scripts
+image: ./tshare.png
 ---
 
 Hvis ikke du allerede kender `tshare`, er det måske fordi det er en _bash script baseret terminal-output-deler_ som jeg umiddelbart vil sige at jeg *[vibede]()* mig til ... sådan i går-agtigt.
