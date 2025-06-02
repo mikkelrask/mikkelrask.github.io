@@ -48,7 +48,7 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v4
         with:
           # Automatically inject pathPrefix in your Gatsby configuration file.
           #
@@ -70,7 +70,7 @@ jobs:
           PREFIX_PATHS: 'true'
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
@@ -84,5 +84,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
 
