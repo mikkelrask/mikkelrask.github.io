@@ -11,7 +11,8 @@
 code[class*="language-"],
 pre[class*="language-"] {
   color: #ebdbb2; /* fg1 / fg */
-  font-family: Consolas, Monaco, "Andale Mono", monospace;
+  font-family: "FantasqueSansM Nerd Font", Consolas, Monaco, "Andale Mono", monospace;
+  padding: 5px;
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -34,7 +35,7 @@ pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection,
 code[class*="language-"] ::-moz-selection {
   color: #fbf1c7; /* fg0 */
-  background: #7c6f64; /* bg4 */
+  background: #16161e; /* bg4 */
 }
 
 pre[class*="language-"]::selection,
@@ -42,7 +43,7 @@ pre[class*="language-"] ::selection,
 code[class*="language-"]::selection,
 code[class*="language-"] ::selection {
   color: #fbf1c7; /* fg0 */
-  background: #7c6f64; /* bg4 */
+  background: #16161e; /* bg4 */
 }
 
 /* Code blocks */

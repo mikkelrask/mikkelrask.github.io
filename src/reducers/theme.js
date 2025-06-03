@@ -1,12 +1,12 @@
 export const initialState = {
-  theme: "light",
+  theme: "dark",
 }
 
-// action type 정의
+// action type
 export const SET_LIGHT = "setLight"
 export const SET_DARK = "setDark"
 
-// action 정의
+// action 
 export const setLight = {
   type: SET_LIGHT,
   data: {
