@@ -2,11 +2,11 @@
 title: "📡 Hverdagshack: Smart Dørtelephone med Blynk"
 description: 'Gør din dørtelefon til en "smartphone" med IoT tjenesten Blynk og et 5V relæ'
 image: "./smart.webp"
-date: 2017-08-15
-updated: 2022-09-12
+date: 2022-09-12
 tags:
   - tinkering
   - hardware
+  - arduino
 ---
 
 ## Update 2022
@@ -65,7 +65,7 @@ Her skal vi blot indtaste vores `SSID` ("Wifi navn" på linje 50 – udskift `Yo
 
 ## "Getting started" Kode
 
-```c++
+```cpp
 /*************************************************************
 Download latest Blynk library here:
 https://github.com/blynkkk/blynk-library/releases/latest

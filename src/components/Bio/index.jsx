@@ -3,13 +3,13 @@ import styled from "styled-components"
 
 import {
   FaGithub,
-  FaTwitter,
+  FaBluesky,
   FaFacebook,
   FaLinkedin,
   FaInstagram,
   FaLink,
   FaEnvelope,
-} from "react-icons/fa"
+} from "react-icons/fa6"
 
 import { siteUrl, description, author, links } from "../../../blog-config"
 
@@ -23,8 +23,8 @@ const BioWrapper = styled.div`
 `
 
 const profileImageRoot =
-  typeof window !== "undefined" && window.location.host === "localhost:8000"
-    ? "http://localhost:8000"
+  typeof window !== "undefined" && window.location.host === "localhost:9000"
+    ? "http://localhost:9000"
     : siteUrl
 
 const Profile = styled.div`
@@ -68,7 +68,7 @@ const LinksWrapper = styled.div`
   }
 
   & a:hover svg path {
-    fill: ${props => props.theme.colors.text};
+    fill: ${props => props.theme.colors.hoveredLinkText};
   }
 `
 
@@ -82,7 +82,7 @@ const Link = ({ link, children }) => {
 }
 
 const Bio = () => {
-  const { github, twitter, instagram, facebook, linkedIn, email, etc } = links
+  const { github, bluesky, instagram, facebook, linkedIn, email, etc } = links
 
   return (
     <BioWrapper id="bio">
@@ -94,8 +94,8 @@ const Bio = () => {
           <Link link={github}>
             <FaGithub />
           </Link>
-          <Link link={twitter}>
-            <FaTwitter />
+          <Link link={bluesky}>
+            <FaBluesky />
           </Link>
           <Link link={instagram}>
             <FaInstagram />

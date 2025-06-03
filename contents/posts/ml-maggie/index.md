@@ -8,7 +8,6 @@ tags:
   - machine learning
   - embedded programming
   - tinkering
-  - hardware
   - arduino
 ---
 
@@ -60,13 +59,13 @@ Der er forskellige typer af machine learning, alle med hvert sit formål:
 
 ### Supervised Learning
 
-Vi tager udgangspunkt i _supervised learning_, hvor man træner sin ML model med en god håndfuld billeder af sine katte eller hvad end man vil identificere, og modellen vil herefter med ret stor præcission - eller _confidence_, være i stand til at identifere fx en kat fra en hund, eller en kat fra et menneske - hagen ved det, er dog at modellen ikke har kontekst for hvad hverken en hund eller en person er, så det er "_kat_" eller "_ikke en kat_".  
+Vi tager udgangspunkt i _supervised learning_, hvor man træner sin ML model med en god håndfuld billeder af sine katte eller hvad end man vil identificere, og modellen vil herefter med ret stor præcission - eller _confidence_, være i stand til at identifere fx en kat fra en hund, eller en kat fra et menneske - hagen ved det, er dog at modellen ikke har kontekst for hvad hverken en hund eller en person er, så det er "_kat_" eller "_ikke en kat_".
 
-Det kan altså _ikke_ identificere om der er tale om en norsk skovkat, eller en baby tiger, men blot om data passer på dét den har lært at kende som en kat. Man _kan_ træne en supervised learning modeller til at både kende mennesker, hunde og katte, det er blot et spørgsmål om mere træning, og mere træningsdata, men til mit formål, skal jeg blot kunne se, om der er en fugl i mit vidnue.   
+Det kan altså _ikke_ identificere om der er tale om en norsk skovkat, eller en baby tiger, men blot om data passer på dét den har lært at kende som en kat. Man _kan_ træne en supervised learning modeller til at både kende mennesker, hunde og katte, det er blot et spørgsmål om mere træning, og mere træningsdata, men til mit formål, skal jeg blot kunne se, om der er en fugl i mit vidnue.  
 Kommer der mennesker flyvende ind af vinduet, har jeg andre problemer.
 
 ![](bird-shazam.png)  
-Har du set serien [Silicon Valley](https://thetvdb.com/series/silicon-valley) tænker du måske allerede på [Jian Yang's "Not a Hotdog"](https://www.youtube.com/watch?v=vIci3C4JkL0)-app, hvilket er præcist hvad vi er ude i (og som jeg har refereret til i headerbilledet af indlægget), men hvor det dog i den virkelige verden fx. bruges til alt fra at screene MRI/CAT scanninger for eventuelle sygdomme, til at identificere trends i reel data, som aktiemarked-trends, _fraud detection_, selvkørende biler o.l. Apple bruger det endda _on device_ på iPhones til at tjekke hver billede på din iphone, og om det skulle børneporno. 
+Har du set serien [Silicon Valley](https://thetvdb.com/series/silicon-valley) tænker du måske allerede på [Jian Yang's "Not a Hotdog"](https://www.youtube.com/watch?v=vIci3C4JkL0)-app, hvilket er præcist hvad vi er ude i (og som jeg har refereret til i headerbilledet af indlægget), men hvor det dog i den virkelige verden fx. bruges til alt fra at screene MRI/CAT scanninger for eventuelle sygdomme, til at identificere trends i reel data, som aktiemarked-trends, _fraud detection_, selvkørende biler o.l. Apple bruger det endda _on device_ på iPhones til at tjekke hver billede på din iphone, og om det skulle børneporno.
 
 Med andre ord kan man med ML automatisere og forbedre mange opgaver, der tidligere krævede menneskelig intelligens og/eller interaktion.
 
@@ -127,7 +126,7 @@ F1 Scoren er så det harmoniske gennemsnit af præcision og recall:
 
 $$ F1 = 2 \times \left( \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} \right) $$
 
-</p>  
+</p>
 
 Såeh.. dét er ca. alt jeg kan forklare om F1 scoren... Uden at være noget matematik-geni, vil jeg tro, at det betyder at mit ESP32CAM ville kunne identificere hus-skader der beslutter at titte hovedet ind af mit vindue med _op til_ 98.1% _confidence_ .
 
@@ -145,7 +144,7 @@ NB! Du kan også vælge at hente det som et Arduino bibliotek hvis du er mere ko
 
 ## Flash firmware.bin
 
- skal vi en tur i terminalen - tilslut dit ESP32CAM via USB og naviger til din downloads mappe, eller hvor du gemte zip biblioteket. Pak filen ud, eks med unzip kommandoen:
+skal vi en tur i terminalen - tilslut dit ESP32CAM via USB og naviger til din downloads mappe, eller hvor du gemte zip biblioteket. Pak filen ud, eks med unzip kommandoen:
 
 ```sh
 unzip mrrask-project-1-esp32.zip
@@ -177,13 +176,15 @@ esptool.py --chip esp32 --p /dev/ttyUSB0 -b 460800 write_flash 0x0 mrrask-projec
 
 Her skal `mrrask-project-1-esp32/firmware.bin` selvfølgeligt udskiftes med mappenavnet du pakkede ud, eller blot `cd` ind i mappen forinden, og blot skrive `firmware.bin` i stedet.
 
-Når `esptool` er færdig med at flashe, er vi i mål. Herfra skal man blot overvåge sin serial port (`/dev/ttsUSB0`), og kan med fx python nemt herfra automatisere hvad man ønsker der skal ske, når *insert-your-desired-detectable-thing* er er _in-frame_ - det er et helt indlæg for sig, som det kan være jeg vender tilbage til på et senere tidspunkt.
+Når `esptool` er færdig med at flashe, er vi i mål. Herfra skal man blot overvåge sin serial port (`/dev/ttsUSB0`), og kan med fx python nemt herfra automatisere hvad man ønsker der skal ske, når _insert-your-desired-detectable-thing_ er er _in-frame_ - det er et helt indlæg for sig, som det kan være jeg vender tilbage til på et senere tidspunkt.
 
 Du kan bl.a gøres via Arduino IDE, eller igennem [edge-impulse-cli](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation) værktøj:
+
 ```sh
 npm i -g edge-impulse-cli
 edge-impulse-daemon
-``` 
+```
+
 Dette kræver at du har Node installeret i version 20 eller derover.
 
 ## Konklussion - how did it go?
@@ -198,28 +199,31 @@ Resultatet var **68.7% korrekte**, hvilket jo på ingen måde er overvældende, 
 
 Så jeg er ikke utilfreds med resultatet, og jeg var direkte på siden i stand til at tilføje de billeder der _ikke_ kunne identificeres til at nu være med i træningsmaterialet, således at jeg kan gentræne modellen, flashe på ny, med forhåbentlig endnu bedre resultater.
 ![](rede.png)
-![](double-troube.png)  
+![](double-troube.png)
 
 Men det var faktisk dét der skulle til, for at træne en machine learning model til at kunne genkende en fugl - sådan 50/50-ish, i hvert fald.
 Er du nået hertil, så vil jeg sige tak for at tage med på min lille _machine learning rejse_, det var et sjovt lille projekt. Jeg opdaterer selvfølgeligt min model og indlægget igen, hvis/når der er en husskade i kassen/køkkenet.
 
 ## Dokumentation
 
-Her er ressourcerne jeg har brugt for at komme i mål, hvor du kan lære meget mere om de forskellige elementer:  
+Her er ressourcerne jeg har brugt for at komme i mål, hvor du kan lære meget mere om de forskellige elementer:
 
-**Edge Impulse:** 
+**Edge Impulse:**
+
 - [edgeimpulse.com](https://edgeimpulse.com)
 - [edge-impulse-cli](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation)
 - [Officiel Dokumentation](https://docs.edgeimpulse.com/docs)
 - [Edge Impulse for beginners (Officiel dokumentation)](https://docs.edgeimpulse.com/docs/readme/for-beginners)
-- [Edge Impulse embedded learning (Officiel YT-video)](https://www.youtube.com/watch?v=dY3OSiJyne0)  
-- [Dronebot Workshop tutorial](https://www.youtube.com/watch?v=HDRvZ_BYd08&t=1034s&pp=ygUNZWRnZSBpbXB1bHNlIA%3D%3D)  
+- [Edge Impulse embedded learning (Officiel YT-video)](https://www.youtube.com/watch?v=dY3OSiJyne0)
+- [Dronebot Workshop tutorial](https://www.youtube.com/watch?v=HDRvZ_BYd08&t=1034s&pp=ygUNZWRnZSBpbXB1bHNlIA%3D%3D)
 
 **ESPTOOL:**
-- [Officiel dokumentation](https://docs.espressif.com/projects/esptool/en/latest/esp32/)  
-- [esptool på Pypi.org](https://pypi.org/project/esptool)  
+
+- [Officiel dokumentation](https://docs.espressif.com/projects/esptool/en/latest/esp32/)
+- [esptool på Pypi.org](https://pypi.org/project/esptool)
 - [espressif esptool github repo](https://github.com/espressif/esptool)
 
 **Maggie Detecter**:
+
 - [Github repo](#)
 - [This Magpie Does Not Exist](https://thismagpiedoesnotexist.pages.dev)

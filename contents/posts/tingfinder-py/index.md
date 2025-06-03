@@ -6,6 +6,7 @@ image: "./website.webp"
 tags:
   - python
   - selenium
+  - projekt
 ---
 
 Så har jeg igen lavet et lille script, som nok kun jeg kommer til at gøre brug af, men ikke desto mindre vil jeg dele min lille rejse med jer.

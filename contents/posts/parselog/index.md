@@ -6,18 +6,16 @@ image: "./parselog.jpg"
 date: 2024-02-02
 updated: 2024-03-01
 tags:
-  - scripts
   - python
-  - crackbeat
 ---
 
-Jeg havde én igennem på mit arbejde, der oplevede at omtrent ~900 faktura havde fejlet i overførslen fra Rackbeat til E-conomic. 
+Jeg havde én igennem på mit arbejde, der oplevede at omtrent ~900 faktura havde fejlet i overførslen fra Rackbeat til E-conomic.
 
-Det er ikke unormalt at et API kald fejler eller bliver afvist, når systemer taler sammen på denne måde. Det ene system kan tillade X tegn i et bestemt felt, hvor det andet system kan tillade Y, osv. Men at finde hoved og hale i hvad der manglede på NIHUNDREDE salg, selv med log-filerne/notifikationer vi har tilgængelige i Rackbeat, var det svær én lige at overskue. 
+Det er ikke unormalt at et API kald fejler eller bliver afvist, når systemer taler sammen på denne måde. Det ene system kan tillade X tegn i et bestemt felt, hvor det andet system kan tillade Y, osv. Men at finde hoved og hale i hvad der manglede på NIHUNDREDE salg, selv med log-filerne/notifikationer vi har tilgængelige i Rackbeat, var det svær én lige at overskue.
 
 Og yderligere - da fejlbeskederne ved afviste kald altid er _fra_ kald-modtageren, er det ikke lige alle fejl som vi har fine "oversættelser" til. Det her var én af dem.
 
-Fejlbeskederne var heldivis ensartede da alle faktura der havde fejlet, havde det en masse varer der var spærrede i E-conomic, men fortsat var salgsbare i Rackbeat. Da samtlige faktura der ikke indeholdte de spærrede varer fint var gået igennem, gik det åbenbart under radaren at bilagene manglede i finansen, og hobede sig op til de førnævnte, tæt på, 1000 salg over det seneste tre måneder. 
+Fejlbeskederne var heldivis ensartede da alle faktura der havde fejlet, havde det en masse varer der var spærrede i E-conomic, men fortsat var salgsbare i Rackbeat. Da samtlige faktura der ikke indeholdte de spærrede varer fint var gået igennem, gik det åbenbart under radaren at bilagene manglede i finansen, og hobede sig op til de førnævnte, tæt på, 1000 salg over det seneste tre måneder.
 
 Jeg kopierede al teksten fra log-siden, og da den kopierede data var i tabeller valgte jeg at indsætte det i mit Obsidian program, der er Markdown, så jeg kunne bibeholde tabel-overblikket. Men nu så det sådaledes ud:
 
@@ -31,13 +29,16 @@ Jeg kopierede al teksten fra log-siden, og da den kopierede data var i tabeller 
 .... etc (... data=faker.js for eksemplets skyld 🙄)
 
 ```
+
 og som I kan se - stadig ikke det nemmeste at overskue, det det samme tabel og samme lange besked, men nu også med link-data.
 
 ## Python time
+
 ![Co-pilot/Dall-E genererede denne illustration, ud fra det her indlæg](./parselog.jpg)
-Men jeg skulle egentlig også bare bruge det i et filformat, som jeg kunne parse programmatisk - for jeg ville nemlig takle det med et Python-script, der tog en hel fil som input, og kun gav den nødvendige information som kunden skulle bruge tilbage: Fakturanummeret der ikke var overført til finansen, og varenummeret der var spærret i e-conomic. 
+Men jeg skulle egentlig også bare bruge det i et filformat, som jeg kunne parse programmatisk - for jeg ville nemlig takle det med et Python-script, der tog en hel fil som input, og kun gav den nødvendige information som kunden skulle bruge tilbage: Fakturanummeret der ikke var overført til finansen, og varenummeret der var spærret i e-conomic.
 
 ## vi rackbeat-tools/parselog.🔥
+
 Jeg skyndte mig at åbne neovim, og gå i krig! Fremgangsmåden var heldigvis simpel, netop da syntaksen var ens for både fakturanummer og fejlbeskeder, så kunne jeg bruge nogle regex _patterns_, hvor det var nemt at udvælge dét der varierede på et _findall_-kald, og antage at dét var informationen der skulle bruges til at rette op på det store rod.
 
 ```python
@@ -80,11 +81,13 @@ Barred Product: SPE-16-029719-9000
 .....
 
 ```
-Det var jo noget mere behageligt at se på og viser nemt hvilke varer der har spærret for hvilken faktura! 
+
+Det var jo noget mere behageligt at se på og viser nemt hvilke varer der har spærret for hvilken faktura!
 
 Jeg kunne nok godt give det her lidt mere kærlighed, så hvis det skal bruges en anden gang, at sørge for at kun lave ét _instance_ for hver fejlet faktura, hvor, som I kan se jeg har taget med i mit eksempel, så går faktura-nummer 4909 igen to gange, da var flere fejl på samme faktura.
 
 Så måske et output a la sådan noget her 🤷
+
 ```bash
 Invoice: 4909
 SPE-16-029712-9000
@@ -104,4 +107,4 @@ Men vi fik hjulpet kunden i mål lynhurtigt, så det ikke kun er deres finanslag
 
 Scriptet er jo meget niche, og _meget_ specifikt, men det er tilgængelig som en del af [rackbeat-tools](https://github.com/mikkelrask/rackbeat-tools) (MIT), hvis andre har en uoverskuelig log der skal parses på notifikations-siden - og kan nemt justeres til identificere andre fejlbeskeder, eller identificere flere forskellige typer fejl.
 
-_*Filen har ikke .🔥 filformatet, som indlæget indikerer. Det ser jo bare sejere ud._
+_\*Filen har ikke .🔥 filformatet, som indlæget indikerer. Det ser jo bare sejere ud._

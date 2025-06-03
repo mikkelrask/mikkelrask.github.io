@@ -6,6 +6,7 @@ date: 2022-09-15
 tags:
   - python
   - mqtt
+  - automation
 ---
 
 Et af de emner jeg ser som et naturligt _next step_ for mit _home-lab_ eventyr, kunne sagtens være at nørde noget mere med [**MQTT**](https://www.youtube.com/watch?v=NXyf7tVsi10). Det er kæmpestort i home automation miljøet, men ud over dét er det en, i mine øjne, ret overset protokol, man kan bruge til alt muligt! I dag laver jeg et bare-bones script i python til, hvordan man kommer igang med at publish MQTT messages til sin broker, med specifikke topics.
@@ -57,7 +58,7 @@ Og så er vi så små også ved at kunne _rigtigt_ gå i gang!
 
 ## Sæt i gang!
 
-Vi starter meget klassisk vores python dokument med imports. Vi skal ud over paho-mqtt og decouple bruge requests til at fetches vores data, time til at sætte processen i dvale/sleep og random til at randomize vores MQTT client ID. 
+Vi starter meget klassisk vores python dokument med imports. Vi skal ud over paho-mqtt og decouple bruge requests til at fetches vores data, time til at sætte processen i dvale/sleep og random til at randomize vores MQTT client ID.
 
 ```py
 import time
@@ -80,7 +81,9 @@ PASS = config('mqtt-pass')
 ```
 
 ### connect_mqtt()
+
 Vi skal connecte vores app til vores MQTT broker. Det er super simpelt, og som taget ud af [pypi-kodeeksemplet](https://pypi.org/project/paho-mqtt/#usage-and-api).
+
 ```python
 def connect_mqtt():
     def on_connect(client, userdata, flags, rc):
@@ -95,29 +98,36 @@ def connect_mqtt():
     return client
 ```
 
-
-
 ## Fetch dataen fra API'en
-Vi skal jo have noget data fra en datakilde, som vi er interesserede i at få enten præsenteret i en graf eller på et dashboard eller lign. Her henter vi temperatur data med `requests`' indbyggede `get` funktion, fra en node API, hvor vi får responset tilbage i json: 
+
+Vi skal jo have noget data fra en datakilde, som vi er interesserede i at få enten præsenteret i en graf eller på et dashboard eller lign. Her henter vi temperatur data med `requests`' indbyggede `get` funktion, fra en node API, hvor vi får responset tilbage i json:
+
 ```py
-RESPONSE = requests.get(URL).json()             # Vores response indeholde andre 
-WATERTEMP = RESPONSE['data'][0]['temperature']  # her parser vi vandtemperaturen 
-msg = f"{WATERTEMP}"                            # og gør vores MQTT payload klar   
+RESPONSE = requests.get(URL).json()             # Vores response indeholde andre
+WATERTEMP = RESPONSE['data'][0]['temperature']  # her parser vi vandtemperaturen
+msg = f"{WATERTEMP}"                            # og gør vores MQTT payload klar
 ```
+
 ## Publish dataen til din broker
-Og nu vi allerede har fat i dataen, så lad os med  skubbe den videre til vores broker, _wrapped_ ind i en publish funktion:
+
+Og nu vi allerede har fat i dataen, så lad os med skubbe den videre til vores broker, _wrapped_ ind i en publish funktion:
+
 ```py
 result = client.publish(TOPIC, msg)
 status = result[0] # 0 = OK, 1 = ERR!
 ```
+
 Og man kan jo så tjekke status med noget a la:
+
 ```py
 if status == 0:
     print(f"Sendte `{msg}` til `{TOPIC}`")
 else:
     print(f"Kunne ikke sende `{msg}` til `{TOPIC}`")
 ```
+
 og pakke det hele ind i en publish funktion:
+
 ```py
 def publish(client):
      while True:
@@ -133,8 +143,8 @@ def publish(client):
         time.sleep(900)
 ```
 
-
 ## Komplet kode
+
 Og kæder vi dem alle sammen får vi denne komplette kode:
 
 ```python
@@ -187,4 +197,5 @@ if '__name__' == '__main__':
 ```
 
 ## DIYIFTTT
-Og så simpelt kan det faktisk gøres. Det er sådan noget der kan være med til at give væsentlig mere frihed end eks consumer IoT produkter, men også mere kreativ data - hvem siger at dataen vi laver vores home automation ud fra, skal være fra temperatur data, fugtighedsmålere, tryk-sensorer eller lign? Hvad hvis jeg vil have alle lamper i mit hjem til at blinke hver gang Steelers scorer en touch down? Eller hvis jeg vil have at min forstærker automatisk tænder hver gang jeg sætter musik på Spotify, og befinder mig i stuen? Svaret er nok, at jeg vil prøve at bruge MQTT og Home Assistant til at gøre det fra nu af. 
+
+Og så simpelt kan det faktisk gøres. Det er sådan noget der kan være med til at give væsentlig mere frihed end eks consumer IoT produkter, men også mere kreativ data - hvem siger at dataen vi laver vores home automation ud fra, skal være fra temperatur data, fugtighedsmålere, tryk-sensorer eller lign? Hvad hvis jeg vil have alle lamper i mit hjem til at blinke hver gang Steelers scorer en touch down? Eller hvis jeg vil have at min forstærker automatisk tænder hver gang jeg sætter musik på Spotify, og befinder mig i stuen? Svaret er nok, at jeg vil prøve at bruge MQTT og Home Assistant til at gøre det fra nu af.

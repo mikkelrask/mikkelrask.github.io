@@ -11,7 +11,7 @@ const Post = ({ data }) => {
   const post = data.markdownRemark
   const { previous, next, seriesList } = data
   const { title, date, update, tags, image, series } = post.frontmatter
-  const imageUrl = image.childImageSharp.gatsbyImageData.images.fallback.src;
+  const imageUrl = image.childImageSharp.gatsbyImageData.images.fallback.src
   console.log(imageUrl)
   const { excerpt } = post
   const { readingTime, slug } = post.fields
@@ -35,7 +35,12 @@ const Post = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={title} description={excerpt} url={`${siteUrl}${slug}`} image={imageUrl} />
+      <SEO
+        title={title}
+        description={excerpt}
+        url={`${siteUrl}${slug}`}
+        image={imageUrl}
+      />
       <Article>
         <Article.Header
           title={title}

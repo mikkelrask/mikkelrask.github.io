@@ -4,7 +4,8 @@ description: "Gennemgang af projektet der pludseligt fik vokseværk - et IoT ter
 date: 2022-09-14
 tags:
   - tinkering
-  - hardware
+  - platformio
+  - arduino
   - prototyping
 image: "./bankehuset.webp"
 ---

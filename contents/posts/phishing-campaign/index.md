@@ -4,6 +4,7 @@ description: "Gennemgang af en phishing kampagne, hvordan den er sat op og hvord
 date: 2018-09-18
 tags:
   - cybersikkerhed
+  - phishing
 image: "./fomo.webp"
 ---
 

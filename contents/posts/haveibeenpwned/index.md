@@ -6,7 +6,7 @@ image: "./hibp.webp"
 update: 2021-05-01
 tags:
   - passwords
-  - leaks
+  - shell
   - haveibeenpwned
 ---
 

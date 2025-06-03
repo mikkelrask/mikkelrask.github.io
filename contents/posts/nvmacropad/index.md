@@ -63,4 +63,3 @@ n/a (yet)
 ### v 0.1 - Juli 2022
 
 Første prototype var lavet direkte i Arduino, for at finde de korrekte biblioteker der skulle bruges, og for at lære de forskellige non-standard komponenter lidt bedre at kende.
-

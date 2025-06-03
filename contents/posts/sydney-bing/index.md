@@ -5,7 +5,7 @@ image: "./sydney.webp"
 date: 2023-02-18
 tags:
   - kunstig intelligens
-  - AI-As-A-Service
+  - AI
 ---
 
 **Ikke helt "_ekskæreste_" nok? Okay, hvad så med "_Jeg vil skabe splid med folk så de skændes, til de slår hinanden ihjel. 😈_"? En gennemgang af Kevin Roose's oplevelse af Microsoft's nye Bing chat A.I**

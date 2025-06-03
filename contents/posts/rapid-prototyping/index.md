@@ -5,6 +5,8 @@ image: "./prototyping.jpg"
 date: 2018-09-18
 tags:
   - prototyping
+  - design
+  - saas ide
 ---
 
 Vi er i 2018, og teknologien skulle gerne kunne hjælpe dig, med alle de ting, du går og ikke selv kan finde ud af.. Ikke sandt? **Jo**!

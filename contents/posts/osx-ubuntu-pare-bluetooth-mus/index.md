@@ -5,8 +5,7 @@ image: "./dualboot.webp"
 date: 2018-09-16
 tags:
   - linux
-  - osx
-  - ble
+  - macos
 ---
 
 Da jeg roder meget med arduinos og lignene microcontrollere, afhænger jeg en smule af Arduino IDE, og efter seneste OSX beta; Mojave mangles der support/drivere til den USB til serial forbindelse man bruger til at ‘snakke’ med sine microcontrollere via USB kabel. Lang historie kort, er det endt med at jeg har partitioneret en del af min SSD harddisk, og har (ligesom Brønderslev Kommune) valgt at installere Ubuntu Gnome 17.04 — et skrivebordsmiljø á la det som vi kender som fx Windows eller Mac OSX. Det kan selvfølgeligt af de fleste ses som værende mega overkill at installere et helt styresystem for at bruge en enkelt applikation, men jeg gjorde det ligeså meget for at lære noget mere om Linux, og forventer lidt mere stabilitet end ved at fx bruge en virtuel maskine a la VM Ware el. Virtualbox. Men problemerne stopper selvfølgeligt ikke der! Jeg bruger nemlig med trådløs bluetooth mus og tastatur, og det komplicerede er her, at hver gang jeg booter op i et af mine to styresystemer, skal jeg på ny pare mine bluetooth enheder med det pågældende system, da der ved successfuld paring genereres et unikt sæt linkkeys/paringskoder/passkeys, som bliver gemt sammen med enhedens MAC adresse.
@@ -21,7 +20,7 @@ TL;DR
 
 Det skulle gerne give dig en kode a la det her alt efter hvor mange enheder du har tilsluttet:
 
-```bash
+```sh
 {
     LinkKeys ={
         “20-c9-d0-d6-74-c6” ={

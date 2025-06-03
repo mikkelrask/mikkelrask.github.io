@@ -6,6 +6,7 @@ image: "./serverroom.webp"
 tags:
   - shell
   - scripts
+  - bash
 ---
 
 Dette script burde måske egentlig hedde noget andet, for, for det er selvfølgeligt ikke begrænset til at køres på nogen server. Det er dog lavet specifikt til at, i dette tilfælde, er en ubuntu server, tjekke op på om hhv. `apache` og `mysql` kører, og hvis ikke, genstarte servicen. Pretty straight forward.

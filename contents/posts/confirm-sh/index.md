@@ -5,7 +5,8 @@ date: 2020-09-14
 updated: 2022-09-14
 tags:
   - shell
-  - scripts
+  - linux
+  - dmenu
 image: "./confirm.webp"
 ---
 

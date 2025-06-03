@@ -6,8 +6,7 @@ module.exports = {
   siteUrl: "https://mikkelrask.github.io",
   links: {
     github: "https://github.com/mikkelrask",
-    linkedIn: "https://linkedin.com/in/mikkelrask",
-    twitter: "https://x.com/mikkelraskdk",
+    bluesky: "https://bsky.app/profile/mikkelrask.dk",
     instagram: "https://www.instagram.com/raske.xyz",
     email: "mailto:m@raske.xyz",
   },

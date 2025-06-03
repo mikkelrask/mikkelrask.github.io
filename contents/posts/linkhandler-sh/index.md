@@ -6,6 +6,7 @@ image: "./dmenu.webp"
 tags:
   - shell
   - scripts
+  - bash
 ---
 
 Dette bash script minder i sig selv rigtig meget om [confirm](/confirm-sh) scriptet, i dét at vi giver det et argument, og vi derfra får nogle forskellige valgmuligheder via `dmenu`.

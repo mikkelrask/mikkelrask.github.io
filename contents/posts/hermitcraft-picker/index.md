@@ -5,6 +5,7 @@ date: 2020-10-15
 image: "./hermits.webp"
 tags:
   - python
+  - minecraft
 ---
 
 Jeg indrømmer **blank** her, at jeg ikke har skabt noget fantastisk, unikt eller nødvendigvis smart, men.. ..i takt med at jeg lærer mig selv lidt python scripting, roder jeg med ofte med en masse forskellige libraries, og nogle gange er de bare for nemme at sætte sammen, til at jeg kan lade være.

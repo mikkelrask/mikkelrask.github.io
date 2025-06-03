@@ -7,6 +7,7 @@ updated: 2023-03-03
 tags:
   - shell
   - scripts
+  - bash
 ---
 
 Meget meget simpel pomodoro timer, der lader dig arbejde i 25 minutters intervaller, og giver dig 5 minutters pause derefter. Alt scriptet gør, er at gå i dvale i forudbestemte intervaller, i et loop, indtil det scriptet stoppes (CTRL+C). Den giver output i form af en notifikation, terminal output og den afspiller en lyd.
@@ -44,10 +45,9 @@ curl https://raw.githubusercontent.com/mikkelrask/scripts/master/pomodoro -o ~/b
 
 **Github:** [github.com/mikkelrask/scripts/](https://raw.githubusercontent.com/mikkelrask/scripts/master/pomodoro)
 
-
 ## Version 0.2
 
-Det er klart, at hvad der ses ovenfor ikke kan gøres ret meget mere barebones, man kunne fjerne cowsay, notify-send og mpv fra dep listen, og fx nøjes med at lade terminalen tage fokus eller sætte sig som urgent, når tiden er gået, eller hvad ved jeg. Meeen de fleste vil nok have flere muligheder, ikke færre. 
+Det er klart, at hvad der ses ovenfor ikke kan gøres ret meget mere barebones, man kunne fjerne cowsay, notify-send og mpv fra dep listen, og fx nøjes med at lade terminalen tage fokus eller sætte sig som urgent, når tiden er gået, eller hvad ved jeg. Meeen de fleste vil nok have flere muligheder, ikke færre.
 
 **Lad os se på hvad ville være vores drømme pomodoro app:**
 

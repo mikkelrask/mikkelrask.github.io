@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import { createGlobalStyle } from "styled-components"
+import reset from "styled-reset"
 
 const GlobalStyles = createGlobalStyle`
   ${reset}
@@ -49,6 +49,6 @@ const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-family: 'FantasqueSansMNF', sans-serif;
   };
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles

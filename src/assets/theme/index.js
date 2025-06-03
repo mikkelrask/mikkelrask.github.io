@@ -9,21 +9,21 @@ const GRAY2 = "#e9ecef"
 const GRAY1 = "#f1f3f5"
 const GRAY0 = "#f8f9fa"
 
-// gruvbox
-const BG = "#282828"
-const BG1 = "#3C3835"
-const BG2 = "#504943"
-const BG3 = "#665c54"
-const BG4 = "#7C6f64"
-const FG = "#ebdbb2"
-const ORANGE = "#fe8019"
-const GREEN = "#98171a"
-const AQUA = "#8ec07c"
-const RED = "#fb4934"
-const BLUE = "#83a598"
-const FG0 = "#fbf1c7"
-const FG1 = "#ebdbb2"
-const FG2 = "#d5c4a1"
+// Tokyo Night
+const BG = "#1a1b26" // background
+const BG1 = "#16161e" // darker background
+const BG2 = "#2f3549" // slightly lighter background
+const BG3 = "#3b4261" // selection/bg highlight
+const BG4 = "#414868" // floating windows/borders
+const FG = "#c0caf5" // foreground text
+const ORANGE = "#ff9e64" // orange
+const GREEN = "#9ece6a" // green
+const AQUA = "#7dcfff" // cyan/aqua
+const RED = "#f7768e" // red
+const BLUE = "#7aa2f7" // blue
+const FG0 = "#c0caf5" // main text
+const FG1 = "#a9b1d6" // lighter text
+const FG2 = "#9aa5ce" // even lighter
 
 export const light = {
   name: "light",
@@ -33,17 +33,17 @@ export const light = {
     secondaryText: GRAY7,
     tertiaryText: GRAY6,
     mutedText: GRAY5,
-    hoveredLinkText: GRAY0,
+    hoveredLinkText: GRAY9,
     border: GRAY4,
     activatedBorder: GRAY6,
     background: GRAY1,
     icon: GRAY6,
     divider: GRAY2,
-    headerBackground: "rgba(255, 255, 255, 0.85)",
-    headerShadow: "rgba(0, 0, 0, 0.08)",
-    inlineCodeBackground: GRAY2,
-    inlineCodeBackgroundDarker: GRAY4,
-    tagBackground: GRAY1,
+    /*headerBackground: "rgba(255, 255, 255, 0.85)",*/
+    headerShadow: "rgba(0, 0, 0, 0.1)",
+    inlineCodeBackground: ORANGE,
+    inlineCodeBackgroundDarker: RED,
+    tagBackground: GREEN,
     selectedTagBackground: GRAY7,
     hoveredTagBackground: GRAY3,
     hoveredSelectedTagBackground: GRAY8,
@@ -71,20 +71,20 @@ export const dark = {
     secondaryText: FG,
     tertiaryText: ORANGE,
     mutedText: FG2,
-    hoveredLinkText: ORANGE,
+    hoveredLinkText: RED,
     border: ORANGE,
     activatedBorder: BG3,
     background: BG,
     icon: AQUA,
     divider: BG1,
-    headerBackground: "rgba(40, 40, 40, 0.85)",
-    headerShadow: "rgba(255, 255, 255, 0.08)",
-    inlineCodeBackground: BG3,
-    inlineCodeBackgroundDarker: BG2,
+    /*headerBackground: "rgba(40, 40, 40, 0.85)",*/
+    /*headerShadow: "rgba(255, 255, 255, 0.08)",*/
+    inlineCodeBackground: BG4,
+    inlineCodeBackgroundDarker: BG4,
     tagBackground: AQUA,
-    selectedTagBackground: BLUE,
-    hoveredTagBackground: ORANGE,
-    hoveredSelectedTagBackground: RED,
+    selectedTagBackground: ORANGE,
+    hoveredTagBackground: RED,
+    hoveredSelectedTagBackground: ORANGE,
     nextPostButtonBackground: "rgba(255, 255, 255, 0.05)",
     hoveredNextPostButtonBackground: "rgba(255, 255, 255, 0.08)",
     seriesBackground: BG2,
