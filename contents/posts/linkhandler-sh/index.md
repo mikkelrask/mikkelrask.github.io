@@ -4,9 +4,9 @@ description: "Lille bash script til at spørge dig, hvordan du vil åbne et give
 date: 2020-11-12
 image: "./dmenu.webp"
 tags:
-  - shell
-  - scripts
+  - linux
   - bash
+  - dmenu
 ---
 
 Dette bash script minder i sig selv rigtig meget om [confirm](/confirm-sh) scriptet, i dét at vi giver det et argument, og vi derfra får nogle forskellige valgmuligheder via `dmenu`.

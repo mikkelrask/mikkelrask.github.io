@@ -6,6 +6,8 @@
 code[class*='language-'],
 pre[class*='language-'] {
 	color: #c0caf5;
+  background: #16161e;
+  text-wrap: wrap;
 }
 
 pre[class*='language-']::-moz-selection,

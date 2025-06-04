@@ -9,6 +9,7 @@ tags:
   - hardware
   - embedded programming
   - arduino
+  - projekt
 ---
 
 ## Skru' op!

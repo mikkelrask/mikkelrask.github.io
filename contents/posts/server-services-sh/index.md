@@ -5,7 +5,7 @@ date: 2020-08-11
 image: "./serverroom.webp"
 tags:
   - shell
-  - scripts
+  - automation
   - bash
 ---
 

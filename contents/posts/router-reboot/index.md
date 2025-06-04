@@ -5,7 +5,7 @@ image: "./restart.webp"
 date: 2020-09-13
 tags:
   - shell
-  - scripts
+  - automation
   - bash
 ---
 

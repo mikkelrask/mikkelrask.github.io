@@ -6,7 +6,7 @@ date: 2020-12-12
 updated: 2023-03-03
 tags:
   - shell
-  - scripts
+  - produktivitet
   - bash
 ---
 

@@ -10,6 +10,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(
+        filter: {
+          frontmatter: {
+            draft: { ne: true }
+          }
+        }
         sort: { fields: [frontmatter___date], order: ASC }
         limit: 1000
       ) {
@@ -20,10 +25,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
           frontmatter {
             series
+            draft
           }
         }
       }
-      tagsGroup: allMarkdownRemark(limit: 2000) {
+      tagsGroup: allMarkdownRemark(
+        filter: {
+          frontmatter: {
+            draft: { ne: true }
+          }
+        }
+        limit: 2000
+      ) {
         group(field: frontmatter___tags) {
           fieldValue
         }
@@ -109,6 +122,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     description: String
     tags: [String!]!
     series: String
+    draft: Boolean
   }
   `
   createTypes(typeDefs)

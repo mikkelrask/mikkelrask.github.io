@@ -46,7 +46,14 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          draft: { ne: true }
+        }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount
@@ -61,6 +68,8 @@ export const pageQuery = graphql`
           update(formatString: "MMM DD, YYYY")
           title
           tags
+          description
+          draft
         }
       }
     }

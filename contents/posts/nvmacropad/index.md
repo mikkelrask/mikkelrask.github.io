@@ -7,7 +7,7 @@ tags:
   - tinkering
   - hardware
   - prototyping
-published: false
+draft: true
 ---
 
 ## Kort gennemgang

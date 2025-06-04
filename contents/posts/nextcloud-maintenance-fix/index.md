@@ -12,6 +12,7 @@ image: "./maintenance-mode.webp"
 Hvis du har opdateret din Nextcloud-instans mere end én gang, så har du sikkert også oplevet at sidde fast i “maintenance mode” efterfølgende – det gør jeg i hvert fald ret tit af en eller anden grund 🤷 Og jeg har dét til trods, svært ved at huske præcis hvad jeg skal gøre hver gang, for at rent faktisk fikse så jeg tænkte "_hvorfor fanden skriver du ikke sådan noget her ned, dude?_"
 
 Så det har jeg nu gjort – og så kunne jeg jo ligeså godt dele det, så jeg også ved hvor jeg selv finder det henne næste gang jeg skal bruge det 🤷
+![./maintenance-mode.webp]
 
 ## Hvordan fikser man det?
 
