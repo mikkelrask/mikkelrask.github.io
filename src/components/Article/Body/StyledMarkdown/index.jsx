@@ -5,7 +5,7 @@ const StyledMarkdown = styled.div`
     font-size: 17.6px;
     color: ${props => props.theme.colors.text};
     line-height: 1.7;
-    overflow: hidden;
+    overflow: visible;
   }
 
   & *:first-child {
@@ -124,10 +124,6 @@ const StyledMarkdown = styled.div`
     word-break: none;
   }
 
-  pre[class*="language-"] {
-    background-color: #1e1e1e;
-  }
-
   & h2 > code.language-text,
   & h3 > code.language-text,
   & h4 > code.language-text,
@@ -178,19 +174,6 @@ const StyledMarkdown = styled.div`
 
   & li p {
     margin-top: 8px;
-  }
-
-  & pre {
-    ::-webkit-scrollbar {
-      height: 12px;
-    }
-    ::-webkit-scrollbar-track {
-      background: ${props => props.theme.colors.scrollTrack};
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: ${props => props.theme.colors.scrollHandle};
-    }
   }
 
   & pre > code {
