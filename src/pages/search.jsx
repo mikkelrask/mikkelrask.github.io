@@ -26,12 +26,19 @@ const Search = ({ data }) => {
   const filteredPosts = useCallback(
     posts.filter(post => {
       const { frontmatter, rawMarkdownBody } = post
-      const { title } = frontmatter
+      const { title, description } = frontmatter
       const lowerQuery = query.toLocaleLowerCase()
 
+      // Search in markdown body
       if (rawMarkdownBody.toLocaleLowerCase().includes(lowerQuery)) return true
 
-      return title.toLocaleLowerCase().includes(lowerQuery)
+      // Search in title
+      if (title.toLocaleLowerCase().includes(lowerQuery)) return true
+
+      // Search in description if it exists
+      if (description && description.toLocaleLowerCase().includes(lowerQuery)) return true
+
+      return false
     }),
     [query]
   )
@@ -59,7 +66,14 @@ export default Search
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          draft: { ne: true }
+        }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       nodes {
         excerpt(pruneLength: 200, truncate: true)
         fields {
@@ -69,6 +83,8 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           tags
+          description
+          draft
         }
         rawMarkdownBody
       }
