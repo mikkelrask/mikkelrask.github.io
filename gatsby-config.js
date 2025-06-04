@@ -132,8 +132,9 @@ module.exports = {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
                 // Use frontmatter description if available, fallback to excerpt
-                const description = edge.node.frontmatter.description || edge.node.excerpt
-                
+                const description =
+                  edge.node.frontmatter.description || edge.node.excerpt
+
                 return Object.assign({}, edge.node.frontmatter, {
                   description: description,
                   date: edge.node.frontmatter.date,

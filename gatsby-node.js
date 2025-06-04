@@ -10,11 +10,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(
-        filter: {
-          frontmatter: {
-            draft: { ne: true }
-          }
-        }
+        filter: { frontmatter: { draft: { ne: true } } }
         sort: { fields: [frontmatter___date], order: ASC }
         limit: 1000
       ) {
@@ -30,11 +26,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
       }
       tagsGroup: allMarkdownRemark(
-        filter: {
-          frontmatter: {
-            draft: { ne: true }
-          }
-        }
+        filter: { frontmatter: { draft: { ne: true } } }
         limit: 2000
       ) {
         group(field: frontmatter___tags) {

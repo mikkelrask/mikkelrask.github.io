@@ -47,11 +47,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: {
-        frontmatter: {
-          draft: { ne: true }
-        }
-      }
+      filter: { frontmatter: { draft: { ne: true } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       group(field: frontmatter___tags) {

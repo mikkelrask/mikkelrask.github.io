@@ -78,7 +78,7 @@ export const dark = {
     icon: AQUA,
     divider: BG1,
     /*headerBackground: "rgba(40, 40, 40, 0.85)",*/
-    /*headerShadow: "rgba(255, 255, 255, 0.08)",*/
+    headerShadow: "rgba(255, 255, 255, 0.08)",
     inlineCodeBackground: BG4,
     inlineCodeBackgroundDarker: BG4,
     tagBackground: AQUA,
@@ -93,8 +93,8 @@ export const dark = {
     spinner: GREEN,
     scrollTrack: BG1,
     scrollHandle: BG3,
-    blockQuoteBorder: ORANGE,
-    blockQuoteBackground: BG3,
+    blockQuoteBorder: RED,
+    blockQuoteBackground: BG2,
     textFieldBorder: BG4,
     textFieldActivatedBorder: BG3,
     tableBackground: "#292e33",

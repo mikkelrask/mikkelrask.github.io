@@ -10,11 +10,15 @@ import { siteUrl } from "../../blog-config"
 const Post = ({ data }) => {
   const post = data.markdownRemark
   const { previous, next, seriesList } = data
-  const { title, date, update, tags, image, series } = post.frontmatter
+  const { title, date, update, tags, image, series, description } =
+    post.frontmatter
   const imageUrl = image.childImageSharp.gatsbyImageData.images.fallback.src
   console.log(imageUrl)
   const { excerpt } = post
   const { readingTime, slug } = post.fields
+
+  // Use description from frontmatter if available, fallback to excerpt
+  const seoDescription = description || excerpt
 
   let filteredSeries = []
   if (series !== null) {
@@ -37,7 +41,7 @@ const Post = ({ data }) => {
     <Layout>
       <SEO
         title={title}
-        description={excerpt}
+        description={seoDescription}
         url={`${siteUrl}${slug}`}
         image={imageUrl}
       />
@@ -83,6 +87,7 @@ export const pageQuery = graphql`
         update(formatString: "MMMM DD, YYYY")
         tags
         series
+        description
         image {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED, width: 1200)
@@ -98,7 +103,7 @@ export const pageQuery = graphql`
     }
     seriesList: allMarkdownRemark(
       sort: { order: ASC, fields: [frontmatter___date] }
-      filter: { frontmatter: { series: { eq: $series } } }
+      filter: { frontmatter: { series: { eq: $series }, draft: { ne: true } } }
     ) {
       edges {
         node {

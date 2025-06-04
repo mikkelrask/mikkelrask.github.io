@@ -6,7 +6,7 @@ export const initialState = {
 export const SET_LIGHT = "setLight"
 export const SET_DARK = "setDark"
 
-// action 
+// action
 export const setLight = {
   type: SET_LIGHT,
   data: {

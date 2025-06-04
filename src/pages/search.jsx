@@ -36,7 +36,8 @@ const Search = ({ data }) => {
       if (title.toLocaleLowerCase().includes(lowerQuery)) return true
 
       // Search in description if it exists
-      if (description && description.toLocaleLowerCase().includes(lowerQuery)) return true
+      if (description && description.toLocaleLowerCase().includes(lowerQuery))
+        return true
 
       return false
     }),
@@ -67,11 +68,7 @@ export default Search
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      filter: {
-        frontmatter: {
-          draft: { ne: true }
-        }
-      }
+      filter: { frontmatter: { draft: { ne: true } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       nodes {
