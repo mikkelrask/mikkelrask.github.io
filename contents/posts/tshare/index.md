@@ -20,7 +20,7 @@ Så det er fair nok, hvis ikke du gør - så før vi går i gang med hvordan du 
 
 ## 📜 tshare: origins
 
-Egentlig ville jeg oprindeligt bare brainstorme lidt med min buddy [Claude Sonnét III](https://claude.ai), efter at have set en artikel/blog omkring [termbin](https://termbin.com). En online service til at dele terminal output via sin browser.. Noget der kan være mange forskellige grunde til at ville.. Men jeg var knapt så imporneret over hvordan man skulle bruge det
+Egentlig ville jeg oprindeligt bare brainstorme lidt med min buddy [Claude Sonnét III](https://claude.ai), efter at have set en artikel/blog omkring [termbin](https://termbin.com). En online service til at dele terminal output via sin browser.. Noget der kan være mange forskellige grunde til at ville.. Men jeg var knapt så imponeret over hvordan man skulle bruge det
 
 Så uden at det på nogen måde skal blive til bashing af `termbin` eller noget som helst minder om, så kunne jeg ikke lide at deres service (vigtigt at notere at deres (100% gratis!) produkt er selve den online service, og ikke ligesom mit lille projekt her en blanding af en cli applikation _og_ en service) afhang af at man brugte NetCat (\`nc\`) og for at skulle dele sit output skulle _pipe_ sin kommando ind i `nc` med `terminbin.com 9999` som serveren.
 

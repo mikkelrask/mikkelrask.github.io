@@ -6,7 +6,6 @@
 code[class*='language-'],
 pre[class*='language-'] {
 	color: #c0caf5;
-  background: #16161e !important;
   text-wrap: wrap;
   border-radius: 10px;
 }
@@ -16,8 +15,7 @@ pre[class*='language-'] ::-moz-selection,
 code[class*='language-']::-moz-selection,
 code[class*='language-'] ::-moz-selection {
   text-wrap: wrap;
-	text-shadow: none;
-	background: #16161e !important;
+  text-shadow: none;
   border-radius: 10px;
 }
 
@@ -25,23 +23,22 @@ pre[class*='language-']::selection,
 pre[class*='language-'] ::selection,
 code[class*='language-']::selection,
 code[class*='language-'] ::selection {
-	text-shadow: none;
-  background: #16161e !important;
+  text-shadow: none;
   text-wrap: wrap;
   border-radius: 10px;
 }
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-	color: #c0caf5;
-  background: #3b4261 !important;
+  /*background: #3b4261 !important;*/
   border-radius: 0.3em;
+  line-height: initial;
+  padding-left: 4px;
 }
 
 :not(pre) > code[class*='language-'] {
 	border-radius: 0.3em;
 	white-space: normal;
-  background: #16161e !important;
 }
 
 .token.comment {
@@ -127,7 +124,7 @@ pre[class*='language-'] {
 
 .token.regex {
 	color: #b4f9f8;
-}
+} 
 
 .token.important,
 .token.bold {
@@ -156,11 +153,19 @@ h3:before{
   left: -40px;
   opacity: 36%;
 }
+h2:hover::after {
+	content: "🔗";
+	opacity: 25%;
+}
 .language-text{
   color: #a9b1d6;
-  padding: 3px; 
+  padding: 2px; 
   border-radius: 4px;
 }
 .gatsby-highlight{
+  background: #3b4261;
   padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
+

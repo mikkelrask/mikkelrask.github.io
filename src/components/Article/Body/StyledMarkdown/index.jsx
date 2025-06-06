@@ -17,7 +17,6 @@ const StyledMarkdown = styled.div`
   & > ol,
   & table,
   & blockquote,
-  & pre,
   & img,
   & .katex-display {
     margin-top: 0;
@@ -178,6 +177,8 @@ const StyledMarkdown = styled.div`
 
   & pre > code {
     font-size: 14.4px;
+    margin-top: 5px;
+    margin-bottom: 15px;
   }
 
   & img {
@@ -190,8 +191,8 @@ const StyledMarkdown = styled.div`
   & figcaption {
     margin-top: 5px;
     text-align: center;
-    color: #868e96;
-    font-size: 12px;
+    color: ${props => props.theme.colors.text};
+    font-size: 14px;
     font-style: italic;
   }
 
@@ -206,7 +207,6 @@ const StyledMarkdown = styled.div`
   }
 
   & a:hover {
-    background-color: ${props => props.theme.colors.text};
     color: ${props => props.theme.colors.hoveredLinkText};
   }
 `
