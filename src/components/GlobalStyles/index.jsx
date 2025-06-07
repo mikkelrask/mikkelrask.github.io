@@ -50,8 +50,9 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'FantasqueSansMNF', sans-serif;
   };
   iframe {
-    max-width: 100%;
     aspect-ratio: 16 / 9;
+    width: 100%;
+    height: 100%;
  };
 `
 
