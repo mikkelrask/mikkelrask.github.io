@@ -49,6 +49,9 @@ const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-family: 'FantasqueSansMNF', sans-serif;
   };
+  iframe {
+    max-width: 100%;
+ };
 `
 
 export default GlobalStyles
