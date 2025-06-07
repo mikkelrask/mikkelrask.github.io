@@ -9,14 +9,19 @@ tags:
 image: "./maintenance-mode.webp"
 ---
 
+![maintenance-mode.webp](./maintenance-mode.webp)
 Hvis du har opdateret din Nextcloud-instans mere end én gang, så har du sikkert også oplevet at sidde fast i “maintenance mode” efterfølgende – det gør jeg i hvert fald ret tit af en eller anden grund 🤷 Og jeg har dét til trods, svært ved at huske præcis hvad jeg skal gøre hver gang, for at rent faktisk fikse så jeg tænkte "_hvorfor fanden skriver du ikke sådan noget her ned, dude?_"
 
 Så det har jeg nu gjort – og så kunne jeg jo ligeså godt dele det, så jeg også ved hvor jeg selv finder det henne næste gang jeg skal bruge det 🤷
-![./maintenance-mode.webp]
+<iframe width="680" height="382" 
+        src="https://youtube.com/embed/iI5zeJ-qy78" 
+        frameborder="0" allowfullscreen>
+</iframe>
 
 ## Hvordan fikser man det?
 
 Som med alt andet indenfor selfhosting – dit setup kan være meget anderledes end mit, men i dette opslag antager jeg, at vi kører Nextcloud i en docker compose stack på en fjernmaskine/VPS.
+
 
 ### Log ind på din maskine
 
