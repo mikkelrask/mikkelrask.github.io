@@ -7,6 +7,7 @@ tags:
     - bash
     - shell
 date: 2025-06-06
+updated: 2025-06-07
 ---
 ![AutoExecute in action](./ae.webp)
 ## "👆 One small hot reload, please"
