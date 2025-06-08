@@ -21,25 +21,25 @@ const GlobalStyles = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
   }
-1   @font-face {                                                                                    
-1     font-family: 'HackNFM';
-2     src:
+   @font-face {                                                                                    
+     font-family: 'HackNFM';
+     src:
         url('../../HackNFM-Bold.woff2') format('woff2'),
-3       url('../../HackNFM-Bold.woff') format('woff');
-4     font-weight: bold;
-5     font-style: normal;
-6     font-display: swap;
-  7 }
-  8 
-  9 @font-face {
- 10     font-family: 'FantasqueSansMNF';
- 11     src: 
+       url('../../HackNFM-Bold.woff') format('woff');
+     font-weight: bold;
+     font-style: normal;
+     font-display: swap;
+   }
+   
+   @font-face {
+      font-family: 'FantasqueSansMNF';
+      src: 
           url('../../FantasqueSansMNFM-Bold.woff2') format('woff2'),
- 12       url('../../FantasqueSansMNFM-Bold.woff') format('woff');
- 13     font-weight: bold;
- 14     font-style: normal;
- 15     font-display: swap;
- 16 }
+        url('../../FantasqueSansMNFM-Bold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+  }
 
 
   body {
@@ -92,6 +92,12 @@ const GlobalStyles = createGlobalStyle`
   .copy-button:hover::after {
     opacity: 1;
   };
+
+  iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: 100%;
+ };
 `
 
 export default GlobalStyles
