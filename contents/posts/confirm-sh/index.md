@@ -2,7 +2,7 @@
 title: "🫡 confirm"
 description: "Lille bitte script til at bekræfte handlinger eks via dmenu"
 date: 2020-09-14
-updated: 2022-09-14
+update: 2022-09-14
 tags:
   - shell
   - linux

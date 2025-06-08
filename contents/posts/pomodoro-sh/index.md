@@ -3,7 +3,7 @@ title: "🍅 pomodoro"
 description: "Lille bash pomodoro timer"
 image: "./pomodoro.webp"
 date: 2020-12-12
-updated: 2023-03-03
+update: 2023-03-03
 tags:
   - shell
   - produktivitet

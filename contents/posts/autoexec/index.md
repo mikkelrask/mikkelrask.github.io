@@ -6,11 +6,12 @@ tags:
     - automation
     - bash
     - shell
+    - video
 date: 2025-06-06
-updated: 2025-06-07
+update: 2025-06-07
 ---
 ![AutoExecute in action](./ae.webp)
-## "👆 One small hot reload, please"
+## "☝️ One small hot reload, please"
 Når man udvikler Bash-scripts, små CLI-værktøjer eller generelt bare arbejder i terminalen, kan det være en tidsrøver konstant at skulle genstarte sine scripts manuelt for hver lille ændring. Jeg kan ikke tælle hvor mange gange jeg har siddet og genopfrisket en side, efter at have foretaget ændringer, og været frustreret over at ikke kunne se dem, fordi jeg fx har glemt at genstarte min _dev-server_ til mit js-framework e.l. 
 
 Derfor har jeg lavet et lille Bash-værktøj, der automatisk genkører et script eller kommando, så snart filen bliver ændret – med en simpel, men tilfredsstillende spinner-animering i bunden af terminalen.

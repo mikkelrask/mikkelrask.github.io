@@ -4,7 +4,7 @@ title: "🕵️‍♀️ parselog.py"
 description: "Hvordan man nemt kan parse en uoverskuelig tekst/log, med meget få linjers kode."
 image: "./parselog.jpg"
 date: 2024-02-02
-updated: 2024-03-01
+update: 2024-03-01
 tags:
   - python
 ---
