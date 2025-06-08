@@ -7,8 +7,8 @@ const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'HackNFM';
     src: 
-      url('../../fonts/HackNFM-Regular.woff') format('woff'),
       url('../../fonts/HackNFM-Regular.woff2') format('woff2');
+      url('../../fonts/HackNFM-Regular.woff') format('woff'),
     font-weight: normal;
     font-style: normal;
   }
@@ -24,8 +24,8 @@ const GlobalStyles = createGlobalStyle`
    @font-face {                                                                                    
      font-family: 'HackNFM';
      src:
-        url('../../HackNFM-Bold.woff2') format('woff2'),
-       url('../../HackNFM-Bold.woff') format('woff');
+       url('../../fonts/HackNFM-Bold.woff2') format('woff2'),
+       url('../../fonts/HackNFM-Bold.woff') format('woff');
      font-weight: bold;
      font-style: normal;
      font-display: swap;
@@ -34,8 +34,8 @@ const GlobalStyles = createGlobalStyle`
    @font-face {
       font-family: 'FantasqueSansMNF';
       src: 
-          url('../../FantasqueSansMNFM-Bold.woff2') format('woff2'),
-        url('../../FantasqueSansMNFM-Bold.woff') format('woff');
+        url('../../fonts/FantasqueSansMNFM-Bold.woff2') format('woff2'),
+        url('../../fonts/FantasqueSansMNFM-Bold.woff') format('woff');
       font-weight: bold;
       font-style: normal;
       font-display: swap;
@@ -43,7 +43,7 @@ const GlobalStyles = createGlobalStyle`
 
 
   body {
-    font-family: 'HackNFM', sans-serif;
+    font-family: 'FantasqueSansMNF', sans-serif;
     background: ${props => props.theme.colors.bodyBackground};
   };
   h1, h2, h3, h4, h5, h6 {
