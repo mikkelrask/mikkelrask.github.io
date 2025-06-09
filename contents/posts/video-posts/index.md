@@ -35,7 +35,7 @@ Så ændringerne er heller ikke noget der vil påvirke indholdet af siden her - 
 ## 👶 De første videoer
 De første indlæg jeg har lavet videoer til er til mine indlæg om hhv. hvordan man fikser hvis Nextcloud er _stuck_ i maintenance mode eks efter en opdatering, hvor den anden er om mit _"we got terminal watdog at home"_-script, der autoeksekverer fx et bash-script, så snart der ændres i scriptet.
 
-**Links:
+**Links:**
 - [☁️ Fix Nextcloud i Maintenance Mode](/nextcloud-maintenance-fix)
 - [🔎 "watch and repeat" - bash hack til at køre scripts ved ændringer](/autoexec)
 
