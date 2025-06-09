@@ -52,8 +52,6 @@ const GlobalStyles = createGlobalStyle`
 
   pre {
     position: relative;
-    margin: 1em 0;
-    padding: 1em;
     border-radius: 4px;
     overflow: auto;
   };
