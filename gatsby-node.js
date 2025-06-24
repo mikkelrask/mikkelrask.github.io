@@ -33,6 +33,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           fieldValue
         }
       }
+      categoriesGroup: allMarkdownRemark(
+        filter: { frontmatter: { draft: { ne: true } } }
+        limit: 2000
+      ) {
+        group(field: frontmatter___category) {
+          fieldValue
+        }
+      }
     }
   `)
 
@@ -114,6 +122,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     description: String
     tags: [String!]!
     series: String
+    category: JSON
     draft: Boolean
   }
   `

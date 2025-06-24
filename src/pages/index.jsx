@@ -7,6 +7,7 @@ import SEO from "components/SEO"
 import Bio from "components/Bio"
 import PostList from "components/PostList"
 import SideTagList from "components/SideTagList"
+import SideCategoryList from "components/SideCategoryList"
 import Divider from "components/Divider"
 import VerticalSpace from "components/VerticalSpace"
 
@@ -15,6 +16,21 @@ import { title, description, siteUrl } from "../../blog-config"
 const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
   const tags = _.sortBy(data.allMarkdownRemark.group, ["totalCount"]).reverse()
+  const allCategories = posts
+    .filter(post => post.frontmatter.category)
+    .flatMap(post => {
+      const category = post.frontmatter.category
+      return Array.isArray(category) ? category : [category]
+    })
+  
+  const categoryGroups = _.countBy(allCategories)
+  const categories = _.sortBy(
+    Object.entries(categoryGroups).map(([fieldValue, totalCount]) => ({
+      fieldValue,
+      totalCount
+    })),
+    ["totalCount"]
+  ).reverse()
 
   if (posts.length === 0) {
     return (
@@ -64,6 +80,7 @@ export const pageQuery = graphql`
           update(formatString: "MMM DD, YYYY")
           title
           tags
+          category
           description
           draft
         }

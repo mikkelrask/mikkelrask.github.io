@@ -11,6 +11,7 @@ const Post = ({ data }) => {
   const post = data.markdownRemark
   const { previous, next, seriesList } = data
   const { title, date, update, tags, image, series, description } =
+  const { title, date, update, tags, category, image, series, description } =
     post.frontmatter
   const imageUrl = image.childImageSharp.gatsbyImageData.images.fallback.src
   console.log(imageUrl)
@@ -86,6 +87,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         update(formatString: "MMMM DD, YYYY")
         tags
+        category
         series
         description
         image {
