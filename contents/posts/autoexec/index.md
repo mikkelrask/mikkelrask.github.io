@@ -2,6 +2,8 @@
 title: '🔎 "watch and repeat" - bash hack til at køre scripts ved ændringer'
 description: "Træt af at genstarte din script hver gang du har foretaget en lille ændring? Glemmer du at genstarte din dev server, når du sidder og udvikler? - 'ae' has got your back!"
 image: "./ae.webp"
+category:
+    - "Udvikling"
 tags:
     - automation
     - bash
@@ -9,6 +11,8 @@ tags:
     - video
 date: 2025-06-06
 update: 2025-06-07
+series: 
+    - "Bash"
 ---
 ![AutoExecute in action](./ae.webp)
 ## "☝️ One small hot reload, please"

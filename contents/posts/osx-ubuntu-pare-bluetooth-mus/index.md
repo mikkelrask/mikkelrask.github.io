@@ -1,6 +1,8 @@
 ---
 title: "🖱️ Pare bluetooth devices med dual-boot i Ubuntu og OSX"
 description: "Sæt din bluetooth mus op på en dual boot laptop, uden at skulle pare hver gang du skifter OS!"
+category:
+  - Linux
 image: "./dualboot.webp"
 date: 2018-09-16
 tags:

@@ -1,6 +1,8 @@
 ---
 title: '🔊 Kontroller lydstyrken på din computer med et fysisk "volume-knob"!'
 description: "Et sjovt lille 10 minutters projekt der giver dig en præcis føling med lydstyrken på din computer, og med kun 3 ledninger, et potentiometer og en microcontroller. En 'quick and dirty' fremgangsmåde, og den præcise lidt mere autistiske udgave."
+category:
+  - "Tinkering / DIY"
 author: mikkelrask
 image: "./volume-knob.png"
 date: 2024-07-02

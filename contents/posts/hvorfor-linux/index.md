@@ -1,6 +1,8 @@
 ---
 title: "🐧 Hvorfor jeg bruger Linux - når jeg kan"
 description: "Gennemgang af generel kryptering, kodeordsstyrke på alle større platforme."
+category:
+  - "Linux"
 image: "./why-linux.webp"
 date: 2019-07-18
 update: 2021-04-01

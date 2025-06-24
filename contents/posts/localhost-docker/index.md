@@ -1,6 +1,8 @@
 ---
 title: "🐳 Lokal startside med Docker"
 description: "Hvordan du spinner en lille docklet op, med en HTTP server via Docker"
+category:
+  - "Infrastruktur / Selfhosting"
 date: 2020-11-12
 image: "./docker.webp"
 update: 2023-03-04
@@ -9,6 +11,7 @@ tags:
   - alpine
   - nginx
   - self hosting
+series: "Selfhosting"
 ---
 
 Jeg bruger meget af min fritid på diverse subreddits, og en af dem jeg besøger ofte er [r/startpages](https://reddit.com/r/startpages).

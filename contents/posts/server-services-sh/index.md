@@ -1,12 +1,17 @@
 ---
 title: "🐕‍🦺 server-services"
 description: "Genstarter services, der af den ene eller anden årsag ikke kører. Tænkt til en server, hvor fx apache eller mysql kører."
+category:
+  - "Udvikling"
 date: 2020-08-11
 image: "./serverroom.webp"
 tags:
   - shell
   - automation
   - bash
+
+series: 
+  - Bash
 ---
 
 Dette script burde måske egentlig hedde noget andet, for, for det er selvfølgeligt ikke begrænset til at køres på nogen server. Det er dog lavet specifikt til at, i dette tilfælde, er en ubuntu server, tjekke op på om hhv. `apache` og `mysql` kører, og hvis ikke, genstarte servicen. Pretty straight forward.

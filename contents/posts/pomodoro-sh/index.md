@@ -1,6 +1,8 @@
 ---
 title: "🍅 pomodoro"
 description: "Lille bash pomodoro timer"
+category: 
+  - "Udvikling"
 image: "./pomodoro.webp"
 date: 2020-12-12
 update: 2023-03-03
@@ -8,6 +10,8 @@ tags:
   - shell
   - produktivitet
   - bash
+series: 
+  - "Bash"
 ---
 
 Meget meget simpel pomodoro timer, der lader dig arbejde i 25 minutters intervaller, og giver dig 5 minutters pause derefter. Alt scriptet gør, er at gå i dvale i forudbestemte intervaller, i et loop, indtil det scriptet stoppes (CTRL+C). Den giver output i form af en notifikation, terminal output og den afspiller en lyd.

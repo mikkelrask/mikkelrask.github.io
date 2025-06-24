@@ -1,6 +1,8 @@
 ---
 title: "🧠 ADHD og TECH"
 description: "Hvordan jeg griber ADHD an, med redskaber fra tech verdenen."
+category: 
+    - "Personlig udvikling"
 date: 2021-07-24
 update: 2023-02-18
 tags:

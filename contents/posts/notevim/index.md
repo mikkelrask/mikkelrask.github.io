@@ -1,6 +1,8 @@
 ---
 title: "🗒️ nvim diary"
 description: "vim-script til at nemt oprette en ny note for hver dag, med timestamp."
+category:
+  - "Udvikling"
 image: "./vim.webp"
 date: 2021-05-09
 update: 2023-03-02
@@ -8,6 +10,7 @@ tags:
   - shell
   - scripts
   - neovim
+series: "Bash"
 ---
 
 Jeg skal blot klikke på `Win+N` på min bærbare, så åbnes mit notetagningsprogram med det samme og har oprettet dagens note, og givet den dags dato som filnavn og til slut, sat markøren klar til at skrive, lige under et time-stamp for, hvornår noten er oprettet. Simpelt!

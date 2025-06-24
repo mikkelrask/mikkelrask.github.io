@@ -1,6 +1,8 @@
 ---
 title: "🎣 Phishing kampagner tager dine penge måned for måned"
 description: "Gennemgang af en phishing kampagne, hvordan den er sat op og hvordan de narrer én til et dyrt ugentlig abonnement."
+category:
+  - Cyber / Sikkerhed
 date: 2018-09-18
 tags:
   - cybersikkerhed

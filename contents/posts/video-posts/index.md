@@ -1,6 +1,7 @@
 ---
 title: '📹 "Please smash that like button and subscribe for more, and to support the channel!!!!!"'
 description: 'Jeg er begyndt at lave videogennemgange af nogle af mine indlæg, hvor jeg synes at det visuelle bidrager til forståelsen, eller der er flere faldgrupper og "foot guns" at dække. Det gør også at jeg lige kigger indlæggene efter i sømmene for fejl, mangler og lign. så selv ældre indlæg er "up to speed", så at sige.'
+category: "Personlig udvikling"
 date: "2025-06-08"
 tags:
   - video

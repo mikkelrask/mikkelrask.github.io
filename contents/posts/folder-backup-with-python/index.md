@@ -1,6 +1,9 @@
 ---
 title: "🗜️ python-zip-folder"
 description: "Gennengang af scriptet der sørger for at tage sikkerhedskopier af bl.a min minecraft servers verden, og uploade den til skyen"
+category:
+  - "Udvikling"
+  - "Infrastruktur / Selfhosting"
 date: 2020-12-14
 image: "./backup.webp"
 tags:

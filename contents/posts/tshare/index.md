@@ -1,6 +1,9 @@
 ---
 title: 🧑‍💻 Host din egen tshare backend
 description: "Hvad er tshare, og hvordan får du en lokal backend API op og køre? Læs med, hvordan vi gør det med docker eller docker compose."
+category:
+  - Udvikling
+  - Infrastruktur / Selfhosting
 date: 2025-04-14
 updated: 2025-04-14
 draft: false
@@ -10,6 +13,9 @@ tags:
   - scripts
   - projekt
 image: ./tshare.png
+series: 
+  - "Video blogs"
+  - "Selfhosting"
 ---
 
 Hvis ikke du allerede kender `tshare`, er det måske fordi det er en _bash script baseret terminal-output-deler_ som jeg umiddelbart vil sige at jeg _[vibede]()_ mig til ... sådan i går-agtigt.

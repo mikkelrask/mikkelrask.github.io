@@ -1,12 +1,15 @@
 ---
 title: "💻 linkhandler %url%"
 description: "Lille bash script til at spørge dig, hvordan du vil åbne et givent link"
+category:
+  - "Udvikling"
 date: 2020-11-12
 image: "./dmenu.webp"
 tags:
   - linux
   - bash
   - dmenu
+series: "Bash"
 ---
 
 Dette bash script minder i sig selv rigtig meget om [confirm](/confirm-sh) scriptet, i dét at vi giver det et argument, og vi derfra får nogle forskellige valgmuligheder via `dmenu`.

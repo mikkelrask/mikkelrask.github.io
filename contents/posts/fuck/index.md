@@ -1,6 +1,8 @@
 ---
 title: 😑 FUCK!
 description: "Lad os installere thefuck, til at rette vores småfejl i terminalen...!"
+category:
+  - "Udvikling"
 date: 2023-04-15
 image: "./fuuu.webp"
 update: 2023-04-15

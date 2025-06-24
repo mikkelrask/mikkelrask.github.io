@@ -1,12 +1,17 @@
 ---
 title: "🧹 DAMN! Få besked når det er på tide at rydde op"
 description: "Overvåg mapper for aktivitet, og få automatisk en e-mail når det er på tide at backe up, og evt. slette indholdet."
+category:
+  - "Udvikling" 
+  - "Infrastruktur / Selfhosting"
 date: 2025-06-03
 tags:
   - bash
   - shell
   - automation
 image: "./damn.webp"
+series:
+  - "Selfhosting"
 ---
 
 Damn står for **Direcotry Activity Monitor/Notifier** og er et bash-hjælpeværktøj jeg har udviklet til at holde øje med en eller flere specificerede mapper for aktivitet, og notificere dig via e-mail eller slack-bot, når det er på tide at slette den/flytte til en backup destination eller lign. Perfekt til din projektmappe til dine repos eller på en NAS eller lign.

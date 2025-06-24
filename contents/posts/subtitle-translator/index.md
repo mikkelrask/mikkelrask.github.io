@@ -1,6 +1,8 @@
 ---
 title: "🌐 Oversæt nemt undertekster med machine learning og subtrans"
 description: "Hvad gør man når ens mor gerne vil se Bridget Jones dagbog med Danske undertekster, men der kun findes engelske? 🤔 Man fikser det med Python - altid 'automate the boring stuff'!"
+category:
+  - "Udvikling"
 image: "./subtrans.webp"
 tags:
   - python

@@ -1,12 +1,16 @@
 ---
 title: "🛟 router-reboot"
 description: "Utility til at genstarte en linux maskine/openWRT/lign router hvis den ikke har internet."
+category:
+  - Udvikling
 image: "./restart.webp"
 date: 2020-09-13
 tags:
   - shell
   - automation
   - bash
+series: 
+  - "Bash"
 ---
 
 Okay, så min router er flashet med en custom firmware der hedder openWRT, hvilket jeg tror hører til minoriteten af routere derude, selv blandt de få der måtte læse med her. Men basalt set laver openWRT min router til en linux-maskine, der tilfældigvis også kan route internettrafik. En maskine som man kan ssh ind i, køre scripts på osv. En meget lille, og begrænset linux maskine, men en linux maskine trods alt.
