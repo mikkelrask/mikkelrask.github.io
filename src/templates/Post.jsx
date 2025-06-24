@@ -7,10 +7,9 @@ import Article from "components/Article"
 
 import { siteUrl } from "../../blog-config"
 
-const Post = ({ data }) => {
+const Post = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { previous, next, seriesList } = data
-  const { title, date, update, tags, image, series, description } =
   const { title, date, update, tags, category, image, series, description } =
     post.frontmatter
   const imageUrl = image.childImageSharp.gatsbyImageData.images.fallback.src
@@ -22,8 +21,17 @@ const Post = ({ data }) => {
   const seoDescription = description || excerpt
 
   let filteredSeries = []
-  if (series !== null) {
-    filteredSeries = seriesList.edges.map(seriesPost => {
+  const firstSeries = pageContext.series
+  if (firstSeries && seriesList && seriesList.edges) {
+    // Filter series posts that belong to the same series as the current post
+    const relevantSeriesPosts = seriesList.edges.filter(edge => {
+      const postSeries = edge.node.frontmatter.series
+      if (!postSeries) return false
+      const seriesArray = Array.isArray(postSeries) ? postSeries : [postSeries]
+      return seriesArray.includes(firstSeries)
+    })
+    
+    filteredSeries = relevantSeriesPosts.map(seriesPost => {
       if (seriesPost.node.id === post.id) {
         return {
           ...seriesPost.node,
@@ -55,7 +63,7 @@ const Post = ({ data }) => {
           minToRead={Math.round(readingTime.minutes)}
         />
         {filteredSeries.length > 0 && (
-          <Article.Series header={series} series={filteredSeries} />
+          <Article.Series header={firstSeries} series={filteredSeries} />
         )}
         <Article.Body html={post.html} />
         <Article.Footer previous={previous} next={next} />
@@ -69,7 +77,6 @@ export default Post
 export const pageQuery = graphql`
   query BlogPostBySlug(
     $id: String!
-    $series: String
     $previousPostId: String
     $nextPostId: String
   ) {
@@ -104,8 +111,8 @@ export const pageQuery = graphql`
       }
     }
     seriesList: allMarkdownRemark(
-      sort: { order: ASC, fields: [frontmatter___date] }
-      filter: { frontmatter: { series: { eq: $series }, draft: { ne: true } } }
+      sort: { frontmatter: { date: ASC } }
+      filter: { frontmatter: { draft: { ne: true } } }
     ) {
       edges {
         node {
@@ -115,6 +122,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            series
           }
         }
       }

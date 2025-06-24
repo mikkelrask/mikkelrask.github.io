@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     {
       postsRemark: allMarkdownRemark(
         filter: { frontmatter: { draft: { ne: true } } }
-        sort: { fields: [frontmatter___date], order: ASC }
+        sort: { frontmatter: { date: ASC } }
         limit: 1000
       ) {
         nodes {
@@ -56,9 +56,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const series = _.reduce(
     posts,
     (acc, cur) => {
-      const seriesName = cur.frontmatter.series
-      if (seriesName && !_.includes(acc, seriesName))
-        return [...acc, seriesName]
+      const seriesField = cur.frontmatter.series
+      if (seriesField) {
+        const seriesArray = Array.isArray(seriesField) ? seriesField : [seriesField]
+        const newSeries = seriesArray.filter(seriesName => !_.includes(acc, seriesName))
+        return [...acc, ...newSeries]
+      }
       return acc
     },
     []
@@ -74,7 +77,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: postTemplate,
         context: {
           id: post.id,
-          series: post.frontmatter.series,
+          series: post.frontmatter.series ? (Array.isArray(post.frontmatter.series) ? post.frontmatter.series[0] : post.frontmatter.series) : null,
+          allSeries: post.frontmatter.series ? (Array.isArray(post.frontmatter.series) ? post.frontmatter.series : [post.frontmatter.series]) : [],
           previousPostId,
           nextPostId,
         },
@@ -121,8 +125,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     title: String!
     description: String
     tags: [String!]!
-    series: String
     category: JSON
+    series: JSON
     draft: Boolean
   }
   `

@@ -53,9 +53,17 @@ const Date = styled.span`
   font-weight: lighter;
 `
 
-const Series = ({ pathContext, data }) => {
-  const seriesName = pathContext.series
-  const posts = data.posts.nodes
+const Series = ({ pageContext, data }) => {
+  const seriesName = pageContext.series
+  const allPosts = data.posts.nodes
+  
+  // Filter posts that belong to this series
+  const posts = allPosts.filter(post => {
+    const postSeries = post.frontmatter.series
+    if (!postSeries) return false
+    const seriesArray = Array.isArray(postSeries) ? postSeries : [postSeries]
+    return seriesArray.includes(seriesName)
+  })
 
   return (
     <Layout>
@@ -88,10 +96,10 @@ const Series = ({ pathContext, data }) => {
 export default Series
 
 export const pageQuery = graphql`
-  query BlogSeriesBySeriesName($series: String) {
+  query BlogSeriesBySeriesName {
     posts: allMarkdownRemark(
-      sort: { order: ASC, fields: [frontmatter___date] }
-      filter: { frontmatter: { series: { eq: $series } } }
+      sort: { frontmatter: { date: ASC } }
+      filter: { frontmatter: { draft: { ne: true } } }
     ) {
       nodes {
         excerpt(pruneLength: 200, truncate: true)
@@ -103,6 +111,8 @@ export const pageQuery = graphql`
           update(formatString: "MMM DD, YYYY")
           title
           tags
+          description
+          series
         }
       }
     }

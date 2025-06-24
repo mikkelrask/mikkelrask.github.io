@@ -6,7 +6,6 @@ import Layout from "components/Layout"
 import SEO from "components/SEO"
 import Bio from "components/Bio"
 import PostList from "components/PostList"
-import SideTagList from "components/SideTagList"
 import SideCategoryList from "components/SideCategoryList"
 import Divider from "components/Divider"
 import VerticalSpace from "components/VerticalSpace"
@@ -15,7 +14,8 @@ import { title, description, siteUrl } from "../../blog-config"
 
 const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
-  const tags = _.sortBy(data.allMarkdownRemark.group, ["totalCount"]).reverse()
+  
+  // Manually create categories from posts, handling both string and array formats
   const allCategories = posts
     .filter(post => post.frontmatter.category)
     .flatMap(post => {
@@ -47,7 +47,7 @@ const BlogIndex = ({ data }) => {
       <VerticalSpace size={48} />
       <Bio />
       <Divider />
-      <SideTagList tags={tags} postCount={posts.length} />
+      <SideCategoryList categories={categories} postCount={posts.length} />
       <PostList postList={posts} />
     </Layout>
   )
@@ -64,12 +64,8 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { frontmatter: { draft: { ne: true } } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
-      }
       nodes {
         excerpt(pruneLength: 200, truncate: true)
         fields {

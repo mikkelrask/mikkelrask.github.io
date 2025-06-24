@@ -1,5 +1,5 @@
 import React from "react"
-import { flow, map, groupBy, sortBy, filter, reverse } from "lodash/fp"
+import { flow, map, flatMap, groupBy, sortBy, filter, reverse } from "lodash/fp"
 import styled from "styled-components"
 import SEO from "components/SEO"
 
@@ -24,7 +24,18 @@ const TagListWrapper = styled.div`
 const SeriesPage = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
   const series = flow(
-    map(post => ({ ...post.frontmatter, slug: post.fields.slug })),
+    // Flatten posts by series (each post can belong to multiple series)
+    flatMap(post => {
+      const seriesField = post.frontmatter.series
+      if (!seriesField) return []
+      
+      const seriesArray = Array.isArray(seriesField) ? seriesField : [seriesField]
+      return seriesArray.map(seriesName => ({
+        ...post.frontmatter,
+        series: seriesName,
+        slug: post.fields.slug
+      }))
+    }),
     groupBy("series"),
     map(series => ({
       name: series[0].series,
@@ -64,7 +75,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount
