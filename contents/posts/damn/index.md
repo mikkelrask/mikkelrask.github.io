@@ -12,6 +12,7 @@ tags:
 image: "./damn.webp"
 series:
   - "Selfhosting"
+  - "Bash"
 ---
 
 Damn står for **Direcotry Activity Monitor/Notifier** og er et bash-hjælpeværktøj jeg har udviklet til at holde øje med en eller flere specificerede mapper for aktivitet, og notificere dig via e-mail eller slack-bot, når det er på tide at slette den/flytte til en backup destination eller lign. Perfekt til din projektmappe til dine repos eller på en NAS eller lign.
