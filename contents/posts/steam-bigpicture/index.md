@@ -32,9 +32,9 @@ Men nok om regeringer og office-pakker - det er jo ikke derfor vi er her! For ud
 Pewd's som gladeligt forklarer sine **110 millioner følgere** på sit bedste swenglish, hvorfor han øvrigt bruger [Arch Linux](https://www.etsy.com/listing/1518384190/i-use-arch-btw-vinyl-sticker-kiss-cut). 😎 
 ![👆🏻 This guy fucks](./pewdiepie-linux.jpg)
 
-Noget der ikke er gået hen over hovedet på mange i Linux miljøet, skal jeg hilse at sige, blandt andet fordi at Arch Linux rygtes at være svært at installere, og ses lidt som en slags _rite of passage_, for hvornår man er en "rigtig" linux bruger, hvor man kan efter en succesfuld installation, kan fejre det med sit nye mantra: **"I use Arch, btw"**.
+Noget der ikke er gået hen over hovedet på mange i Linux miljøet, skal jeg hilse at sige, blandt andet fordi at Arch Linux rygtes at være notorisk svært at installere, og ses lidt som en slags _rite of passage_, for hvornår man er en "rigtig" linux bruger, hvor man kan efter en succesfuld installation, kan fejre det med sit nye mantra: **"I use Arch, btw"**.
 ## ⚛️ Proton gør det nemmere
-Så vi har support fra de _influencers_, vi har support fra det offentlige. Vi har også flere tilgængelige titler end nogensinde før der supporterer Linux, og pga. Valve's Steam Deck og SteamOS, kan man nu også spille langt de fleste spiltitler, som vel at mærke ikke kræver en malware-lignende adgang til din CPU og system, via Valve's Proton bibliotek til Wine allereede fra udgivelsesdatoen, for selv helt nye store AAA titler. Ved nogle titler endda med et lille [performance-boost ift. windows](https://www.youtube.com/watch?v=ajVvu9M2Y-I)! 
+Så vi har support fra millionær-_influencers_, vi har support fra det offentlige. Vi har også flere tilgængelige titler end nogensinde før der supporterer Linux, og pga. Valve's Steam Deck og SteamOS, kan man nu også spille langt de fleste spiltitler, som vel at mærke ikke kræver en malware-lignende adgang til din CPU og system, via Valve's Proton bibliotek til Wine allereede fra udgivelsesdatoen, for selv helt nye store AAA titler. Ved nogle titler endda med et lille [performance-boost ift. windows](https://www.youtube.com/watch?v=ajVvu9M2Y-I)! 
 
 Se evt. hvordan lige præcist _dit_ yndlingsspil perfomer på **[ProtonDB](https://protondb.com)**, hvor brugere deler ud af deres oplevelser, fifs til at få de helt rigtige launchparametre for at få så mange FPS som muligt. Ved mange er det slet ikke nødvendigt til gengæld, det er bare at installere og trykke på den grønne Play knap! 
 
@@ -45,7 +45,7 @@ I skrivende stund er der **25.444 titler**, som brugere har markeret som **"play
 
 Og selvom _jeg_ ikke tror det gør det store udsving som man ellers godt kunne håbe på, så er vi, som _hvert år_, tættere på end nogensinde før. 
 
-Så lad os få sat vores Linux op så vi kan game indtil næste år, hvor det helt sikkert er året for Linux Gaming!**!**
+Så lad os få sat vores Linux op så vi kan game indtil næste år, hvor det **helt sikkert** er året for Linux Gaming!**!**!**!**!**!**
 
 ## 🛑 Før vi går i gang
 For at være helt klar, skal vi selvfølgelig sørge for at have `steam` og `gamescope` installeret.
