@@ -43,7 +43,7 @@ const TagsPage = ({ data }) => {
     }
 
     setFilteredPosts(
-      filter(posts, post => post.frontmatter.tags.indexOf(selected) !== -1)
+      filter(posts, post => post.frontmatter.tags.indexOf(selected) !== -1),
     )
   }, [selected])
 
@@ -59,13 +59,10 @@ const TagsPage = ({ data }) => {
       <TagListWrapper>
         {selected ? (
           <Title size="sm">
-            There are {filteredPosts.length} post
-            {filteredPosts.length > 1 && "s"} that match #{selected}.
+            Der er {filteredPosts.length} indlæg, der matcher #{selected}.
           </Title>
         ) : (
-          <Title size="sm">
-            There are {tags.length} tag{tags.length > 1 && "s"}.
-          </Title>
+          <Title size="sm">Der er {tags.length} nørd-tags - go nuts 🤓</Title>
         )}
 
         <TagList
@@ -109,8 +106,8 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          update(formatString: "MMM DD, YYYY")
+          date(formatString: "DD. MMMM, YYYY", locale: "da")
+          update(formatString: "DD. MMMM, YYYY", locale: "da")
           title
           tags
         }

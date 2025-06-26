@@ -83,9 +83,9 @@ const SeriesList = ({ seriesList }) => {
                 </Link>
               </Title>
               <SeriesInform>
-                <PostCount>{series.posts.length} Posts</PostCount>
+                <PostCount>{series.posts.length} Indlæg</PostCount>
                 <span>·</span>
-                <Date>Last updated on {series.lastUpdated}</Date>
+                <Date>Sidst opdateret den {series.lastUpdated}</Date>
               </SeriesInform>
             </SeriesWrapper>
 

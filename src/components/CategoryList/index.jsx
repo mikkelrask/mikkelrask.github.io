@@ -44,7 +44,10 @@ const CategoryList = ({ categoryList, count, selected }) => {
     return (
       <CategoryListWrapper>
         {categoryList.map((category, i) => (
-          <Link key={JSON.stringify({ category, i })} to={`/categories?q=${category}`}>
+          <Link
+            key={JSON.stringify({ category, i })}
+            to={`/categories?q=${category}`}
+          >
             <CategoryLink>{spaceToDash(category)}</CategoryLink>
           </Link>
         ))}
@@ -58,7 +61,9 @@ const CategoryList = ({ categoryList, count, selected }) => {
         <Link
           key={JSON.stringify({ category, i })}
           to={
-            selected === category.fieldValue ? "/categories" : `/categories?q=${category.fieldValue}`
+            selected === category.fieldValue
+              ? "/categories"
+              : `/categories?q=${category.fieldValue}`
           }
         >
           <CategoryLink selected={category.fieldValue === selected}>

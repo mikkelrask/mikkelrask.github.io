@@ -3,6 +3,7 @@ import styled from "styled-components"
 import _ from "lodash"
 
 import { Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Title from "components/Title"
 import Divider from "components/Divider"
@@ -70,12 +71,15 @@ const PostList = ({ postList }) => {
   return (
     <PostListWrapper>
       {postList.slice(0, postCount).map((post, i) => {
-        const { title, date, tags, description } = post.frontmatter
+        const { title, tags, description, frontpageImage, image } =
+          post.frontmatter
         const { excerpt } = post
         const { slug } = post.fields
 
         // Use description from frontmatter if available, fallback to excerpt
         const postExcerpt = description || excerpt
+
+        const gatsbyImage = getImage(image)
 
         return (
           <>
@@ -83,7 +87,25 @@ const PostList = ({ postList }) => {
               <Title size="bg">
                 <Link to={slug}>{title}</Link>
               </Title>
-              <Date>{date}</Date>
+              <Date>
+                {" "}
+                {post.frontmatter.date}{" "}
+                {post.frontmatter.update &&
+                  `(Opdateret: ${post.frontmatter.update})`}
+                {post.frontmatter.category &&
+                  ` | ${Array.isArray(post.frontmatter.category)
+                    ? post.frontmatter.category.join(", ")
+                    : post.frontmatter.category}`}
+              </Date>
+              {frontpageImage && gatsbyImage && (
+                <Link to={slug}>
+                  <GatsbyImage
+                    image={gatsbyImage}
+                    alt={title}
+                    style={{ marginBottom: "16px" }}
+                  />
+                </Link>
+              )}
               <Excerpt>{postExcerpt}</Excerpt>
               <TagList tagList={tags} />
             </PostWrapper>

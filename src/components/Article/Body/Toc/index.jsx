@@ -81,7 +81,9 @@ const Toc = ({ items, articleOffset }) => {
     const bioElm = document.getElementById("bio")
 
     setRevealAt(
-      getElementOffset(bioElm).top - bioElm.getBoundingClientRect().height - 400
+      getElementOffset(bioElm).top -
+        bioElm.getBoundingClientRect().height -
+        400,
     )
   }, [])
 
@@ -89,7 +91,7 @@ const Toc = ({ items, articleOffset }) => {
     setHeaders(
       [
         ...document.querySelectorAll("#article-body > h2, #article-body > h3"),
-      ].map(element => getElementOffset(element).top)
+      ].map(element => getElementOffset(element).top),
     )
   }, [])
 

@@ -11,8 +11,8 @@ const Wrapper = styled.aside`
   position: absolute;
   left: 112%;
   top: 0px;
-  width: 200px;
-  height: 100px;
+  width: 250px;
+  height: auto;
   font-size: 16px;
 
   @media (max-width: 1079px) {
@@ -21,19 +21,27 @@ const Wrapper = styled.aside`
 `
 
 const Title = styled.div`
-  margin-bottom: 25px;
+  margin-top: 25px;
   font-weight: bold;
   color: ${props => props.theme.colors.secondaryText};
 `
 
 const Tag = styled.li`
-  margin-bottom: 16px;
-  color: ${props => props.theme.colors.tertiaryText};
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 6px 12px;
+  border-radius: 16px;
+  background-color: ${props => props.theme.colors.tagBackground};
+  color: ${props => props.theme.colors.tagText};
   cursor: pointer;
-  transition: color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 
   &:hover {
-    color: ${props => props.theme.colors.text};
+    background-color: ${props => props.theme.colors.hoveredTagBackground};
+    color: ${props => props.theme.colors.selectedTagText};
   }
 
   & > a {
@@ -46,10 +54,10 @@ const SideTagList = ({ tags, postCount }) => {
   return (
     <RelativeWrapper>
       <Wrapper>
-        <Title>TAG LIST</Title>
+        <Title>Tags</Title>
         <ul>
           <Tag>
-            <Link to="/tags">all ({postCount})</Link>
+            <Link to="/tags">alle ({postCount})</Link>
           </Tag>
           {_.map(tags, tag => (
             <Tag>

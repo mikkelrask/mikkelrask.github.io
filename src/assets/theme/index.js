@@ -4,6 +4,7 @@ const GRAY7 = "#495057"
 const GRAY6 = "#868e96"
 const GRAY5 = "#adb5bd"
 const GRAY4 = "#ced4da"
+// eslint-disable-next-line no-unused-vars
 const GRAY3 = "#dee2e6"
 const GRAY2 = "#e9ecef"
 const GRAY1 = "#f1f3f5"
@@ -20,8 +21,10 @@ const ORANGE = "#ff9e64" // orange
 const GREEN = "#9ece6a" // green
 const AQUA = "#7dcfff" // cyan/aqua
 const RED = "#f7768e" // red
+// eslint-disable-next-line no-unused-vars
 const BLUE = "#7aa2f7" // blue
 const FG0 = "#c0caf5" // main text
+// eslint-disable-next-line no-unused-vars
 const FG1 = "#a9b1d6" // lighter text
 const FG2 = "#9aa5ce" // even lighter
 

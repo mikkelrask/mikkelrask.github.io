@@ -14,7 +14,7 @@ import { title, description, siteUrl } from "../../blog-config"
 
 const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
-  
+
   // Manually create categories from posts, handling both string and array formats
   const allCategories = posts
     .filter(post => post.frontmatter.category)
@@ -22,14 +22,14 @@ const BlogIndex = ({ data }) => {
       const category = post.frontmatter.category
       return Array.isArray(category) ? category : [category]
     })
-  
+
   const categoryGroups = _.countBy(allCategories)
   const categories = _.sortBy(
     Object.entries(categoryGroups).map(([fieldValue, totalCount]) => ({
       fieldValue,
-      totalCount
+      totalCount,
     })),
-    ["totalCount"]
+    ["totalCount"],
   ).reverse()
 
   if (posts.length === 0) {
@@ -72,13 +72,19 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          update(formatString: "MMM DD, YYYY")
+          date(formatString: "DD. MMMM, YYYY", locale: "da")
+          update(formatString: "DD. MMMM, YYYY", locale: "da")
           title
           tags
           category
           description
           draft
+          frontpageImage
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }

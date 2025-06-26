@@ -28,12 +28,14 @@ const SeriesPage = ({ data }) => {
     flatMap(post => {
       const seriesField = post.frontmatter.series
       if (!seriesField) return []
-      
-      const seriesArray = Array.isArray(seriesField) ? seriesField : [seriesField]
+
+      const seriesArray = Array.isArray(seriesField)
+        ? seriesField
+        : [seriesField]
       return seriesArray.map(seriesName => ({
         ...post.frontmatter,
         series: seriesName,
-        slug: post.fields.slug
+        slug: post.fields.slug,
       }))
     }),
     groupBy("series"),
@@ -44,7 +46,7 @@ const SeriesPage = ({ data }) => {
     })),
     sortBy(series => new Date(series.lastUpdated)),
     filter(series => series.name),
-    reverse
+    reverse,
   )(posts)
 
   return (
@@ -86,8 +88,8 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          update(formatString: "MMM DD, YYYY")
+          date(formatString: "DD. MMMM, YYYY", locale: "da")
+          update(formatString: "DD. MMMM, YYYY", locale: "da")
           title
           tags
           series

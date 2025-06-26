@@ -41,7 +41,7 @@ const Search = ({ data }) => {
 
       return false
     }),
-    [query]
+    [query],
   )
 
   return (
@@ -49,8 +49,7 @@ const Search = ({ data }) => {
       <SEO title={title} description={description} url={siteUrl} />
       <SearchWrapper>
         <Title size="sm">
-          There are {filteredPosts.length} post{filteredPosts.length > 1 && "s"}
-          .
+          Der er {filteredPosts.length} indlæg{filteredPosts.length > 1 && ""}.
         </Title>
         <TextField
           onChange={e => setQuery(e.target.value)}
@@ -77,7 +76,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "DD. MMMM, YYYY", locale: "da")
           title
           tags
           description

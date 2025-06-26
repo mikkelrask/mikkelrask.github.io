@@ -45,7 +45,7 @@ const TagList = ({ tagList, count, selected }) => {
       <TagListWrapper>
         {tagList.map((tag, i) => (
           <Link key={JSON.stringify({ tag, i })} to={`/tags?q=${tag}`}>
-            <TagLink>{spaceToDash(tag)}</TagLink>
+            <TagLink>#{spaceToDash(tag)}</TagLink>
           </Link>
         ))}
       </TagListWrapper>
@@ -62,7 +62,7 @@ const TagList = ({ tagList, count, selected }) => {
           }
         >
           <TagLink selected={tag.fieldValue === selected}>
-            {spaceToDash(tag.fieldValue)} ({tag.totalCount})
+            <span className="bold">#{spaceToDash(tag.fieldValue)}</span>
           </TagLink>
         </Link>
       ))}

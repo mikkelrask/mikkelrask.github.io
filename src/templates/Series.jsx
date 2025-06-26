@@ -56,7 +56,7 @@ const Date = styled.span`
 const Series = ({ pageContext, data }) => {
   const seriesName = pageContext.series
   const allPosts = data.posts.nodes
-  
+
   // Filter posts that belong to this series
   const posts = allPosts.filter(post => {
     const postSeries = post.frontmatter.series
@@ -78,10 +78,10 @@ const Series = ({ pageContext, data }) => {
         <Title> {seriesName} </Title>
 
         <SeriesInform>
-          <span>{posts.length} Posts</span>
+          <span>{posts.length} Indlæg</span>
           <span>·</span>
           <Date>
-            Last updated on {posts[posts.length - 1].frontmatter.date}
+            Sidst opdateret den {posts[posts.length - 1].frontmatter.date}
           </Date>
         </SeriesInform>
 
@@ -107,8 +107,8 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          update(formatString: "MMM DD, YYYY")
+          date(formatString: "DD. MMMM, YYYY", locale: "da")
+          update(formatString: "DD. MMMM, YYYY", locale: "da")
           title
           tags
           description

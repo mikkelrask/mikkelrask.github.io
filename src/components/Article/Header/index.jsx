@@ -43,7 +43,7 @@ const Header = ({ title, date, tags, minToRead }) => {
       <Information>
         <Author> @{author} </Author>
         <Date>· {date} </Date>
-        <Date>· {minToRead} min read </Date>
+        <Date>· Læsetid: {minToRead} min. </Date>
       </Information>
       {tags && <TagList tagList={tags} />}
       <Divider mt="0" />

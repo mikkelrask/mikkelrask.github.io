@@ -10,7 +10,7 @@ import { siteUrl } from "../../blog-config"
 const Post = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { previous, next, seriesList } = data
-  const { title, date, update, tags, category, image, series, description } =
+  const { title, date, update, tags, image, description } =
     post.frontmatter
   const imageUrl = image.childImageSharp.gatsbyImageData.images.fallback.src
   console.log(imageUrl)
@@ -30,7 +30,7 @@ const Post = ({ data, pageContext }) => {
       const seriesArray = Array.isArray(postSeries) ? postSeries : [postSeries]
       return seriesArray.includes(firstSeries)
     })
-    
+
     filteredSeries = relevantSeriesPosts.map(seriesPost => {
       if (seriesPost.node.id === post.id) {
         return {
@@ -91,8 +91,8 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
-        update(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD. MMMM, YYYY", locale: "da")
+        update(formatString: "DD. MMMM, YYYY", locale: "da")
         tags
         category
         series

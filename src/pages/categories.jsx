@@ -10,9 +10,11 @@ import queryString from "query-string"
 
 import Layout from "components/Layout"
 import Title from "components/Title"
-import CategoryList from "components/CategoryList"
 import PostList from "components/PostList"
-import VerticleSpace from "components/VerticalSpace"
+import SideCategoryList from "components/SideCategoryList"
+import CategoryTagList from "components/CategoryTagList"
+
+import VerticalSpace from "components/VerticalSpace"
 
 import { title, description, siteUrl } from "../../blog-config"
 
@@ -26,7 +28,7 @@ const CategoryListWrapper = styled.div`
 
 const CategoriesPage = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
-  
+
   // Manually create categories from posts, handling both string and array formats
   const allCategories = posts
     .filter(post => post.frontmatter.category)
@@ -34,17 +36,35 @@ const CategoriesPage = ({ data }) => {
       const category = post.frontmatter.category
       return Array.isArray(category) ? category : [category]
     })
-  
+
   const categoryGroups = _.countBy(allCategories)
   const categories = _.sortBy(
     Object.entries(categoryGroups).map(([fieldValue, totalCount]) => ({
       fieldValue,
-      totalCount
+      totalCount,
     })),
-    ["totalCount"]
+    ["totalCount"],
   ).reverse()
 
-  const [selected, setSelected] = useState()
+  // Manually create tags from posts, handling both string and array formats
+  const allTags = posts
+    .filter(post => post.frontmatter.tags)
+    .flatMap(post => {
+      const tag = post.frontmatter.tags
+      return Array.isArray(tag) ? tag : [tag]
+    })
+
+  const tagGroups = _.countBy(allTags)
+  const tags = _.sortBy(
+    Object.entries(tagGroups).map(([fieldValue, totalCount]) => ({
+      fieldValue,
+      totalCount,
+    })),
+    ["totalCount"],
+  ).reverse()
+
+  const [selectedCategory, setSelectedCategory] = useState()
+  const [selectedTag, setSelectedTag] = useState()
   const [filteredPosts, setFilteredPosts] = useState([])
 
   let query = null
@@ -53,55 +73,106 @@ const CategoriesPage = ({ data }) => {
   }
 
   useEffect(() => {
-    if (!selected) {
-      setFilteredPosts(posts)
-      return
-    }
-
-    setFilteredPosts(
-      filter(posts, post => {
-        const postCategories = post.frontmatter.category
-        if (!postCategories) return false
-        const categoryArray = Array.isArray(postCategories) ? postCategories : [postCategories]
-        return categoryArray.indexOf(selected) !== -1
-      })
-    )
-  }, [selected])
+    const { q: categoryQuery, tag: tagQuery } = queryString.parse(query)
+    setSelectedCategory(categoryQuery)
+    setSelectedTag(tagQuery)
+  }, [query])
 
   useEffect(() => {
-    const q = queryString.parse(query)["q"]
-    setSelected(q)
-  }, [query])
+    let tempFilteredPosts = posts
+
+    if (selectedCategory) {
+      tempFilteredPosts = filter(tempFilteredPosts, post => {
+        const postCategories = post.frontmatter.category
+        if (!postCategories) return false
+        const categoryArray = Array.isArray(postCategories)
+          ? postCategories
+          : [postCategories]
+        return categoryArray.includes(selectedCategory)
+      })
+    }
+
+    if (selectedTag) {
+      tempFilteredPosts = filter(tempFilteredPosts, post => {
+        const postTags = post.frontmatter.tags
+        if (!postTags) return false
+        const tagArray = Array.isArray(postTags) ? postTags : [postTags]
+        return tagArray.includes(selectedTag)
+      })
+    }
+
+    setFilteredPosts(tempFilteredPosts)
+  }, [selectedCategory, selectedTag, posts])
+
+  // Filter tags based on selected category
+  const filteredTags = selectedCategory
+    ? _.sortBy(
+        Object.entries(
+          _.countBy(
+            posts
+              .filter(post => {
+                const postCategories = post.frontmatter.category
+                if (!postCategories) return false
+                const categoryArray = Array.isArray(postCategories)
+                  ? postCategories
+                  : [postCategories]
+                return categoryArray.includes(selectedCategory)
+              })
+              .flatMap(post => {
+                const tag = post.frontmatter.tags
+                return Array.isArray(tag) ? tag : [tag]
+              }),
+          ),
+        ).map(([fieldValue, totalCount]) => ({
+          fieldValue,
+          totalCount,
+        })),
+        ["totalCount"],
+      ).reverse()
+    : tags
 
   return (
     <Layout>
       <SEO title={title} description={description} url={siteUrl} />
-
+      <VerticalSpace size={48} />
+      <SideCategoryList
+        categories={categories}
+        postCount={posts.length}
+        selectedCategory={selectedCategory}
+        onSelectCategory={category => {
+          if (category === selectedCategory) {
+            navigate(`/categories?tag=${selectedTag || ""}`)
+          } else {
+            navigate(`/categories?q=${category}&tag=${selectedTag || ""}`)
+          }
+        }}
+      />
       <CategoryListWrapper>
-        {selected ? (
+        {selectedCategory ? (
           <Title size="sm">
-            There are {filteredPosts.length} post
-            {filteredPosts.length > 1 && "s"} in {selected}.
+            Der er {filteredPosts.length} indlæg i {selectedCategory}.
           </Title>
         ) : (
           <Title size="sm">
-            There are {categories.length} categor{categories.length === 1 ? "y" : "ies"}.
+            Der er {categories.length} kategor
+            {categories.length === 1 ? "i" : "ier"}.
           </Title>
         )}
 
-        <CategoryList
-          count
-          categoryList={categories}
-          selected={selected}
-          onClick={category => {
-            if (category === selected) {
-              navigate("/categories")
-            } else setSelected(category)
+        <CategoryTagList
+          tagList={filteredTags}
+          selectedTag={selectedTag}
+          onSelectTag={tag => {
+            if (tag === selectedTag) {
+              navigate(`/categories?q=${selectedCategory || ""}`)
+            } else {
+              navigate(`/categories?q=${selectedCategory || ""}&tag=${tag}`)
+            }
           }}
         />
       </CategoryListWrapper>
 
-      <VerticleSpace size={32} />
+      <VerticalSpace size={32} />
 
       <PostList postList={filteredPosts} />
     </Layout>
@@ -124,10 +195,11 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          update(formatString: "MMM DD, YYYY")
+          date(formatString: "DD. MMMM, YYYY", locale: "da")
+          update(formatString: "DD. MMMM, YYYY", locale: "da")
           title
           category
+          tags # Fetch tags as well
           description
         }
       }
