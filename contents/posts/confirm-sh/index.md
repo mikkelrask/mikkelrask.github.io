@@ -1,7 +1,7 @@
 ---
 title: "🫡 confirm"
 description: "Lille bitte script til at bekræfte handlinger eks via dmenu"
-category: 
+category:
   - Udvikling
 date: 2020-09-14
 update: 2022-09-14

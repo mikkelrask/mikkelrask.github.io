@@ -3,7 +3,7 @@ title: "☁️ Fix Nextcloud i Maintenance Mode"
 description: "Af og til ender Nextcloud i maintenance mode - nogle gange uden nogen egentlig grund. Her er hvordan du retter op på det, når du oplever det ske."
 date: 2025-06-02
 update: 2025-06-07
-category: 
+category:
   - "Infrastruktur / Selfhosting"
 tags:
   - self hosting
@@ -11,7 +11,7 @@ tags:
   - docker
   - video
 image: "./maintenance-mode.webp"
-series: 
+series:
   - "Video blogs"
   - "Selfhosting"
 ---
@@ -20,6 +20,7 @@ series:
 Hvis du har opdateret din Nextcloud-instans mere end én gang, så har du sikkert også oplevet at sidde fast i “maintenance mode” efterfølgende – det gør jeg i hvert fald ret tit af en eller anden grund 🤷 Og jeg har dét til trods, svært ved at huske præcis hvad jeg skal gøre hver gang, for at rent faktisk fikse så jeg tænkte "_hvorfor fanden skriver du ikke sådan noget her ned, dude?_"
 
 Så det har jeg nu gjort – og så kunne jeg jo ligeså godt dele det, så jeg også ved hvor jeg selv finder det henne næste gang jeg skal bruge det 🤷
+
 <iframe width="680" height="382" 
         src="https://youtube.com/embed/iI5zeJ-qy78" 
         frameborder="0" allowfullscreen>
@@ -28,7 +29,6 @@ Så det har jeg nu gjort – og så kunne jeg jo ligeså godt dele det, så jeg 
 ## Hvordan fikser man det?
 
 Som med alt andet indenfor selfhosting – dit setup kan være meget anderledes end mit, men i dette opslag antager jeg, at vi kører Nextcloud i en docker compose stack på en fjernmaskine/VPS.
-
 
 ### Log ind på din maskine
 

@@ -9,7 +9,7 @@ tags:
   - shell
   - automation
   - bash
-series: 
+series:
   - "Bash"
 ---
 

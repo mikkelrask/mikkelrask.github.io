@@ -111,20 +111,19 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-alias-imports',
+      resolve: "gatsby-plugin-alias-imports",
       options: {
         alias: {
-          "components": "src/components",
-          "pages": "src/pages",
-          "utils": "src/utils",
-          "assets": "src/assets",
-          "hooks": "src/hooks",
-          "utils": "src/utils",
-          "reducers": "src/reducers",
-          "templates": "src/templates",
+          components: "src/components",
+          pages: "src/pages",
+          utils: "src/utils",
+          assets: "src/assets",
+          hooks: "src/hooks",
+          reducers: "src/reducers",
+          templates: "src/templates",
         },
-        extensions: ['js', 'jsx', 'ts', 'tsx']
-      }
+        extensions: ["js", "jsx", "ts", "tsx"],
+      },
     },
     `gatsby-plugin-sitemap`,
     {
@@ -178,7 +177,7 @@ module.exports = {
                       }
                       frontmatter {
                         title
-                        date
+                        date(formatString: "DD. MMMM, YYYY", locale: "da")
                         description
                         draft
                       }

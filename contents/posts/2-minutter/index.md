@@ -2,7 +2,7 @@
 title: '🕑 2 minutters "hacks"'
 description: "Hvad elsker nettet mere end 5 minute crafts? 2 minute hacks!"
 date: 2023-03-03
-category: 
+category:
   - "Personlig udvikling"
   - Sjov
 tags:

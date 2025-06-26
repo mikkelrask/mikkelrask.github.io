@@ -47,7 +47,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
-      result.errors
+      result.errors,
     )
     return
   }
@@ -58,13 +58,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     (acc, cur) => {
       const seriesField = cur.frontmatter.series
       if (seriesField) {
-        const seriesArray = Array.isArray(seriesField) ? seriesField : [seriesField]
-        const newSeries = seriesArray.filter(seriesName => !_.includes(acc, seriesName))
+        const seriesArray = Array.isArray(seriesField)
+          ? seriesField
+          : [seriesField]
+        const newSeries = seriesArray.filter(
+          seriesName => !_.includes(acc, seriesName),
+        )
         return [...acc, ...newSeries]
       }
       return acc
     },
-    []
+    [],
   )
 
   if (posts.length > 0) {
@@ -77,8 +81,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: postTemplate,
         context: {
           id: post.id,
-          series: post.frontmatter.series ? (Array.isArray(post.frontmatter.series) ? post.frontmatter.series[0] : post.frontmatter.series) : null,
-          allSeries: post.frontmatter.series ? (Array.isArray(post.frontmatter.series) ? post.frontmatter.series : [post.frontmatter.series]) : [],
+          series: post.frontmatter.series
+            ? Array.isArray(post.frontmatter.series)
+              ? post.frontmatter.series[0]
+              : post.frontmatter.series
+            : null,
+          allSeries: post.frontmatter.series
+            ? Array.isArray(post.frontmatter.series)
+              ? post.frontmatter.series
+              : [post.frontmatter.series]
+            : [],
           previousPostId,
           nextPostId,
         },
@@ -128,6 +140,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     category: JSON
     series: JSON
     draft: Boolean
+    frontpageImage: Boolean
   }
   `
   createTypes(typeDefs)

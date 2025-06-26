@@ -3,169 +3,164 @@
  * https://github.com/folke/tokyonight.nvim
  */
 
-code[class*='language-'],
-pre[class*='language-'] {
-	color: #c0caf5;
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #c0caf5;
   text-wrap: wrap;
   border-radius: 10px;
 }
 
-pre[class*='language-']::-moz-selection,
-pre[class*='language-'] ::-moz-selection,
-code[class*='language-']::-moz-selection,
-code[class*='language-'] ::-moz-selection {
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
   text-wrap: wrap;
   text-shadow: none;
   border-radius: 10px;
 }
 
-pre[class*='language-']::selection,
-pre[class*='language-'] ::selection,
-code[class*='language-']::selection,
-code[class*='language-'] ::selection {
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
   text-shadow: none;
   text-wrap: wrap;
   border-radius: 10px;
 }
 
-:not(pre) > code[class*='language-'],
-pre[class*='language-'] {
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
   /*background: #3b4261 !important;*/
   border-radius: 0.3em;
   line-height: initial;
   padding-left: 4px;
 }
 
-:not(pre) > code[class*='language-'] {
-	border-radius: 0.3em;
-	white-space: normal;
+:not(pre) > code[class*="language-"] {
+  border-radius: 0.3em;
+  white-space: normal;
 }
 
 .token.comment {
-	color: #565f89;
-	font-style: italic;
+  color: #565f89;
+  font-style: italic;
 }
 
 .token.keyword {
-	color: #9d7cd8;
+  color: #9d7cd8;
 }
 
 .token.operator {
-	color: #89ddff;
+  color: #89ddff;
 }
 
 .token.punctuation {
-	color: #bb9af7;
+  color: #bb9af7;
 }
 
 .token.builtin {
-	color: #f7768e;
+  color: #f7768e;
 }
 
 .token.number {
-	color: #ff9e64;
+  color: #ff9e64;
 }
 
 .token.constant {
-	color: #ff9e64;
+  color: #ff9e64;
 }
 
 .token.string {
-	color: #9ece6a;
+  color: #9ece6a;
 }
 
 .token.symbol {
-	color: #2ac3de;
+  color: #2ac3de;
 }
 
 .token.attr-name {
-	color: rgb(241, 250, 140);
+  color: rgb(241, 250, 140);
 }
 
 .token.selector {
-	color: #9ece6a;
+  color: #9ece6a;
 }
 
 .token.hexcode {
-	color: #9aa5ce;
+  color: #9aa5ce;
 }
 
 .token.function {
-	color: #7aa2f7;
+  color: #7aa2f7;
 }
 
 .token.tag {
-	color: #9ece6a;
+  color: #9ece6a;
 }
 
 .token.variable {
-	color: #c0caf5;
+  color: #c0caf5;
 }
 
 .token.char {
-	color: #bb9af7;
+  color: #bb9af7;
 }
 
 .token.property {
-	color: #2ac3de;
+  color: #2ac3de;
 }
 
 .token.inserted {
-	color: #449dab;
+  color: #449dab;
 }
 
 .token.deleted {
-	color: #914c54;
+  color: #914c54;
 }
 
 .token.changed {
-	color: #6183bb;
+  color: #6183bb;
 }
 
 .token.regex {
-	color: #b4f9f8;
-} 
+  color: #b4f9f8;
+}
 
 .token.important,
 .token.bold {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .token.italic {
-	font-style: italic;
+  font-style: italic;
 }
 
 :root {
-	--am-prism-line-numbers-color: #565f8977;
-	--am-prism-border-color: #565f8922;
-	--am-prism-copy-color: #a9b1d6;
-	--am-prism-copy-bg: #565f8933;
+  --am-prism-line-numbers-color: #565f8977;
+  --am-prism-border-color: #565f8922;
+  --am-prism-copy-color: #a9b1d6;
+  --am-prism-copy-bg: #565f8933;
 }
-h2:before{
-  content: '#';
+h2:before {
+  content: "#";
   position: absolute;
   left: -30px;
   opacity: 36%;
 }
-h3:before{
-  content: '##';
+h3:before {
+  content: "##";
   position: absolute;
   left: -40px;
   opacity: 36%;
 }
-h2:hover::after {
-	content: "🔗";
-	opacity: 25%;
-}
-.language-text{
+.language-text {
   color: #a9b1d6;
-  padding: 2px; 
+  padding: 2px;
   border-radius: 4px;
 }
-.gatsby-highlight{
+.gatsby-highlight {
   background: #3b4261;
   padding: 8px;
   border-radius: 8px;
   margin-bottom: 12px;
 }
-

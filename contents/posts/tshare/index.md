@@ -13,7 +13,7 @@ tags:
   - scripts
   - projekt
 image: ./tshare.png
-series: 
+series:
   - "Video blogs"
   - "Selfhosting"
 ---

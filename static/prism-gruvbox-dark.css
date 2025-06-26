@@ -11,7 +11,8 @@
 code[class*="language-"],
 pre[class*="language-"] {
   color: #ebdbb2; /* fg1 / fg */
-  font-family: "FantasqueSansM Nerd Font", Consolas, Monaco, "Andale Mono", monospace;
+  font-family:
+    "FantasqueSansM Nerd Font", Consolas, Monaco, "Andale Mono", monospace;
   padding: 5px;
   direction: ltr;
   text-align: left;
@@ -142,6 +143,7 @@ pre[class*="language-"] {
 .token.deleted {
   background: #fb4934; /* red2 */
 }
-h2:before, h3:before{
-  content: '# ';
+h2:before,
+h3:before {
+  content: "# ";
 }

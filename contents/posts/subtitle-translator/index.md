@@ -18,8 +18,8 @@ date: 2025-06-04
 
 ## 🤓 Automatiserer det med python!
 
-Man bruger selvfølgeligt et par dage på at automatisere en _subtitle translator_, der itererer over hele ens film bibliotek, lokaliserer alle undertekst-filer, tjekker dem der slutter på `.en.srt` eller `.en.ass`, verificerer om der i en samme mappe som der giver et resultat også findes en `.da.srt` eller `.da.ass` fil, og til slut oversætter den engelske til dansk, i tilfælde af at der ikke gør. Og vi klarer selvfølgeligt med **"A.I."**, for at holde os relevante og _buzz-word'y_! - Det er mere _machine learning_ end A.I., men som sagt - vi skal jo gerne holde det buzz word'y! 🤷 
- 
+Man bruger selvfølgeligt et par dage på at automatisere en _subtitle translator_, der itererer over hele ens film bibliotek, lokaliserer alle undertekst-filer, tjekker dem der slutter på `.en.srt` eller `.en.ass`, verificerer om der i en samme mappe som der giver et resultat også findes en `.da.srt` eller `.da.ass` fil, og til slut oversætter den engelske til dansk, i tilfælde af at der ikke gør. Og vi klarer selvfølgeligt med **"A.I."**, for at holde os relevante og _buzz-word'y_! - Det er mere _machine learning_ end A.I., men som sagt - vi skal jo gerne holde det buzz word'y! 🤷
+
 ![The General Problem af xkcd](https://imgs.xkcd.com/comics/the_general_problem.png)  
 Men når først det virker for én, kan man jo bruge lidt yderligere tid på at tiføje funktionalitet, der gør brugen af det mere dynamisk af natur. Således man fx via en konfigurationsfil kan specificere hvilke sprog der faktisk skal ledes efter, oversættes til og hvilken model man ønsker at benytte, og selvfølgeligt, når man nu alligevel er i sin editor, også en funktion der automatisk genererer og gemmer en _hash_ værdien af indholdet af ens mediebibliotek, så vi kan sammenligne med _hash'en_ fra sidste gang det blev kørt.
 

@@ -2,7 +2,7 @@
 title: "🧹 DAMN! Få besked når det er på tide at rydde op"
 description: "Overvåg mapper for aktivitet, og få automatisk en e-mail når det er på tide at backe up, og evt. slette indholdet."
 category:
-  - "Udvikling" 
+  - "Udvikling"
   - "Infrastruktur / Selfhosting"
 date: 2025-06-03
 tags:
@@ -10,6 +10,7 @@ tags:
   - shell
   - automation
 image: "./damn.webp"
+frontpageImage: true
 series:
   - "Selfhosting"
   - "Bash"
