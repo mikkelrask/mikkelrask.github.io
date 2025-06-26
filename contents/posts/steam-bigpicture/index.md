@@ -1,5 +1,5 @@
 ---
-title: 👾 Steam Deck på enhver PC med Gamescope
+title: 👾 Lav en hver PC om til et SteamDeck med gamescope
 description: "Valve har udviklet Gamescope til at nemt starte en compositor med Steam kørende. Det er udviklet til deres Steam Deck, men da det er Open Source behøves man ikke engang deres dyre håndholdte konsol. Følg med her hvordan vi sætter det op på Linux"
 category:
   - Linux
@@ -64,7 +64,7 @@ Bruger du ligesom Felix Arch, kan du køre følgende kommando i din terminal, og
 sudo pacman -S steam gamescope
 ```
 
-Har du et nvidia grafikkort, kan du med fordel installere [`gamescope-nvidia`](https://aur.archlinux.org/packages?O=0&K=gamescope-nvidia) - det installeres let med `yay`, `paru` eller lign. [AUR hjælpeværktøj]. Det _skulle_ ikke være nødvendigt, men
+Har du et nvidia grafikkort, kan du med fordel installere [`gamescope-nvidia`](https://aur.archlinux.org/packages?O=0&K=gamescope-nvidia) - det installeres let med `yay`, `paru` eller lign. [AUR hjælpeværktøj](https://wiki.archlinux.org/title/AUR_helpers). Det _skulle_ ikke være nødvendigt, men når du nu er på Arch, burde du benytte dig af AUR uanset, og hvorfor så ikke bruge pakken der er lavet til formålet. 🤷🏻
 
 ```sh
 paru gamescope-nvidia
