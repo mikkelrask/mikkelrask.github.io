@@ -4,6 +4,7 @@ description: "Hvad gør man når ens mor gerne vil se Bridget Jones dagbog med D
 category:
   - "Udvikling"
 image: "./subtrans.webp"
+frontpageImage: true
 tags:
   - python
   - machine learning

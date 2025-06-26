@@ -10,7 +10,6 @@ tags:
   - shell
   - automation
 image: "./damn.webp"
-frontpageImage: true
 series:
   - "Selfhosting"
   - "Bash"
