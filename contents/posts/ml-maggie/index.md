@@ -4,6 +4,7 @@ description: "I dag vil jeg dykke ned i hvordan man med machine learning og et ~
 category:
   - "Tinkering / DIY"
 image: "./not-a-hotdog.jpg"
+frontpageImage: true
 author: "mikkelrask"
 date: 2024-06-26
 tags:
