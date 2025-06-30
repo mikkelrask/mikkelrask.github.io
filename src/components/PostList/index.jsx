@@ -108,11 +108,14 @@ const PostList = ({ postList }) => {
                       {post.frontmatter.category}
                     </Link>
                   )
-                )}
+                )
+                {post.fields.readingTime && ` | Læsetid: ${Math.round(post.fields.readingTime.minutes)} min.`}
+                }
               </Date>
               {frontpageImage && gatsbyImage && (
                 <Link to={slug}>
                   <GatsbyImage
+                    key={slug}
                     image={gatsbyImage}
                     alt={title}
                     style={{ marginBottom: "16px" }}

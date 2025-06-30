@@ -54,7 +54,7 @@ const Wrapper = styled.div`
     padding: 0.2em 0.5em;
     border-radius: 4px;
     font-size: 0.75em;
-    white-space: nowrap; /* Prevent text wrapping */
+    
     opacity: 0;
     transition:
       opacity 0.3s ease-in-out,
