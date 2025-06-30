@@ -96,10 +96,12 @@ const PostList = ({ postList }) => {
                   ` | ${Array.isArray(post.frontmatter.category)
                     ? post.frontmatter.category.join(", ")
                     : post.frontmatter.category}`}
+                {post.fields.readingTime && ` | Læsetid: ${Math.round(post.fields.readingTime.minutes)} min.`}
               </Date>
               {frontpageImage && gatsbyImage && (
                 <Link to={slug}>
                   <GatsbyImage
+                    key={slug}
                     image={gatsbyImage}
                     alt={title}
                     style={{ marginBottom: "16px" }}
