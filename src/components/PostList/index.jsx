@@ -92,10 +92,23 @@ const PostList = ({ postList }) => {
                 {post.frontmatter.date}{" "}
                 {post.frontmatter.update &&
                   `(Opdateret: ${post.frontmatter.update})`}
-                {post.frontmatter.category &&
-                  ` | ${Array.isArray(post.frontmatter.category)
-                    ? post.frontmatter.category.join(", ")
-                    : post.frontmatter.category}`}
+                {post.frontmatter.category && (
+                  ` | `
+                )}
+                {post.frontmatter.category && Array.isArray(post.frontmatter.category) ? (
+                  post.frontmatter.category.map((cat, idx) => (
+                    <React.Fragment key={cat}>
+                      <Link to={`/categories?q=${cat}`}>{cat}</Link>
+                      {idx < post.frontmatter.category.length - 1 && ", "}
+                    </React.Fragment>
+                  ))
+                ) : (
+                  post.frontmatter.category && (
+                    <Link to={`/categories?q=${post.frontmatter.category}`}>
+                      {post.frontmatter.category}
+                    </Link>
+                  )
+                )}
               </Date>
               {frontpageImage && gatsbyImage && (
                 <Link to={slug}>
