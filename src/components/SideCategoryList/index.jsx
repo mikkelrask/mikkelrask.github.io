@@ -1,7 +1,10 @@
 import React from "react"
 import _ from "lodash"
-import styled, { useTheme } from "styled-components"
+import styled, { useTheme, css } from "styled-components"
 import { Link } from "gatsby"
+import useScroll from "hooks/useScroll"
+
+const STICK_OFFSET = 100
 
 const RelativeWrapper = styled.div`
   position: relative;
@@ -18,6 +21,13 @@ const Wrapper = styled.aside`
   @media (max-width: 1079px) {
     display: none;
   }
+
+  ${props =>
+    props.stick &&
+    css`
+      position: fixed;
+      top: ${STICK_OFFSET}px;
+    `}
 `
 
 const Title = styled.div`
@@ -51,7 +61,9 @@ const Category = styled.li`
   }
 `
 
-const SideCategoryList = ({ categories }) => {
+const SideCategoryList = ({ categories, articleOffset }) => {
+  const { y } = useScroll()
+
   const theme = useTheme()
   const colors = [
     theme.colors.tertiaryText,
@@ -62,7 +74,7 @@ const SideCategoryList = ({ categories }) => {
   ]
   return (
     <RelativeWrapper>
-      <Wrapper>
+      <Wrapper stick={y > articleOffset - STICK_OFFSET}>
         <Title>Kategorier</Title>
         <ul>
           {_.map(categories, (category, index) => (

@@ -8,7 +8,7 @@ import Bio from "components/Bio"
 import PostList from "components/PostList"
 import SideCategoryList from "components/SideCategoryList"
 import Divider from "components/Divider"
-import VerticalSpace from "components/VerticalSpace"
+import useOffsetTop from "hooks/useOffsetTop"
 
 import { title, description, siteUrl } from "../../blog-config"
 
@@ -41,14 +41,17 @@ const BlogIndex = ({ data }) => {
     )
   }
 
+  const [ref, offsetTop] = useOffsetTop()
+
   return (
     <Layout>
       <SEO title={title} description={description} url={siteUrl} />
-      <VerticalSpace size={48} />
-      <Bio />
-      <Divider />
-      <SideCategoryList categories={categories} postCount={posts.length} />
-      <PostList postList={posts} />
+      <div ref={ref}>
+        <Bio />
+        <Divider />
+        <SideCategoryList categories={categories} postCount={posts.length} articleOffset={offsetTop} />
+        <PostList postList={posts} />
+      </div>
     </Layout>
   )
 }
