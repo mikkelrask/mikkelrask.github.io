@@ -13,8 +13,7 @@ import Title from "components/Title"
 import PostList from "components/PostList"
 import SideCategoryList from "components/SideCategoryList"
 import CategoryTagList from "components/CategoryTagList"
-
-import VerticalSpace from "components/VerticalSpace"
+import useOffsetTop from "hooks/useOffsetTop"
 
 import { title, description, siteUrl } from "../../blog-config"
 
@@ -131,50 +130,52 @@ const CategoriesPage = ({ data }) => {
       ).reverse()
     : tags
 
+  const [ref, offsetTop] = useOffsetTop()
+
   return (
     <Layout>
       <SEO title={title} description={description} url={siteUrl} />
-      <VerticalSpace size={48} />
-      <SideCategoryList
-        categories={categories}
-        postCount={posts.length}
-        selectedCategory={selectedCategory}
-        onSelectCategory={category => {
-          if (category === selectedCategory) {
-            navigate(`/categories?tag=${selectedTag || ""}`)
-          } else {
-            navigate(`/categories?q=${category}&tag=${selectedTag || ""}`)
-          }
-        }}
-      />
-      <CategoryListWrapper>
-        {selectedCategory ? (
-          <Title size="sm">
-            Der er {filteredPosts.length} indlæg i {selectedCategory}.
-          </Title>
-        ) : (
-          <Title size="sm">
-            Der er {categories.length} kategor
-            {categories.length === 1 ? "i" : "ier"}.
-          </Title>
-        )}
-
-        <CategoryTagList
-          tagList={filteredTags}
-          selectedTag={selectedTag}
-          onSelectTag={tag => {
-            if (tag === selectedTag) {
-              navigate(`/categories?q=${selectedCategory || ""}`)
+      <div ref={ref}>
+        <SideCategoryList
+          categories={categories}
+          postCount={posts.length}
+          selectedCategory={selectedCategory}
+          onSelectCategory={category => {
+            if (category === selectedCategory) {
+              navigate(`/categories?tag=${selectedTag || ""}`)
             } else {
-              navigate(`/categories?q=${selectedCategory || ""}&tag=${tag}`)
+              navigate(`/categories?q=${category}&tag=${selectedTag || ""}`)
             }
           }}
+          articleOffset={offsetTop}
         />
-      </CategoryListWrapper>
+        <CategoryListWrapper>
+          {selectedCategory ? (
+            <Title size="sm">
+              Der er {filteredPosts.length} indlæg i {selectedCategory}.
+            </Title>
+          ) : (
+            <Title size="sm">
+              Der er {categories.length} kategor
+              {categories.length === 1 ? "i" : "ier"}.
+            </Title>
+          )}
 
-      <VerticalSpace size={32} />
+          <CategoryTagList
+            tagList={filteredTags}
+            selectedTag={selectedTag}
+            onSelectTag={tag => {
+              if (tag === selectedTag) {
+                navigate(`/categories?q=${selectedCategory || ""}`)
+              } else {
+                navigate(`/categories?q=${selectedCategory || ""}&tag=${tag}`)
+              }
+            }}
+          />
+        </CategoryListWrapper>
 
-      <PostList postList={filteredPosts} />
+        <PostList postList={filteredPosts} />
+      </div>
     </Layout>
   )
 }
