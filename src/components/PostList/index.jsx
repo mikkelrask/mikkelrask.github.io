@@ -101,6 +101,7 @@ const PostList = ({ postList }) => {
               {frontpageImage && gatsbyImage && (
                 <Link to={slug}>
                   <GatsbyImage
+                    key={slug}
                     image={gatsbyImage}
                     alt={title}
                     style={{ marginBottom: "16px" }}
