@@ -3,14 +3,9 @@ import _ from "lodash"
 import styled, { useTheme } from "styled-components"
 import { Link } from "gatsby"
 
-const RelativeWrapper = styled.div`
-  position: relative;
-`
-
 const Wrapper = styled.aside`
-  position: absolute;
-  left: 112%;
-  top: 0px;
+  position: sticky;
+  top: 0;
   width: 300px;
   height: auto;
   font-size: 16px;
@@ -61,23 +56,21 @@ const SideCategoryList = ({ categories }) => {
     theme.colors.text,
   ]
   return (
-    <RelativeWrapper>
-      <Wrapper>
-        <Title>Kategorier</Title>
-        <ul>
-          {_.map(categories, (category, index) => (
-            <Category
-              key={category.fieldValue}
-              bgColor={colors[index % colors.length]}
-            >
-              <Link to={`/categories?q=${category.fieldValue}`}>
-                {category.fieldValue} ({category.totalCount})
-              </Link>
-            </Category>
-          ))}
-        </ul>
-      </Wrapper>
-    </RelativeWrapper>
+    <Wrapper>
+      <Title>Kategorier</Title>
+      <ul>
+        {_.map(categories, (category, index) => (
+          <Category
+            key={category.fieldValue}
+            bgColor={colors[index % colors.length]}
+          >
+            <Link to={`/categories?q=${category.fieldValue}`}>
+              {category.fieldValue} ({category.totalCount})
+            </Link>
+          </Category>
+        ))}
+      </ul>
+    </Wrapper>
   )
 }
 
