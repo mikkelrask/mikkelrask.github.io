@@ -7,14 +7,17 @@ import { setLight, setDark } from "reducers/theme"
 import { light, dark } from "assets/theme"
 
 import GlobalStyles from "components/GlobalStyles"
+import StickySidecar from "components/StickySidecar"
+import useOffsetTop from "hooks/useOffsetTop"
 
 import Header from "./Header"
 import Body from "./Body"
 import Footer from "./Footer"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, sidebar }) => {
   const dispatch = useDispatch()
   const { theme } = useSelector(state => state.theme)
+  const [ref, offsetTop] = useOffsetTop()
 
   let isSystemDarkMode = null
   if (typeof window !== "undefined") {
@@ -42,7 +45,10 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme === "light" ? light : dark}>
       <GlobalStyles />
       <Header toggleTheme={toggleTheme} />
-      <Body>{children}</Body>
+      <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+        <Body ref={ref}>{children}</Body>
+        {sidebar && <StickySidecar offsetTop={offsetTop}>{sidebar}</StickySidecar>}
+      </div>
       <Footer />
     </ThemeProvider>
   )

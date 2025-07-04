@@ -17,14 +17,14 @@ import {
 const HeaderWrapper = styled.header`
   display: block;
   position: fixed;
-  top: ${props => (props.isHidden ? -60 : 0)}px;
+  top: ${props => (props.$isHidden ? -60 : 0)}px;
   left: 0;
   right: 0;
   padding: 16px;
   background-color: ${props => props.theme.colors.headerBackground};
   box-shadow: 0 0 8px ${props => props.theme.colors.headerShadow};
   backdrop-filter: blur(5px);
-  opacity: ${props => (props.isHidden ? 0 : 1)};
+  opacity: ${props => (props.$isHidden ? 0 : 1)};
   transition:
     top 0.5s,
     opacity 0.5s;
@@ -140,7 +140,7 @@ const Header = ({ toggleTheme }) => {
   }, [])
 
   return (
-    <HeaderWrapper isHidden={hidden}>
+    <HeaderWrapper $isHidden={hidden}>
       <Inner>
         <BlogTitle>
           <Link to="/">{title}</Link>

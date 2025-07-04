@@ -132,21 +132,24 @@ const CategoriesPage = ({ data }) => {
     : tags
 
   return (
-    <Layout>
+    <Layout
+      sidebar={
+        <SideCategoryList
+          categories={categories}
+          postCount={posts.length}
+          selectedCategory={selectedCategory}
+          onSelectCategory={category => {
+            if (category === selectedCategory) {
+              navigate(`/categories?tag=${selectedTag || ""}`)
+            } else {
+              navigate(`/categories?q=${category}&tag=${selectedTag || ""}`)
+            }
+          }}
+        />
+      }
+    >
       <SEO title={title} description={description} url={siteUrl} />
       <VerticalSpace size={48} />
-      <SideCategoryList
-        categories={categories}
-        postCount={posts.length}
-        selectedCategory={selectedCategory}
-        onSelectCategory={category => {
-          if (category === selectedCategory) {
-            navigate(`/categories?tag=${selectedTag || ""}`)
-          } else {
-            navigate(`/categories?q=${category}&tag=${selectedTag || ""}`)
-          }
-        }}
-      />
       <CategoryListWrapper>
         {selectedCategory ? (
           <Title size="sm">

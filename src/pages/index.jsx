@@ -42,12 +42,13 @@ const BlogIndex = ({ data }) => {
   }
 
   return (
-    <Layout>
+    <Layout
+      sidebar={<SideCategoryList categories={categories} postCount={posts.length} />}
+    >
       <SEO title={title} description={description} url={siteUrl} />
       <VerticalSpace size={48} />
       <Bio />
       <Divider />
-      <SideCategoryList categories={categories} postCount={posts.length} />
       <PostList postList={posts} />
     </Layout>
   )

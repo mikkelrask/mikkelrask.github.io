@@ -7,8 +7,8 @@ const BodyWrapper = styled.div`
   max-width: 680px;
 `
 
-const Body = ({ children }) => {
-  return <BodyWrapper>{children}</BodyWrapper>
-}
+const Body = React.forwardRef(({ children }, ref) => {
+  return <BodyWrapper ref={ref}>{children}</BodyWrapper>
+})
 
 export default Body

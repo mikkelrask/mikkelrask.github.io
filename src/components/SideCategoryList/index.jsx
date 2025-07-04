@@ -28,7 +28,7 @@ const Category = styled.li`
   margin-bottom: 8px;
   padding: 6px 12px;
   border-radius: 16px;
-  background-color: ${props => props.bgColor};
+  background-color: ${props => props.$bgColor};
   color: ${props => props.theme.colors.FG};
   cursor: pointer;
   transition:
@@ -62,7 +62,7 @@ const SideCategoryList = ({ categories }) => {
         {_.map(categories, (category, index) => (
           <Category
             key={category.fieldValue}
-            bgColor={colors[index % colors.length]}
+            $bgColor={colors[index % colors.length]}
           >
             <Link to={`/categories?q=${category.fieldValue}`}>
               {category.fieldValue} ({category.totalCount})
