@@ -9,6 +9,12 @@ import Title from "components/Title"
 import Divider from "components/Divider"
 import TagList from "components/TagList"
 
+const StyledCategoryLink = styled(Link)`
+  color: ${props => props.theme.colors.linkText};
+  &:hover {
+    color: ${props => props.theme.colors.hoveredLinkText};
+  }
+`
 const PostListWrapper = styled.div`
   @media (max-width: 768px) {
     padding: 0 10px;
@@ -76,7 +82,6 @@ const PostList = ({ postList }) => {
         const { excerpt } = post
         const { slug } = post.fields
 
-        // Use description from frontmatter if available, fallback to excerpt
         const postExcerpt = description || excerpt
 
         const gatsbyImage = getImage(image)
@@ -92,10 +97,24 @@ const PostList = ({ postList }) => {
                 {post.frontmatter.date}{" "}
                 {post.frontmatter.update &&
                   `(Opdateret: ${post.frontmatter.update})`}
-                {post.frontmatter.category &&
-                  ` | ${Array.isArray(post.frontmatter.category)
-                    ? post.frontmatter.category.join(", ")
-                    : post.frontmatter.category}`}
+                {post.frontmatter.category && (
+                  <>
+                    {" | "}
+                    {Array.isArray(post.frontmatter.category)
+                      ? post.frontmatter.category.map((category, index) => (
+                          <React.Fragment key={category}>
+                            <StyledCategoryLink to={`/categories?q=${category}`}>
+                              {category}
+                            </StyledCategoryLink>
+                            {index < post.frontmatter.category.length - 1 && ", "}
+                          </React.Fragment>
+                        ))
+                      : <StyledCategoryLink to={`/categories?q=${post.frontmatter.category}`}>
+                          {post.frontmatter.category}
+                        </StyledCategoryLink>
+                    }
+                  </>
+                )}
                 {post.fields.readingTime && ` | Læsetid: ${Math.round(post.fields.readingTime.minutes)} min.`}
               </Date>
               {frontpageImage && gatsbyImage && (

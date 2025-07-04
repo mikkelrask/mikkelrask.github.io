@@ -74,6 +74,7 @@ export const dark = {
     secondaryText: FG,
     tertiaryText: ORANGE,
     mutedText: FG2,
+    linkText: ORANGE,
     hoveredLinkText: RED,
     border: ORANGE,
     activatedBorder: BG3,
