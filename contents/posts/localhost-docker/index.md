@@ -11,7 +11,8 @@ tags:
   - alpine
   - nginx
   - self hosting
-series: "Selfhosting"
+series:
+  - "Selfhosting"
 ---
 
 Jeg bruger meget af min fritid på diverse subreddits, og en af dem jeg besøger ofte er [r/startpages](https://reddit.com/r/startpages).

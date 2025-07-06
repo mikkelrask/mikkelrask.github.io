@@ -4,10 +4,10 @@ description: "Hvad elsker nettet mere end 5 minute crafts? 2 minute hacks!"
 date: 2023-03-03
 category:
   - "Personlig udvikling"
-  - Sjov
+  - "Sjov"
 tags:
-  - adhd
-  - produktivitet
+  - "adhd"
+  - "produktivitet"
 image: "./hack.webp"
 ---
 

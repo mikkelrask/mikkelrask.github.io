@@ -137,7 +137,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     title: String!
     description: String
     tags: [String!]!
-    category: JSON
+    category: [String!]
     series: JSON
     draft: Boolean
     frontpageImage: Boolean

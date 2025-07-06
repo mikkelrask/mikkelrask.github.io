@@ -9,7 +9,8 @@ tags:
   - shell
   - scripts
   - bash
-series: "Bash"
+series:
+  - "Bash"
 ---
 
 command `hibp`

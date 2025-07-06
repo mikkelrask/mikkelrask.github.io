@@ -2,7 +2,7 @@
 title: "📈 Send MQTT data til din MQTT broker med Python "
 description: "I dette eksempel bruger vi python til at fetche en temperatur fra en online API, og sender dataen til Home Asssistant via MQTT, med et python script."
 category:
-  - Udvikling
+  - "Udvikling"
 image: "./mqtt.webp"
 date: 2022-09-15
 tags:

@@ -2,7 +2,7 @@
 title: "💨 Rapid prototyping i react (når du vitterligt ikke kan finde ud af noget!)"
 description: "Hvordan jeg griber ADHD an, med redskaber fra tech verdenen."
 category:
-  - Sjov
+  - "Sjov"
 image: "./prototyping.jpg"
 date: 2018-09-18
 tags:

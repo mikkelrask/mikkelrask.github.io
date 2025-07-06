@@ -100,18 +100,14 @@ const PostList = ({ postList }) => {
                 {post.frontmatter.category && (
                   <>
                     {" | "}
-                    {Array.isArray(post.frontmatter.category)
-                      ? post.frontmatter.category.map((category, index) => (
+                    {post.frontmatter.category.map((category, index) => (
                           <React.Fragment key={category}>
                             <StyledCategoryLink to={`/categories?q=${category}`}>
                               {category}
                             </StyledCategoryLink>
                             {index < post.frontmatter.category.length - 1 && ", "}
                           </React.Fragment>
-                        ))
-                      : <StyledCategoryLink to={`/categories?q=${post.frontmatter.category}`}>
-                          {post.frontmatter.category}
-                        </StyledCategoryLink>
+                        ))}
                     }
                   </>
                 )}

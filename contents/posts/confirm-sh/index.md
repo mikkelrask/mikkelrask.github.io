@@ -2,7 +2,7 @@
 title: "🫡 confirm"
 description: "Lille bitte script til at bekræfte handlinger eks via dmenu"
 category:
-  - Udvikling
+  - "Udvikling"
 date: 2020-09-14
 update: 2022-09-14
 tags:
@@ -10,7 +10,8 @@ tags:
   - linux
   - dmenu
 image: "./confirm.webp"
-series: "Bash"
+series:
+  - "Bash"
 ---
 
 ## confirm %question% %command%
