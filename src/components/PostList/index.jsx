@@ -119,21 +119,14 @@ const PostList = ({ postList }) => {
               </Date>
               {frontpageImage && gatsbyImage && (
                 <Link to={slug}>
-                  <GatsbyImage
-                    key={slug}
-                    image={gatsbyImage}
-                    alt={title}
-                    style={{ marginBottom: "16px" }}
-                    loading={i === 0 ? "eager" : "lazy"}
-                    onStartLoad={() => {
-                      if (typeof window !== "undefined") {
-                        const image = document.querySelector(`img[src='${gatsbyImage.images.fallback.src}']`);
-                        if (image) {
-                          image.style.opacity = 0;
-                        }
-                      }
-                    }}
-                  />
+                  <div style={{ marginBottom: "16px" }}>
+                    <GatsbyImage
+                      key={slug}
+                      image={gatsbyImage}
+                      alt={title}
+                      loading={i === 0 ? "eager" : "lazy"}
+                    />
+                  </div>
                 </Link>
               )}
               <Excerpt>{postExcerpt}</Excerpt>
