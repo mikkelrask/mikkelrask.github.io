@@ -19,3 +19,4 @@ pnpm clean
 - Make commits when you feel its appropriate. 
 - If there is a todo.md, and there is tasks in it, that means it is tasks you are welcome to take a grab at. 
 - Update the todo by wrapping it with `~~` - NEVER delete anything in the todo, and obviously don't tackle tasks that are wrapped with the ~~ character.
+- NEVER do `git add .` or add GEMINI.md or todo.md to a commit. 
