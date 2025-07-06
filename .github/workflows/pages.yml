@@ -38,7 +38,7 @@ jobs:
       - name: Detect package manager
         id: detect-package-manager
         run: |
-            echo "::set-output name=manager::yarn"
+            echo "::set-output name=manager::pnpm"
             echo "::set-output name=command::install"
             exit
       - name: Setup Node
