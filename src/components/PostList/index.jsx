@@ -55,7 +55,6 @@ const checkIsScrollAtBottom = () => {
 
 const PostList = ({ postList }) => {
   const [postCount, setPostCount] = useState(10)
-  const [loadedImages, setLoadedImages] = useState({})
 
   const handleMoreLoad = _.throttle(() => {
     if (checkIsScrollAtBottom() && postCount < postList.length) {
@@ -124,15 +123,16 @@ const PostList = ({ postList }) => {
                     key={slug}
                     image={gatsbyImage}
                     alt={title}
-                    style={{
-                      marginBottom: "16px",
-                      opacity: loadedImages[slug] ? 1 : 0,
-                      transition: "opacity 0.5s ease-in-out",
-                    }}
-                    onLoad={() => {
-                      setLoadedImages(prev => ({ ...prev, [slug]: true }))
-                    }}
+                    style={{ marginBottom: "16px" }}
                     loading={i === 0 ? "eager" : "lazy"}
+                    onStartLoad={() => {
+                      if (typeof window !== "undefined") {
+                        const image = document.querySelector(`img[src='${gatsbyImage.images.fallback.src}']`);
+                        if (image) {
+                          image.style.opacity = 0;
+                        }
+                      }
+                    }}
                   />
                 </Link>
               )}

@@ -29,6 +29,7 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-remark-reading-time",
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
