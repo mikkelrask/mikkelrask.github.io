@@ -1,7 +1,3 @@
-# Sample workflow for building and deploying a Gatsby site to GitHub Pages
-#
-# To get started with Gatsby see: https://www.gatsbyjs.com/docs/quick-start/
-#
 name: Deploy Gatsby site to Pages
 
 on:
@@ -38,14 +34,33 @@ jobs:
       - name: Detect package manager
         id: detect-package-manager
         run: |
-            echo "::set-output name=manager::pnpm"
-            echo "::set-output name=command::install"
-            exit
+          if [ -f "${{ github.workspace }}/pnpm-lock.yaml" ]; then
+            echo "manager=pnpm" >> $GITHUB_OUTPUT
+            echo "command=install" >> $GITHUB_OUTPUT
+            echo "runner=pnpm" >> $GITHUB_OUTPUT
+          elif [ -f "${{ github.workspace }}/yarn.lock" ]; then
+            echo "manager=yarn" >> $GITHUB_OUTPUT
+            echo "command=install" >> $GITHUB_OUTPUT
+            echo "runner=yarn" >> $GITHUB_OUTPUT
+          elif [ -f "${{ github.workspace }}/package-lock.json" ]; then
+            echo "manager=npm" >> $GITHUB_OUTPUT
+            echo "command=ci" >> $GITHUB_OUTPUT
+            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
+          else
+            echo "manager=npm" >> $GITHUB_OUTPUT
+            echo "command=install" >> $GITHUB_OUTPUT
+            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
+          fi
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "18"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+      - name: Setup pnpm
+        if: ${{ steps.detect-package-manager.outputs.manager == 'pnpm' }}
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
@@ -85,4 +100,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
