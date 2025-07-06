@@ -29,7 +29,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         filter: { frontmatter: { draft: { ne: true } } }
         limit: 2000
       ) {
-        group(field: frontmatter___tags) {
+        group(field: {frontmatter: {tags: SELECT}}) {
           fieldValue
         }
       }
@@ -37,7 +37,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         filter: { frontmatter: { draft: { ne: true } } }
         limit: 2000
       ) {
-        group(field: frontmatter___category) {
+        group(field: {frontmatter: {category: SELECT}}) {
           fieldValue
         }
       }
