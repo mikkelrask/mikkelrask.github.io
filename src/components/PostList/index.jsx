@@ -107,7 +107,8 @@ const PostList = ({ postList }) => {
                             </StyledCategoryLink>
                             {index < post.frontmatter.category.length - 1 && ", "}
                           </React.Fragment>
-                        ))}
+                        )
+                      )
                     }
                   </>
                 )}
