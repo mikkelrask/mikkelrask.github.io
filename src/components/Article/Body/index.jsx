@@ -54,7 +54,7 @@ const Wrapper = styled.div`
     padding: 0.2em 0.5em;
     border-radius: 4px;
     font-size: 0.75em;
-    
+
     opacity: 0;
     transition:
       opacity 0.3s ease-in-out,
@@ -127,6 +127,7 @@ const Body = ({ html }) => {
             }, 1500) // Hide after 1.5 seconds
           })
           .catch(err => {
+            console.err(err)
           })
       }
 

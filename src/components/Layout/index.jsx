@@ -45,9 +45,17 @@ const Layout = ({ children, sidebar }) => {
     <ThemeProvider theme={theme === "light" ? light : dark}>
       <GlobalStyles />
       <Header toggleTheme={toggleTheme} />
-      <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+      <div
+        style={{
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Body ref={ref}>{children}</Body>
-        {sidebar && <StickySidecar offsetTop={offsetTop}>{sidebar}</StickySidecar>}
+        {sidebar && (
+          <StickySidecar offsetTop={offsetTop}>{sidebar}</StickySidecar>
+        )}
       </div>
       <Footer />
     </ThemeProvider>

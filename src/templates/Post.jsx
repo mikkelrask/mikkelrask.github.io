@@ -10,8 +10,7 @@ import { siteUrl } from "../../blog-config"
 const Post = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const { previous, next, seriesList } = data
-  const { title, date, update, tags, image, description } =
-    post.frontmatter
+  const { title, date, update, tags, image, description } = post.frontmatter
   const imageUrl = image.childImageSharp.gatsbyImageData.images.fallback.src
   const { excerpt } = post
   const { readingTime, slug } = post.fields

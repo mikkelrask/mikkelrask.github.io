@@ -101,18 +101,17 @@ const PostList = ({ postList }) => {
                   <>
                     {" | "}
                     {post.frontmatter.category.map((category, index) => (
-                          <React.Fragment key={category}>
-                            <StyledCategoryLink to={`/categories?q=${category}`}>
-                              {category}
-                            </StyledCategoryLink>
-                            {index < post.frontmatter.category.length - 1 && ", "}
-                          </React.Fragment>
-                        )
-                      )
-                    }
+                      <React.Fragment key={category}>
+                        <StyledCategoryLink to={`/categories?q=${category}`}>
+                          {category}
+                        </StyledCategoryLink>
+                        {index < post.frontmatter.category.length - 1 && ", "}
+                      </React.Fragment>
+                    ))}
                   </>
                 )}
-                {post.fields.readingTime && ` | Læsetid: ${Math.round(post.fields.readingTime.minutes)} min.`}
+                {post.fields.readingTime &&
+                  ` | Læsetid: ${Math.round(post.fields.readingTime.minutes)} min.`}
               </Date>
               {frontpageImage && gatsbyImage && (
                 <Link to={slug}>
