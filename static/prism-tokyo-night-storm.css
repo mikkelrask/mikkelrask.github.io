@@ -164,3 +164,7 @@ h3:before {
   border-radius: 8px;
   margin-bottom: 12px;
 }
+
+.line-numbers-rows {
+  display: block !important;
+}

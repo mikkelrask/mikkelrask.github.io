@@ -2,7 +2,7 @@
 title: "🐳 Lokal startside med Docker"
 description: "Hvordan du spinner en lille docklet op, med en HTTP server via Docker"
 category:
-  - "Infrastruktur / Selfhosting"
+  - "Selfhosting"
 date: 2020-11-12
 image: "./docker.webp"
 update: 2023-03-04

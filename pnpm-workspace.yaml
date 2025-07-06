@@ -1,0 +1,13 @@
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - core-js
+  - core-js-pure
+  - es5-ext
+  - gatsby
+  - gatsby-cli
+  - lmdb
+  - msgpackr-extract
+  - sharp
+
+patchedDependencies:
+  gatsby-remark-prismjs: patches/gatsby-remark-prismjs.patch

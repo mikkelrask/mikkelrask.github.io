@@ -1,0 +1,13 @@
+diff --git a/add-line-numbers.js b/add-line-numbers.js
+index 475b048f36835bba5aa88a8f81ff453ee654dc3f..f0e207369b44795ee5bce72548d6312773840e2c 100644
+--- a/add-line-numbers.js
++++ b/add-line-numbers.js
+@@ -10,7 +10,7 @@ module.exports = (code = []) => {
+     }
+     return spans;
+   };
+-  const numberOfLines = code.length === 0 ? 0 : code.split(`\n`).length + (code.match(GATSBY_HIGHLIGHT_LINE_CLASS) || []).length;
++  const numberOfLines = code.length === 0 ? 0 : (code.match(/<br \/>/g) || []).length + 1;
+ 
+   // Generate the container for the line numbers.
+   // Relevant code in the Prism Line Numbers plugin can be found here:

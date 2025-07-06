@@ -3,7 +3,7 @@ title: 🧑‍💻 Host din egen tshare backend
 description: "Hvad er tshare, og hvordan får du en lokal backend API op og køre? Læs med, hvordan vi gør det med docker eller docker compose."
 category:
   - Udvikling
-  - Infrastruktur / Selfhosting
+  - Selfhosting
 date: 2025-04-14
 updated: 2025-04-14
 draft: false

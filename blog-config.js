@@ -11,7 +11,7 @@ module.exports = {
     email: "mailto:m@raske.xyz",
   },
   utterances: {
-    repo: "https://github.com/mikkelrask/mikkelrask.github.io",
+    repo: "mikkelrask/mikkelrask.github.io.git",
     type: "pathname",
   },
 }

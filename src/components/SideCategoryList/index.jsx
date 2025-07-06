@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 const Wrapper = styled.aside`
   position: sticky;
   top: 0;
-  width: 300px;
+  width: 230px;
   height: auto;
   font-size: 16px;
 

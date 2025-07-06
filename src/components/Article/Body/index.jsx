@@ -114,7 +114,7 @@ const Body = ({ html }) => {
 
       const copiedMessage = document.createElement("span")
       copiedMessage.className = "copied-message"
-      copiedMessage.textContent = "Copied!"
+      copiedMessage.textContent = "Yoink "
 
       linkIcon.onclick = () => {
         const url = `${location.origin}${location.pathname}#${heading.id}`
@@ -127,7 +127,6 @@ const Body = ({ html }) => {
             }, 1500) // Hide after 1.5 seconds
           })
           .catch(err => {
-            console.error("Failed to copy link:", err)
           })
       }
 

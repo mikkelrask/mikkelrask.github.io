@@ -4,7 +4,7 @@ description: "Af og til ender Nextcloud i maintenance mode - nogle gange uden no
 date: 2025-06-02
 update: 2025-06-07
 category:
-  - "Infrastruktur / Selfhosting"
+  - "Selfhosting"
 tags:
   - self hosting
   - nextcloud

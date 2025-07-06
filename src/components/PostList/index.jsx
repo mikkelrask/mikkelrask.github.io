@@ -124,6 +124,7 @@ const PostList = ({ postList }) => {
                     image={gatsbyImage}
                     alt={title}
                     style={{ marginBottom: "16px" }}
+                    loading={i === 0 ? "eager" : "lazy"}
                   />
                 </Link>
               )}

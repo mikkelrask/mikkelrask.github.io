@@ -13,7 +13,6 @@ const Post = ({ data, pageContext }) => {
   const { title, date, update, tags, image, description } =
     post.frontmatter
   const imageUrl = image.childImageSharp.gatsbyImageData.images.fallback.src
-  console.log(imageUrl)
   const { excerpt } = post
   const { readingTime, slug } = post.fields
 

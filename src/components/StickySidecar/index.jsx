@@ -15,7 +15,7 @@ const StickySidecarWrapper = styled.div`
     padding-left: 16px;
     // Removed margin-left
     position: relative;
-    width: 260px; // Corrected to 260px
+    width: 220px;
     max-height: calc(100% - 185px);
     overflow: hidden;
 
