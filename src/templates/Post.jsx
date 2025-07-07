@@ -97,7 +97,7 @@ export const pageQuery = graphql`
         description
         image {
           childImageSharp {
-            gatsbyImageData(layout: CONSTRAINED, width: 960px)
+            gatsbyImageData(layout: CONSTRAINED, width: 960)
           }
         }
       }
