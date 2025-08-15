@@ -5,7 +5,7 @@ category:
   - "Personlig udvikling"
 date: "2025-06-08"
 tags:
-  - video
+  - "video"
   - "mr beast 2.0"
 image: ./not-me.png
 ---
