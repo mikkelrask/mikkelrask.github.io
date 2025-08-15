@@ -55,16 +55,13 @@ const TagList = ({ tagList, count, selected }) => {
   return (
     <TagListWrapper>
       {tagList.map((tag, i) => (
-        <Link
           key={JSON.stringify({ tag, i })}
-          to={
             selected === tag.fieldValue ? "/tags" : `/tags?q=${tag.fieldValue}`
           }
         >
           <TagLink selected={tag.fieldValue === selected}>
             <span className="bold">#{spaceToDash(tag.fieldValue)}</span>
           </TagLink>
-        </Link>
       ))}
     </TagListWrapper>
   )
