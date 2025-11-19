@@ -48,13 +48,7 @@ const Category = styled.li`
 
 const SideCategoryList = ({ categories }) => {
   const theme = useTheme()
-  const colors = [
-    theme.colors.tertiaryText,
-    theme.colors.icon,
-    theme.colors.spinner,
-    theme.colors.hoveredLinkText,
-    theme.colors.text,
-  ]
+  const colors = theme.colors.categoryColors
   return (
     <Wrapper>
       <Title>Kategorier</Title>

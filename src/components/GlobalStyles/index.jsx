@@ -4,6 +4,8 @@ import reset from "styled-reset"
 const GlobalStyles = createGlobalStyle`
   ${reset}
 
+  @import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap');
+
   @font-face {
     font-family: 'HackNFM';
     src: 
@@ -13,14 +15,6 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
-  @font-face {
-    font-family: 'FantasqueSansMNF';
-    src: 
-      url('../../fonts/FantasqueSansMNFM-Regular.woff') format('woff'),
-      url('../../fonts/FantasqueSansMNFM-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
    @font-face {                                                                                    
      font-family: 'HackNFM';
      src:
@@ -31,23 +25,12 @@ const GlobalStyles = createGlobalStyle`
      font-display: swap;
    }
    
-   @font-face {
-      font-family: 'FantasqueSansMNF';
-      src: 
-        url('../../fonts/FantasqueSansMNFM-Bold.woff2') format('woff2'),
-        url('../../fonts/FantasqueSansMNFM-Bold.woff') format('woff');
-      font-weight: bold;
-      font-style: normal;
-      font-display: swap;
-  }
-
-
   body {
-    font-family: 'FantasqueSansMNF', sans-serif;
+    font-family: 'Cascadia Code', monospace;
     background: ${props => props.theme.colors.bodyBackground};
   };
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'FantasqueSansMNF', sans-serif;
+    font-family: 'Cascadia Code', monospace;
   };
 
   pre {

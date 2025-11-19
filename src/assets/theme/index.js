@@ -28,11 +28,21 @@ const FG0 = "#c0caf5" // main text
 const FG1 = "#a9b1d6" // lighter text
 const FG2 = "#9aa5ce" // even lighter
 
+// Mostly Bright
+const MB_RED = "#ef6b7b"
+const MB_GREEN = "#a1d569"
+const MB_YELLOW = "#f59335"
+const MB_BLUE = "#4ec2e8"
+const MB_MAGENTA = "#fec7cd"
+const MB_CYAN = "#95c1c0"
+const MB_BG = "#f3f3f3"
+const MB_FG = "#707070"
+
 export const light = {
   name: "light",
   colors: {
-    bodyBackground: "#ffffff",
-    text: GRAY9,
+    bodyBackground: MB_BG,
+    text: MB_FG,
     secondaryText: GRAY7,
     tertiaryText: GRAY6,
     mutedText: GRAY5,
@@ -63,6 +73,7 @@ export const light = {
     textFieldBorder: GRAY4,
     textFieldActivatedBorder: GRAY5,
     tableBackground: GRAY1,
+    categoryColors: [MB_YELLOW, MB_BLUE, MB_GREEN, MB_RED, MB_CYAN],
   },
 }
 
@@ -102,5 +113,6 @@ export const dark = {
     textFieldBorder: BG4,
     textFieldActivatedBorder: BG3,
     tableBackground: "#292e33",
+    categoryColors: [ORANGE, AQUA, GREEN, RED, FG],
   },
 }
