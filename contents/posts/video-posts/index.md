@@ -5,7 +5,7 @@ category:
   - "Personlig udvikling"
 date: "2025-06-08"
 tags:
-  - video
+  - "video"
   - "mr beast 2.0"
 image: ./not-me.png
 ---
@@ -18,7 +18,7 @@ Så hele idéen bag at skrive indlæg her på min blog er to-delt - den første 
 
 ![oh, I 'member](./not-me.png)
 
-Den anden er, at jeg selv er selv-lært inden for så mange nørdede niché områder, hvor min forståelse af et givent projekt jeg har sat mig for at takle ofte har afhængt af en eller anden fantastisk Inder med en doktorgrad i IT, eller hvad ved jeg, der på youtube har besluttet sig for at dele informationen om lige præcis den udfordring eller det koncept jeg har haft problemer med.
+Den anden er, at jeg selv er selv-lært inden for så mange nørdede niché områder, hvor min forståelse af et givent projekt jeg har sat mig for at takle ofte har afhængt af en eller [anden fantastisk Inder med en doktorgrad i IT](https://www.instagram.com/p/DK7y0fpxmVo/), eller hvad ved jeg, der på youtube har besluttet sig for at dele informationen om lige præcis den udfordring eller det koncept jeg har haft problemer med.
 
 > **NOTE:** _Det er selvfølgeligt \_efter_ at man har læst samtlige reddit-posts, hvor _OP_ har samme spørgsmål som én selv, og aldrig fået noget konkret svar.\_
 
