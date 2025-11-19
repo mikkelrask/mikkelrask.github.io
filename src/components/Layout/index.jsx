@@ -25,14 +25,16 @@ const Layout = ({ children, sidebar }) => {
   }
 
   let localTheme = null
-  if (typeof localStorage !== "undefined") {
+  if (typeof window !== "undefined" && window.localStorage) {
     localTheme = localStorage.getItem("theme")
   }
 
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark"
     dispatch(nextTheme === "dark" ? setDark : setLight)
-    localStorage.setItem("theme", nextTheme)
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", nextTheme)
+    }
   }
 
   useEffect(() => {
