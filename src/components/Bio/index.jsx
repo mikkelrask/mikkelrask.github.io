@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 import {
   FaGithub,
@@ -35,6 +35,15 @@ const Profile = styled.div`
   background-image: url(${profileImageRoot}/profile_sb.png);
   background-size: contain;
   background-position: center;
+`
+
+const blink = keyframes`
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+`
+
+const Cursor = styled.span`
+  animation: ${blink} 1s step-end infinite;
 `
 
 const Author = styled.div`
@@ -88,8 +97,8 @@ const Bio = () => {
     <BioWrapper id="bio">
       <Profile />
       <div>
-        <Author>@{author}</Author>
-        <Description>{description}</Description>
+        <Author>mr@github:~$ whoami<Cursor>█</Cursor></Author>
+        <Description><strong>{author}</strong>: {description}</Description>
         <LinksWrapper>
           <Link link={github}>
             <FaGithub />
