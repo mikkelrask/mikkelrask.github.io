@@ -1,0 +1,69 @@
+---
+interface Props {
+  categories: { fieldValue: string; totalCount: number }[];
+}
+
+const { categories } = Astro.props;
+
+const colors = ["var(--mb-yellow)", "var(--mb-blue)", "var(--mb-green)", "var(--mb-red)", "var(--mb-cyan)"];
+---
+
+<aside class="wrapper">
+  <div class="title">Kategorier</div>
+  <ul>
+    {categories.map((category, index) => (
+      <li 
+        class="category" 
+        style={`background-color: ${colors[index % colors.length]}`}
+      >
+        <a href={`/categories?q=${category.fieldValue}`}>
+          {category.fieldValue} ({category.totalCount})
+        </a>
+      </li>
+    ))}
+  </ul>
+</aside>
+
+<style>
+  .wrapper {
+    position: sticky;
+    top: 0;
+    width: 230px;
+    height: auto;
+    font-size: 16px;
+  }
+
+  @media (max-width: 1079px) {
+    .wrapper {
+      display: none;
+    }
+  }
+
+  .title {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: var(--secondaryText);
+  }
+
+  .category {
+    display: inline-block;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 6px 12px;
+    border-radius: 16px;
+    color: var(--bodyBackground); /* Should be high contrast, usually dark background uses light theme text color etc */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .category:hover {
+    background-color: var(--selectedTagBackground);
+    color: var(--selectedTagText);
+  }
+
+  .category a {
+    color: inherit;
+    text-decoration: none;
+  }
+</style>

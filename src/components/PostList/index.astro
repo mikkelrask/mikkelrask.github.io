@@ -1,0 +1,152 @@
+---
+import Title from '../Title/index.astro';
+import Divider from '../Divider/index.astro';
+import TagList from '../TagList/index.astro';
+
+interface Props {
+  postList: any[];
+}
+
+const { postList } = Astro.props;
+---
+
+<div class="post-list-wrapper" id="post-list">
+  {postList.map((post, i) => {
+    const { title, tags, description, frontpageImage, image } = post.frontmatter;
+    const { slug } = post.fields;
+    const postExcerpt = description || post.excerpt;
+    const imgSrc = image?.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
+
+    return (
+      <div 
+        class="post-item" 
+        data-index={i} 
+        style={i >= 10 ? "display: none;" : ""}
+      >
+        <div class="post-wrapper">
+          <Title size="bg">
+            <a href={slug}>{title}</a>
+          </Title>
+          <p class="date">
+            {post.frontmatter.date}
+            {post.frontmatter.update && ` (Opdateret: ${post.frontmatter.update})`}
+            {post.frontmatter.category && (
+              <>
+                {" | "}
+                {post.frontmatter.category.map((category: string, index: number) => (
+                  <>
+                    <a class="category-link" href={`/categories?q=${category}`}>
+                      {category}
+                    </a>
+                    {index < post.frontmatter.category.length - 1 && ", "}
+                  </>
+                ))}
+              </>
+            )}
+            {post.fields.readingTime && ` | Læsetid: ${Math.round(post.fields.readingTime.minutes)} min.`}
+          </p>
+          {frontpageImage && imgSrc && (
+            <a href={slug}>
+              <div class="image-container">
+                <img
+                  src={imgSrc}
+                  alt={title}
+                  loading={i === 0 ? "eager" : "lazy"}
+                />
+              </div>
+            </a>
+          )}
+          <p class="excerpt">{postExcerpt}</p>
+          <TagList tagList={tags} />
+        </div>
+
+        {i < postList.length - 1 && (
+          <Divider mt="48px" mb="32px" />
+        )}
+      </div>
+    );
+  })}
+</div>
+
+<script>
+  // Dynamic loading logic (Infinite Scroll)
+  let currentCount = 10;
+  const postItems = document.querySelectorAll('.post-item');
+  const urlParams = new URLSearchParams(window.location.search);
+  const filterActive = urlParams.has('q');
+
+  const handleScroll = () => {
+    // If a filter is active (Tags, Category, Search), don't blindly show hidden items
+    if (filterActive) return;
+
+    if (
+      document.documentElement.scrollHeight - document.documentElement.scrollTop <=
+      document.documentElement.clientHeight + 400
+    ) {
+      if (currentCount < postItems.length) {
+        for (let i = currentCount; i < currentCount + 10 && i < postItems.length; i++) {
+          (postItems[i] as HTMLElement).style.display = 'block';
+        }
+        currentCount += 10;
+      }
+    }
+  };
+
+  if (!filterActive) {
+    window.addEventListener('scroll', handleScroll);
+  }
+</script>
+
+<style>
+  .post-list-wrapper {
+  }
+
+  @media (max-width: 768px) {
+    .post-list-wrapper {
+      padding: 0 10px;
+    }
+  }
+
+  .post-wrapper {
+    position: relative;
+    top: 0;
+    transition: all 0.5s;
+  }
+
+  @media (max-width: 768px) {
+    .post-wrapper {
+      padding: 0 5px;
+    }
+  }
+
+  .date {
+    margin-bottom: 16px;
+    font-size: 14.4px;
+    color: var(--tertiaryText);
+  }
+
+  .category-link {
+    color: var(--linkText);
+  }
+  .category-link:hover {
+    color: var(--hoveredLinkText);
+  }
+
+  .image-container {
+    margin-bottom: 16px;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .excerpt {
+    margin-bottom: 32px;
+    line-height: 1.7;
+    font-size: 16px;
+    color: var(--secondaryText);
+    word-break: none;
+  }
+</style>

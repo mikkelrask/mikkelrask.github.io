@@ -1,0 +1,17 @@
+---
+interface Props {
+  mt?: string;
+  mb?: string;
+}
+
+const { mt = "48px", mb = "48px" } = Astro.props;
+---
+
+<hr style={`margin-top: ${mt}; margin-bottom: ${mb};`} />
+
+<style>
+  hr {
+    border: none;
+    border-bottom: 1px solid var(--divider);
+  }
+</style>

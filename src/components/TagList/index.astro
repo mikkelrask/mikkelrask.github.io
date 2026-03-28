@@ -1,0 +1,64 @@
+---
+interface Props {
+  tagList: any[];
+  count?: boolean;
+  selected?: string;
+}
+
+const { tagList, count, selected } = Astro.props;
+
+const spaceToDash = (text: string) => {
+  return text.replace(/\s+/g, "-");
+};
+---
+
+<div class="tag-list-wrapper">
+  {tagList && tagList.map((tag) => {
+    const isObject = typeof tag === 'object' && tag.fieldValue;
+    const tagName = isObject ? tag.fieldValue : tag;
+    const isSelected = tagName === selected || spaceToDash(tagName) === selected;
+    
+    return (
+      <a 
+        href={isObject ? (isSelected ? "/tags" : `/tags?q=${spaceToDash(tagName)}`) : `/tags?q=${spaceToDash(tagName)}`}
+        class={`tag-link ${isSelected ? 'selected' : ''}`}
+      >
+        #{spaceToDash(tagName)}
+      </a>
+    )
+  })}
+</div>
+
+<style>
+  .tag-list-wrapper {
+    margin-bottom: 16px;
+    word-break: normal;
+  }
+
+  .tag-link {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border-radius: 50px;
+    background-color: var(--tagBackground);
+    color: var(--tagText);
+    text-decoration: none;
+    font-size: 14.4px;
+    transition: all 0.2s;
+  }
+
+  .tag-link.selected {
+    background-color: var(--selectedTagBackground);
+    color: var(--selectedTagText);
+  }
+
+  .tag-link:hover {
+    background-color: var(--hoveredTagBackground);
+    color: var(--selectedTagText); /* Standard hover for tags */
+  }
+
+  .tag-link.selected:hover {
+    background-color: var(--hoveredSelectedTagBackground);
+  }
+</style>

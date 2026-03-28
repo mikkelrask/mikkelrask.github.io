@@ -1,0 +1,52 @@
+---
+interface Props {
+  placeholder?: string;
+  id?: string;
+}
+
+const { placeholder = "Search", id } = Astro.props;
+---
+
+<div class="textfield-wrapper">
+  <input type="text" id={id} placeholder={placeholder} class="textfield-input" />
+  <span class="textfield-icon">🔍</span>
+</div>
+
+<style>
+  .textfield-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .textfield-input {
+    padding: 14px 19.2px 12px 50px;
+    width: 100%;
+    border: 1px solid var(--textFieldBorder);
+    border-radius: 8px;
+    background-color: transparent;
+    font-size: 16px;
+    color: var(--text);
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.2s;
+  }
+
+  .textfield-input:focus {
+    border: 1px solid var(--textFieldActivatedBorder);
+  }
+
+  .textfield-icon {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--textFieldBorder);
+    pointer-events: none;
+    transition: all 0.2s;
+  }
+
+  .textfield-input:focus + .textfield-icon {
+    color: var(--textFieldActivatedBorder);
+  }
+</style>

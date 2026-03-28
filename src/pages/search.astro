@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostList from 'components/PostList/index.astro';
+import Title from 'components/Title/index.astro';
+import TextField from 'components/TextField/index.astro';
+import VerticalSpace from 'components/VerticalSpace/index.astro';
+
+import { getCollection } from 'astro:content';
+import { title, description } from '../blog-config.js';
+
+// Load all posts
+const allPosts = await getCollection('posts');
+
+const posts = allPosts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .map(post => {
+    return {
+      id: post.id,
+      fields: { 
+        slug: `/${post.id}/`, 
+        readingTime: { minutes: Math.ceil((post.body || "").split(/\s+/).length / 200) }
+      },
+      excerpt: post.data.description || 'No excerpt available',
+      rawContent: post.body, // For search
+      frontmatter: {
+        ...post.data,
+        date: post.data.date instanceof Date ? post.data.date.toLocaleDateString('da-DK', { day: '2-digit', month: 'long', year: 'numeric' }) : post.data.date,
+        update: post.data.update instanceof Date ? post.data.update.toLocaleDateString('da-DK', { day: '2-digit', month: 'long', year: 'numeric' }) : post.data.update,
+        image: post.data.image ? { childImageSharp: { gatsbyImageData: { images: { fallback: { src: post.data.image.src } } } } } : null
+      }
+    };
+  });
+
+---
+
+<Layout title={`Søg - ${title}`} description={description}>
+  
+  <div class="search-page">
+    <Title size="sm">
+      <span id="search-count">Der er {posts.length} indlæg.</span>
+    </Title>
+    <TextField id="search-input" placeholder="Søg..." />
+  </div>
+
+  <VerticalSpace size={70} />
+
+  <div id="posts-container">
+    <PostList postList={posts} />
+  </div>
+
+</Layout>
+
+<script>
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const postItems = document.querySelectorAll('.post-item');
+  const searchCount = document.getElementById('search-count');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = (e.target as HTMLInputElement).value.toLowerCase();
+      let visibleCount = 0;
+
+      postItems.forEach(item => {
+         // This is a bit tricky since data isn't in the DOM attributes yet.
+         // We'll search in title and description which are visible.
+         const title = item.querySelector('.title-wrapper')?.textContent?.toLowerCase() || '';
+         const excerpt = item.querySelector('.excerpt')?.textContent?.toLowerCase() || '';
+         
+         if (title.includes(query) || excerpt.includes(query)) {
+           (item as HTMLElement).style.display = 'block';
+           visibleCount++;
+         } else {
+           (item as HTMLElement).style.display = 'none';
+         }
+      });
+
+      if (searchCount) {
+        searchCount.textContent = `Der er ${visibleCount} indlæg.`;
+      }
+    });
+  }
+</script>
+
+<style>
+  .search-page {
+    margin-top: 20px;
+  }
+  @media (max-width: 768px) {
+    .search-page {
+      padding: 0 15px;
+    }
+  }
+</style>

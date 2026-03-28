@@ -1,0 +1,70 @@
+---
+import Title from "../Title/index.astro";
+import Divider from "../Divider/index.astro";
+import _ from "lodash";
+
+interface Props {
+  seriesList: any[];
+}
+
+const { seriesList } = Astro.props;
+---
+
+<div class="series-list-wrapper">
+  {
+    seriesList.map((series, i) => {
+      return (
+        <div class="series-item">
+          <div class="series-wrapper">
+            <Title size="bg">
+              <a href={`/series/${_.replace(series.name, /\s/g, "-")}`}>
+                {series.name}
+              </a>
+            </Title>
+            <div class="series-inform">
+              <p class="post-count">{series.posts.length} Indlæg</p>
+              <span class="dot">·</span>
+              <p class="date">Senest opdateret den {series.lastUpdated}</p>
+            </div>
+          </div>
+
+          {i < seriesList.length - 1 && <Divider mt="48px" mb="32px" />}
+        </div>
+      );
+    })
+  }
+</div>
+
+<style>
+  .series-list-wrapper {
+    margin-bottom: 60px;
+  }
+  @media (max-width: 768px) {
+    .series-list-wrapper {
+      padding: 0 10px;
+    }
+  }
+
+  .series-wrapper {
+    position: relative;
+    top: 0;
+    transition: all 0.5s;
+  }
+
+  @media (max-width: 768px) {
+    .series-wrapper {
+      padding: 0 5px;
+    }
+  }
+
+  .series-inform {
+    display: flex;
+    align-items: center;
+    color: var(--tertiaryText);
+    font-size: 14.4px;
+  }
+
+  .dot {
+    margin: 0 5px;
+  }
+</style>

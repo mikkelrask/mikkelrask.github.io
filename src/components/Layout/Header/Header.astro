@@ -1,0 +1,192 @@
+---
+import {
+  FaSun,
+  FaMoon,
+  FaTags,
+  FaRss,
+  FaSearch,
+  FaListUl,
+} from "react-icons/fa";
+import { title } from "../../../blog-config";
+---
+
+<header id="main-header" class="header-wrapper">
+  <div class="header-inner">
+    <div class="logo-wrapper">
+      <span class="blog-title">
+        <a href="/">{title}<span class="cursor"> █</span></a>
+      </span>
+    </div>
+    <nav class="menu">
+      <div class="toggle-wrapper" id="theme-toggler">
+        <div class="icon-rail">
+          <div class="icon-sun"><FaSun /></div>
+          <div class="icon-moon"><FaMoon /></div>
+        </div>
+      </div>
+      <a href="/tags" title="Tags"><FaTags /></a>
+      <a href="/series" title="Series"><FaListUl /></a>
+      <a href="/rss.xml" title="RSS"><FaRss /></a>
+      <a href="/search" title="Search"><FaSearch /></a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("main-header");
+  const themeToggler = document.getElementById("theme-toggler");
+  let lastScrollY = window.scrollY;
+
+  // Scroll logic
+  window.addEventListener("scroll", () => {
+    if (header) {
+      if (window.scrollY > 400 && window.scrollY > lastScrollY) {
+        header.classList.add("hidden");
+      } else {
+        header.classList.remove("hidden");
+      }
+    }
+    lastScrollY = window.scrollY;
+  });
+
+  // Theme toggle logic
+  if (themeToggler) {
+    themeToggler.addEventListener("click", () => {
+      const currentTheme =
+        document.documentElement.getAttribute("data-theme") || "light";
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
+
+      if (nextTheme === "light") {
+        document.documentElement.removeAttribute("data-theme");
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+      localStorage.setItem("theme", nextTheme);
+    });
+  }
+</script>
+
+<style>
+  .header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background-color: var(--headerBackground);
+    box-shadow: 0 0 8px var(--headerShadow);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* Safari support */
+    transition:
+      transform 0.4s,
+      opacity 0.4s;
+    z-index: 1000;
+  }
+
+  .header-wrapper.hidden {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 64px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .header-inner {
+      padding: 0 15px;
+    }
+  }
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .blog-title {
+    letter-spacing: -1px;
+    font-family: "HackNFM", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--text);
+  }
+
+  .blog-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .menu a {
+    display: flex;
+    align-items: center;
+    color: var(--icon);
+    transition: color 0.3s;
+  }
+
+  .menu a:hover {
+    color: var(--text);
+  }
+
+  .menu :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+
+  .toggle-wrapper {
+    width: 20px;
+    height: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .icon-rail {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 48px;
+    top: 0;
+    transition: top 0.4s;
+  }
+
+  :global([data-theme="dark"]) .icon-rail {
+    top: -24px;
+  }
+
+  .icon-sun,
+  .icon-moon {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--icon);
+  }
+
+  .icon-sun:hover,
+  .icon-moon:hover {
+    color: var(--text);
+  }
+  .cursor {
+    animation: blink 1s step-end infinite;
+  }
+</style>

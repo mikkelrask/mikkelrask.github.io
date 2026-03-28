@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap');
+
+/* CSS Reset */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@font-face {
+  font-family: 'HackNFM';
+  src: url('/fonts/HackNFM-Regular.woff2') format('woff2'),
+    url('/fonts/HackNFM-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HackNFM';
+  src: url('/fonts/HackNFM-Bold.woff2') format('woff2'),
+    url('/fonts/HackNFM-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* GRAY COLORS */
+  --gray-9: #212529;
+  --gray-8: #343a40;
+  --gray-7: #495057;
+  --gray-6: #868e96;
+  --gray-5: #adb5bd;
+  --gray-4: #ced4da;
+  --gray-3: #dee2e6;
+  --gray-2: #e9ecef;
+  --gray-1: #f1f3f5;
+  --gray-0: #f8f9fa;
+
+  /* Tokyo Night */
+  --bg: #1a1b26;
+  --bg-1: #16161e;
+  --bg-2: #2f3549;
+  --bg-3: #3b4261;
+  --bg-4: #414868;
+  --fg: #c0caf5;
+  --orange: #ff9e64;
+  --green: #9ece6a;
+  --aqua: #7dcfff;
+  --red: #f7768e;
+  --blue: #7aa2f7;
+  --fg-0: #c0caf5;
+  --fg-1: #a9b1d6;
+  --fg-2: #9aa5ce;
+
+  /* Mostly Bright */
+  --mb-red: #ef6b7b;
+  --mb-green: #a1d569;
+  --mb-yellow: #f59335;
+  --mb-blue: #4ec2e8;
+  --mb-magenta: #fec7cd;
+  --mb-cyan: #95c1c0;
+  --mb-bg: #f3f3f3;
+  --mb-fg: #707070;
+
+  /* default to light theme */
+  --bodyBackground: var(--mb-bg);
+  --text: var(--mb-fg);
+  --secondaryText: var(--gray-7);
+  --tertiaryText: var(--gray-6);
+  --mutedText: var(--gray-5);
+  --linkText: var(--mb-fg);
+  --hoveredLinkText: var(--blue);
+  --border: var(--gray-4);
+  --activatedBorder: var(--gray-6);
+  --background: var(--gray-1);
+  --icon: var(--gray-6);
+  --divider: var(--gray-2);
+  --headerBackground: rgba(243, 243, 243, 0.72);
+  --headerShadow: rgba(0, 0, 0, 0.1);
+  --inlineCodeBackground: var(--fg-0);
+  --inlineCodeBackgroundDarker: var(--red);
+  --tagBackground: var(--fg-0);
+  --selectedTagBackground: var(--gray-7);
+  --hoveredTagBackground: var(--fg-2);
+  --hoveredSelectedTagBackground: var(--gray-8);
+  --nextPostButtonBackground: rgba(0, 0, 0, 0.06);
+  --hoveredNextPostButtonBackground: rgba(0, 0, 0, 0.08);
+  --seriesBackground: var(--gray-1);
+  --tagText: var(--gray-7);
+  --selectedTagText: var(--gray-0);
+  --spinner: var(--gray-7);
+  --scrollTrack: var(--gray-1);
+  --scrollHandle: var(--gray-4);
+  --blockQuoteBorder: var(--gray-4);
+  --blockQuoteBackground: var(--gray-1);
+  --textFieldBorder: var(--gray-4);
+  --textFieldActivatedBorder: var(--gray-5);
+  --tableBackground: var(--gray-1);
+
+  font-family: 'Cascadia Code', monospace;
+}
+
+:root[data-theme="dark"] {
+  --bodyBackground: var(--bg);
+  --text: var(--fg);
+  --secondaryText: var(--fg);
+  --tertiaryText: var(--orange);
+  --mutedText: var(--fg-2);
+  --linkText: var(--orange);
+  --hoveredLinkText: var(--red);
+  --border: var(--orange);
+  --activatedBorder: var(--bg-3);
+  --background: var(--bg);
+  --icon: var(--aqua);
+  --divider: var(--bg-1);
+  --headerBackground: rgba(26, 27, 38, 0.72);
+  --headerShadow: rgba(255, 255, 255, 0.08);
+  --inlineCodeBackground: var(--bg-4);
+  --inlineCodeBackgroundDarker: var(--bg-4);
+  --tagBackground: var(--aqua);
+  --selectedTagBackground: var(--orange);
+  --hoveredTagBackground: var(--red);
+  --hoveredSelectedTagBackground: var(--orange);
+  --nextPostButtonBackground: rgba(255, 255, 255, 0.05);
+  --hoveredNextPostButtonBackground: rgba(255, 255, 255, 0.08);
+  --seriesBackground: var(--bg-2);
+  --tagText: var(--bg);
+  --selectedTagText: var(--bg);
+  --spinner: var(--green);
+  --scrollTrack: var(--bg-1);
+  --scrollHandle: var(--bg-3);
+  --blockQuoteBorder: var(--red);
+  --blockQuoteBackground: var(--bg-2);
+  --textFieldBorder: var(--bg-4);
+  --textFieldActivatedBorder: var(--bg-3);
+  --tableBackground: #292e33;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bodyBackground);
+  color: var(--text);
+  margin: 0;
+  font-family: 'Cascadia Code', monospace;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Cascadia Code', monospace;
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+a {
+  color: var(--linkText);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--hoveredLinkText);
+}
+
+pre {
+  position: relative;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+pre .copy-button {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  display: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 0.875em;
+  z-index: 10;
+}
+
+pre:hover .copy-button {
+  display: block;
+}
+
+.copy-button::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 4px 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.copy-button:hover::after {
+  opacity: 1;
+}
+
+iframe {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: 100%;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+  from,
+  to {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}

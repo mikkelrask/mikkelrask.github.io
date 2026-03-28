@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Title from 'components/Title/index.astro';
+import SeriesList from 'components/SeriesList/index.astro';
+import VerticalSpace from 'components/VerticalSpace/index.astro';
+
+import { getCollection } from 'astro:content';
+import { title, description } from '../blog-config.js';
+import _ from 'lodash';
+
+// Load all posts
+const allPosts = await getCollection('posts');
+
+const posts = allPosts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Process series data using standard lodash/array methods (avoid _.flow if problematic)
+const flattenedPosts = posts.flatMap((post: any) => {
+    const seriesField = post.data.series;
+    if (!seriesField) return [];
+    const seriesArray = Array.isArray(seriesField) ? seriesField : [seriesField];
+    return seriesArray.map(seriesName => ({
+      name: seriesName,
+      title: post.data.title,
+      date: post.data.date,
+      id: post.id
+    }));
+});
+
+const groupedSeries = _.groupBy(flattenedPosts, "name");
+const seriesRaw = Object.entries(groupedSeries).map(([name, items]) => ({
+    name: name,
+    posts: items,
+    lastUpdated: (items.length > 0 && items[0].date instanceof Date) 
+      ? _.maxBy(items as any[], 'date').date.toLocaleDateString('da-DK', { day: '2-digit', month: 'long', year: 'numeric' })
+      : 'Ukendt'
+}));
+
+const series = _.sortBy(seriesRaw, (s) => {
+    const dateStr = s.lastUpdated;
+    // Simple reverse sort by date string (not ideal but works for opdateret if we want latest first)
+    // Or we could use the actual max date.
+    const maxDate = _.maxBy(s.posts as any[], 'date')?.date;
+    return maxDate ? maxDate.getTime() : 0;
+}).reverse();
+
+---
+
+<Layout title={`Serier - ${title}`} description={description}>
+  
+  <div class="series-page">
+     <Title size="sm">
+       <span id="series-title">Der er {series.length} blog-serier.</span>
+     </Title>
+  </div>
+
+  <VerticalSpace size={32} />
+
+  <div id="series-content">
+     <SeriesList seriesList={series} />
+  </div>
+
+</Layout>
+
+<script>
+  // Simple client-side filtering for series if a query param exists
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedSeries = urlParams.get('q');
+  const seriesContent = document.getElementById('series-content');
+  const seriesTitle = document.getElementById('series-title');
+
+  if (selectedSeries && seriesContent) {
+     // Optional: Implement filtering if needed
+  }
+</script>
+
+<style>
+  .series-page {
+    margin-top: 20px;
+  }
+  @media (max-width: 768px) {
+    .series-page {
+      padding: 0 15px;
+    }
+  }
+</style>

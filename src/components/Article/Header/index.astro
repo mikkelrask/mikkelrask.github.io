@@ -1,0 +1,54 @@
+---
+import { author } from "../../../blog-config.js";
+import Divider from "../../../components/Divider/index.astro";
+import TagList from "../../../components/TagList/index.astro";
+
+interface Props {
+  title: string;
+  date: string;
+  tags?: string[];
+  minToRead?: number;
+}
+const { title, date, tags, minToRead } = Astro.props;
+---
+
+<div class="wrapper">
+  <h1>{title}</h1>
+  <div class="information">
+    <span class="author-span">@{author}</span>
+    <span class="date-span">· {date}</span>
+    <span class="date-span">· Læsetid: {minToRead} min.</span>
+  </div>
+  {tags && tags.length > 0 && <TagList tagList={tags} />}
+  <Divider mt="0" />
+</div>
+
+<style>
+  .wrapper {
+    margin-top: 32px;
+  }
+  @media (max-width: 768px) {
+    .wrapper {
+      padding: 0 15px;
+    }
+  }
+  h1 {
+    margin-bottom: 25.6px;
+    line-height: 1.2;
+    font-size: 44.8px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .information {
+    margin-bottom: 32px;
+    font-size: 16px;
+  }
+  .author-span {
+    font-weight: 700;
+    color: var(--text);
+  }
+  .date-span {
+    font-weight: 300;
+    color: var(--secondaryText);
+  }
+</style>

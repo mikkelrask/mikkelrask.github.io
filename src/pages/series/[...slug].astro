@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PostList from '../../components/PostList/index.astro';
+import Title from '../../components/Title/index.astro';
+import VerticalSpace from '../../components/VerticalSpace/index.astro';
+
+import { getCollection } from 'astro:content';
+import { title, description } from '../../blog-config.js';
+import _ from 'lodash';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts');
+  const posts = allPosts.filter(post => !post.data.draft);
+  
+  // Extract all unique series names
+  const allSeriesNames = _.uniq(
+    posts.flatMap(post => {
+      const seriesField = post.data.series;
+      if (!seriesField) return [];
+      return Array.isArray(seriesField) ? seriesField : [seriesField];
+    })
+  );
+
+  return allSeriesNames.map(seriesName => {
+    const slug = _.replace(seriesName, /\s/g, "-");
+    const filteredPosts = posts
+      .filter(post => {
+        const seriesField = post.data.series;
+        const seriesArray = Array.isArray(seriesField) ? seriesField : [seriesField];
+        return seriesArray.includes(seriesName);
+      })
+      .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+      .map(post => {
+        return {
+          id: post.id,
+          fields: { 
+            slug: `/${post.id}/`, 
+            readingTime: { minutes: Math.ceil((post.body || "").split(/\s+/).length / 200) }
+          },
+          excerpt: post.data.description || 'No excerpt available',
+          frontmatter: {
+            ...post.data,
+            date: post.data.date instanceof Date ? post.data.date.toLocaleDateString('da-DK', { day: '2-digit', month: 'long', year: 'numeric' }) : post.data.date,
+            update: post.data.update instanceof Date ? post.data.update.toLocaleDateString('da-DK', { day: '2-digit', month: 'long', year: 'numeric' }) : post.data.update,
+            image: post.data.image ? { childImageSharp: { gatsbyImageData: { images: { fallback: { src: post.data.image.src } } } } } : null
+          }
+        };
+      });
+
+    return {
+      params: { slug },
+      props: { seriesName, posts: filteredPosts },
+    };
+  });
+}
+
+const { seriesName, posts } = Astro.props;
+---
+
+<Layout title={`${seriesName} - ${title}`} description={description}>
+  
+  <div class="series-detail-page">
+     <Title size="bg">{seriesName}</Title>
+     <p class="series-count">Der er {posts.length} indlæg i serien.</p>
+  </div>
+
+  <VerticalSpace size={32} />
+
+  <PostList postList={posts} />
+
+</Layout>
+
+<style>
+  .series-detail-page {
+    margin-top: 20px;
+  }
+  .series-count {
+    color: var(--secondaryText);
+    margin-top: 8px;
+  }
+</style>

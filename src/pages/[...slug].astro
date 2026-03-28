@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from 'components/Article/Header/index.astro';
+import Series from 'components/Article/Series/index.astro';
+import Body from 'components/Article/Body/index.jsx';
+import Footer from 'components/Article/Footer/index.astro';
+import { getCollection, render } from 'astro:content';
+import { siteUrl } from '../blog-config.js';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts');
+  // Sort posts by date for prev/next
+  const sortedPosts = allPosts
+    .filter(post => !post.data.draft)
+    .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+    
+  return sortedPosts.map((post, i) => {
+    const previous = i === 0 ? null : sortedPosts[i - 1];
+    const next = i === sortedPosts.length - 1 ? null : sortedPosts[i + 1];
+    
+    // Attach seriesList if applicable
+    const seriesList = sortedPosts.filter(p => {
+       const postSeries = p.data.series;
+       if (!postSeries || postSeries.length === 0) return false;
+       const currentSeries = Array.isArray(post.data.series) ? post.data.series[0] : post.data.series;
+       return (Array.isArray(postSeries) ? postSeries : [postSeries]).includes(currentSeries);
+    });
+
+    return {
+      params: { slug: post.id },
+      props: { post, previous, next, seriesList },
+    };
+  });
+}
+
+const { post, previous, next, seriesList } = Astro.props;
+const { Content, headings } = await render(post);
+
+const { title, date, update, tags, description } = post.data;
+const imageUrl = post.data.image ? post.data.image.src : undefined;
+const seoDescription = description || "No description available";
+
+// Map previous and next to Gatsby-like format
+const prevFormatted = previous ? {
+  frontmatter: { title: previous.data.title },
+  fields: { slug: `/${previous.id}/` }
+} : null;
+
+const nextFormatted = next ? {
+  frontmatter: { title: next.data.title },
+  fields: { slug: `/${next.id}/` }
+} : null;
+
+const firstSeries = Array.isArray(post.data.series) ? post.data.series[0] : post.data.series;
+
+let filteredSeries: any[] = [];
+if (firstSeries && seriesList.length > 0) {
+  filteredSeries = seriesList.map(p => ({
+    frontmatter: p.data,
+    fields: { slug: `/${p.id}/` },
+    currentPost: p.id === post.id
+  }));
+}
+---
+
+<Layout title={title} description={seoDescription} image={imageUrl}>
+  <article>
+    <Header
+      title={title}
+      date={date instanceof Date ? date.toLocaleDateString('da-DK', { day: '2-digit', month: 'long', year: 'numeric' }) : date}
+      tags={tags || []}
+      minToRead={Math.ceil((post.body || "").split(/\s+/).length / 200)}
+    />
+    
+    {filteredSeries.length > 0 && (
+      <Series header={firstSeries} series={filteredSeries} />
+    )}
+    
+    <Body client:idle html="">
+      <Content />
+    </Body>
+
+    <Footer previous={prevFormatted} next={nextFormatted} />
+  </article>
+</Layout>

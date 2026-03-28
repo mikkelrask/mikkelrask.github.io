@@ -1,0 +1,112 @@
+---
+import {
+  FaGithub,
+  FaBluesky,
+  FaFacebook,
+  FaLinkedin,
+  FaInstagram,
+  FaLink,
+  FaEnvelope,
+} from "react-icons/fa6";
+import { siteUrl, description, author, links } from "../../blog-config.js";
+
+const profileImageRoot = import.meta.env.DEV
+  ? "http://localhost:9000"
+  : siteUrl;
+const { github, bluesky, instagram, email } = links;
+---
+
+<div class="bio-wrapper" id="bio">
+  <div class="profile" style={`background-image: url(/profile_sb.png)`}></div>
+  <div>
+    <div class="author">mr@github:~$ whoami</div>
+    <div class="description"><strong>{author}</strong>: {description}</div>
+    <div class="links-wrapper">
+      {
+        github && (
+          <a href={github} target="_blank" rel="noreferrer">
+            <FaGithub />
+          </a>
+        )
+      }
+      {
+        bluesky && (
+          <a href={bluesky} target="_blank" rel="noreferrer">
+            <FaBluesky />
+          </a>
+        )
+      }
+      {
+        instagram && (
+          <a href={instagram} target="_blank" rel="noreferrer">
+            <FaInstagram />
+          </a>
+        )
+      }
+      {
+        email && (
+          <a href={email} target="_blank" rel="noreferrer">
+            <FaEnvelope />
+          </a>
+        )
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .bio-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .bio-wrapper {
+      padding: 0 15px;
+    }
+  }
+  .profile {
+    flex: 0 0 auto;
+    margin-right: 16px;
+    width: 100px;
+    height: 128px;
+    background-size: contain;
+    background-position: center;
+  }
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  .author {
+    margin-bottom: 4.8px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .description {
+    margin-bottom: 11.2px;
+    line-height: 1.5;
+    font-size: 16px;
+    color: var(--secondaryText);
+  }
+  .links-wrapper a {
+    margin-right: 9.6px;
+    display: inline-flex;
+  }
+  .links-wrapper :global(svg) {
+    width: 25.6px;
+    height: 25.6px;
+    cursor: pointer;
+  }
+  .links-wrapper :global(svg path) {
+    fill: var(--icon);
+    transition: fill 0.3s;
+  }
+  .links-wrapper a:hover :global(svg path) {
+    fill: var(--hoveredLinkText);
+  }
+</style>

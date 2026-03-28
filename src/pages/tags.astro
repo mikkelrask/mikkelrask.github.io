@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostList from 'components/PostList/index.astro';
+import Title from 'components/Title/index.astro';
+import VerticalSpace from 'components/VerticalSpace/index.astro';
+import TagList from 'components/TagList/index.astro';
+
+import { getCollection } from 'astro:content';
+import { title, description } from '../blog-config.js';
+import _ from 'lodash';
+
+// Load all posts
+const allPosts = await getCollection('posts');
+
+// Map fields (same as in index.astro for consistency)
+const posts = allPosts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .map(post => {
+    return {
+      id: post.id,
+      fields: { 
+        slug: `/${post.id}/`, 
+        readingTime: { minutes: Math.ceil((post.body || "").split(/\s+/).length / 200) }
+      },
+      excerpt: post.data.description || 'No excerpt available',
+      frontmatter: {
+        ...post.data,
+        date: post.data.date instanceof Date ? post.data.date.toLocaleDateString('da-DK', { day: '2-digit', month: 'long', year: 'numeric' }) : post.data.date,
+        update: post.data.update instanceof Date ? post.data.update.toLocaleDateString('da-DK', { day: '2-digit', month: 'long', year: 'numeric' }) : post.data.update,
+        image: post.data.image ? { childImageSharp: { gatsbyImageData: { images: { fallback: { src: post.data.image.src } } } } } : null
+      }
+    };
+  });
+
+// Extract tags
+const allTags = posts.flatMap(post => post.frontmatter.tags || []);
+const tagGroups = _.countBy(allTags);
+const tags = _.sortBy(
+  Object.entries(tagGroups).map(([fieldValue, totalCount]) => ({
+    fieldValue,
+    totalCount,
+  })),
+  ["totalCount"]
+).reverse();
+
+---
+
+<Layout title={`Tags - ${title}`} description={description}>
+  
+  <div class="tag-page">
+    <Title size="sm">
+      <span id="tag-title">Der er {tags.length} nørd-tags - go nuts 🤓</span>
+    </Title>
+
+    <div class="tag-cloud">
+      <TagList tagList={tags} count={true} />
+    </div>
+  </div>
+
+  <VerticalSpace size={32} />
+
+  <div id="filtered-posts">
+    <PostList postList={posts} />
+  </div>
+
+</Layout>
+
+<script>
+  // Simple client-side filtering for tags
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedTag = urlParams.get('q');
+  const postItems = document.querySelectorAll('.post-item');
+  const tagTitle = document.getElementById('tag-title');
+
+  if (selectedTag) {
+     if (tagTitle) tagTitle.textContent = `Matching #${selectedTag}`;
+     
+     postItems.forEach(item => {
+        // Find all tags in this post using the new .tag-link class
+        const tags = Array.from(item.querySelectorAll('.tag-link'))
+          .map(a => (a.textContent || '').trim().replace(/^#/, '')); // Remove the '#' prefix for comparison
+          
+        if (tags.includes(selectedTag)) {
+           (item as HTMLElement).style.display = 'block';
+        } else {
+           (item as HTMLElement).style.display = 'none';
+        }
+     });
+  }
+</script>
+
+<style>
+  .tag-page {
+    margin-top: 20px;
+  }
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .tag-pill {
+    padding: 6px 12px;
+    border-radius: 16px;
+    background-color: var(--tagBackground);
+    color: var(--bodyBackground);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+  .tag-pill:hover {
+    background-color: var(--selectedTagBackground);
+    color: var(--selectedTagText);
+  }
+</style>

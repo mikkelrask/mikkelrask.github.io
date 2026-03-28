@@ -1,0 +1,143 @@
+---
+import { AiOutlineArrowLeft } from "react-icons/ai";
+
+interface Props {
+  header: string;
+  series: any[];
+}
+
+const { header, series } = Astro.props;
+
+const currentPostIdx = series.findIndex(p => p.currentPost);
+const showViewButton = series.length > 5;
+
+// Calculate which indices should be visible when folded
+let visibleIndices = new Set<number>();
+if (series.length <= 5) {
+  series.forEach((_, i) => visibleIndices.add(i));
+} else {
+  if (currentPostIdx < 2) {
+    for (let i = 0; i < 5; i++) visibleIndices.add(i);
+  } else if (series.length - currentPostIdx - 1 < 2) {
+    for (let i = series.length - 5; i < series.length; i++) visibleIndices.add(i);
+  } else {
+    for (let i = currentPostIdx - 2; i <= currentPostIdx + 2; i++) visibleIndices.add(i);
+  }
+}
+---
+
+<div class="series-wrapper">
+  <h2>
+    <a href={`/series/${header.replace(/\s/g, "-")}`}>
+      SERIES: {header}
+    </a>{" "}
+    <span>({series.length})</span>
+  </h2>
+  <ul class="post-wrapper" id="series-post-wrapper">
+    {series.map((post, i) => (
+      <li 
+        class={`post ${post.currentPost ? 'current' : ''}`}
+        data-visible-folded={visibleIndices.has(i) ? "true" : "false"}
+      >
+        <a href={post.fields.slug}>{post.frontmatter.title}</a>{" "}
+        {post.currentPost && <AiOutlineArrowLeft />}
+      </li>
+    ))}
+  </ul>
+  {showViewButton && (
+    <div class="view-more" id="series-view-more">
+      View More (+{series.length - 5})
+    </div>
+  )}
+</div>
+
+<script>
+  const viewMoreBtn = document.getElementById('series-view-more');
+  const postWrapper = document.getElementById('series-post-wrapper');
+  
+  if (viewMoreBtn && postWrapper) {
+    let folded = true;
+    const totalHidden = postWrapper.querySelectorAll('li[data-visible-folded="false"]').length;
+    
+    viewMoreBtn.addEventListener('click', () => {
+      folded = !folded;
+      if (folded) {
+        postWrapper.classList.remove('unfolded');
+        viewMoreBtn.textContent = `View More (+${totalHidden})`;
+      } else {
+        postWrapper.classList.add('unfolded');
+        viewMoreBtn.textContent = 'View Less';
+      }
+    });
+  }
+</script>
+
+<style>
+  .series-wrapper {
+    margin-bottom: 32px;
+    padding: 16px;
+    background-color: var(--seriesBackground);
+  }
+  h2 {
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text);
+  }
+  h2 span {
+    font-weight: normal;
+    color: var(--tertiaryText);
+  }
+  h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  h2 a:hover {
+    text-decoration: underline;
+  }
+  .post-wrapper {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .post {
+    position: relative;
+    font-size: 12.8px;
+    color: var(--tertiaryText);
+  }
+  .post.current {
+    color: var(--text);
+  }
+  .post:not(:last-child) {
+    margin-bottom: 9.6px;
+  }
+  .post a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+  }
+  .post a:hover {
+    color: var(--text);
+  }
+  .post :global(svg) {
+    position: absolute;
+    margin-left: 5px;
+  }
+
+  /* Fold logic */
+  .post-wrapper:not(.unfolded) .post[data-visible-folded="false"] {
+    display: none;
+  }
+
+  .view-more {
+    margin-top: 15px;
+    font-size: 14.4px;
+    text-align: center;
+    color: var(--tertiaryText);
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .view-more:hover {
+    color: var(--text);
+  }
+</style>

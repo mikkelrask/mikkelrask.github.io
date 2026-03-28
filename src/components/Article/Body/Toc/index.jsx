@@ -1,74 +1,8 @@
 import React, { useState, useEffect } from "react"
-import styled, { css } from "styled-components"
-
-import { animateScroll } from "react-scroll"
-
 import useScroll from "hooks/useScroll"
-
 import getElementOffset from "utils/getElmentOffset"
 
-import RevealOnScroll from "components/RevealOnScroll"
-
 const STICK_OFFSET = 100
-
-const TocWrapper = styled.div`
-  position: absolute;
-  opacity: 1;
-  left: 100%;
-
-  & > div {
-    padding-right: 20px;
-    padding-left: 16px;
-    margin-left: 48px;
-    position: relative;
-    width: 240px;
-    max-height: calc(100% - 185px);
-    overflow-y: auto;
-
-    ::-webkit-scrollbar {
-      width: 3px;
-    }
-    ::-webkit-scrollbar-track {
-      background: ${props => props.theme.colors.scrollTrack};
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: ${props => props.theme.colors.scrollHandle};
-    }
-
-    ${props =>
-      props.stick &&
-      css`
-        position: fixed;
-        top: ${STICK_OFFSET}px;
-      `}
-  }
-
-  @media (max-width: 1300px) {
-    display: None;
-  }
-`
-
-const ParagraphTitle = styled.div`
-  margin-bottom: 8px;
-  padding-left: ${props => (props.subtitle ? 19.2 : 0)}px;
-  font-size: 14.4px;
-  color: ${props => props.theme.colors.mutedText};
-  line-height: 1.3;
-  transition: all 0.2s;
-
-  ${props =>
-    props.active &&
-    css`
-      transform: translate(-11.2px, 0);
-      color: ${props => props.theme.colors.secondaryText};
-    `}
-
-  &:hover {
-    color: ${props => props.theme.colors.text};
-    cursor: pointer;
-  }
-`
 
 const Toc = ({ items, articleOffset }) => {
   const { y } = useScroll()
@@ -79,52 +13,62 @@ const Toc = ({ items, articleOffset }) => {
 
   useEffect(() => {
     const bioElm = document.getElementById("bio")
-
-    setRevealAt(
-      getElementOffset(bioElm).top -
-        bioElm.getBoundingClientRect().height -
-        400,
-    )
+    if (bioElm) {
+      setRevealAt(
+        getElementOffset(bioElm).top - bioElm.getBoundingClientRect().height - 400
+      )
+    }
   }, [])
 
   useEffect(() => {
     setHeaders(
       [
-        ...document.querySelectorAll("#article-body > h2, #article-body > h3"),
-      ].map(element => getElementOffset(element).top),
+        ...document.querySelectorAll("#article-content h2, #article-content h3"),
+      ].map(element => getElementOffset(element).top)
     )
-  }, [])
+  }, [items])
 
   useEffect(() => {
     headers.forEach((header, i) => {
       if (header - 300 < y) {
         setActive(i)
-        return
       }
     })
-  }, [y])
+  }, [y, headers])
 
   const handleClickTitle = index => {
-    animateScroll.scrollTo(headers[index] - 100)
+    const element = document.querySelectorAll("#article-content h2, #article-content h3")[index]
+    if (element) {
+      const top = getElementOffset(element).top;
+      window.scrollTo({ top: top - 100, behavior: "smooth" })
+    }
   }
 
+  const isSticky = y > articleOffset - STICK_OFFSET;
+
+  const reveal = y < revealAt;
+  
   return (
-    <RevealOnScroll revealAt={revealAt} reverse>
-      <TocWrapper stick={y > articleOffset - STICK_OFFSET}>
-        <div>
-          {items.map((item, i) => (
-            <ParagraphTitle
-              key={i}
-              subtitle={item.tagName === "H3"}
-              active={i === active}
-              onClick={() => handleClickTitle(i)}
-            >
-              {item.innerText}
-            </ParagraphTitle>
-          ))}
-        </div>
-      </TocWrapper>
-    </RevealOnScroll>
+    <div 
+      className={`toc-wrapper`} 
+      style={{ 
+        opacity: reveal ? 1 : 0, 
+        transition: '0.35s all ease',
+        pointerEvents: reveal ? 'auto' : 'none'
+      }}
+    >
+      <div className={`toc-inner ${isSticky ? 'sticky' : ''}`}>
+        {items.map((item, i) => (
+          <div
+            key={i}
+            className={`paragraph-title ${item.tagName === "H3" ? 'subtitle' : ''} ${i === active ? 'active' : ''}`}
+            onClick={() => handleClickTitle(i)}
+          >
+            {item.innerText}
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 

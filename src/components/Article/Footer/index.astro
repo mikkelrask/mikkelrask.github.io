@@ -1,0 +1,196 @@
+---
+import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
+import Divider from "../../../components/Divider/index.astro";
+import Bio from "../../../components/Bio/index.astro";
+import { utterances } from "../../../blog-config.js";
+
+interface Props {
+  previous?: any;
+  next?: any;
+}
+
+const { previous, next } = Astro.props;
+---
+
+<div class="article-button-container">
+  {previous ? (
+    <a href={previous.fields.slug} class="article-button">
+      <div class="arrow-flex-wrapper">
+        <div class="arrow"><BiLeftArrowAlt /></div>
+        <div class="article-button-text-wrapper">
+          <div class="article-button-label">Previous Post</div>
+          <div class="article-button-title">{previous.frontmatter.title}</div>
+        </div>
+      </div>
+    </a>
+  ) : (
+    <div></div>
+  )}
+  
+  {next && (
+    <a href={next.fields.slug} class="article-button right">
+      <div class="arrow-flex-wrapper right">
+        <div class="arrow right"><BiRightArrowAlt /></div>
+        <div class="article-button-text-wrapper right">
+          <div class="article-button-label">Next Post</div>
+          <div class="article-button-title">{next.frontmatter.title}</div>
+        </div>
+      </div>
+    </a>
+  )}
+</div>
+
+<Bio />
+
+<div class="comment-wrapper">
+  <Divider mt="32px" />
+  <div id="utterances-container" data-repo={utterances.repo} data-issue={utterances.type}></div>
+</div>
+
+<script>
+  // Simple Vanilla JS to mount utterances with correct theme
+  const container = document.getElementById("utterances-container");
+  if (container) {
+    const repo = container.getAttribute("data-repo");
+    const issueTerm = container.getAttribute("data-issue");
+    
+    const mountUtterances = () => {
+      container.innerHTML = '';
+      const theme = document.documentElement.getAttribute("data-theme") === "dark" 
+        ? "github-dark" 
+        : "github-light";
+        
+      const script = document.createElement("script");
+      script.src = "https://utteranc.es/client.js";
+      script.setAttribute("repo", repo);
+      script.setAttribute("issue-term", issueTerm);
+      script.setAttribute("theme", theme);
+      script.setAttribute("crossorigin", "anonymous");
+      script.async = true;
+      
+      container.appendChild(script);
+    };
+
+    mountUtterances();
+
+    // Listen for theme changes to reload utterances
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        if (mutation.attributeName === "data-theme") {
+          mountUtterances();
+        }
+      }
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+  }
+</script>
+
+<style>
+  .article-button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+  @media (max-width: 768px) {
+    .article-button-container {
+      margin-bottom: 80px;
+      padding: 0 12.8px;
+      flex-direction: column;
+    }
+    .article-button-container > div:first-child,
+    .article-button-container > a:first-child {
+      margin-bottom: 12.8px;
+    }
+  }
+
+  .article-button {
+    display: flex;
+    flex-direction: column;
+    padding: 20.8px 16px;
+    max-width: 250px;
+    flex-basis: 250px;
+    font-size: 17.6px;
+    border-radius: 5px;
+    background-color: var(--nextPostButtonBackground);
+    color: var(--text);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .article-button.right {
+    align-items: flex-end;
+  }
+  .article-button:hover {
+    background-color: var(--hoveredNextPostButtonBackground);
+  }
+  @media (max-width: 768px) {
+    .article-button {
+      max-width: inherit;
+      flex-basis: inherit;
+    }
+  }
+
+  .arrow-flex-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-direction: row;
+  }
+  .arrow-flex-wrapper.right {
+    flex-direction: row-reverse;
+  }
+
+  .article-button-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: flex-start;
+  }
+  .article-button-text-wrapper.right {
+    align-items: flex-end;
+  }
+
+  .arrow {
+    position: relative;
+    left: 0;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    flex-basis: 24px;
+    transition: left 0.3s;
+    margin-right: 16px;
+  }
+  .arrow.right {
+    margin-right: 0;
+    margin-left: 16px;
+  }
+  .article-button:hover .arrow {
+    left: -2px;
+  }
+  .article-button.right:hover .arrow.right {
+    left: 2px;
+  }
+
+  .article-button-label {
+    margin-bottom: 9.6px;
+    font-size: 12.8px;
+  }
+
+  .article-button-title {
+    padding: 2px 0;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .comment-wrapper {
+    min-height: 200px;
+  }
+  @media (max-width: 768px) {
+    .comment-wrapper {
+      padding: 0 15px;
+    }
+  }
+</style>

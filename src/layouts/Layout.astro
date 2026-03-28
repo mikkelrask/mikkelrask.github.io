@@ -1,0 +1,167 @@
+---
+import "../styles/global.css";
+import "../styles/article.css";
+import Header from "components/Layout/Header/Header.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  sidebar?: boolean;
+}
+
+const {
+  title,
+  description = "Computernørden. Hobby futurist...",
+  image = "/fav.png",
+  sidebar,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/fav.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Math Support -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <script is:inline>
+      // Theme initialization snippet
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+
+      if (theme === "light") {
+        document.documentElement.removeAttribute("data-theme");
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+      window.localStorage.setItem("theme", theme);
+    </script>
+  </head>
+  <body>
+    <Header />
+
+    <div class="layout-wrapper" id="page-main">
+      <main class="main-body" id="article-body">
+        <slot />
+      </main>
+
+      {
+        sidebar && (
+          <aside class="sticky-sidebar">
+            <slot name="sidebar" />
+          </aside>
+        )
+      }
+    </div>
+
+    <footer class="app-footer">
+      <div class="footer-inner">
+        <p>
+          {new Date().getFullYear()} mr 💙 <a href="https://astro.build"
+            >astro 🚀</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <style>
+      .layout-wrapper {
+        display: grid;
+        grid-template-columns: 1fr minmax(0, 800px) 1fr;
+        margin: 64px auto 0;
+        padding: 2rem 64px;
+        gap: 2rem;
+        min-height: 80vh;
+      }
+
+      @media (max-width: 768px) {
+        .layout-wrapper {
+          display: flex;
+          flex-direction: column;
+          padding: 2rem 15px;
+        }
+      }
+
+      .main-body {
+        grid-column: 2;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .sticky-sidebar {
+        grid-column: 3;
+        width: 280px;
+        display: none;
+        position: sticky;
+        top: 100px;
+        align-self: flex-start;
+      }
+
+      @media (min-width: 1300px) {
+        .sticky-sidebar {
+          display: block;
+        }
+      }
+
+      .app-footer {
+        text-align: center;
+        padding: 4rem 2rem;
+        border-top: 1px solid var(--divider);
+        color: var(--secondaryText);
+      }
+
+      /* Global resets for common FOUC culprits */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .header-logo {
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 50% !important;
+      }
+
+      .bio-wrapper .profile {
+        width: 100px !important;
+        height: 128px !important;
+      }
+    </style>
+  </body>
+</html>
