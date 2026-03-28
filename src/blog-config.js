@@ -9,6 +9,6 @@ export const links = {
   email: "mailto:m@raske.xyz",
 };
 export const utterances = {
-  repo: "mikkelrask/mikkelrask.github.io.git",
+  repo: "mikkelrask/mikkelrask.github.io",
   type: "pathname",
 };
