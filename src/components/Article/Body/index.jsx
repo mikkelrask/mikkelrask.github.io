@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 
-import useOffsetTop from "hooks/useOffsetTop"
+import useOffsetTop from "../../../hooks/useOffsetTop"
 
 import Toc from "./Toc"
 import StyledMarkdown from "./StyledMarkdown"

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import useScroll from "hooks/useScroll"
-import getElementOffset from "utils/getElmentOffset"
+import useScroll from "../../../../hooks/useScroll"
+import getElementOffset from "../../../../utils/getElmentOffset"
 
 const STICK_OFFSET = 100
 
