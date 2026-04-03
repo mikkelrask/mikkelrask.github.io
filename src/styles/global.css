@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap');
 
 /* CSS Reset */
 html,
@@ -192,7 +191,7 @@ img {
   --textFieldActivatedBorder: var(--gray-5);
   --tableBackground: var(--gray-1);
 
-  font-family: 'Cascadia Code', monospace;
+  font-family: 'HackNFM', monospace;
 }
 
 :root[data-theme="dark"] {
@@ -239,7 +238,7 @@ body {
   background-color: var(--bodyBackground);
   color: var(--text);
   margin: 0;
-  font-family: 'Cascadia Code', monospace;
+  font-family: 'HackNFM', monospace;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -249,7 +248,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Cascadia Code', monospace;
+  font-family: 'HackNFM-Bold', monospace;
   font-weight: 700;
 }
 
