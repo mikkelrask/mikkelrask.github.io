@@ -1,5 +1,5 @@
 ---
-title: 👾 Lav en hver PC om til et SteamDeck med gamescope
+title: 👾 Lav en steam box til stuen
 description: "Valve har udviklet Gamescope til at nemt starte en compositor med Steam kørende. Det er udviklet til deres Steam Deck, men da det er Open Source behøves man ikke engang deres dyre håndholdte konsol. Følg med her hvordan vi sætter det op på Linux"
 category:
   - Linux
@@ -13,8 +13,8 @@ tags:
   - gaming on linux
 ---
 
-[![Credit: u/Frequent-Trifle-4093](./steamos.webp)](https://www.reddit.com/r/linux_gaming/comments/1j12dmd/official_steamos_on_my_desktop_pc/)
 **Lad os lige gøre det nemt at tage sig en hurtig _couch gamer_. Med en meget overskuelig opsætning gør vi så vi kan logge direkte ind i Steam's "Big Picture Mode", via [Valve's Gamescope _micro compositor_](https://github.com/ValveSoftware/gamescope). Vi opretter simpelthen en såkaldt `desktop entry`, der launcher `gamescope`, og giver os den der konsol-agtige game-pad-able oplevelse, som SteamDeck'et normalvist tilbyder.**  
+[![Credit: u/Frequent-Trifle-4093](./steamos.webp)](https://www.reddit.com/r/linux_gaming/comments/1j12dmd/official_steamos_on_my_desktop_pc/)
 
 ## 🎇 _2025 - Year of the Linux Desktop!_
 
@@ -32,11 +32,10 @@ Men i år **_er_** anderledes! Den danske digitaliserings-minister Caroline Stag
 Det er et skifte som jeg tidligere har skrevet om at den tyske region omkring München tog **tilbage i 2014** - så altså for 11 _year of the linux_'s siden!
 
 Men nok om regeringer og office-pakker - det er jo ikke derfor vi er her! For ud over diverse regeringen har vi i år også fået **[PewDiePie](https://www.youtube.com/watch?v=pVI_smLgTY0)** på Team Linux™.  
-Pewd's som gladeligt forklarer sine **110 millioner følgere** på sit bedste swenglish, hvorfor han øvrigt bruger [Arch Linux](https://www.etsy.com/listing/1518384190/i-use-arch-btw-vinyl-sticker-kiss-cut). 😎  
-
+Pewd's som gladeligt forklarer sine **110 millioner følgere** på sit bedste swenglish, hvorfor han øvrigt bruger [Arch Linux](https://www.etsy.com/listing/1518384190/i-use-arch-btw-vinyl-sticker-kiss-cut). 😎
 ![👆🏻 This guy fucks](./pewdiepie-linux.jpg)
 
-Noget der ikke er gået hen over hovedet på mange i Linux miljøet, skal jeg hilse at sige, blandt andet fordi at Arch Linux rygtes at være notorisk svært at installere, og ses lidt som en slags *rite of passage*, for hvornår man er en "rigtig" linux bruger, hvor man kan efter en succesfuld installation, kan fejre det med sit nye mantra: **"I use Arch, btw"**.
+Noget der ikke er gået hen over hovedet på mange i Linux miljøet, skal jeg hilse at sige, blandt andet fordi at Arch Linux rygtes at være notorisk svært at installere, og ses lidt som en slags _rite of passage_, for hvornår man er en "rigtig" linux bruger, hvor man kan efter en succesfuld installation, kan fejre det med sit nye mantra: **"I use Arch, btw"**.
 
 ## ⚛️ Proton gør det nemmere
 
@@ -167,6 +166,3 @@ Og så er det ellers bare **RIP AND TEAR** herfra! Happy gaming!
 `steam --tenfoot` – Starter Steam i Big Picture Mode, optimeret til controllere.  
 `makepkg -si` – Bygger og installerer en AUR-pakke fra kildekode.  
 `paru`, `yay` – AUR helpers til Arch-baserede systemer (kan bruges til fx `gamescope-nvidia`).
-
-
-[def]: ./pewdiepie-linux.jpg

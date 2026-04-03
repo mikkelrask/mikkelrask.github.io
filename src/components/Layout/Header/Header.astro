@@ -66,6 +66,13 @@ import { title } from "../../../blog-config";
   }
 </script>
 
+<style is:global>
+  .blog-title {
+    font-family: 'HackNFM', monospace;
+    font-weight: bold;
+  }
+</style>
+
 <style>
   .header-wrapper {
     position: fixed;
@@ -118,7 +125,8 @@ import { title } from "../../../blog-config";
 
   .blog-title {
     letter-spacing: -1px;
-    font-family: "HackNFM-bold", sans-serif;
+    font-family: "HackNFM", monospace;
+    font-weight: bold;
     font-size: 24px;
     color: var(--text);
   }
