@@ -1,0 +1,123 @@
+---
+interface Props {
+  workerUrl: string;
+  limit?: number;
+}
+
+const { workerUrl, limit = 25 } = Astro.props;
+---
+
+<div class="listens-ticker" id="listens-ticker">
+  <div class="ticker-track">
+    <div class="ticker-content" id="ticker-content">
+      <span class="ticker-loading">sending requrest...</span>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ workerUrl, limit }}>
+  const content = document.getElementById('ticker-content');
+  
+  async function fetchListens() {
+    try {
+      const res = await fetch(`${workerUrl}/listens?limit=${limit}`);
+      const data = await res.json();
+      
+      if (!data.items || data.items.length === 0) {
+        content.innerHTML = '<span class="ticker-empty">Ingen listens fundet</span>';
+        return;
+      }
+      
+      const tracks = data.items.map(item => {
+        const track = item.track;
+        const artists = track.artists?.map(a => a.name).join(', ') || 'Ukendt artist';
+        const title = track.title || 'Ukendt titel';
+        const songUrl = `https://mono.squid.wtf/search/${encodeURIComponent(track.title + ' ' + artists)}`;
+
+        return `<a href="${songUrl}" target="_blank"><span class="ticker-track-item">
+          <span class="ticker-artist">${artists}</span>
+          <span class="ticker-separator">—</span>
+          <span class="ticker-title">${title}</span>
+        </span></a>`;
+      }).join('<span class="ticker-spacer"> // </span>');
+      
+      content.innerHTML = tracks;
+    } catch (e) {
+      content.innerHTML = '<span class="ticker-error">command failed - permission denied.</span>';
+    }
+  }
+  
+  fetchListens();
+  setInterval(fetchListens, 60000);
+</script>
+
+<style>
+  .listens-ticker {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--background);
+    border-top: 1px solid var(--border);
+    padding: 10px 0;
+    z-index: 1000;
+    overflow: hidden;
+  }
+  
+  .ticker-track {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .ticker-content {
+    display: inline-block;
+    animation: scroll 60s linear infinite;
+    padding-left: 100%;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .ticker-track-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+    border-right: 1px solid var(--border);
+  }
+  
+  .ticker-artist {
+    font-weight: 600;
+    color: var(--text);
+  }
+  
+  .ticker-separator {
+    color: var(--tertiaryText);
+  }
+  
+  .ticker-title {
+    color: var(--secondaryText);
+  }
+  
+  .ticker-spacer {
+    width: 48px;
+  }
+  
+  .ticker-loading,
+  .ticker-empty,
+  .ticker-error {
+    color: var(--secondaryText);
+    font-style: italic;
+  }
+  
+  .ticker-error {
+    color: var(--tertiaryText);
+  }
+</style>

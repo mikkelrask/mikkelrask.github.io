@@ -5,10 +5,13 @@ import PostList from '../components/PostList/index.astro';
 import SideCategoryList from '../components/SideCategoryList/index.astro';
 import Divider from '../components/Divider/index.astro';
 import VerticalSpace from '../components/VerticalSpace/index.astro';
+import NowPlaying from '../components/NowPlaying/index.astro';
 
 import { getCollection } from 'astro:content';
 import { title, description } from '../blog-config.js';
 import _ from 'lodash';
+
+const WORKER_URL = "https://listen-proxy.terminal-share.workers.dev";
 
 // Load all posts
 const allPosts = await getCollection('posts');
@@ -61,6 +64,7 @@ const categories = _.sortBy(
 
 <Layout title={title} description={description} sidebar={true}>
   <SideCategoryList categories={categories} slot="sidebar" />
+  <NowPlaying workerUrl={WORKER_URL} slot="sidebar" />
   
   <VerticalSpace size={48} />
   <Bio />

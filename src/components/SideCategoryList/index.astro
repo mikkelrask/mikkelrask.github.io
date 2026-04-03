@@ -9,7 +9,7 @@ const colors = ["var(--mb-yellow)", "var(--mb-blue)", "var(--mb-green)", "var(--
 ---
 
 <aside class="wrapper">
-  <div class="title">Kategorier</div>
+  <div class="title">$ cat <span style="text-decoration:underline;">categories.md</span></div>
   <ul>
     {categories.map((category, index) => (
       <li 
@@ -17,18 +17,20 @@ const colors = ["var(--mb-yellow)", "var(--mb-blue)", "var(--mb-green)", "var(--
         style={`background-color: ${colors[index % colors.length]}`}
       >
         <a href={`/categories?q=${category.fieldValue}`}>
-          {category.fieldValue} ({category.totalCount})
+          {category.fieldValue}
         </a>
       </li>
     ))}
   </ul>
+
 </aside>
+
 
 <style>
   .wrapper {
     position: sticky;
     top: 0;
-    width: 230px;
+    width: 280px;
     height: auto;
     font-size: 16px;
   }

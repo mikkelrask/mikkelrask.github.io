@@ -1,6 +1,6 @@
 export const title = "mr@github:~$";
 export const description = "Computernørden. Hobby futurist, linux entusiast, hardware hacker, tinkerer og generelt kreativt legebarn. Bosat i Københavns Nordvest kvarter med min hund Homie.";
-export const author = "Mikkel Rask";
+export const author = "mr";
 export const siteUrl = "https://mikkelrask.github.io";
 export const links = {
   github: "https://github.com/mikkelrask",
