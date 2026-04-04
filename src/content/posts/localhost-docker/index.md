@@ -35,7 +35,7 @@ echo FROM nginx:alpine\nCOPY . /usr/share/nginx/html > Dockerfile
 
 Vi `echo`'er simpelthen hele Dockerfilen's content ind, med denne simple _one-liner_, der efterlader os med en ny fil kaldet `Dockerfile` der ser således ud:
 
-```Docker
+```Dockerfile
 FROM nginx:alpine # Fortæller vi skal bruge nginxs docker image, mere specifikt skal vi bruge udgaven der er bygget på alpine linux
 COPY . /usr/share/nginx/html # Her kopierer vi hele indholdet af vores nuværende mappe, til /usr/share/nginx/html i selve containeren
 ```

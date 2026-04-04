@@ -6,7 +6,7 @@ category:
 date: 2026-04-05
 image: uac.png
 frontpageImage: true
-draft: true
+draft: false
 tags:
   - doom steam
   - gaming on linux
@@ -14,10 +14,9 @@ tags:
   - gaming on macos
 ---
 
-![UAC Launch Control - E1M0.2.3](./uac.png)
 Her er en gennemgang og historien bag min modded doom game launcher.  
 Doom-Steam, om man vil.. Det er en GUI applikation der lader dig oprette forskellige konfigurationer af mods og tweake og justere kombinationer af mods, til din helt egen _mod pack_ eller remix af en eksisterende.
-
+![UAC Launch Control - E1M0.2.3](uac.png)
 Modded doom har altid lidt været en besværlig størrelse. Nogle mod-udviklere gør det nemt, og giver dig en .bat fil med, men de er få og langt imellem, og det er blandt de ting min app forsøger at løse.
 
 Lyder det som noget for dig, kan du downloade en tidlig udgave af den på min [Github](https://github.com/mikkelrask/uaclaunchcontrol), hvor den er tilgængelig i version **E1M0.2.1** til både **Linux, Windows og Mac**, takket være javascript frameworket Electron.

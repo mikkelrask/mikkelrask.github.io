@@ -1,0 +1,106 @@
+---
+interface Props {
+  title: string;
+  id?: string;
+  style?: string;
+  class?: string;
+}
+
+const { title, id, style, class: className = "" } = Astro.props;
+---
+
+<app-window class={`app-window ${className}`} id={id} style={style}>
+  <div class="app-titlebar">
+    <div class="app-winbtns">
+      <slot name="buttons">
+        <button class="app-btn app-btn-close"></button>
+        <button class="app-btn app-btn-min"></button>
+      </slot>
+    </div>
+    <span class="app-titlebar-label">{title}</span>
+    <div style="width:41px"></div>
+  </div>
+  <slot />
+</app-window>
+
+<script>
+  class AppWindow extends HTMLElement {
+    connectedCallback() {
+      const btnMin = this.querySelector(".app-btn-min");
+      if (btnMin) {
+        btnMin.addEventListener("click", () => {
+          this.toggleAttribute("data-minimized");
+        });
+      }
+    }
+  }
+
+  customElements.define("app-window", AppWindow);
+</script>
+
+<style is:global>
+  app-window {
+    display: block; /* Custom elements default to inline */
+  }
+
+  .app-window {
+    margin-top: 32px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    font-family: var(--monoFont, monospace);
+    background: var(--bodyBackground);
+    transition: all 0.3s;
+  }
+
+  app-window[data-minimized] .app-body {
+    display: none !important;
+  }
+
+  .app-titlebar {
+    background: var(--titleBarBackground, var(--background));
+    border-bottom: 1px solid var(--border);
+    height: 28px;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+  }
+
+  .app-titlebar-label {
+    font-size: 11px;
+    color: var(--secondaryText);
+    letter-spacing: 0.03em;
+    flex: 1;
+    text-align: center;
+  }
+
+  .app-winbtns {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .app-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .app-btn:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  .app-btn-close {
+    background: var(--closeButton);
+  }
+  .app-btn-min {
+    background: var(--yellowButton);
+  }
+</style>

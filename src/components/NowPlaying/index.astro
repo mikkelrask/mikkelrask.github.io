@@ -1,4 +1,6 @@
 ---
+import AppWindow from "../AppWindow/index.astro";
+
 interface Props {
   workerUrl: string;
 }
@@ -6,17 +8,12 @@ interface Props {
 const { workerUrl } = Astro.props;
 ---
 
-<div class="np-window" id="np-window" style="visibility:hidden">
-  <div class="np-titlebar">
-    <div class="np-winbtns">
-      <button class="np-btn np-btn-close" id="np-btn-close" title="hide"
-      ></button>
-      <button class="np-btn np-btn-min" id="np-btn-min" title="expand"></button>
-      <button class="np-btn np-btn-max" disabled></button>
-    </div>
-    <span class="np-titlebar-label">now-listening.sh</span>
-    <div style="width:41px"></div>
-  </div>
+<AppWindow title="now-playing.py" id="np-window" style="visibility:hidden;">
+  <Fragment slot="buttons">
+    <button class="app-btn app-btn-close" id="np-btn-close" title="hide"
+    ></button>
+    <button class="app-btn app-btn-min" id="np-btn-min" title="expand"></button>
+  </Fragment>
 
   <!-- collapsed bar (default) -->
   <div class="np-collapsed" id="np-collapsed">
@@ -93,13 +90,8 @@ const { workerUrl } = Astro.props;
           fill="none"
           stroke="#2a2a2a"
           stroke-width="0.5"></circle>
-        <circle
-          cx="70"
-          cy="70"
-          r="34"
-          fill="none"
-          stroke="#333"
-          stroke-width="1"></circle>
+        <circle cx="70" cy="70" r="34" fill="none" stroke="#33" stroke-width="1"
+        ></circle>
         <circle
           cx="70"
           cy="70"
@@ -128,7 +120,7 @@ const { workerUrl } = Astro.props;
       </a>
     </div>
   </div>
-</div>
+</AppWindow>
 
 <script is:inline define:vars={{ workerUrl }}>
   const win = document.getElementById("np-window");
@@ -196,6 +188,12 @@ const { workerUrl } = Astro.props;
 </script>
 
 <style is:global>
+  @media (max-width: 768px) {
+    #np-window {
+      display: none !important;
+    }
+  }
+
   @keyframes np-spin {
     from {
       transform: rotate(0deg);
@@ -217,7 +215,7 @@ const { workerUrl } = Astro.props;
     width: 140px;
     height: 140px;
     display: block;
-    animation: np-spin 5s linear infinite;
+    animation: np-spin 6s linear infinite;
   }
 
   .np-bar {
@@ -235,69 +233,6 @@ const { workerUrl } = Astro.props;
 </style>
 
 <style>
-  .np-window {
-    margin: 32px 0 0;
-    display: none;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-    font-family: var(--monoFont, monospace);
-  }
-
-  @media (min-width: 769px) {
-    .np-window {
-      display: block;
-    }
-  }
-
-  .np-titlebar {
-    background: var(--headerBackground, var(--background));
-    border-bottom: 1px solid var(--border);
-    height: 28px;
-    padding: 0 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    user-select: none;
-  }
-
-  .np-titlebar-label {
-    font-size: 11px;
-    color: var(--secondaryText);
-    letter-spacing: 0.03em;
-    flex: 1;
-    text-align: center;
-  }
-
-  .np-winbtns {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-  }
-
-  .np-btn {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
-  .np-btn:disabled {
-    cursor: default;
-    opacity: 0.5;
-  }
-
-  .np-btn-close {
-    background: #ff5f57;
-  }
-  .np-btn-min {
-    background: #febc2e;
-  }
-  .np-btn-max {
-    background: #28c840;
-  }
-
   /* collapsed bar */
   .np-collapsed {
     display: flex;
@@ -305,7 +240,7 @@ const { workerUrl } = Astro.props;
     gap: 8px;
     padding: 0 12px;
     height: 36px;
-    background: var(--background);
+    background: var(--scrollTrack);
     overflow: hidden;
   }
 
@@ -318,7 +253,7 @@ const { workerUrl } = Astro.props;
   }
 
   .np-bars .np-bar {
-    background: var(--secondaryText);
+    background: var(--fg);
   }
 
   .np-mini-track {
@@ -340,7 +275,7 @@ const { workerUrl } = Astro.props;
 
   /* expanded body */
   .np-body {
-    background: var(--background);
+    background: var(--bodyBackground);
     padding: 16px;
     text-align: center;
   }

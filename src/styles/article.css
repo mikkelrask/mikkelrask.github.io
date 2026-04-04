@@ -68,23 +68,24 @@
 
 @media (max-width: 1300px) {
   .toc-wrapper {
-    display: none;
+    display: none !important;
   }
 }
 
-.toc-inner {
-  padding-right: 20px;
-  padding-left: 16px;
+.toc-window {
   margin-left: 48px;
-  position: relative;
   width: 240px;
-  max-height: calc(100% - 185px);
-  overflow-y: auto;
 }
 
-.toc-inner.sticky {
+.toc-window.sticky {
   position: fixed;
   top: 100px;
+}
+
+.toc-inner {
+  padding: 16px;
+  max-height: calc(100vh - 185px);
+  overflow-y: auto;
 }
 
 .paragraph-title {
@@ -205,7 +206,7 @@
 .styled-markdown pre {
   position: relative;
   padding: 16px;
-  background-color: var(--seriesBackground) !important;
+  background-color: var(--inlineCodeBackground) !important;
   border: none;
   border-radius: 8px;
   margin-bottom: 24px;
@@ -217,7 +218,7 @@
 .styled-markdown pre code {
   font-family: "HackNFM", monospace;
   font-size: 14.4px;
-  line-height: 1.5;
+  line-height: 1.4;
   background: transparent !important;
   padding: 0 !important;
 }

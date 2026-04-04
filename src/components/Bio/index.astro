@@ -9,6 +9,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa6";
 import { siteUrl, description, author, links } from "../../blog-config.js";
+import AppWindow from "../AppWindow/index.astro";
 
 const profileImageRoot = import.meta.env.DEV
   ? "http://localhost:9000"
@@ -16,52 +17,55 @@ const profileImageRoot = import.meta.env.DEV
 const { github, bluesky, instagram, email } = links;
 ---
 
-<div class="bio-wrapper" id="bio">
-  <div>
-    <!-- <div class="profile" style={`background-image: url(/profile_sb.png)`}></div> -->
-    <div class="author">$ whoami</div>
-    <div class="description">{description}</div>
-    <div class="links-wrapper">
-      {
-        github && (
-          <a href={github} target="_blank" rel="noreferrer">
-            <FaGithub />
-          </a>
-        )
-      }
-      {
-        bluesky && (
-          <a href={bluesky} target="_blank" rel="noreferrer">
-            <FaBluesky />
-          </a>
-        )
-      }
-      {
-        instagram && (
-          <a href={instagram} target="_blank" rel="noreferrer">
-            <FaInstagram />
-          </a>
-        )
-      }
-      {
-        email && (
-          <a href={email} target="_blank" rel="noreferrer">
-            <FaEnvelope />
-          </a>
-        )
-      }
+<AppWindow title="whoami -a">
+  <div class="app-body bio-wrapper" id="bio">
+    <div>
+      <!-- <div class="profile" style={`background-image: url(/profile_sb.png)`}></div> -->
+      <div class="author">$ whoami<span class="cursor">█</span></div>
+      <div class="description">{description}</div>
+      <div class="links-wrapper">
+        {
+          github && (
+            <a href={github} target="_blank" rel="noreferrer">
+              <FaGithub />
+            </a>
+          )
+        }
+        {
+          bluesky && (
+            <a href={bluesky} target="_blank" rel="noreferrer">
+              <FaBluesky />
+            </a>
+          )
+        }
+        {
+          instagram && (
+            <a href={instagram} target="_blank" rel="noreferrer">
+              <FaInstagram />
+            </a>
+          )
+        }
+        {
+          email && (
+            <a href={email} target="_blank" rel="noreferrer">
+              <FaEnvelope />
+            </a>
+          )
+        }
+      </div>
     </div>
   </div>
-</div>
+</AppWindow>
 
 <style>
   .bio-wrapper {
     display: flex;
     align-items: center;
+    padding: 16px;
   }
   @media (max-width: 768px) {
     .bio-wrapper {
-      padding: 0 15px;
+      padding: 16px 15px;
     }
   }
   .profile {
@@ -108,5 +112,8 @@ const { github, bluesky, instagram, email } = links;
   }
   .links-wrapper a:hover :global(svg path) {
     fill: var(--hoveredLinkText);
+  }
+  .cursor {
+    animation: blink 1s step-end infinite;
   }
 </style>

@@ -47,27 +47,47 @@ const Toc = ({ items, articleOffset }) => {
   const isSticky = y > articleOffset - STICK_OFFSET;
 
   const reveal = y < revealAt;
-  
+
   return (
-    <div 
-      className={`toc-wrapper`} 
-      style={{ 
-        opacity: reveal ? 1 : 0, 
+    <div
+      className={`toc-wrapper`}
+      style={{
+        opacity: reveal ? 1 : 0,
         transition: '0.35s all ease',
         pointerEvents: reveal ? 'auto' : 'none'
       }}
     >
-      <div className={`toc-inner ${isSticky ? 'sticky' : ''}`}>
-        {items.map((item, i) => (
-          <div
-            key={i}
-            className={`paragraph-title ${item.tagName === "H3" ? 'subtitle' : ''} ${i === active ? 'active' : ''}`}
-            onClick={() => handleClickTitle(i)}
-          >
-            {item.innerText}
+      <app-window
+        className={`app-window toc-window ${isSticky ? 'sticky' : ''}`}
+        style={{ display: 'block' }}
+      >
+        <div className="app-titlebar">
+          <div className="app-winbtns">
+            <button className="app-btn app-btn-close"></button>
+            <button className="app-btn app-btn-min"></button>
           </div>
-        ))}
-      </div>
+          <span className="app-titlebar-label">cat TOC.md</span>
+          <div style={{ width: '41px' }}></div>
+        </div>
+        <div className="app-body toc-inner">
+          {items.map((item, i) => {
+            const strippedText = (item.innerText || "")
+              .replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, "")
+              .replace(/\s+/g, " ")
+              .trim();
+
+            return (
+              <div
+                key={i}
+                className={`paragraph-title ${item.tagName === "H3" ? 'subtitle' : ''} ${i === active ? 'active' : ''}`}
+                onClick={() => handleClickTitle(i)}
+              >
+                {strippedText}
+              </div>
+            );
+          })}
+        </div>
+      </app-window>
     </div>
   )
 }

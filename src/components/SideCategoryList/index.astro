@@ -1,30 +1,35 @@
 ---
+import AppWindow from "../AppWindow/index.astro";
+
 interface Props {
   categories: { fieldValue: string; totalCount: number }[];
 }
 
 const { categories } = Astro.props;
-
-const colors = ["var(--mb-yellow)", "var(--mb-blue)", "var(--mb-green)", "var(--mb-red)", "var(--mb-cyan)"];
 ---
 
 <aside class="wrapper">
-  <div class="title">$ cat <span style="text-decoration:underline;">categories.md</span></div>
-  <ul>
-    {categories.map((category, index) => (
-      <li 
-        class="category" 
-        style={`background-color: ${colors[index % colors.length]}`}
-      >
-        <a href={`/categories?q=${category.fieldValue}`}>
-          {category.fieldValue}
-        </a>
-      </li>
-    ))}
-  </ul>
-
+  <AppWindow title="tree categories/">
+    <div class="app-body tree-output">
+      <div class="tree-root">categories/</div>
+      {
+        categories.map((category, index) => {
+          const isLast = index === categories.length - 1;
+          const prefix = isLast ? "└── " : "├── ";
+          return (
+            <div class="tree-node">
+              <span class="tree-prefix">{prefix}</span>
+              <a href={`/categories?q=${category.fieldValue}`}>
+                {category.fieldValue}
+                <span class="category-count">({category.totalCount})</span>
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
+  </AppWindow>
 </aside>
-
 
 <style>
   .wrapper {
@@ -41,31 +46,44 @@ const colors = ["var(--mb-yellow)", "var(--mb-blue)", "var(--mb-green)", "var(--
     }
   }
 
-  .title {
-    margin-top: 25px;
-    margin-bottom: 25px;
+  .tree-output {
+    padding: 16px;
+    font-family: 'HackNFM', monospace);
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .tree-root {
+    color: var(--tertiaryText);
     font-weight: bold;
-    color: var(--secondaryText);
+    margin-bottom: 4px;
   }
 
-  .category {
-    display: inline-block;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    padding: 6px 12px;
-    border-radius: 16px;
-    color: var(--bodyBackground); /* Should be high contrast, usually dark background uses light theme text color etc */
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+  .tree-node {
+    display: flex;
+    align-items: baseline;
+    white-space: pre;
   }
 
-  .category:hover {
-    background-color: var(--selectedTagBackground);
-    color: var(--selectedTagText);
+  .tree-prefix {
+    color: var(--tertiaryText);
   }
 
-  .category a {
-    color: inherit;
+  .tree-node a {
+    color: var(--text);
     text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .tree-node a:hover {
+    color: var(--hoveredLinkText);
+    text-decoration: none;
+  }
+
+  .category-count {
+    color: var(--tertiaryText);
+    margin-left: 8px;
+    font-size: 12px;
   }
 </style>

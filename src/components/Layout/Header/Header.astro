@@ -14,7 +14,7 @@ import { title } from "../../../blog-config";
   <div class="header-inner">
     <div class="logo-wrapper">
       <span class="blog-title">
-        <a href="/">{title}<span class="cursor"> █</span></a>
+        <a href="/">{title}</a>
       </span>
     </div>
     <nav class="menu">
@@ -68,7 +68,7 @@ import { title } from "../../../blog-config";
 
 <style is:global>
   .blog-title {
-    font-family: 'HackNFM', monospace;
+    font-family: "HackNFM", monospace;
     font-weight: bold;
   }
 </style>
@@ -80,8 +80,6 @@ import { title } from "../../../blog-config";
     left: 0;
     right: 0;
     padding: 16px;
-    background-color: var(--headerBackground);
-    box-shadow: 0 0 8px var(--headerShadow);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px); /* Safari support */
     transition:

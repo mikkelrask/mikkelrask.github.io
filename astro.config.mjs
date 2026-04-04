@@ -24,8 +24,8 @@ export default defineConfig({
     rehypePlugins: [rehypeKatex],
     shikiConfig: {
       themes: {
-        light: 'nord',
-        dark: 'github-light',
+        light: 'ayu-light',
+        dark: 'vesper',
       },
       wrap: true,
       transformers: [

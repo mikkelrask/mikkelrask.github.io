@@ -1,52 +1,76 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Bio from '../components/Bio/index.astro';
-import PostList from '../components/PostList/index.astro';
-import SideCategoryList from '../components/SideCategoryList/index.astro';
-import Divider from '../components/Divider/index.astro';
-import VerticalSpace from '../components/VerticalSpace/index.astro';
-import NowPlaying from '../components/NowPlaying/index.astro';
+import Layout from "../layouts/Layout.astro";
+import Bio from "../components/Bio/index.astro";
+import PostList from "../components/PostList/index.astro";
+import SideCategoryList from "../components/SideCategoryList/index.astro";
+import Divider from "../components/Divider/index.astro";
+import VerticalSpace from "../components/VerticalSpace/index.astro";
+import NowPlaying from "../components/NowPlaying/index.astro";
 
-import { getCollection } from 'astro:content';
-import { title, description } from '../blog-config.js';
-import _ from 'lodash';
+import { getCollection } from "astro:content";
+import { title, description } from "../blog-config.js";
+import _ from "lodash";
 
 const WORKER_URL = "https://listen-proxy.terminal-share.workers.dev";
 
 // Load all posts
-const allPosts = await getCollection('posts');
+const allPosts = await getCollection("posts");
 
 // Map fields to match what the React components expect
 const posts = allPosts
-  .filter(post => !post.data.draft)
+  .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .map(post => {
+  .map((post) => {
     // Reconstruct the node structure
     return {
       id: post.id,
-      fields: { 
-        slug: `/${post.id}/`, 
-        readingTime: { minutes: Math.ceil((post.body || "").split(/\s+/).length / 200) } 
+      fields: {
+        slug: `/${post.id}/`,
+        readingTime: {
+          minutes: Math.ceil((post.body || "").split(/\s+/).length / 200),
+        },
       },
-      excerpt: post.data.description || 'No excerpt available',
+      excerpt: post.data.description || "No excerpt available",
       frontmatter: {
         ...post.data,
         title: post.data.title,
-        date: post.data.date instanceof Date ? post.data.date.toLocaleDateString('da-DK', { day: '2-digit', month: 'long', year: 'numeric' }) : post.data.date,
-        update: post.data.update instanceof Date ? post.data.update.toLocaleDateString('da-DK', { day: '2-digit', month: 'long', year: 'numeric' }) : post.data.update,
+        date:
+          post.data.date instanceof Date
+            ? post.data.date.toLocaleDateString("da-DK", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric",
+              })
+            : post.data.date,
+        update:
+          post.data.update instanceof Date
+            ? post.data.update.toLocaleDateString("da-DK", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric",
+              })
+            : post.data.update,
         category: post.data.category,
         tags: post.data.tags,
         series: post.data.series,
         draft: post.data.draft,
-        image: post.data.image ? { childImageSharp: { gatsbyImageData: { images: { fallback: { src: post.data.image.src } } } } } : null
-      }
+        image: post.data.image
+          ? {
+              childImageSharp: {
+                gatsbyImageData: {
+                  images: { fallback: { src: post.data.image.src } },
+                },
+              },
+            }
+          : null,
+      },
     };
   });
 
 // Extract categories
 const allCategories = posts
-  .filter(post => post.frontmatter.category)
-  .flatMap(post => {
+  .filter((post) => post.frontmatter.category)
+  .flatMap((post) => {
     const category = post.frontmatter.category;
     return Array.isArray(category) ? category : [category];
   });
@@ -57,21 +81,25 @@ const categories = _.sortBy(
     fieldValue,
     totalCount,
   })),
-  ["totalCount"]
+  ["totalCount"],
 ).reverse();
-
 ---
 
 <Layout title={title} description={description} sidebar={true}>
   <SideCategoryList categories={categories} slot="sidebar" />
   <NowPlaying workerUrl={WORKER_URL} slot="sidebar" />
-  
-  <VerticalSpace size={48} />
+
+  <VerticalSpace size={4} />
   <Bio />
   <Divider />
-  {posts.length === 0 ? (
-    <p>Ingen blogs fundet. Se <a href="https://raske.xyz">raske.xyz</a> eller <a href="https://instagram.com/raske.xyz">@raske.xyz</a>.</p>
-  ) : (
-    <PostList postList={posts} />
-  )}
+  {
+    posts.length === 0 ? (
+      <p>
+        Ingen blogs fundet. Se <a href="https://raske.xyz">raske.xyz</a> eller{" "}
+        <a href="https://instagram.com/raske.xyz">@raske.xyz</a>.
+      </p>
+    ) : (
+      <PostList postList={posts} />
+    )
+  }
 </Layout>
