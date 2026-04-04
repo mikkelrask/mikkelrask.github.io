@@ -5,12 +5,39 @@ import useOffsetTop from "../../../hooks/useOffsetTop"
 import Toc from "./Toc"
 import StyledMarkdown from "./StyledMarkdown"
 
+const Lightbox = ({ src, alt, onClose }) => {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") onClose()
+    }
+    document.addEventListener("keydown", handleKeyDown)
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown)
+      document.body.style.overflow = ""
+    }
+  }, [onClose])
+
+  return (
+    <div className="lightbox-overlay" onClick={onClose}>
+      <button className="lightbox-close" aria-label="Close">&times;</button>
+      <img
+        src={src}
+        alt={alt}
+        className="lightbox-image"
+        onClick={(e) => e.stopPropagation()}
+      />
+    </div>
+  )
+}
+
 const Body = ({ html, children }) => {
   const [toc, setToc] = useState([])
   const [ref, offsetTop] = useOffsetTop()
   const [location, setLocation] = useState({ origin: '', pathname: '' });
   const [copiedHeadingId, setCopiedHeadingId] = useState(null)
   const [hasHydrated, setHasHydrated] = useState(false)
+  const [lightbox, setLightbox] = useState(null)
 
   useEffect(() => {
     setHasHydrated(true)
@@ -87,11 +114,20 @@ const Body = ({ html, children }) => {
       block.appendChild(copyButton)
     })
 
-    // --- Image Caption Logic ---
+    // --- Image Caption Logic & Lightbox ---
     const images = articleBody.querySelectorAll("img")
     images.forEach(img => {
       // Skip already processed or specifically excluded
       if (img.classList.contains("header-logo") || img.closest("figure")) return
+
+      // Skip images that are inside an anchor tag (links to other sites)
+      if (img.closest("a")) return
+
+      // Add lightbox click handler
+      img.style.cursor = "zoom-in"
+      img.onclick = () => {
+        setLightbox({ src: img.src, alt: img.alt })
+      }
 
       const alt = img.getAttribute("alt")
       if (alt && alt.trim().length > 0 && !alt.includes("profile")) {
@@ -153,6 +189,14 @@ const Body = ({ html, children }) => {
       >
         {children}
       </StyledMarkdown>
+
+      {lightbox && (
+        <Lightbox
+          src={lightbox.src}
+          alt={lightbox.alt}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </div>
   )
 }
