@@ -6,29 +6,36 @@ import { title } from "../blog-config.js";
 <Layout title={`404 - ${title}`} description="Page not found">
   <div class="error-container">
     <h1 class="error-code">404</h1>
-    <p class="error-message">bash: /page: No such file or directory</p>
+    <p class="error-message">
+      zsh: '<span class="url-placeholder">/requested-url</span>': No such file
+      or directory
+    </p>
 
     <div class="terminal-mock">
       <div class="cli">
-        <span class="prompt">{title}</span> ls -la <span class="url-placeholder">/requested-url</span>
+        <span class="prompt">{title}</span> ls -la <span class="url-placeholder"
+          >/requested-url</span
+        >
         <div class="output">
-          ls: cannot access '<span class="url-placeholder">/requested-url</span>': No such file or directory
+          ls: cannot access '<span class="url-placeholder">/requested-url</span
+          >': No such file or directory
         </div>
 
         <script>
           // Grab the actual URL requested right out of the browser
           const path = window.location.pathname;
           // Inject it into all the placeholder spans
-          document.querySelectorAll('.url-placeholder').forEach((el) => {
+          document.querySelectorAll(".url-placeholder").forEach((el) => {
             el.textContent = path;
           });
         </script>
 
         <div class="cli">
-          <span class="prompt">{title}</span> echo "How did we get here?"
+          <span class="prompt">{title}</span> cat 404.log
         </div>
         <div class="output">
-          Maybe you mistyped the URL, or you don't have the right permissions.
+          404: Page not found. Maybe you mistyped the URL, or you don't have the
+          right permissions.
         </div>
 
         <div class="cli">
