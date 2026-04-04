@@ -52,8 +52,8 @@ export const light = {
     background: GRAY1,
     icon: GRAY6,
     divider: GRAY2,
-    /*headerBackground: "rgba(255, 255, 255, 0.85)",*/
-    headerShadow: "rgba(0, 0, 0, 0.1)",
+    headerBackground: "rgba(255, 255, 255, 0.85)",
+    // headerShadow: "rgba(0, 0, 0, 0.1)",
     inlineCodeBackground: FG0,
     inlineCodeBackgroundDarker: RED,
     tagBackground: FG0,

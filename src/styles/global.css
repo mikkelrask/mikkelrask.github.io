@@ -108,6 +108,11 @@ img {
   font-style: normal;
 }
 
+.blog-title {
+  font-family: 'HackNFM', monospace;
+  font-weight: bold;
+}
+
 @font-face {
   font-family: 'HackNFM';
   src: url('/fonts/HackNFM-Bold.woff2') format('woff2'),
@@ -248,7 +253,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'HackNFM-Bold', monospace;
+  font-family: 'HackNFM', monospace;
   font-weight: 700;
 }
 
