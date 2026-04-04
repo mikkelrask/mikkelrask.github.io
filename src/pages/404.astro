@@ -1,0 +1,123 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { title } from "../blog-config.js";
+---
+
+<Layout title={`404 - ${title}`} description="Page not found">
+  <div class="error-container">
+    <h1 class="error-code">404</h1>
+    <p class="error-message">bash: /page: No such file or directory</p>
+
+    <div class="terminal-mock">
+      <div class="cli">
+        <span class="prompt">{title}</span> ls -la <span class="url-placeholder">/requested-url</span>
+        <div class="output">
+          ls: cannot access '<span class="url-placeholder">/requested-url</span>': No such file or directory
+        </div>
+
+        <script>
+          // Grab the actual URL requested right out of the browser
+          const path = window.location.pathname;
+          // Inject it into all the placeholder spans
+          document.querySelectorAll('.url-placeholder').forEach((el) => {
+            el.textContent = path;
+          });
+        </script>
+
+        <div class="cli">
+          <span class="prompt">{title}</span> echo "How did we get here?"
+        </div>
+        <div class="output">
+          Maybe you mistyped the URL, or you don't have the right permissions.
+        </div>
+
+        <div class="cli">
+          <span class="prompt">{title}</span> cd /
+        </div>
+        <div class="output">
+          <a href="/" class="home-link">&gt; Execute ./return-home.sh</a>
+        </div>
+        <div class="cli">
+          <span class="prompt">{title}</span>
+          <span class="cursor">█</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .error-container {
+      font-family: "HackNFM", monospace;
+      margin: 64px auto;
+      max-width: 800px;
+    }
+
+    .error-code {
+      color: var(--mb-red);
+      font-size: 3rem;
+      margin-bottom: 8px;
+    }
+
+    :global([data-theme="dark"]) .error-code {
+      color: var(--vesper-normal-red);
+    }
+
+    .error-message {
+      color: var(--secondaryText);
+      font-size: 1.2rem;
+      margin-bottom: 48px;
+    }
+
+    .terminal-mock {
+      background: var(--seriesBackground);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: auto;
+    }
+
+    .prompt {
+      color: var(--mb-green);
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    :global([data-theme="dark"]) .prompt {
+      color: var(--vesper-normal-green);
+    }
+
+    .cli {
+      margin-top: 16px;
+    }
+
+    .cli:first-child {
+      margin-top: 0;
+    }
+
+    .output {
+      color: var(--mutedText);
+      margin-left: 16px;
+      margin-bottom: 16px;
+    }
+
+    .home-link {
+      color: var(--linkText);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--linkText);
+      transition: all 0.2s;
+    }
+
+    .home-link:hover {
+      color: var(--hoveredLinkText);
+      border-color: var(--hoveredLinkText);
+    }
+
+    .cursor {
+      animation: blink 1s step-end infinite;
+      color: var(--text);
+    }
+  </style>
+</Layout>

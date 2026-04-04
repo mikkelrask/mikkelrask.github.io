@@ -271,6 +271,30 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+::selection {
+  background: var(--text);
+  color: var(--bodyBackground);
+}
+
+/* Custom hacker scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollTrack, var(--bodyBackground));
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollHandle, var(--border));
+  border: 1px solid var(--bodyBackground);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hoveredLinkText);
+}
+
 h1,
 h2,
 h3,
