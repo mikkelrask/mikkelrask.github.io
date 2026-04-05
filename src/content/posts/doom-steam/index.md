@@ -3,7 +3,7 @@ title: '🎮 UAC Launch Control'
 description: 'But does it play doom?" - oh yeah! Jeg har lavet min egen Doom launcer, til modded doom spil - så altså til classic Doom og Doom II. Noget som godt kan være lidt en hovedpine at holde styr på ellers - og som altid er bloggen her, til alle de lange kedelige detaljer og mine fortælling om, hvor lang en rejse det har været.'
 category:
   - Udvikling
-date: 2026-04-05
+date: 2026-04-04
 image: uac.png
 frontpageImage: true
 draft: false
@@ -26,31 +26,32 @@ Modded doom har nemlig altid været lidt en besværlig størrelse at skulle have
 
 Og det er blandt de ting min app forsøger at løse. At man ikke lige nødvendigvis ved hvad rækkefølge de forskellige filer skal indlæses i, kan jeg på nuværend tidspunkt stadig ikke løse, men det at prøve sig frem og have det nemt gemt i en specifik konfiguration er noget app'en løser rigtig fint, hvis jeg selv skal sige det. Den gør det selvfølgelig også muligt at test alle mulige mods i doom-wads, man ellers normalt ikke ville spille, om så det er **Freedoom**, **TNT: Evilution** eller endda Hexen eller Heretic. De virker dog mere ved et tilfælde, når de gør, men der er dog også et okay [stort bibliotek af mods til de wads tilgængelige på ModDB](https://www.moddb.com/games/heretic).
 
-Lyder det som noget for dig, kan du downloade en tidlig udgave af den på min [Github](https://github.com/mikkelrask/uaclaunchcontrol), hvor den er tilgængelig i version **E1M0.2.1** til både **Linux, Windows og Mac**, takket være javascript frameworket Electron. Og selvfølgelig navngivet til at match Doom's **E1M1**/Episode 1 Map 1 syntax, og efter det legendariske **[E1M1 - At Dooms Gate](https://www.youtube.com/watch?v=BSsfjHCFosw)** track af **Bobby Prince**.
+Lyder det som noget for dig, kan du se mere på min [Github](https://github.com/mikkelrask/uaclaunchcontrol), hvor den er tilgængelig i version **E1M0.2.1**, eller du kan downloade direkte til både **Linux, Windows og Mac** i tabellen herunder. Og ja, det er selvfølgelig navngivet versionsnummeret matcher Doom's **E1M1**/Episode 1 Map 1 syntax, og efter det legendariske **[E1M1 - At Dooms Gate](https://www.youtube.com/watch?v=BSsfjHCFosw)** track af **[Bobby Prince](https://doomwiki.org/wiki/Robert_Prince)**.
 
 
 |**OS**  | **UAC Launch Control vE1M0.2.1** |
 |-- |--  |
 | **Windows** | Download [.exe](https://github.com/mikkelrask/uaclaunchcontrol/releases/download/v0.2.1/uac-launch-control-0.2.1-setup.exe) |
 | **MacOS** | Download [.dmg](https://github.com/mikkelrask/uaclaunchcontrol/releases/download/v0.2.1/uac-launch-control-0.2.1.dmg) |
-|  |  Download [.zip](https://github.com/mikkelrask/uaclaunchcontrol/releases/download/v0.2.1/UAC-Launch-Control-0.2.1-arm64-mac.zip) |
+| MacOS |  Download [.zip](https://github.com/mikkelrask/uaclaunchcontrol/releases/download/v0.2.1/UAC-Launch-Control-0.2.1-arm64-mac.zip) |
 | **Linux**  | Download [.AppImage](https://github.com/mikkelrask/uaclaunchcontrol/releases/download/v0.2.1/uac-launch-control-0.2.1.AppImage) (Universel) |
-| .. | Download [.deb](https://github.com/mikkelrask/uaclaunchcontrol/releases/download/v0.2.1/uac-launch-control_0.2.1_amd64.deb) (Ubuntu/PopOS/Debin, etc) |
+| Linux | Download [.deb](https://github.com/mikkelrask/uaclaunchcontrol/releases/download/v0.2.1/uac-launch-control_0.2.1_amd64.deb) (Ubuntu/PopOS/Debin, etc) |
 
-Vil du høre mere om hvordan jeg nåede her til, og hvad der fortsat arbejdes på, kan du læse med herunder, og ellers ønsker jeg dig bare; **GL;HF!**
+
+Vil du vide lidt mere om hvordan jeg nåede her til, og hvad der fortsat arbejdes på, kan du læse med herunder, og ellers ønsker jeg dig bare; **GL;HF!**
 
 ## Modded Rip and Tear gjort nemt
 For nogle år tilbage ville min gode ven Jesper gerne have en computer at pløkke nogle cacodemons på, og jeg fandt hurtigt en **Thinkpad** frem fra _gemmeren_ til ham. 
 
-Smed [PopOS!](https://system76.com/pop/download/) på den sammen med et Doomslayer wallpaper, og gav the hostnavnet **Doom Machine** imens jeg ventede på en custom Doom sticker fra etsy kom med posten - du ved a la de der **Intel Inside** alu-stickers der altid sidder på computere når man køber dem.
+Smed [PopOS!](https://system76.com/pop/download/) på den sammen med et Doomslayer wallpaper, og gav the hostnavnet **doommachine** imens jeg ventede på en custom Doom sticker fra etsy kom med posten - du ved a la de der **Intel Inside** alu-stickers der altid sidder på computere når man køber dem.
 
-![The Doom Machine](doom-machine.png)
+![The "Doom Machine"](doom-machine.png)
 
 Vi havde spillet nogle modded doom udgaver fra [Moddb](https://moddb.com), hvor han især var klar på at **Project Brutality** - og da jeg gerne ville have at han havde en gnidningsfri linux oplevelse, downloadede jeg 5-10 mods, og skruede hurtigt en bash script launcher sammen til ham. 
 
 Sådan helt _chose-your-own-adventure_-agtig vibe. Tast 1 for X, 2 for y etc.   
 
-Og alt hvad der skete _behind the scenes_, var jo i virkeligheden bare at tage inputet, og sætte sammen til noget a la 
+Og alt hvad der skete _behind the scenes_, var jo i virkeligheden bare at tage inputet, og sætte sammen til noget a la :
 ```sh
 gzdoom -iwad doom2.wad -file d4t.pk3 -file maps-of-chaos.pk3 -save-dir ~/saves/doom2-d4k-maps-of-chaos/
 ```
@@ -65,6 +66,8 @@ Jeg lovede ham dog at hvis han bare lige gennemførte de mods jeg havde hentet, 
 Så altså en GUI applikation - totalt _famous last words_-vibe.
 ### v0.0.1 Bash "DoomPicker"
 Og her er den første version. Jeg fandt et soundboard med klassiske doom lyde, og afspillede dem via mpv, når man foretog sine valg og kaldte ham en _chicken_ med store figlet-bogstaver hvis man valgte exit.
+
+![DoomPicker der startede det hele](DoomPickerBash.png)
 
 Måtte grave dybt i gemmerne for at finde scriptet igen, men det lykkedes, så jeg tænkte at jeg ville dele den forfærdelige samling af echo og case statements som startede det hele med jer:
 ```bash
@@ -165,13 +168,10 @@ figlet "Are you done? Chicken..."
 exit
 ```
 
-**Og her er hvordan det ser ud, når det køres:**
-![DoomPicker der startede det hele](DoomPickerBash.png)
-
 Der er nok ikke meget mere at sige om denne udgave. Den virkede, og var lidt sjov. 🤷🏻
 
 ### v0.0.2 Tkinter/Python "python-doom-picker"
-Og efter noget søgen på nettet omkring hvordan man bygger sin egen GUI applikation ud af, at tkinter var det alle foreslog som en indgang til GUI applikationer, så kastede jeg mig over det. 
+Og efter noget søgen på nettet omkring hvordan man bygger sin egen GUI applikation, fandt jeg ud af at tkinter var det som nærmest alle foreslog som en indgang til GUI applikationer med pthon, så jeg kastede jeg mig over at give det et skud. 
 
 Som mange ting på denne rejse, så var det ikke helt lige til at komme i gang med, men efter lidt tid og en del googling, så fik jeg lavet en version der virkede.
 
@@ -190,29 +190,29 @@ OG så kom Tauri ind i billedet. Et framework der tillader at man bygger desktop
 Jeg satte mig ned i Figma, og lavede et udkast til en ny version af applikationen - og det er i det store hele også sådan applikationen ser ud, den dag i dag. 
 ![Figma Mockup](mrdoom.png)
 
-Dg som I kan se, er det også her jeg gik væk fra "DoomPicker" navnet, men med Doom ports som GZDoom, UZDoom, o.l var mine initialier; MR + DOOM jo oplagt. Jeg var også i en periode hvor jeg lyttede til rigtig meget MF DOOM, så det blev derfor **MRDOOM - THE ALL CAPS DOOM LAUNCHER**. Og for at gøre forvirringen total også hvorfor ikonet skulle være Dr. Doom. Alt skulle være **DOOM**. Men et navn jeg aldrig rigtigt selv kunne forenes med.
+Dg som I kan se, er det også her jeg gik væk fra "DoomPicker" navnet, men med Doom ports som GZDoom, UZDoom, LZDoom o.l var mine initialier; MR + DOOM jo oplagt. Jeg var også i en periode hvor jeg lyttede til rigtig meget MF DOOM, så det blev derfor **MRDOOM - THE ALL CAPS DOOM LAUNCHER**. Og for at gøre forvirringen total også hvorfor ikonet skulle være Dr. Doom. Alt skulle være **DOOM**. Men et navn jeg aldrig rigtigt selv kunne forenes med.
 
 Og altså... Nok havde jeg aldrig arbejdet med Python GUI applikationer før den seneste iteration, men jeg havde dog haft en del berøring med python i det hele taget - noget jeg kan sige der _ikke_ gjorde sig gældende for Rust-programmerings-sproget. 
 
 Så ikke nok med at det var "op ad bakke" at skulle arbejde med et helt nyt programmerings-sprog og framework, så valgte jeg af ren og skær uvidenhed og mangel på planlægning at totalt spænde ben for mig selv helt fra starten....
 
-#### Den store omvej..
+### Den meget lange omvej..
 Jeg havde nemlig bygget en prototype af app'en ud fra mit Figma mockup i Vite, og  interagerede med filsystemet med en nodejs backend. Og alle der kender til Tauri og rust, ved jo at lige dér smider jeg alle fordelene ved at bruge Tauri væk. Grunden til at en electron app er ~10x større end en Tauri app, er _fordi_ den har NodeJs indbygget. 
 
 Og nu skulle jeg jo pludseligt _bundle_ nodejs med i applikationen, fordi jeg _ville_ have det til at virke uden dependencies - det var jo trods alt meningen at det skulle gøre modded doom NEMMERE for folk der måske _ikke_ lige er så tekniske. Og hvor mange der ikke er dét, har nodejs installeret? Ikke mange er stadig mit bud. 
 
 Og min ven havde i mellemtiden af de år der allerede er gået imellem mine versioner skiftet **the Doom Machine** ud, og fået sig en væsentlig nyere Windows PC, så der skulle pludseligt tages højde for nodejs på linux (hvor jeg udviklede), og på Windows, som jeg knapt havde adgang til selv til at teste med. 
 
-Og lad mig sige - at få en tauri applikation, til at spawne en nodejs process i baggrunden, og kommunikere med den, er ikke lige til. Jeg endte med at måtte bygge en custom protokol som fungerede middleware imellem Tauri's backend, og min backend, og det tog nærmest livet af mig og projektet. 
+Og lad mig sige - at få en tauri applikation, til at spawne en nodejs process i baggrunden, og kommunikere med den, er ikke lige til. Jeg endte med at måtte bygge en custom protokol som fungerede middleware imellem Tauri's backend, og min backend, og det tog nærmest livet af mig og det her projekt. 
 
-Men jeg vil dog sige - det virkede faktisk ret så godt på Linux, men det skulle det jo for _alle_ brugere - jeg ønskede det skulle være nemt og nice for alle. 
+Men jeg vil dog sige - alt til trods, så virkede det faktisk ret så godt på Linux, men det skulle det jo for _alle_ brugere - jeg ønskede det skulle være nemt og nice for alle. 
 
-![mr 10 minutter inde i et projekt](pivot.jpg)
+![mr 10 minutter inde i et givent projekt](pivot.jpg)
 
-Så i stedet for at bøvle mere med det, så vurderede jeg at det var på høje tide at igen _pivot_, og kastede mig denne gang over electron - her vidste jeg at jeg kunne koncentrere mig om funktionaliteten og ux, frem for komme workarounds og opfinde den dybe tallerken omkring ting jeg stadig ikke forstod hvordan _skulle_ fungere. 
+Så i stedet for at bøvle mere med det, så vurderede jeg at det var på høje tide at igen _pivot_, og kastede mig denne gang over **electron** - her vidste jeg at jeg kunne koncentrere mig om funktionaliteten og ux, frem for komme workarounds og opfinde den dybe tallerken omkring ting jeg stadig ikke forstod hvordan _skulle_ fungere. 
 
 Jeg kunne nok have skrevet backenden om, så jeg ikke behøvede NodeJS, men fordi jeg så så meget potentiale i projektet, ikke bare som launcher, men også en en potentiel platform/community hub, valgte jeg _the path of least resistance_..
-### E1M0.2.0 Electron/Typescript "UAC Launch Control"
+### E1M0.2.0 Electron "UAC Launch Control"
 Og her er vi så nu. Eller, den er kommet i v0.2.1 - jeg måtte med nærmest med det samme efter at havde lavet første release komme med en _dot update_, da MacOS var lidt besværlig ift nogle certifikater, som jeg ikke var bekendt med. Det blev hurtigt fikset, og appen virker nu også der. 
 
 _(Jeg venter dog stadig på nogen der viser mig et _venn-diagram_ over overlappet af MacOS brugere, og Modded Doom Enjoyers. 🤷)_
@@ -240,11 +240,19 @@ Generelt har jeg selv oprettet fremtids-ideer på repo'ets **Issues**, hvor jeg 
 - **Expand Install page**. Man kan lige nu kun installere mods/modfiler. Wads er _auto-detected_ i den mappe man har i sine settings.
 - **Mod identification by HASH**. For at kunne verificere eks. kompatibilitet med specifikke versioner af forskellige mods, vil jeg implementere hash-identification af mods. I første omgang vil man kunne vælge at hente eks. "pretty name" og versionsnummer fra en kurateret database, men ønsket er på sigt, at man som spiller også kan vælge at bidrage automatisk, når man tilføjer et nyt mod, der ikke findes i databasen i forvejen.
 
-Fo noget jeg rigtig gerne vil, er at appen kan hjælpe _mod file compatibility_. Som en slags crowd sourced database over hvilke mods der virker med hvilke source ports. Noget så simpelt som et lille rødt kryds, hvis man tilføjer to forskellige mods, der ikke er kompatible med hinanden ville være fedt. Jeg er jo dog imod alt hvad der indsamler data sådan _over all_, men det kunne jo være 100% valgfrigt, og bare være en knap eller lign. der lader en rapportere "modA + modB fungerer altså ikke sammen". 
+For noget jeg rigtig gerne vil, er at appen kan hjælpe eks. _mod compatibility_. Som en slags crowd sourced database over hvilke mods der virker med hinanden/hvilke source ports. Noget så simpelt som et lille rødt kryds eller udråbstegn, hvis man tilføjer to mods, der ikke er kompatible med hinanden, eller hvis et mod er lavet til en specifik source port, anden end den man har valgt. Jeg er jo dog imod alt hvad der indsamler data sådan _over all_, men det kunne jo være 100% valgfrigt, og bare være en knap eller lign. der lader en rapportere "modA + modB fungerer altså ikke sammen". 
 
 Det kunne også være community packs - altså at man kunne finde json-opskriften på seje sammensætninger af mods, der er _tried and tested_ af andre brugere - hvad ved jeg! 
 
-Noget jeg gerne _ville_ kunne, men som jeg ikke har tænkt mig at implementere er at installere direkte fra netter, eks. moddb - de har ikke nogen officiel API, og tillader ikke hot-linking.
+Noget jeg gerne _ville_ kunne, men som jeg ikke har tænkt mig at implementere er at installere direkte fra netter, eks. moddb - de har ikke nogen officiel API, og tillader ikke hot-linking. Generelt, vil jeg heller ikke fjerne spillere fra kilden, om så det er moddb en mod-uvikler deler sine mods på, et forum, eller hvad ved jeg. Men med en database over det, kunne jo fx give brugeren et link til hvor mod'et kan downloades, hvis nu fx de har modtaget en mod-json fra en ven, og ikke har de pågældende mods - hvad ved jeg.
 
-Så ja - det er dét. Det er en app der skal gøre modded _rip and tear_ nemmere. Og det synes jeg selv allerede er lykkedes, og jeg håber at I vil tage godt imod den. 
+Har du idéer eller oplever fejl, er de selvfølgelig også mere end velkomne på [repo'ets issues side](https://github.com/mikkelrask/uaclaunchcontrol/issues)!
 
+Så ja - det er dét. Det er en app der skal gøre modded _rip and tear_ nemmere. Og det synes jeg selv allerede er lykkedes, så det er jeg rigtig glad for, og er glad hvis du nåede her til i min meget lange blanding af software-lore og udvikler-gore. 
+
+
+## Links 
+- [UAC Launch Control](https://uaclaunchcontrol.vercel.app) - Hjemmeside for applikationen
+- [ModDB](https://www.moddb.com/) - Kæmpe mod bibliotek med over 35.000 mods til forskellige spil
+- [UZDoom](https://github.com/uzdoom/uzdoom) - Den source port jeg anbefaler sammen med UAC Launch Control
+- [Doom Wiki](https://doomwiki.org/wiki/Entryway) - En side med alt hvad du skal vide om Doom og doom universet
