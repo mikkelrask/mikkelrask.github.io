@@ -2,7 +2,7 @@
 title: "🚢 Fuck it -ship it"
 description: 'Det kommer måske ikke som nogen stor overraskelse hvis jeg siger at jeg er fan af hacky "det skal bare virke"-løsninger. Hvis man har noget man gerne vil løse, er en hacky løsning ofte et godt udgangspunkt for at nå i mål.'
 draft: false
-date: 07-04-2026
+date: 2026-04-07
 category:
   - Udvikling
 tags:
