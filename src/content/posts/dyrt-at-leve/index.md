@@ -9,7 +9,7 @@ tags:
  - "stikpillen"
  - "opinion"
 ---
-
+**Tanker om hændelserne på [10 års dagen for rydningen af 'ungeren',der endte i kaos og sammenstød med politiet.](https://ekstrabladet.dk/krimi/stenkast-og-smadrede-vinduer-her-er-politiets-version/6555510)
 Det bliver dyrere og dyrere at leve, og især folk i og nær hovedstadsområdet er ramt.  
 
 Med flere og flere unge hjemløse, der står uden tag over hovedet (_en fordobling på 6 år_), gør det unægteligt også den, i forvejen, svære jobjagt endnu værre.  
