@@ -1,0 +1,141 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PackageList from "../../components/Package/List/index.astro";
+import Title from "../../components/Title/index.astro";
+import VerticalSpace from "../../components/VerticalSpace/index.astro";
+
+import { getCollection } from "astro:content";
+import { title, description } from "../../blog-config.js";
+
+const allPackages = await getCollection("packages");
+
+// Map fields to match what the List component expects
+const packages = allPackages
+  .filter((pkg) => !pkg.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .map((pkg) => {
+    const dateStr = pkg.data.date instanceof Date
+      ? pkg.data.date.toLocaleDateString("da-DK", { day: "2-digit", month: "long", year: "numeric" })
+      : String(pkg.data.date);
+    const updatedStr = pkg.data.update instanceof Date
+      ? pkg.data.update.toLocaleDateString("da-DK", { day: "2-digit", month: "long", year: "numeric" })
+      : null;
+    const imageSrc = pkg.data.image?.src ?? null;
+
+    return {
+      id: pkg.id,
+      fields: { slug: `/packages/${pkg.id}/` },
+      frontmatter: {
+        title: pkg.data.title,
+        date: dateStr,
+        updated: updatedStr,
+        type: pkg.data.type ?? null,
+        language: pkg.data.language ?? null,
+        os: pkg.data.os ?? [],
+        image: imageSrc ? { src: imageSrc } : null,
+        description: pkg.data.description,
+      },
+    };
+  });
+
+const allTypes = packages.flatMap((p) => (p.frontmatter.type ? [p.frontmatter.type] : []));
+const typeGroups = Object.entries(
+  allTypes.reduce<{ [key: string]: number }>((acc, t) => {
+    acc[t] = (acc[t] || 0) + 1;
+    return acc;
+  }, {})
+);
+
+// Build options for the filter dropdown
+const filterOptions = [{ label: "Alle", value: "" } as { label: string; value: string }];
+for (const [type, count] of typeGroups) {
+  filterOptions.push({ label: `${type} (${count})`, value: type });
+}
+---
+
+<Layout title={`Packages - ${title}`} description={description}>
+  <VerticalSpace size={4} />
+
+  <Title size="sm">
+    <span id="package-title">Projekter</span>
+  </Title>
+
+  {typeGroups.length > 0 && (
+    <div class="type-filter">
+      <select id="package-type-filter" class="filter-select">
+        {filterOptions.map((opt) => (
+          <option value={opt.value}>{opt.label}</option>
+        ))}
+      </select>
+    </div>
+  )}
+
+  <PackageList packageList={packages} />
+</Layout>
+
+<script>
+// Client-side filtering via vanilla JS
+const urlParams = new URLSearchParams(window.location.search);
+const selectedType = urlParams.get("type");
+const packageItems = document.querySelectorAll(".package-item");
+
+if (selectedType) {
+  const filterEl = document.getElementById("package-type-filter") as HTMLSelectElement | null;
+  if (filterEl) filterEl.value = selectedType;
+
+  packageItems.forEach((item) => {
+    const itemType = item.getAttribute("data-type");
+    if (!selectedType || !itemType || itemType === selectedType) {
+      (item as HTMLElement).style.display = "";
+    } else {
+      (item as HTMLElement).style.display = "none";
+    }
+  });
+}
+
+document.getElementById("package-type-filter")?.addEventListener("change", (e) => {
+  const type = (e.target as HTMLSelectElement).value;
+  window.history.replaceState({}, "", type ? `?type=${encodeURIComponent(type)}` : "");
+
+  packageItems.forEach((item) => {
+    const itemType = item.getAttribute("data-type");
+    if (!type || !itemType || itemType === type) {
+      (item as HTMLElement).style.display = "";
+    } else {
+      (item as HTMLElement).style.display = "none";
+    }
+  });
+});
+</script>
+
+<style>
+  .type-filter {
+    margin-top: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .type-filter {
+      padding: 0 15px;
+    }
+  }
+
+  #package-title {
+    font-size: 28px;
+  }
+
+  .filter-select {
+    padding: 8px 16px;
+    background-color: var(--tagBackground);
+    color: var(--tagText);
+    border: none;
+    border-radius: 50px;
+    font-size: 14.4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-select:hover {
+    background-color: var(--hoveredTagBackground);
+    color: var(--selectedTagText);
+  }
+</style>

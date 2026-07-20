@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import "../styles/article.css";
+import { FaRss } from "react-icons/fa";
 import Header from "../components/Layout/Header/Header.astro";
 import ListensTicker from "../components/ListensTicker/index.astro";
 
@@ -11,6 +12,7 @@ interface Props {
   description?: string;
   image?: string;
   sidebar?: boolean;
+  wide?: boolean;
 }
 
 const {
@@ -18,6 +20,7 @@ const {
   description = "Computernørden. Hobby futurist...",
   image = "/fav.png",
   sidebar,
+  wide,
 } = Astro.props;
 ---
 
@@ -79,7 +82,7 @@ const {
   <body>
     <Header />
 
-    <div class="layout-wrapper" id="page-main">
+    <div class:list={["layout-wrapper", { wide }]} id="page-main">
       <main class="main-body" id="article-body">
         <slot />
       </main>
@@ -95,11 +98,8 @@ const {
 
     <footer class="app-footer">
       <div class="footer-inner">
-        <p>
-          {new Date().getFullYear()} mr 💙 <a href="https://astro.build"
-            >astro 🚀</a
-          >
-        </p>
+        <p>{new Date().getFullYear()} Made with 🩵 and ☕ by mikkelrask</p>
+        <a href="/rss.xml" title="RSS" class="footer-rss"><FaRss /></a>
       </div>
     </footer>
 
@@ -122,10 +122,19 @@ const {
         }
       }
 
+      .layout-wrapper.wide {
+        grid-template-columns: 1fr;
+        max-width: 1400px;
+      }
+
       .main-body {
         grid-column: 2;
         width: 100%;
         min-width: 0;
+      }
+
+      .layout-wrapper.wide .main-body {
+        grid-column: 1;
       }
 
       .sticky-sidebar {
@@ -148,6 +157,28 @@ const {
         padding: 4rem 2rem;
         border-top: 1px solid var(--divider);
         color: var(--secondaryText);
+      }
+
+      .footer-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .footer-rss {
+        display: inline-flex;
+        color: var(--icon);
+        transition: color 0.3s;
+      }
+
+      .footer-rss:hover {
+        color: var(--text);
+      }
+
+      .footer-rss :global(svg) {
+        width: 18px;
+        height: 18px;
       }
 
       /* Global resets for common FOUC culprits */
