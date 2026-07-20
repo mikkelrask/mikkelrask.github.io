@@ -1,0 +1,358 @@
+---
+import Divider from "../../../components/Divider/index.astro";
+import { FaBox, FaLink, FaGithub, FaLinux, FaApple, FaWindows, FaDesktop, FaCalendarAlt } from "react-icons/fa";
+
+interface Props {
+  title: string;
+  description?: string;
+  date?: string;
+  updated?: string;
+  type?: string;
+  language?: string;
+  os?: string[];
+  url?: string;
+  github?: string;
+  image?: string;
+}
+
+const { title, description, date, updated, type, language, os = [], url, github, image } = Astro.props;
+
+const osIcon = (entry: string) => {
+  const key = entry.toLowerCase();
+  if (key.includes("linux")) return FaLinux;
+  if (key.includes("mac") || key.includes("darwin") || key.includes("osx")) return FaApple;
+  if (key.includes("win")) return FaWindows;
+  return FaDesktop;
+};
+---
+
+<div class="wrapper">
+  {image ? (
+    <div class="hero">
+      <img src={image} alt={title} class="hero-image" />
+      <div class="hero-scrim" />
+      <div class="hero-links">
+        {url && (
+          <a href={url} target="_blank" rel="noreferrer" class="external-link" title="Homepage">
+            <FaLink />
+            <span class="link-text">Visit</span>
+          </a>
+        )}
+        {github && (
+          <a href={github} target="_blank" rel="noreferrer" class="external-link" title="GitHub Repo">
+            <FaGithub />
+            <span class="link-text">Source</span>
+          </a>
+        )}
+      </div>
+      <div class="hero-content">
+        <span class="package-icon-tile"><FaBox /></span>
+        <div class="header-top-text">
+          <span class="eyebrow">Package</span>
+          <h1>{title}</h1>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div class="header-top">
+      <span class="package-icon-tile"><FaBox /></span>
+      <div class="header-top-text">
+        <span class="eyebrow">Package</span>
+        <h1>{title}</h1>
+      </div>
+      <div class="header-links">
+        {url && (
+          <a href={url} target="_blank" rel="noreferrer" class="external-link" title="Homepage">
+            <FaLink />
+            <span class="link-text">Visit</span>
+          </a>
+        )}
+        {github && (
+          <a href={github} target="_blank" rel="noreferrer" class="external-link" title="GitHub Repo">
+            <FaGithub />
+            <span class="link-text">Source</span>
+          </a>
+        )}
+      </div>
+    </div>
+  )}
+
+  {description && <p class="package-description">{description}</p>}
+
+  <div class="meta-rows">
+    {(date || updated) && (
+      <div class="meta-row meta-row-dates">
+        {date && (
+          <span class="meta-item date"><FaCalendarAlt /> {date}</span>
+        )}
+        {updated && <span class="meta-item updated">Opdateret: {updated}</span>}
+      </div>
+    )}
+
+    {(type || language || os.length > 0) && (
+      <div class="meta-row meta-row-badges">
+        {type && <span class="badge type-badge">{type}</span>}
+        {language && <span class="badge language-badge">{language}</span>}
+        {os.map((entry) => {
+          const Icon = osIcon(entry);
+          return (
+            <span class="badge os-badge">
+              <Icon />
+              {entry}
+            </span>
+          );
+        })}
+      </div>
+    )}
+  </div>
+
+  <Divider mt="24px" />
+</div>
+
+<style>
+  .wrapper {
+    margin-top: 32px;
+  }
+  @media (max-width: 768px) {
+    .wrapper {
+      padding: 0 15px;
+    }
+  }
+
+  /* Hero (with featured image) */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: clamp(240px, 32vw, 440px);
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: var(--divider);
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.45) 38%,
+      rgba(0, 0, 0, 0) 72%
+    );
+  }
+
+  .hero-links {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .hero-content {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hero-content .eyebrow {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .hero-content h1 {
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      height: 260px;
+      border-radius: 14px;
+    }
+
+    .hero-content {
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      gap: 12px;
+    }
+
+    .hero-links {
+      top: 12px;
+      right: 12px;
+    }
+
+    .hero-content .package-icon-tile {
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+      border-radius: 12px;
+    }
+
+    .hero-content h1 {
+      font-size: 26px;
+    }
+  }
+
+  /* Plain header (no featured image) */
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .package-icon-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    font-size: 26px;
+    background-color: var(--tagBackground);
+    color: var(--selectedTagText);
+  }
+
+  .header-top-text {
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .eyebrow {
+    display: block;
+    font-size: 12.8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--tertiaryText);
+    margin-bottom: 4px;
+  }
+
+  h1 {
+    line-height: 1.15;
+    font-size: 44.8px;
+    color: var(--text);
+  }
+
+  .header-links {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .external-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background-color: var(--tagBackground);
+    color: var(--selectedTagText);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+    backdrop-filter: blur(6px);
+  }
+
+  .external-link:hover {
+    background-color: var(--hoveredTagBackground);
+    color: var(--selectedTagText);
+  }
+
+  .external-link :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+
+  .package-description {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: var(--secondaryText);
+    line-height: 1.6;
+  }
+
+  .meta-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    font-size: 14.4px;
+    color: var(--secondaryText);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .meta-item :global(svg) {
+    width: 13px;
+    height: 13px;
+  }
+
+  .badge {
+    padding: 3px 12px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 13px;
+    font-family: "HackNFM", monospace;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .badge :global(svg) {
+    width: 12px;
+    height: 12px;
+  }
+
+  .type-badge {
+    background-color: var(--typeBadgeBackground);
+    color: var(--typeBadgeText);
+  }
+
+  .language-badge {
+    background-color: var(--languageBadgeBackground);
+    color: var(--languageBadgeText);
+  }
+
+  .os-badge {
+    background-color: var(--osBadgeBackground);
+    color: var(--osBadgeText);
+  }
+
+  @media (max-width: 600px) {
+    .header-top {
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      font-size: 32px;
+    }
+
+    .header-links {
+      width: 100%;
+    }
+  }
+</style>

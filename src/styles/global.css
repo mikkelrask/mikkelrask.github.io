@@ -216,7 +216,12 @@ img {
   --yellowButton: var(--mb-yellow);
   --titleBarBackground: var(--gray-1);
 
-
+  --typeBadgeBackground: var(--mb-yellow);
+  --typeBadgeText: var(--gray-0);
+  --languageBadgeBackground: var(--mb-green);
+  --languageBadgeText: var(--gray-8);
+  --osBadgeBackground: var(--mb-blue);
+  --osBadgeText: var(--gray-0);
 
   font-family: 'HackNFM', monospace;
 }
@@ -257,6 +262,13 @@ img {
   --closeButton: var(--vesper-normal-red);
   --yellowButton: var(--vesper-accent);
   --titleBarBackground: var(--vesper-bg-1);
+
+  --typeBadgeBackground: var(--vesper-normal-yellow);
+  --typeBadgeText: var(--vesper-bg);
+  --languageBadgeBackground: var(--vesper-normal-green);
+  --languageBadgeText: var(--vesper-bg);
+  --osBadgeBackground: var(--vesper-normal-red);
+  --osBadgeText: var(--vesper-bg);
 }
 
 * {

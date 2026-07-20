@@ -1,0 +1,60 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PackageHeader from "../../components/Package/Header/index.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const allPackages = await getCollection("packages");
+
+  return allPackages
+    .filter((pkg) => !pkg.data.draft)
+    .map((pkg) => ({
+      params: { slug: pkg.id },
+      props: { pkg },
+    }));
+}
+
+const { pkg } = Astro.props;
+const { Content } = await render(pkg);
+
+const { title, description, date, update, type, language, os, url, github } = pkg.data;
+const imageUrl = pkg.data.image ? pkg.data.image.src : undefined;
+const seoDescription = description || "No description available";
+
+const dateStr = date instanceof Date
+  ? date.toLocaleDateString("da-DK", { day: "2-digit", month: "long", year: "numeric" })
+  : String(date);
+const updatedStr = update instanceof Date
+  ? update.toLocaleDateString("da-DK", { day: "2-digit", month: "long", year: "numeric" })
+  : undefined;
+---
+
+<Layout title={title} description={seoDescription} image={imageUrl} wide>
+  <article class="package-article">
+    <PackageHeader
+      title={title}
+      description={description}
+      date={dateStr}
+      updated={updatedStr}
+      type={type}
+      language={language}
+      os={os}
+      url={url}
+      github={github}
+      image={imageUrl}
+    />
+
+    <div class="article-body-wrapper">
+      <div id="article-content" class="styled-markdown">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .package-article {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+</style>
