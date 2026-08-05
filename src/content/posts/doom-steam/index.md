@@ -26,16 +26,10 @@ Modded doom har nemlig altid været lidt en besværlig størrelse at skulle have
 
 Og det er blandt de ting min app forsøger at løse. At man ikke lige nødvendigvis ved hvad rækkefølge de forskellige filer skal indlæses i, kan jeg på nuværend tidspunkt stadig ikke løse, men det at prøve sig frem og have det nemt gemt i en specifik konfiguration er noget app'en løser rigtig fint, hvis jeg selv skal sige det. Den gør det selvfølgelig også muligt at test alle mulige mods i doom-wads, man ellers normalt ikke ville spille, om så det er **Freedoom**, **TNT: Evilution** eller endda Hexen eller Heretic. De virker dog mere ved et tilfælde, når de gør, men der er dog også et okay [stort bibliotek af mods til de wads tilgængelige på ModDB](https://www.moddb.com/games/heretic).
 
-Lyder det som noget for dig, kan du se mere på min [Github](https://github.com/mikkelrask/uaclaunchcontrol), hvor den er tilgængelig i **nyeste version**, eller du kan downloade direkte til både **Linux, Windows og Mac** i tabellen herunder. Og ja, det er selvfølgelig navngivet versionsnummeret matcher Doom's **E1M1**/Episode 1 Map 1 syntax, og efter det legendariske **[E1M1 - At Dooms Gate](https://www.youtube.com/watch?v=BSsfjHCFosw)** track af **[Bobby Prince](https://doomwiki.org/wiki/Robert_Prince)**.
+Lyder det som noget for dig, kan du hente den nyeste version til **Linux, Windows og Mac** herunder, eller se mere på min [Github](https://github.com/mikkelrask/uaclaunchcontrol). Og ja, det er selvfølgelig navngivet versionsnummeret matcher Doom's **E1M1**/Episode 1 Map 1 syntax, og efter det legendariske **[E1M1 - At Dooms Gate](https://www.youtube.com/watch?v=BSsfjHCFosw)** track af **[Bobby Prince](https://doomwiki.org/wiki/Robert_Prince)**.
 
 
-|**OS**  | **UAC Launch Control (nyeste version)** |
-|-- |--  |
-| **Windows** | Download [.exe](https://github.com/mikkelrask/uaclaunchcontrol/releases/latest) |
-| **MacOS** | Download [.dmg](https://github.com/mikkelrask/uaclaunchcontrol/releases/latest) |
-| MacOS |  Download [.zip](https://github.com/mikkelrask/uaclaunchcontrol/releases/latest) |
-| **Linux**  | Download [.AppImage](https://github.com/mikkelrask/uaclaunchcontrol/releases/latest) (Universel) |
-| Linux | Download [.deb](https://github.com/mikkelrask/uaclaunchcontrol/releases/latest) (Ubuntu/PopOS/Debin, etc) |
+[⬇️ **Download UAC Launch Control** — nyeste version til Windows, macOS og Linux](https://github.com/mikkelrask/uaclaunchcontrol/releases/latest)
 
 
 Vil du vide lidt mere om hvordan jeg nåede her til, og hvad der fortsat arbejdes på, kan du læse med herunder, og ellers ønsker jeg dig bare; **GL;HF!**
