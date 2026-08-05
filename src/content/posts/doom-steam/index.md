@@ -26,16 +26,16 @@ Modded doom har nemlig altid været lidt en besværlig størrelse at skulle have
 
 Og det er blandt de ting min app forsøger at løse. At man ikke lige nødvendigvis ved hvad rækkefølge de forskellige filer skal indlæses i, kan jeg på nuværend tidspunkt stadig ikke løse, men det at prøve sig frem og have det nemt gemt i en specifik konfiguration er noget app'en løser rigtig fint, hvis jeg selv skal sige det. Den gør det selvfølgelig også muligt at test alle mulige mods i doom-wads, man ellers normalt ikke ville spille, om så det er **Freedoom**, **TNT: Evilution** eller endda Hexen eller Heretic. De virker dog mere ved et tilfælde, når de gør, men der er dog også et okay [stort bibliotek af mods til de wads tilgængelige på ModDB](https://www.moddb.com/games/heretic).
 
-Lyder det som noget for dig, kan du se mere på min [Github](https://github.com/mikkelrask/uaclaunchcontrol), hvor den er tilgængelig i version **E1M0.2.1**, eller du kan downloade direkte til både **Linux, Windows og Mac** i tabellen herunder. Og ja, det er selvfølgelig navngivet versionsnummeret matcher Doom's **E1M1**/Episode 1 Map 1 syntax, og efter det legendariske **[E1M1 - At Dooms Gate](https://www.youtube.com/watch?v=BSsfjHCFosw)** track af **[Bobby Prince](https://doomwiki.org/wiki/Robert_Prince)**.
+Lyder det som noget for dig, kan du se mere på min [Github](https://github.com/mikkelrask/uaclaunchcontrol), hvor den er tilgængelig i **nyeste version**, eller du kan downloade direkte til både **Linux, Windows og Mac** i tabellen herunder. Og ja, det er selvfølgelig navngivet versionsnummeret matcher Doom's **E1M1**/Episode 1 Map 1 syntax, og efter det legendariske **[E1M1 - At Dooms Gate](https://www.youtube.com/watch?v=BSsfjHCFosw)** track af **[Bobby Prince](https://doomwiki.org/wiki/Robert_Prince)**.
 
 
-|**OS**  | **UAC Launch Control vE1M0.2.1** |
+|**OS**  | **UAC Launch Control (nyeste version)** |
 |-- |--  |
-| **Windows** | Download [.exe](https://github.com/mikkelrask/uaclaunchcontrol/releases/download/v0.2.1/uac-launch-control-0.2.1-setup.exe) |
-| **MacOS** | Download [.dmg](https://github.com/mikkelrask/uaclaunchcontrol/releases/download/v0.2.1/uac-launch-control-0.2.1.dmg) |
-| MacOS |  Download [.zip](https://github.com/mikkelrask/uaclaunchcontrol/releases/download/v0.2.1/UAC-Launch-Control-0.2.1-arm64-mac.zip) |
-| **Linux**  | Download [.AppImage](https://github.com/mikkelrask/uaclaunchcontrol/releases/download/v0.2.1/uac-launch-control-0.2.1.AppImage) (Universel) |
-| Linux | Download [.deb](https://github.com/mikkelrask/uaclaunchcontrol/releases/download/v0.2.1/uac-launch-control_0.2.1_amd64.deb) (Ubuntu/PopOS/Debin, etc) |
+| **Windows** | Download [.exe](https://github.com/mikkelrask/uaclaunchcontrol/releases/latest) |
+| **MacOS** | Download [.dmg](https://github.com/mikkelrask/uaclaunchcontrol/releases/latest) |
+| MacOS |  Download [.zip](https://github.com/mikkelrask/uaclaunchcontrol/releases/latest) |
+| **Linux**  | Download [.AppImage](https://github.com/mikkelrask/uaclaunchcontrol/releases/latest) (Universel) |
+| Linux | Download [.deb](https://github.com/mikkelrask/uaclaunchcontrol/releases/latest) (Ubuntu/PopOS/Debin, etc) |
 
 
 Vil du vide lidt mere om hvordan jeg nåede her til, og hvad der fortsat arbejdes på, kan du læse med herunder, og ellers ønsker jeg dig bare; **GL;HF!**
