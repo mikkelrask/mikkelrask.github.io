@@ -1,5 +1,5 @@
 ---
-title: "🗒️ nvim diary"
+title: "nvim diary"
 description: "vim-script til at nemt oprette en ny note for hver dag, med timestamp."
 category:
   - "Udvikling"

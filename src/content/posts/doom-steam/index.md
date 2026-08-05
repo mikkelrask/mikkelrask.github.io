@@ -1,5 +1,5 @@
 ---
-title: '🎮 UAC Launch Control'
+title: 'UAC Launch Control'
 description: 'But does it play doom?" - oh yeah! Jeg har lavet min egen Doom launcer, til modded doom spil - så altså til classic Doom og Doom II. Noget som godt kan være lidt en hovedpine at holde styr på ellers - og som altid er bloggen her, til alle de lange kedelige detaljer og mine fortælling om, hvor lang en rejse det har været.'
 category:
   - Udvikling

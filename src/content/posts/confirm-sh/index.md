@@ -1,5 +1,5 @@
 ---
-title: "🫡 confirm"
+title: "confirm"
 description: "Lille bitte script til at bekræfte handlinger eks via dmenu"
 category:
   - "Udvikling"

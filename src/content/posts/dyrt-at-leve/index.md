@@ -1,5 +1,5 @@
 ---
-title: "💸 Det er sgu dyrt at leve..."
+title: "Det er sgu dyrt at leve..."
 description: "lidt af mine tanker om aktivisterne der i går smadrede ruder langs Nørrebrogade..."
 date: 2017-03-02
 update: 2026-05-26

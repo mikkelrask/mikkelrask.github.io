@@ -1,5 +1,5 @@
 ---
-title: "📡 Hverdagshack: Smart Dørtelephone med Blynk"
+title: "Hverdagshack: Smart Dørtelephone med Blynk"
 description: 'Gør din dørtelefon til en "smartphone" med IoT tjenesten Blynk og et 5V relæ'
 category:
   - "Tinkering / DIY"

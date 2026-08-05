@@ -1,5 +1,5 @@
 ---
-title: "🤖 NV Macropad - Prototype"
+title: "NV Macropad - Prototype"
 description: "Første gennemgang af mit macropad projekt kaldet NV Macropad."
 category:
   - "Tinkering / DIY"

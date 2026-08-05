@@ -1,5 +1,5 @@
 ---
-title: "🤷‍♂ Gu har vi racisme i Danmark"
+title: "Gu har vi racisme i Danmark"
 description: "Et surt opråb om debatten 'findes der racisme i Danmark?'."
 date: 2020-06-10
 updated: 2026-05-26

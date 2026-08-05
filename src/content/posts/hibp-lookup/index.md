@@ -1,5 +1,5 @@
 ---
-title: "💻 hibp %pw%"
+title: "hibp %pw%"
 description: "Lookup der fetcher Have I Been Pwned's API, for at se om vores adganskoder har været lækket."
 category:
   - "Udvikling"

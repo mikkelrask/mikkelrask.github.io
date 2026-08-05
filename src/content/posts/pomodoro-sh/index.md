@@ -1,5 +1,5 @@
 ---
-title: "🍅 pomodoro"
+title: "pomodoro"
 description: "Lille bash pomodoro timer"
 category:
   - "Udvikling"

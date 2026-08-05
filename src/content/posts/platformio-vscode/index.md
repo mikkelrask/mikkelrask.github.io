@@ -1,5 +1,5 @@
 ---
-title: 🐜 Programmer Arduino i VSCode på Arch Linux med PlatformIO
+title: Programmer Arduino i VSCode på Arch Linux med PlatformIO
 description: "Hvordan du hurtigt kommer i gang med embedded udvikling i VSCode på Arch linux med hjælp af PlatformIO."
 category:
   - "Udvikling"

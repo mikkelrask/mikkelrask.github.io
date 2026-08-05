@@ -1,5 +1,5 @@
 ---
-title: "🐳 Lokal startside med Docker"
+title: "Lokal startside med Docker"
 description: "Hvordan du spinner en lille docklet op, med en HTTP server via Docker"
 category:
   - "Selfhosting"

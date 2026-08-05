@@ -1,5 +1,5 @@
 ---
-title: "⛏️ Hermitcraft Youtube Picker"
+title: "Hermitcraft Youtube Picker"
 description: "Ulækker simpelt python script, der lynhurtigt åbner seneste video, med din yndlings hermitcraft content creator."
 category:
   - "Udvikling"

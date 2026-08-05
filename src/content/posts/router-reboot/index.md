@@ -1,5 +1,5 @@
 ---
-title: "🛟 router-reboot"
+title: "router-reboot"
 description: "Utility til at genstarte en linux maskine/openWRT/lign router hvis den ikke har internet."
 category:
   - Udvikling

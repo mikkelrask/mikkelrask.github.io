@@ -1,5 +1,5 @@
 ---
-title: "🛀 BANKEHUSET badevands projektet"
+title: "BANKEHUSET badevands projektet"
 description: "Gennemgang af projektet der pludseligt fik vokseværk - et IoT termometer med egen hjemmeside og server."
 category:
   - "Tinkering / DIY"

@@ -1,5 +1,5 @@
 ---
-title: "🐧 Hvorfor jeg bruger Linux - når jeg kan"
+title: "Hvorfor jeg bruger Linux - når jeg kan"
 description: "Gennemgang af generel kryptering, kodeordsstyrke på alle større platforme."
 category:
   - "Linux"

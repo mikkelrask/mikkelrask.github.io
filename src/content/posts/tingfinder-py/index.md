@@ -1,5 +1,5 @@
 ---
-title: "🔍 tingfinder.py"
+title: "tingfinder.py"
 description: "Gennemgang af en dba pris scraper lavet i python"
 category:
   - Udvikling

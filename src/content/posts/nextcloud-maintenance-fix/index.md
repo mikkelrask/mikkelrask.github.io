@@ -1,5 +1,5 @@
 ---
-title: "☁️ Fix Nextcloud i Maintenance Mode"
+title: "Fix Nextcloud i Maintenance Mode"
 description: "Af og til ender Nextcloud i maintenance mode - nogle gange uden nogen egentlig grund. Her er hvordan du retter op på det, når du oplever det ske."
 date: 2025-06-02
 update: 2025-06-07

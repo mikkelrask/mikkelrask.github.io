@@ -1,5 +1,5 @@
 ---
-title: '🔎 "watch and repeat" - bash hack til at køre scripts ved ændringer'
+title: '"watch and repeat" - bash hack til at køre scripts ved ændringer'
 description: "Træt af at genstarte din script hver gang du har foretaget en lille ændring? Glemmer du at genstarte din dev server, når du sidder og udvikler? - 'ae' has got your back!"
 image: "./ae.webp"
 category:

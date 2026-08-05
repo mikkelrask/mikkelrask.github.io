@@ -1,5 +1,5 @@
 ---
-title: "💻 linkhandler %url%"
+title: "linkhandler %url%"
 description: "Lille bash script til at spørge dig, hvordan du vil åbne et givent link"
 category:
   - "Udvikling"

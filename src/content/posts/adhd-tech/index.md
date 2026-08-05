@@ -1,5 +1,5 @@
 ---
-title: "🧠 ADHD og TECH"
+title: "ADHD og TECH"
 description: "Hvordan jeg griber ADHD an, med redskaber fra tech verdenen."
 category:
   - "Personlig udvikling"

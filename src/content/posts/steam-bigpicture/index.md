@@ -1,5 +1,5 @@
 ---
-title: 👾 Lav en steam box til stuen
+title: Lav en steam box til stuen
 description: "Valve har udviklet Gamescope til at nemt starte en compositor med Steam kørende. Det er udviklet til deres Steam Deck, men da det er Open Source behøves man ikke engang deres dyre håndholdte konsol. Følg med her hvordan vi sætter det op på Linux"
 category:
   - Linux

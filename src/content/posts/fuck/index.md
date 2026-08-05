@@ -1,5 +1,5 @@
 ---
-title: 😑 FUCK!
+title: FUCK!
 description: "Lad os installere thefuck, til at rette vores småfejl i terminalen...!"
 category:
   - "Udvikling"

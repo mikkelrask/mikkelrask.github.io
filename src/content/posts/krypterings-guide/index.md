@@ -1,5 +1,5 @@
 ---
-title: "🔒 Hvordan man krypterer (næsten) alt"
+title: "Hvordan man krypterer (næsten) alt"
 description: "Gennemgang af generel kryptering, kodeordsstyrke på alle større platforme."
 category:
   - "Sikkerhed"

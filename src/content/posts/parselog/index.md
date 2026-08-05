@@ -1,6 +1,6 @@
 ---
 author: Mikkel Rask
-title: "🕵️‍♀️ parselog.py"
+title: "parselog.py"
 description: "Hvordan man nemt kan parse en uoverskuelig tekst/log, med meget få linjers kode."
 category:
   - "Udvikling"

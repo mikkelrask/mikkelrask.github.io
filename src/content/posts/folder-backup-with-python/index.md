@@ -1,5 +1,5 @@
 ---
-title: "🗜️ python-zip-folder"
+title: "python-zip-folder"
 description: "Gennengang af scriptet der sørger for at tage sikkerhedskopier af bl.a min minecraft servers verden, og uploade den til skyen"
 category:
   - "Udvikling"

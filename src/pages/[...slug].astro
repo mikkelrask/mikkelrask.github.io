@@ -4,6 +4,7 @@ import Header from '../components/Article/Header/index.astro';
 import Series from '../components/Article/Series/index.astro';
 import Body from '../components/Article/Body/index.jsx';
 import Footer from '../components/Article/Footer/index.astro';
+import TagList from '../components/TagList/index.astro';
 import { getCollection, render } from 'astro:content';
 import { siteUrl } from '../blog-config.js';
 
@@ -53,6 +54,8 @@ const nextFormatted = next ? {
 
 const firstSeries = Array.isArray(post.data.series) ? post.data.series[0] : post.data.series;
 
+const minToRead = Math.ceil((post.body || "").split(/\s+/).length / 200);
+
 let filteredSeries: any[] = [];
 if (firstSeries && seriesList.length > 0) {
   filteredSeries = seriesList.map(p => ({
@@ -67,9 +70,7 @@ if (firstSeries && seriesList.length > 0) {
   <article>
     <Header
       title={title}
-      date={date instanceof Date ? date.toLocaleDateString('da-DK', { day: '2-digit', month: 'long', year: 'numeric' }) : date}
-      tags={tags || []}
-      minToRead={Math.ceil((post.body || "").split(/\s+/).length / 200)}
+      date={date}
     />
     
     {filteredSeries.length > 0 && (
@@ -80,6 +81,32 @@ if (firstSeries && seriesList.length > 0) {
       <Content />
     </Body>
 
+    {tags && tags.length > 0 && (
+      <div class="post-footer-meta">
+        <TagList tagList={tags} />
+        <span class="post-read-time">Læsetid: {minToRead} min.</span>
+      </div>
+    )}
+
     <Footer previous={prevFormatted} next={nextFormatted} />
   </article>
 </Layout>
+
+<style>
+  .post-footer-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .post-footer-meta :global(.tag-list-wrapper) {
+    margin-bottom: 0;
+  }
+  .post-read-time {
+    font-size: 13.6px;
+    color: var(--secondaryText);
+    white-space: nowrap;
+  }
+</style>

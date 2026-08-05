@@ -1,5 +1,5 @@
 ---
-title: "❄️ Arctic MX2 Thermal Compound"
+title: "Arctic MX2 Thermal Compound"
 description: "Test af CPU temperatur før og efter ny kølerpaste"
 category:
   - "Tinkering / DIY"

@@ -1,5 +1,5 @@
 ---
-title: "🌭 Object Detection med Machine Learning og ESP32Cam"
+title: "Object Detection med Machine Learning og ESP32Cam"
 description: "I dag vil jeg dykke ned i hvordan man med machine learning og et ~50 kroners kamera kan identificere specifikke objekter, og hvordan jeg implementerer det."
 category:
   - "Tinkering / DIY"

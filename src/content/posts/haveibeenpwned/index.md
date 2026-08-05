@@ -1,5 +1,5 @@
 ---
-title: "🏴‍☠️ haveibeenpwned.com - er dit password lækket?"
+title: "haveibeenpwned.com - er dit password lækket?"
 description: "Lad os teste om din adgangskode er blevet lækket - men på en lokal og sikker måde!"
 category:
   - "Sikkerhed"

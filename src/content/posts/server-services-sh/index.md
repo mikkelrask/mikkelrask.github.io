@@ -1,5 +1,5 @@
 ---
-title: "🐕‍🦺 server-services"
+title: "server-services"
 description: "Genstarter services, der af den ene eller anden årsag ikke kører. Tænkt til en server, hvor fx apache eller mysql kører."
 category:
   - "Udvikling"
