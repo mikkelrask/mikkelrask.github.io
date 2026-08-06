@@ -121,6 +121,15 @@ img {
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'DepartureMono';
+  src: url('/fonts/DepartureMono-Regular.woff2') format('woff2'),
+    url('/fonts/DepartureMono-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* GRAY COLORS */
   --gray-9: #212529;
