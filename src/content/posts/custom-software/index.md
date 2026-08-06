@@ -3,8 +3,8 @@ title: '"En custom software, tak"'
 description: 'Det virker nærmest som om jeg ikke skriver on andet længere, men her er endnu et indlæg om endnu mere custom software. Det involverer denne gang mere konceptet omkring custom software, men jeg vil da også lige dele mit seneste projekt nu vi er her alligevel.'
 date: 2026-04-19
 tags:
-  - "Projekt"
-  - "Python"
+  - "projekt"
+  - "python"
 categories:
   - "Udvikling"
   - "Linux"
