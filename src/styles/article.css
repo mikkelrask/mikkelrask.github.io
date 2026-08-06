@@ -9,6 +9,14 @@
   }
 }
 
+a.header-email{
+  border-bottom: 1px dotted;
+}
+a.header-email:hover{
+  border-bottom: 1px solid;
+  transition: all 200ms ease-in-out;
+}
+
 /* Headings with anchors */
 .article-body-wrapper h1,
 .article-body-wrapper h2,
