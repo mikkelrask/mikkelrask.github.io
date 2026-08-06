@@ -172,10 +172,7 @@ const { workerUrl } = Astro.props;
       npMiniArtist.textContent = artists;
       npLink.href = songUrl;
 
-      vinylArt.setAttribute(
-        "href",
-        track.image ? `${workerUrl}/image/${track.image}` : "",
-      );
+      vinylArt.setAttribute("href", track.imageUrl || "");
 
       if (!isHidden) win.style.visibility = "visible";
     } catch (e) {

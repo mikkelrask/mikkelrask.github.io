@@ -20,14 +20,13 @@ const emailDate = date instanceof Date ? formatEmailDate(date) : String(date);
 ---
 
 <div class="email-header">
-  <h1 class="sr-only">{title}</h1>
   <div class="email-line">
     <span class="email-label">Date:</span>
     <span class="email-value">{emailDate}</span>
   </div>
   <div class="email-line">
     <span class="email-label">From:</span>
-    <span class="email-value">{author} &lt;mr@github&gt;</span>
+    <span class="email-value">{author} &lt;<a href="mailto:github-blog.favorably119@passmail.net" class="header-email">mr@github.io</a>&gt;</span>
   </div>
   <div class="email-line">
     <span class="email-label">To:</span>
@@ -37,13 +36,14 @@ const emailDate = date instanceof Date ? formatEmailDate(date) : String(date);
     <span class="email-label">Subject:</span>
     <span class="email-value">{title}</span>
   </div>
-  <Divider mt="24px" mb="40px" />
+  <Divider mt="24px" mb="24px" />
+  <h1 class="post-title">{title}</h1>
 </div>
 
 <style>
   .email-header {
     margin-top: 32px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "HackNFM", monospace;
+    font-family: 'DepartureMono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 13px;
     line-height: 1.7;
     color: var(--text);
@@ -64,16 +64,12 @@ const emailDate = date instanceof Date ? formatEmailDate(date) : String(date);
   .email-value {
     overflow-wrap: anywhere;
   }
-  /* Visually hidden h1 — keeps heading structure for SEO/AT without a big title */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  .post-title {
+    font-family: var(--fontFamily);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 12px;
+    color: var(--text);
   }
 </style>
