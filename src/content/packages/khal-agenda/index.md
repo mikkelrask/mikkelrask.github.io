@@ -1,6 +1,6 @@
 ---
 title: Khal Agenda
-description: Lille kalender-popup til Wayland — se kommende aftaler fra khal, vælg kalendere og åbn en månedsoversigt uden en ekstra baggrundsservice.
+description: En lille kalender-popup til Wayland, der viser kommende aftaler fra khal. Vælg selv, hvilke kalendere du vil se, og åbn en månedsoversigt uden at skulle køre en ekstra service i baggrunden.
 date: 2026-10-09
 type: gui
 language: rust
@@ -10,46 +10,58 @@ url: https://aur.archlinux.org/packages/khal-agenda-bin
 github: https://github.com/mikkelrask/khal-agenda
 ---
 
-**Khal Agenda** viser mine kommende aftaler i en lille popup. Jeg åbner den fra datoen i Waybar eller med en tastaturgenvej, kigger på agendaen og klikker udenfor for at lukke den igen.
+**Khal Agenda** er en lille popup, der giver mig et hurtigt overblik over mine kommende aftaler. Jeg åbner den fra datoen i Waybar eller via en tastaturgenvej, tjekker agendaen og klikker uden for vinduet, når jeg er færdig.
 
-Jeg bruger allerede vdirsyncer til at synkronisere mine kalendere og khal til at læse dem i terminalen. Det fungerer fint, men nogle gange vil jeg bare se, hvad der sker de næste par dage, uden at åbne en terminal og skrive `khal list`.
+Jeg bruger allerede vdirsyncer til at synkronisere mine kalendere og khal til at holde styr på aftalerne fra terminalen. Det fungerer fint, men jeg har ikke altid lyst til at åbne en terminal og køre `khal list`, bare fordi jeg lige vil se, hvad der står i kalenderen de næste par dage.
 
-## Sådan virker det
+Derfor lavede jeg Khal Agenda.
 
-Appen bruger den eksisterende khal-konfiguration, så kalendere, tidszone og tidsformat følger med. vdirsyncer står stadig for synkroniseringen. Khal Agenda læser aftalerne og viser dem; den ændrer ikke kalenderfilerne.
+## Sådan fungerer det
 
-Aftalerne er grupperet efter dag med tidspunkt og kalendernavn. Klik på en aftale for at se beskrivelse og sted. Tilbagevendende aftaler og aftaler over flere dage vises på de relevante dage.
+Khal Agenda tager udgangspunkt i min eksisterende khal-konfiguration. Det betyder, at den bruger de kalendere, tidszoner og tidsformater, jeg allerede har sat op. vdirsyncer klarer stadig synkroniseringen, mens Khal Agenda bare læser aftalerne og viser dem i en overskuelig liste. Den rører ikke ved selve kalenderfilerne.
 
-Appen kører kun, mens popup'en er åben. Klik udenfor eller tryk Escape, så lukker både vinduet og processen.
+Aftalerne er sorteret efter dag, og hver aftale viser tidspunkt og kalendernavn. Klikker du på en aftale, kan du se dens beskrivelse og eventuelle sted. Gentagne aftaler og aftaler, der strækker sig over flere dage, dukker op på de dage, hvor de hører til.
 
-## Features
+Popup'en kører kun, mens den er åben. Klik uden for vinduet, eller tryk på Escape, og så lukker den igen – inklusive processen bag.
 
-- Vælg, hvilke af dine eksisterende kalendere der skal vises.
-- Farver fra GTK-temaet eller et fast lyst eller mørkt tema.
-- Indstil, hvor mange dage frem agendaen skal vise, fra 0 til 90. Dagen i dag er altid med.
-- Slå en månedsoversigt til og vælg en dato at starte agendaen fra.
-- Genindlæs aftalerne med Refresh efter en synkronisering.
+## Funktioner
 
-Brugerfladen er skrevet i Rust med GTK4 og gtk4-layer-shell. Popup'en kræver en Wayland-compositor med layer-shell-support. Kalenderdelen bruger Python og khal, som skal være installeret på systemet.
+- Vælg selv, hvilke af dine kalendere der skal vises.
+- Brug farverne fra dit GTK-tema, eller vælg et fast lyst eller mørkt tema.
+- Vælg, hvor mange dage frem du vil se, fra 0 til 90. I dag er altid med.
+- Slå en månedsoversigt til, og vælg en dato, som agendaen skal tage udgangspunkt i.
+- Genindlæs aftalerne med Refresh, når kalenderne er blevet synkroniseret.
+
+Selve brugerfladen er skrevet i Rust med GTK4 og gtk4-layer-shell. Popup'en kræver en Wayland-compositor med understøttelse af layer-shell. Til at hente og behandle kalenderdata bruger appen Python og khal, som derfor skal være installeret på systemet.
 
 ## Installation
 
-På Arch og Arch-baserede distroer ligger den færdigbyggede pakke i [AUR](https://aur.archlinux.org/packages/khal-agenda-bin):
+Bruger du Arch Linux eller en Arch-baseret distro, kan du installere den færdigbyggede pakke fra AUR:
 
 ```bash
 paru -S khal-agenda-bin
 ```
 
-Hvis `khal list today` allerede virker, bruger appen de samme kalendere.
+Har du allerede sat khal op, og virker `khal list today`, er du godt på vej. Khal Agenda bruger den samme konfiguration og de samme kalendere.
 
-Start den med `khal-agenda`, eller tilføj dette til Waybars eksisterende clock-modul:
+Når appen er installeret, starter du den med:
+
+```bash
+khal-agenda
+```
+
+Du kan også koble den direkte på dit eksisterende clock-modul i Waybar ved at tilføje følgende:
 
 ```json
 "on-click": "khal-agenda"
 ```
 
-Den samme kommando kan knyttes til en tastaturgenvej i compositorens konfiguration. Indstillingerne gemmes i `~/.config/khal-agenda/config.toml`.
+Foretrækker du en tastaturgenvej, kan du i stedet knytte kommandoen til en genvej i din compositors konfiguration.
 
-[GitHub Releases](https://github.com/mikkelrask/khal-agenda/releases) har også et Linux-arkiv med checksums. Det færdige build er til x86_64 og kræver GTK4 4.8 eller nyere, glibc 2.39 eller nyere samt Python 3 og khal. gtk4-layer-shell følger med arkivet. På ældre systemer kan appen bygges fra kildekoden.
+Indstillingerne gemmes i `~/.config/khal-agenda/config.toml`.
 
-Koden er [på GitHub](https://github.com/mikkelrask/khal-agenda) og udgivet under MIT-licensen.
+Du kan også hente et Linux-arkiv fra [GitHub Releases](https://github.com/mikkelrask/khal-agenda/releases). Der følger checksums med, så du kan kontrollere den downloadede fil.
+
+Det færdige build er lavet til x86_64 og kræver GTK4 4.8 eller nyere, glibc 2.39 eller nyere samt Python 3 og khal. gtk4-layer-shell er inkluderet i arkivet. Kører du et ældre system, kan du i stedet bygge appen fra kildekoden.
+
+Du finder kildekoden på [GitHub](https://github.com/mikkelrask/khal-agenda). Projektet er udgivet under MIT-licensen.
